@@ -32,6 +32,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		783E55DA2AF01CBC00921298 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		783E55DB2AF01CC900921298 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		783E55DC2AF01CEE00921298 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		78E629BF2AED73A400CBB373 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +74,9 @@
 			children = (
 				78E629CB2AED73A400CBB373 /* mini3App.swift */,
 				78E629CD2AED73A400CBB373 /* ContentView.swift */,
+				783E55DA2AF01CBC00921298 /* View */,
+				783E55DB2AF01CC900921298 /* ViewModel */,
+				783E55DC2AF01CEE00921298 /* Model */,
 				78E629CF2AED73A500CBB373 /* Assets.xcassets */,
 				78E629D12AED73A500CBB373 /* Preview Content */,
 			);
