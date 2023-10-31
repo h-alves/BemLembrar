@@ -11,4 +11,6 @@ import Contacts
 struct InitialContact {
     var contactInfo: CNContact
     var isSelected: Bool
+    
+    static var teste = InitialContact(contactInfo: CNMutableContact().createTestContact(), isSelected: false)
 }
