@@ -5,7 +5,7 @@
 //  Created by Henrique Semmer on 30/10/23.
 //
 
-import Foundation
+import SwiftUI
 import Contacts
 
 class ContactViewModel: ObservableObject {
@@ -42,5 +42,18 @@ class ContactViewModel: ObservableObject {
         @unknown default:
             print("")
         }
+    }
+    
+    func getBinding(contact: InitialContact) -> Binding<InitialContact?> {
+        let b = Binding<InitialContact?> {
+            contact
+        } set: { v in
+            if let v {
+                let index = self.phoneContacts.firstIndex(of: contact)!
+                self.phoneContacts[index] = v
+            }
+        }
+        
+        return b
     }
 }

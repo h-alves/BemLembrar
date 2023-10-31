@@ -8,7 +8,7 @@
 import Foundation
 import Contacts
 
-struct InitialContact {
+struct InitialContact: Equatable {
     var contactInfo: CNContact
     var isSelected: Bool
     

@@ -11,8 +11,10 @@ struct ContactView: View {
     @ObservedObject var viewModel = ContactViewModel()
     
     var body: some View {
-        ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { contact in
-            Text(contact.contactInfo.givenName)
+        ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { phoneContact in
+            ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                print("a")
+            }
         }
         .onAppear {
             viewModel.getContactList()
