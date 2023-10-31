@@ -13,7 +13,7 @@ struct ContactView: View {
     var body: some View {
         ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { phoneContact in
             ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
-                print("a")
+                viewModel.selectContact(contact: phoneContact)
             }
         }
         .onAppear {

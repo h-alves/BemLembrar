@@ -44,6 +44,14 @@ class ContactViewModel: ObservableObject {
         }
     }
     
+    func selectContact(contact: InitialContact) {
+        let index = phoneContacts.firstIndex { c in
+            return c.contactInfo.identifier == contact.contactInfo.identifier
+        }
+        
+        phoneContacts[index!].isSelected.toggle()
+    }
+    
     func getBinding(contact: InitialContact) -> Binding<InitialContact?> {
         let b = Binding<InitialContact?> {
             contact
