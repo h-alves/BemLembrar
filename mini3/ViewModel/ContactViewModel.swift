@@ -69,6 +69,12 @@ class ContactViewModel: ObservableObject {
         let savedContacts = phoneContacts.filter { c in
             c.isSelected
         }
-        print(savedContacts)
+        
+        for i in savedContacts {
+            let newContact = Contact(contactInfo: i.contactInfo, preferences: Preferences.none)
+            ContactDataSource.shared.allClients.append(newContact)
+        }
+        
+        print(ContactDataSource.shared.allClients)
     }
 }
