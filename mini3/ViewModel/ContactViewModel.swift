@@ -64,4 +64,11 @@ class ContactViewModel: ObservableObject {
         
         return b
     }
+    
+    func saveData() {
+        let savedContacts = phoneContacts.filter { c in
+            c.isSelected
+        }
+        print(savedContacts)
+    }
 }
