@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783E55DE2AF0A20B00921298 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* ContactView.swift */; };
+		783E55E02AF0A22700921298 /* InitialContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* InitialContact.swift */; };
+		783E55E22AF0A2D200921298 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* ContactViewModel.swift */; };
 		78E629CC2AED73A400CBB373 /* mini3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* mini3App.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		783E55DD2AF0A20B00921298 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		783E55DF2AF0A22700921298 /* InitialContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialContact.swift; sourceTree = "<group>"; };
+		783E55E12AF0A2D200921298 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* mini3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mini3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* mini3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mini3App.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +41,7 @@
 		783E55DA2AF01CBC00921298 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				783E55DD2AF0A20B00921298 /* ContactView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -42,6 +49,7 @@
 		783E55DB2AF01CC900921298 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				783E55E12AF0A2D200921298 /* ContactViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -49,6 +57,7 @@
 		783E55DC2AF01CEE00921298 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				783E55DF2AF0A22700921298 /* InitialContact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,6 +171,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
+				783E55E02AF0A22700921298 /* InitialContact.swift in Sources */,
+				783E55E22AF0A2D200921298 /* ContactViewModel.swift in Sources */,
+				783E55DE2AF0A20B00921298 /* ContactView.swift in Sources */,
 				78E629CC2AED73A400CBB373 /* mini3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +311,7 @@
 				DEVELOPMENT_TEAM = 225S533H7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSContactsUsageDescription = teste;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,6 +341,7 @@
 				DEVELOPMENT_TEAM = 225S533H7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSContactsUsageDescription = teste;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
