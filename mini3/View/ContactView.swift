@@ -39,7 +39,7 @@ struct ContactView: View {
                 Spacer()
                 
                 // Botão de adicionar clientes
-                AddContactsButton(quantity: viewModel.selectedContacts()) {
+                AddContactsButton(disabled: viewModel.disabled(), quantity: viewModel.selectedContacts()) {
                     viewModel.saveData()
                 }
             }

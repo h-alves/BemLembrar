@@ -125,4 +125,15 @@ class ContactViewModel: ObservableObject {
         }
         return " (\(selectedList.count.description))"
     }
+    
+    func disabled() -> Bool {
+        let selectedList = phoneContacts.filter { c in
+            c.isSelected
+        }
+        
+        if selectedList.isEmpty {
+            return true
+        }
+        return false
+    }
 }

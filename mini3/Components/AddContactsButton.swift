@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddContactsButton: View {
+    var disabled: Bool
     var quantity: String
     var mainFunc: () -> Void
     
@@ -17,17 +18,32 @@ struct AddContactsButton: View {
         } label: {
             Text("Adicionar Clientes\(quantity)")
                 .fontWeight(.bold)
-                .foregroundStyle(.white)
+                .foregroundStyle(textColor())
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(.blue)
+                .background(buttonColor())
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         }
+        .disabled(disabled)
+    }
+    
+    func textColor() -> Color {
+        if disabled {
+            return .black
+        }
+        return .white
+    }
+    
+    func buttonColor() -> Color {
+        if disabled {
+            return .gray
+        }
+        return .blue
     }
 }
 
 #Preview {
-    AddContactsButton(quantity: "teste") {
+    AddContactsButton(disabled: false, quantity: "teste") {
         print("a")
     }
 }
