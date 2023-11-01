@@ -1,25 +1,35 @@
 //
-//  ContactView.swift
+//  AutomaticContactView.swift
 //  mini3
 //
-//  Created by Henrique Semmer on 30/10/23.
+//  Created by Henrique Semmer on 31/10/23.
 //
 
 import SwiftUI
 
-struct ContactView: View {
-    @ObservedObject var viewModel = ContactViewModel()
+struct AutomaticContactView: View {
+    @ObservedObject var viewModel: ContactViewModel
     
     var body: some View {
         VStack {
-            ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { phoneContact in
+            Text("Encontramos alguns contatos que possivelmente são seus clientes, confirme.")
+                .font(.title2)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+            
+            // Card que apresenta todos os contatos
+            ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
                 ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
                     viewModel.selectContact(contact: phoneContact)
                 }
             }
             
+            // Botão pra salvar
             Button {
                 viewModel.saveData()
+                
+                // Navegar para a ContactView
             } label: {
                 Text("Salvar")
                     .fontWeight(.bold)
@@ -31,12 +41,9 @@ struct ContactView: View {
             }
         }
         .padding(.horizontal, 24)
-        .onAppear {
-            viewModel.getContactList()
-        }
     }
 }
 
 #Preview {
-    ContactView()
+    AutomaticContactView(viewModel: ContactViewModel())
 }

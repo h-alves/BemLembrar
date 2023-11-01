@@ -10,6 +10,10 @@ import Contacts
 
 class ContactViewModel: ObservableObject {
     @Published var phoneContacts = [InitialContact]()
+    @Published var autoContacts = [InitialContact]()
+    @Published var manualContacts = [InitialContact]()
+    
+    // Funções de gerar as listas de contatos
     
     func getContactList() {
         let CNStore = CNContactStore()
@@ -17,7 +21,9 @@ class ContactViewModel: ObservableObject {
         switch CNContactStore.authorizationStatus(for: .contacts) {
         case .authorized:
             do {
+                // Dados que são armazenados no CNContact
                 let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor]
+                
                 let request = CNContactFetchRequest(keysToFetch: keys)
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
                     let newContact = InitialContact(contactInfo: contact, isSelected: false)
@@ -42,7 +48,23 @@ class ContactViewModel: ObservableObject {
         @unknown default:
             print("")
         }
+        
+        filterContacts()
+        print(autoContacts)
+        print(manualContacts)
     }
+    
+    func filterContacts() {
+        autoContacts = phoneContacts.filter({ c in
+            c.contactInfo.givenName.localizedCaseInsensitiveContains("cliente")
+        })
+        
+        manualContacts = phoneContacts.filter({ c in
+            !autoContacts.contains(c)
+        })
+    }
+    
+    // Funções de Selecionar & Salvar clientes
     
     func selectContact(contact: InitialContact) {
         let index = phoneContacts.firstIndex { c in
@@ -50,6 +72,7 @@ class ContactViewModel: ObservableObject {
         }
         
         phoneContacts[index!].isSelected.toggle()
+        filterContacts()
     }
     
     func getBinding(contact: InitialContact) -> Binding<InitialContact?> {
