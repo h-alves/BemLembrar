@@ -70,7 +70,7 @@ class ContactViewModel: ObservableObject {
         
         return b
     }
-    
+  
     func ordenaListContact() {
         phoneContacts.sort { contact1, contact2 in
             let nameCompleto1 = contact1.contactInfo.givenName + contact1.contactInfo.familyName
@@ -78,5 +78,18 @@ class ContactViewModel: ObservableObject {
             
             return nameCompleto1.caseInsensitiveCompare(nameCompleto2) == .orderedAscending
         }
+    }
+      
+    func saveData() {
+        let savedContacts = phoneContacts.filter { c in
+            c.isSelected
+        }
+        
+        for i in savedContacts {
+            let newContact = Contact(contactInfo: i.contactInfo, preferences: Preferences.none)
+            ContactDataSource.shared.allClients.append(newContact)
+        }
+        
+        print(ContactDataSource.shared.allClients)
     }
 }

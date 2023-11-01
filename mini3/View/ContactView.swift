@@ -18,7 +18,20 @@ struct ContactView: View {
                     viewModel.selectContact(contact: phoneContact)
                 }
             }
+            
+            Button {
+                viewModel.saveData()
+            } label: {
+                Text("Salvar")
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            }
         }
+        .padding(.horizontal, 24)
         .onAppear {
             viewModel.getContactList()
         }
