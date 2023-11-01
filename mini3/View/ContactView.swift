@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct ContactView: View {
     @ObservedObject var viewModel = ContactViewModel()
     
     var body: some View {
-        ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { phoneContact in
-            ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
-                viewModel.selectContact(contact: phoneContact)
+        VStack {
+            ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { phoneContact in
+                ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                    viewModel.selectContact(contact: phoneContact)
+                }
             }
         }
         .onAppear {

@@ -11,15 +11,15 @@ import Contacts
 extension CNMutableContact {
     
     // Creating a contact for testing in previews
-    func createTestContact() -> CNMutableContact {
+    func createTestContact(givenName: String = "John", familyName: String = "Appleseed") -> CNMutableContact {
         let contact = CNMutableContact()
         
         let image = UIImage(systemName: "person.crop.circle")
         contact.imageData = image?.jpegData(compressionQuality: 1.0)
 
 
-        contact.givenName = "John"
-        contact.familyName = "Appleseed"
+        contact.givenName = givenName
+        contact.familyName = familyName
 
 
         let homeEmail = CNLabeledValue(label: CNLabelHome, value: "john@example.com" as NSString)
