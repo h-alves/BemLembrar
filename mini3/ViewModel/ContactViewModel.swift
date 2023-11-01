@@ -50,8 +50,8 @@ class ContactViewModel: ObservableObject {
         }
         
         filterContacts()
-        print(autoContacts)
-        print(manualContacts)
+//        print(autoContacts)
+//        print(manualContacts)
     }
     
     func filterContacts() {
