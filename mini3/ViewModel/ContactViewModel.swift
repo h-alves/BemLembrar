@@ -19,6 +19,8 @@ class ContactViewModel: ObservableObject {
     @Published var autoContacts = [InitialContact]()
     @Published var manualContacts = [InitialContact]()
     
+    // Funções de Criar as Listas
+    
     func getContactList() {
         let CNStore = CNContactStore()
         
@@ -64,6 +66,17 @@ class ContactViewModel: ObservableObject {
         })
     }
     
+    func sortContact() {
+        phoneContacts.sort { contact1, contact2 in
+            let nameCompleto1 = contact1.contactInfo.givenName + contact1.contactInfo.familyName
+            let nameCompleto2 = contact2.contactInfo.givenName + contact2.contactInfo.familyName
+            
+            return nameCompleto1.caseInsensitiveCompare(nameCompleto2) == .orderedAscending
+        }
+    }
+    
+    // Funções de Selecionar Contatos
+    
     func selectContact(contact: InitialContact) {
         let index = phoneContacts.firstIndex { c in
             return c.contactInfo.identifier == contact.contactInfo.identifier
@@ -86,15 +99,8 @@ class ContactViewModel: ObservableObject {
         
         return b
     }
-  
-    func sortContact() {
-        phoneContacts.sort { contact1, contact2 in
-            let nameCompleto1 = contact1.contactInfo.givenName + contact1.contactInfo.familyName
-            let nameCompleto2 = contact2.contactInfo.givenName + contact2.contactInfo.familyName
-            
-            return nameCompleto1.caseInsensitiveCompare(nameCompleto2) == .orderedAscending
-        }
-    }
+    
+    // Funções de Salvar
       
     func saveData() {
         let savedContacts = phoneContacts.filter { c in
@@ -107,5 +113,16 @@ class ContactViewModel: ObservableObject {
         }
         
         print(ContactDataSource.shared.allClients)
+    }
+    
+    func selectedContacts() -> String {
+        let selectedList = phoneContacts.filter { c in
+            c.isSelected
+        }
+        
+        if selectedList.isEmpty {
+            return ""
+        }
+        return " (\(selectedList.count.description))"
     }
 }
