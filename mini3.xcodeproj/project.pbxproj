@@ -12,8 +12,8 @@
 		783E55E22AF0A2D200921298 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* ContactViewModel.swift */; };
 		783E55E52AF0A55800921298 /* ContactSelectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E42AF0A55800921298 /* ContactSelectCard.swift */; };
 		783E55E82AF0A64D00921298 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E72AF0A64D00921298 /* Extension.swift */; };
-		783E55EA2AF1804900921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E92AF1804900921298 /* Contact.swift */; };
-		783E55EC2AF1824000921298 /* ContactDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55EB2AF1824000921298 /* ContactDataSource.swift */; };
+		783E55EA2AF1804900921298 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E92AF1804900921298 /* Client.swift */; };
+		783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55EB2AF1824000921298 /* ClientDataSource.swift */; };
 		783E55F02AF1905A00921298 /* AutomaticContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55EF2AF1905A00921298 /* AutomaticContactView.swift */; };
 		783E55F62AF1F97E00921298 /* ContactHandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55F52AF1F97E00921298 /* ContactHandlerView.swift */; };
 		78E629CC2AED73A400CBB373 /* mini3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* mini3App.swift */; };
@@ -28,8 +28,8 @@
 		783E55E12AF0A2D200921298 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		783E55E42AF0A55800921298 /* ContactSelectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSelectCard.swift; sourceTree = "<group>"; };
 		783E55E72AF0A64D00921298 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		783E55E92AF1804900921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		783E55EB2AF1824000921298 /* ContactDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataSource.swift; sourceTree = "<group>"; };
+		783E55E92AF1804900921298 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		783E55EB2AF1824000921298 /* ClientDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDataSource.swift; sourceTree = "<group>"; };
 		783E55EF2AF1905A00921298 /* AutomaticContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticContactView.swift; sourceTree = "<group>"; };
 		783E55F52AF1F97E00921298 /* ContactHandlerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHandlerView.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* mini3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mini3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,8 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				783E55DF2AF0A22700921298 /* InitialContact.swift */,
-				783E55E92AF1804900921298 /* Contact.swift */,
-				783E55EB2AF1824000921298 /* ContactDataSource.swift */,
+				783E55E92AF1804900921298 /* Client.swift */,
+				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,10 +206,10 @@
 			files = (
 				783E55E52AF0A55800921298 /* ContactSelectCard.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
-				783E55EC2AF1824000921298 /* ContactDataSource.swift in Sources */,
+				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				783E55E82AF0A64D00921298 /* Extension.swift in Sources */,
 				783E55E02AF0A22700921298 /* InitialContact.swift in Sources */,
-				783E55EA2AF1804900921298 /* Contact.swift in Sources */,
+				783E55EA2AF1804900921298 /* Client.swift in Sources */,
 				783E55E22AF0A2D200921298 /* ContactViewModel.swift in Sources */,
 				783E55DE2AF0A20B00921298 /* ManualContactView.swift in Sources */,
 				78E629CC2AED73A400CBB373 /* mini3App.swift in Sources */,

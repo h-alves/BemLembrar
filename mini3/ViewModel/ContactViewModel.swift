@@ -23,8 +23,8 @@ class ContactViewModel: ObservableObject {
             do {
                 // Dados que são armazenados no CNContact
                 let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor]
-                
                 let request = CNContactFetchRequest(keysToFetch: keys)
+                
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
                     let newContact = InitialContact(contactInfo: contact, isSelected: false)
                     phoneContacts.append(newContact)
@@ -94,10 +94,10 @@ class ContactViewModel: ObservableObject {
         }
         
         for i in savedContacts {
-            let newContact = Contact(contactInfo: i.contactInfo, preferences: Preferences.none)
-            ContactDataSource.shared.allClients.append(newContact)
+            let newContact = Client(contactInfo: i.contactInfo, preferences: Preferences.none)
+            ClientDataSource.shared.allClients.append(newContact)
         }
         
-        print(ContactDataSource.shared.allClients)
+        print(ClientDataSource.shared.allClients)
     }
 }
