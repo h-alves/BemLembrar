@@ -27,8 +27,10 @@ class ContactViewModel: ObservableObject {
         switch CNContactStore.authorizationStatus(for: .contacts) {
         case .authorized:
             do {
-                let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor]
+                // Elementos que o Contacts retorna
+                let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactBirthdayKey as CNKeyDescriptor]
                 let request = CNContactFetchRequest(keysToFetch: keys)
+                
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
                     let newContact = InitialContact(contactInfo: contact, isSelected: false)
                     phoneContacts.append(newContact)
