@@ -13,7 +13,17 @@ struct ContactView: View {
     
     var body: some View {
         VStack {
-            ForEach(viewModel.phoneContacts, id: \.contactInfo.identifier) { phoneContact in
+            Text("Sugestões")
+            
+            ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
+                ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                    viewModel.selectContact(contact: phoneContact)
+                }
+            }
+            
+            Text("Todos os contatos")
+            
+            ForEach(viewModel.manualContacts, id: \.contactInfo.identifier) { phoneContact in
                 ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
                     viewModel.selectContact(contact: phoneContact)
                 }

@@ -12,10 +12,12 @@ class ContactViewModel: ObservableObject {
     @Published var phoneContacts = [InitialContact]() {
         didSet {
             if oldValue.count != phoneContacts.count {
-                ordenaListContact()
+                sortContact()
             }
         }
     }
+    @Published var autoContacts = [InitialContact]()
+    @Published var manualContacts = [InitialContact]()
     
     func getContactList() {
         let CNStore = CNContactStore()
@@ -48,6 +50,18 @@ class ContactViewModel: ObservableObject {
         @unknown default:
             print("")
         }
+        
+        filterContacts()
+    }
+    
+    func filterContacts() {
+        autoContacts = phoneContacts.filter({ c in
+            c.contactInfo.givenName.localizedCaseInsensitiveContains("da")
+        })
+        
+        manualContacts = phoneContacts.filter({ c in
+            !autoContacts.contains(c)
+        })
     }
     
     func selectContact(contact: InitialContact) {
@@ -56,6 +70,8 @@ class ContactViewModel: ObservableObject {
         }
         
         phoneContacts[index!].isSelected.toggle()
+        
+        filterContacts()
     }
     
     func getBinding(contact: InitialContact) -> Binding<InitialContact?> {
@@ -71,7 +87,7 @@ class ContactViewModel: ObservableObject {
         return b
     }
   
-    func ordenaListContact() {
+    func sortContact() {
         phoneContacts.sort { contact1, contact2 in
             let nameCompleto1 = contact1.contactInfo.givenName + contact1.contactInfo.familyName
             let nameCompleto2 = contact2.contactInfo.givenName + contact2.contactInfo.familyName
