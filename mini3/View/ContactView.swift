@@ -39,16 +39,8 @@ struct ContactView: View {
                 Spacer()
                 
                 // Botão de adicionar clientes
-                Button {
+                AddContactsButton(quantity: viewModel.selectedContacts()) {
                     viewModel.saveData()
-                } label: {
-                    Text("Adicionar Clientes\(viewModel.selectedContacts())")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
             }
         }
