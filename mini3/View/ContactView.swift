@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct ContactView: View {
     @ObservedObject var viewModel = ContactViewModel()

@@ -9,7 +9,13 @@ import SwiftUI
 import Contacts
 
 class ContactViewModel: ObservableObject {
-    @Published var phoneContacts = [InitialContact]()
+    @Published var phoneContacts = [InitialContact]() {
+        didSet {
+            if oldValue.count != phoneContacts.count {
+                ordenaListContact()
+            }
+        }
+    }
     
     func getContactList() {
         let CNStore = CNContactStore()
@@ -64,7 +70,16 @@ class ContactViewModel: ObservableObject {
         
         return b
     }
-    
+  
+    func ordenaListContact() {
+        phoneContacts.sort { contact1, contact2 in
+            let nameCompleto1 = contact1.contactInfo.givenName + contact1.contactInfo.familyName
+            let nameCompleto2 = contact2.contactInfo.givenName + contact2.contactInfo.familyName
+            
+            return nameCompleto1.caseInsensitiveCompare(nameCompleto2) == .orderedAscending
+        }
+    }
+      
     func saveData() {
         let savedContacts = phoneContacts.filter { c in
             c.isSelected
