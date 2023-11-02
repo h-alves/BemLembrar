@@ -13,12 +13,7 @@ class AllClientsViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
-    func testContact() {
-        let newClient = Client(contactInfo: CNMutableContact().createTestContact(), preferences: Preferences.none)
-        ClientDataSource.shared.allClients.append(newClient)
-        
+    func updateList() {
         allClients = ClientDataSource.shared.allClients
-        
-        print(allClients)
     }
 }

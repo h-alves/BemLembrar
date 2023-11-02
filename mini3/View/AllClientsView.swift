@@ -45,7 +45,7 @@ struct AllClientsView: View {
             .padding(.horizontal, 32)
             .background(Color(.systemGray6))
             
-            VStack {
+            VStack(spacing: 16) {
                 ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
                     ClientCard(client: client)
                 }
@@ -56,7 +56,7 @@ struct AllClientsView: View {
             Spacer()
         }
         .onAppear {
-            viewModel.testContact()
+            viewModel.updateList()
         }
     }
 }
