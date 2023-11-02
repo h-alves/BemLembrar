@@ -28,8 +28,20 @@ struct ContactView: View {
                 
                 HStack {
                     // Barra de pesquisa
+                    SearchBar(searchText: $viewModel.searchText)
                     
-                    // Botão de adicionar sem ser do Contacts
+                    Button {
+                        print("Ir para formulário")
+                        // Puxar sheet de adicionar contato sem puxar os dados do Contacts
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(.gray)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
                 }
                 
                 ScrollView {

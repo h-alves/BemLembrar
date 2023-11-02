@@ -19,6 +19,8 @@ class ContactViewModel: ObservableObject {
     @Published var autoContacts = [InitialContact]()
     @Published var manualContacts = [InitialContact]()
     
+    @Published var searchText: String = ""
+    
     // Funções de Criar as Listas
     
     func getContactList() {
@@ -59,6 +61,13 @@ class ContactViewModel: ObservableObject {
     }
     
     func filterContacts() {
+        // Tem que testar
+        let filteredContacts = phoneContacts.filter({ contact in
+            !ContactDataSource.shared.allClients.contains { client in
+                client.contactInfo.identifier == contact.contactInfo.identifier
+            }
+        })
+        
         autoContacts = phoneContacts.filter({ c in
             c.contactInfo.givenName.localizedCaseInsensitiveContains("da")
         })
