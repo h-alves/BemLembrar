@@ -43,7 +43,12 @@ struct AddContactsButton: View {
 }
 
 #Preview {
-    AddContactsButton(disabled: false, quantity: "teste") {
-        print("a")
+    VStack {
+        AddContactsButton(disabled: false, quantity: " (2)") {
+            print("a")
+        }
+        AddContactsButton(disabled: true, quantity: "") {
+            print("a")
+        }
     }
 }
