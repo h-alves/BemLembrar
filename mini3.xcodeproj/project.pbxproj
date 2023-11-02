@@ -11,7 +11,7 @@
 		783E55E02AF0A22700921298 /* InitialContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* InitialContact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
 		783E55E52AF0A55800921298 /* ContactSelectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E42AF0A55800921298 /* ContactSelectCard.swift */; };
-		783E55E82AF0A64D00921298 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E72AF0A64D00921298 /* Extension.swift */; };
+		783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E72AF0A64D00921298 /* CNMutableContact.swift */; };
 		783E55EA2AF1804900921298 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E92AF1804900921298 /* Client.swift */; };
 		783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55EB2AF1824000921298 /* ClientDataSource.swift */; };
 		783E55FE2AF2D59400921298 /* RouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55FD2AF2D59400921298 /* RouterService.swift */; };
@@ -35,7 +35,7 @@
 		783E55DF2AF0A22700921298 /* InitialContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialContact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
 		783E55E42AF0A55800921298 /* ContactSelectCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSelectCard.swift; sourceTree = "<group>"; };
-		783E55E72AF0A64D00921298 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		783E55E72AF0A64D00921298 /* CNMutableContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNMutableContact.swift; sourceTree = "<group>"; };
 		783E55E92AF1804900921298 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		783E55EB2AF1824000921298 /* ClientDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDataSource.swift; sourceTree = "<group>"; };
 		783E55FD2AF2D59400921298 /* RouterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterService.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		783E55E62AF0A63E00921298 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				783E55E72AF0A64D00921298 /* Extension.swift */,
+				783E55E72AF0A64D00921298 /* CNMutableContact.swift */,
 				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 			);
 			path = Utils;
@@ -242,7 +242,7 @@
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
-				783E55E82AF0A64D00921298 /* Extension.swift in Sources */,
+				783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */,
 				783E55E02AF0A22700921298 /* InitialContact.swift in Sources */,
 				783E56042AF3DFB100921298 /* SearchBar.swift in Sources */,
 				783E560E2AF40CFA00921298 /* HomeView.swift in Sources */,
