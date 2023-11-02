@@ -15,7 +15,6 @@
 		783E55EA2AF1804900921298 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E92AF1804900921298 /* Client.swift */; };
 		783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55EB2AF1824000921298 /* ClientDataSource.swift */; };
 		783E55FE2AF2D59400921298 /* RouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55FD2AF2D59400921298 /* RouterService.swift */; };
-		783E56002AF2DAFD00921298 /* AddClientsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55FF2AF2DAFD00921298 /* AddClientsButton.swift */; };
 		783E56042AF3DFB100921298 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56032AF3DFB100921298 /* SearchBar.swift */; };
 		783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56052AF3E5EF00921298 /* UIApplication.swift */; };
 		783E56082AF4085D00921298 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56072AF4085D00921298 /* Screen.swift */; };
@@ -40,7 +39,6 @@
 		783E55E92AF1804900921298 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		783E55EB2AF1824000921298 /* ClientDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDataSource.swift; sourceTree = "<group>"; };
 		783E55FD2AF2D59400921298 /* RouterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterService.swift; sourceTree = "<group>"; };
-		783E55FF2AF2DAFD00921298 /* AddClientsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientsButton.swift; sourceTree = "<group>"; };
 		783E56032AF3DFB100921298 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		783E56052AF3E5EF00921298 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		783E56072AF4085D00921298 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			children = (
 				783E55E42AF0A55800921298 /* ContactCard.swift */,
 				783E56112AF41A0400921298 /* ClientCard.swift */,
-				783E55FF2AF2DAFD00921298 /* AddClientsButton.swift */,
 				783E56032AF3DFB100921298 /* SearchBar.swift */,
 			);
 			path = Components;
@@ -254,7 +251,6 @@
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,
-				783E56002AF2DAFD00921298 /* AddClientsButton.swift in Sources */,
 				783E56102AF40D8900921298 /* ClientView.swift in Sources */,
 				783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */,
 				783E560C2AF40C8000921298 /* OnboardingView.swift in Sources */,

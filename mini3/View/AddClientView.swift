@@ -66,12 +66,18 @@ struct AddClientView: View {
             VStack {
                 Spacer()
                 
-                // Botão de adicionar clientes
-                AddClientsButton(disabled: viewModel.disabled(), quantity: viewModel.selectedContacts()) {
+                Button {
                     viewModel.saveData()
-                    
-                    // Ir para outra tela
+                } label: {
+                    Text("Adicionar Clientes\(viewModel.selectedContacts())")
+                        .fontWeight(.bold)
+                        .foregroundStyle(viewModel.disabled() ? .black : .white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(viewModel.disabled() ? .gray : .blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
+                .disabled(viewModel.disabled())
             }
         }
         .padding(.horizontal, 24)
