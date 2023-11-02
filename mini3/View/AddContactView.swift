@@ -1,5 +1,5 @@
 //
-//  ContactView.swift
+//  AddContactView.swift
 //  mini3
 //
 //  Created by Henrique Semmer on 30/10/23.
@@ -8,8 +8,8 @@
 import SwiftUI
 import Contacts
 
-struct ContactView: View {
-    @ObservedObject var viewModel = ContactViewModel()
+struct AddContactView: View {
+    @ObservedObject var viewModel = AddContactViewModel()
     
     var body: some View {
         ZStack {
@@ -82,5 +82,5 @@ struct ContactView: View {
 }
 
 #Preview {
-    ContactView()
+    AddContactView()
 }

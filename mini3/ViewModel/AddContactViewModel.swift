@@ -1,5 +1,5 @@
 //
-//  ContactViewModel.swift
+//  AddContactViewModel.swift
 //  mini3
 //
 //  Created by Henrique Semmer on 30/10/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Contacts
 
-class ContactViewModel: ObservableObject {
+class AddContactViewModel: ObservableObject {
     @Published var phoneContacts = [InitialContact]() {
         didSet {
             if oldValue.count != phoneContacts.count {
@@ -63,7 +63,7 @@ class ContactViewModel: ObservableObject {
     func filterContacts() {
         // Tem que testar
         let filteredContacts = phoneContacts.filter { contact in
-            !ContactDataSource.shared.allClients.contains { client in
+            !ClientDataSource.shared.allClients.contains { client in
                 client.contactInfo.identifier == contact.contactInfo.identifier
             }
         }
@@ -132,11 +132,11 @@ class ContactViewModel: ObservableObject {
         }
         
         for i in savedContacts {
-            let newContact = Contact(contactInfo: i.contactInfo, preferences: Preferences.none)
-            ContactDataSource.shared.allClients.append(newContact)
+            let newContact = Client(contactInfo: i.contactInfo, preferences: Preferences.none)
+            ClientDataSource.shared.allClients.append(newContact)
         }
         
-        print(ContactDataSource.shared.allClients)
+        print(ClientDataSource.shared.allClients)
     }
     
     func selectedContacts() -> String {

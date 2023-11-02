@@ -1,5 +1,5 @@
 //
-//  AllClients.swift
+//  AllClientsView.swift
 //  mini3
 //
 //  Created by Gabriel Bruno Meira on 01/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AllClients: View {
+struct AllClientsView: View {
     
     @State private var searchText: String = ""
     
@@ -59,5 +59,5 @@ struct AllClients: View {
 }
 
 #Preview {
-    AllClients()
+    AllClientsView()
 }
