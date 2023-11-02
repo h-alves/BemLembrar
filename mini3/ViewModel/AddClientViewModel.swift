@@ -57,19 +57,24 @@ class AddClientViewModel: ObservableObject {
             print("")
         }
         
+        /// Teste adicionando um contato na lista de clientes pra ver se não aparece na lista por já estar adicionado
+        ///
+        // let newClient = Client(contactInfo: phoneContacts[0].contactInfo, preferences: Preferences.none)
+        // ClientDataSource.shared.allClients.append(newClient)
+        
         filterContacts()
     }
     
     func filterContacts() {
         // Tem que testar
-        let filteredContacts = phoneContacts.filter { contact in
+        phoneContacts = phoneContacts.filter { contact in
             !ClientDataSource.shared.allClients.contains { client in
                 client.contactInfo.identifier == contact.contactInfo.identifier
             }
         }
         
         autoContacts = phoneContacts.filter { c in
-            c.contactInfo.givenName.localizedCaseInsensitiveContains("da")
+            c.contactInfo.givenName.localizedCaseInsensitiveContains("cliente") || c.contactInfo.familyName.localizedCaseInsensitiveContains("cliente")
         }
         
         updateList()
@@ -91,7 +96,7 @@ class AddClientViewModel: ObservableObject {
         
         if searchText != "" {
             manualContacts = manualContacts.filter { c in
-                let completeName = (c.contactInfo.givenName + c.contactInfo.familyName).lowercased()
+                let completeName = (c.contactInfo.givenName + " " + c.contactInfo.familyName).lowercased()
                 let textFormat = searchText.lowercased()
                 
                 return completeName.contains(textFormat)
@@ -132,8 +137,8 @@ class AddClientViewModel: ObservableObject {
         }
         
         for i in savedContacts {
-            let newContact = Client(contactInfo: i.contactInfo, preferences: Preferences.none)
-            ClientDataSource.shared.allClients.append(newContact)
+            let newClient = Client(contactInfo: i.contactInfo, preferences: Preferences.none)
+            ClientDataSource.shared.allClients.append(newClient)
         }
         
         print(ClientDataSource.shared.allClients)

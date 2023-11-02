@@ -18,8 +18,7 @@ struct ContactSelectCard: View {
             HStack {
                 Image(systemName: getSymbol())
                 
-                Text(contact!.contactInfo.givenName)
-                Text(contact!.contactInfo.familyName)
+                Text("\(contact!.contactInfo.givenName) \(contact!.contactInfo.familyName)")
             }
             .foregroundStyle(.black)
         }
