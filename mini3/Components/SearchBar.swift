@@ -5,10 +5,12 @@
 //  Created by Henrique Semmer on 02/11/23.
 //
 
+import Combine
 import SwiftUI
 
 struct SearchBar: View {
     @Binding var searchText: String
+    var mainFunc: () -> Void
     
     var body: some View {
         HStack {
@@ -26,10 +28,14 @@ struct SearchBar: View {
                         .foregroundStyle(.gray)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
+                            UIApplication.shared.endEditing()
                             searchText = ""
                         }
                     , alignment: .trailing
                 )
+                .onChange(of: searchText) { oldValue, newValue in
+                    mainFunc()
+                }
         }
         .padding(12)
         .overlay(
@@ -40,5 +46,7 @@ struct SearchBar: View {
 }
 
 #Preview {
-    SearchBar(searchText: .constant(""))
+    SearchBar(searchText: .constant("")) {
+        print("a")
+    }
 }

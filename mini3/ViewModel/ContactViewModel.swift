@@ -62,19 +62,17 @@ class ContactViewModel: ObservableObject {
     
     func filterContacts() {
         // Tem que testar
-        let filteredContacts = phoneContacts.filter({ contact in
+        let filteredContacts = phoneContacts.filter { contact in
             !ContactDataSource.shared.allClients.contains { client in
                 client.contactInfo.identifier == contact.contactInfo.identifier
             }
-        })
+        }
         
-        autoContacts = phoneContacts.filter({ c in
+        autoContacts = phoneContacts.filter { c in
             c.contactInfo.givenName.localizedCaseInsensitiveContains("da")
-        })
+        }
         
-        manualContacts = phoneContacts.filter({ c in
-            !autoContacts.contains(c)
-        })
+        updateList()
     }
     
     func sortContact() {
@@ -83,6 +81,21 @@ class ContactViewModel: ObservableObject {
             let nameCompleto2 = contact2.contactInfo.givenName + contact2.contactInfo.familyName
             
             return nameCompleto1.caseInsensitiveCompare(nameCompleto2) == .orderedAscending
+        }
+    }
+    
+    func updateList() {
+        manualContacts = phoneContacts.filter { c in
+            !autoContacts.contains(c)
+        }
+        
+        if searchText != "" {
+            manualContacts = manualContacts.filter { c in
+                let completeName = (c.contactInfo.givenName + c.contactInfo.familyName).lowercased()
+                let textFormat = searchText.lowercased()
+                
+                return completeName.contains(textFormat)
+            }
         }
     }
     

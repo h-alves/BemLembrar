@@ -28,7 +28,9 @@ struct ContactView: View {
                 
                 HStack {
                     // Barra de pesquisa
-                    SearchBar(searchText: $viewModel.searchText)
+                    SearchBar(searchText: $viewModel.searchText) {
+                        viewModel.updateList()
+                    }
                     
                     Button {
                         print("Ir para formulário")

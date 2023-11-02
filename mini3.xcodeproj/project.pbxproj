@@ -17,6 +17,7 @@
 		783E55FE2AF2D59400921298 /* RouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55FD2AF2D59400921298 /* RouterService.swift */; };
 		783E56002AF2DAFD00921298 /* AddContactsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55FF2AF2DAFD00921298 /* AddContactsButton.swift */; };
 		783E56042AF3DFB100921298 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56032AF3DFB100921298 /* SearchBar.swift */; };
+		783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56052AF3E5EF00921298 /* UIApplication.swift */; };
 		78E629CC2AED73A400CBB373 /* mini3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* mini3App.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		783E55FD2AF2D59400921298 /* RouterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterService.swift; sourceTree = "<group>"; };
 		783E55FF2AF2DAFD00921298 /* AddContactsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsButton.swift; sourceTree = "<group>"; };
 		783E56032AF3DFB100921298 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		783E56052AF3E5EF00921298 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* mini3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mini3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* mini3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mini3App.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				783E55E72AF0A64D00921298 /* Extension.swift */,
+				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
 				783E55E52AF0A55800921298 /* ContactSelectCard.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ContactDataSource.swift in Sources */,
