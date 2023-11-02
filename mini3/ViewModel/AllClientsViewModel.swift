@@ -6,9 +6,19 @@
 //
 
 import Foundation
+import Contacts
 
 class AllClientsViewModel: ObservableObject {
+    @Published var allClients = [Client]()
+    
     @Published var searchText: String = ""
     
-    
+    func testContact() {
+        let newClient = Client(contactInfo: CNMutableContact().createTestContact(), preferences: Preferences.none)
+        ClientDataSource.shared.allClients.append(newClient)
+        
+        allClients = ClientDataSource.shared.allClients
+        
+        print(allClients)
+    }
 }
