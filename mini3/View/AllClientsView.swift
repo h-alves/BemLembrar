@@ -23,13 +23,9 @@ struct AllClientsView: View {
             
             
             HStack {
-                
-                TextField("Pesquisar", text: $searchText)
-                    .padding(10)
-                    .padding(.horizontal, 25)
-                    .background(RoundedRectangle(cornerRadius: 10).stroke(Color(.systemGray2), lineWidth: 2))
-                    
-                    .frame(width: 205, height: 42)
+                SearchBar(searchText: $searchText) {
+                    print("a")
+                }
                 
                 Button(action: {
                     print("Botão pressionado!")
@@ -49,11 +45,9 @@ struct AllClientsView: View {
         .background(Color(.systemGray6))
         .ignoresSafeArea()
         
-        
         VStack(alignment:.leading) {
             Spacer()
         }
-        
         
     }
 }
