@@ -19,7 +19,7 @@ struct AddClientView: View {
                 Text("Sugestões")
                 
                 ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
-                    ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                    ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
                         viewModel.selectContact(contact: phoneContact)
                     }
                 }
@@ -49,7 +49,7 @@ struct AddClientView: View {
                 ScrollView {
                     VStack {
                         ForEach(viewModel.manualContacts, id: \.contactInfo.identifier) { phoneContact in
-                            ContactSelectCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                            ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
                                 viewModel.selectContact(contact: phoneContact)
                             }
                         }

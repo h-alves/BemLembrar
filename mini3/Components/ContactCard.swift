@@ -1,5 +1,5 @@
 //
-//  ContactSelectCard.swift
+//  ContactCard.swift
 //  mini3
 //
 //  Created by Henrique Semmer on 31/10/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContactSelectCard: View {
+struct ContactCard: View {
     @Binding var contact: InitialContact?
     var mainFunc: () -> Void
     
@@ -19,26 +19,45 @@ struct ContactSelectCard: View {
                 Image(systemName: getSymbol())
                 
                 Text("\(contact!.contactInfo.givenName) \(contact!.contactInfo.familyName)")
+                
+                Spacer()
             }
             .foregroundStyle(.black)
         }
-        .padding()
+        .frame(maxWidth: .infinity)
+        .padding(10)
         .overlay(
             RoundedRectangle(cornerRadius: 12.0)
-                .stroke(.black, lineWidth: 2)
+                .stroke(strokeColor(), lineWidth: 2)
         )
+        .background(backgroundColor())
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     func getSymbol() -> String {
         if contact!.isSelected {
-            return "checkmark.square.fill"
+            return "circle.fill"
         }
-        return "square"
+        return "circle"
+    }
+    
+    func strokeColor() -> Color {
+        if contact!.isSelected {
+            return .gray
+        }
+        return .black
+    }
+    
+    func backgroundColor() -> Color {
+        if contact!.isSelected {
+            return .gray
+        }
+        return .white
     }
 }
 
 #Preview {
-    ContactSelectCard(contact: .constant(InitialContact.test)) {
+    ContactCard(contact: .constant(InitialContact.test)) {
         print("a")
     }
 }
