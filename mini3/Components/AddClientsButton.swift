@@ -1,5 +1,5 @@
 //
-//  AddContactsButton.swift
+//  AddClientsButton.swift
 //  mini3
 //
 //  Created by Henrique Semmer on 01/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddContactsButton: View {
+struct AddClientsButton: View {
     var disabled: Bool
     var quantity: String
     var mainFunc: () -> Void
@@ -44,10 +44,10 @@ struct AddContactsButton: View {
 
 #Preview {
     VStack {
-        AddContactsButton(disabled: false, quantity: " (2)") {
+        AddClientsButton(disabled: false, quantity: " (2)") {
             print("a")
         }
-        AddContactsButton(disabled: true, quantity: "") {
+        AddClientsButton(disabled: true, quantity: "") {
             print("a")
         }
     }

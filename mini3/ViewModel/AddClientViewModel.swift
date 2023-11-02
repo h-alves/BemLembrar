@@ -1,5 +1,5 @@
 //
-//  AddContactViewModel.swift
+//  AddClientViewModel.swift
 //  mini3
 //
 //  Created by Henrique Semmer on 30/10/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Contacts
 
-class AddContactViewModel: ObservableObject {
+class AddClientViewModel: ObservableObject {
     @Published var phoneContacts = [InitialContact]() {
         didSet {
             if oldValue.count != phoneContacts.count {

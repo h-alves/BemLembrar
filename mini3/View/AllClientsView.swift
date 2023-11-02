@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AllClientsView: View {
-    
-    @State private var searchText: String = ""
+    @ObservedObject var viewModel = AllClientsViewModel()
     
     var body: some View {
         VStack(alignment:.leading) {
@@ -23,12 +22,12 @@ struct AllClientsView: View {
             
             
             HStack {
-                SearchBar(searchText: $searchText) {
+                SearchBar(searchText: $viewModel.searchText) {
                     print("a")
                 }
                 
                 Button(action: {
-                    print("Botão pressionado!")
+                    RouterService.shared.navigate(.addClient)
                 }) {
                     Text("+ Adicionar")
                         .foregroundColor(.white)

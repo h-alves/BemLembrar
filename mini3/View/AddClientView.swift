@@ -1,5 +1,5 @@
 //
-//  AddContactView.swift
+//  AddClientView.swift
 //  mini3
 //
 //  Created by Henrique Semmer on 30/10/23.
@@ -8,8 +8,8 @@
 import SwiftUI
 import Contacts
 
-struct AddContactView: View {
-    @ObservedObject var viewModel = AddContactViewModel()
+struct AddClientView: View {
+    @ObservedObject var viewModel = AddClientViewModel()
     
     var body: some View {
         ZStack {
@@ -67,7 +67,7 @@ struct AddContactView: View {
                 Spacer()
                 
                 // Botão de adicionar clientes
-                AddContactsButton(disabled: viewModel.disabled(), quantity: viewModel.selectedContacts()) {
+                AddClientsButton(disabled: viewModel.disabled(), quantity: viewModel.selectedContacts()) {
                     viewModel.saveData()
                     
                     // Ir para outra tela
@@ -82,5 +82,5 @@ struct AddContactView: View {
 }
 
 #Preview {
-    AddContactView()
+    AddClientView()
 }
