@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var router = RouterService.shared
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            VStack {
+                switch(router.screen) {
+                case .onboarding: OnboardingView()
+                case .home: HomeView()
+                case .allClients: AllClientsView()
+                case .addClient: AddClientView()
+                case .profile: ClientView()
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: .infinity)
         }
-        .padding()
+        .alert(isPresented: $router.isAlertPresented) {
+            router.alert
+        }
+        .sheet(isPresented: $router.isSheetPresented) {
+            router.sheet
+        }
     }
 }
 
