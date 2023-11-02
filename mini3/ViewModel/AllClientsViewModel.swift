@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import Contacts
 
 class AllClientsViewModel: ObservableObject {
+    @Published var allClients = [Client]()
+    
     @Published var searchText: String = ""
     
-    
+    func updateList() {
+        allClients = ClientDataSource.shared.allClients
+    }
 }
