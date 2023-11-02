@@ -11,6 +11,8 @@ import Contacts
 struct Client {
     let contactInfo: CNContact
     let preferences: Preferences
+    
+    static var test = Client(contactInfo: CNMutableContact().createTestContact(), preferences: Preferences.none)
 }
 
 enum Preferences {

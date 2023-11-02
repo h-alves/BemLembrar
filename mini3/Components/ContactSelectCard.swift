@@ -38,7 +38,7 @@ struct ContactSelectCard: View {
 }
 
 #Preview {
-    ContactSelectCard(contact: .constant(InitialContact.teste)) {
+    ContactSelectCard(contact: .constant(InitialContact.test)) {
         print("a")
     }
 }
