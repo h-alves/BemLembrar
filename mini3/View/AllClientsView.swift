@@ -21,7 +21,6 @@ struct AllClientsView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
                 
-                
                 HStack {
                     SearchBar(searchText: $viewModel.searchText) {
                         print("a")
