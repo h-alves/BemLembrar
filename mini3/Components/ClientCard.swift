@@ -22,7 +22,7 @@ struct ClientCard: View {
                         .foregroundStyle(.black)
                     
                     VStack {
-                        Text("\(client.contactInfo.givenName) \(client.contactInfo.familyName)")
+                        Text("\(client.fullName)")
                             .foregroundStyle(.black)
                         
                         // HStack com ForEach de todas as preferências

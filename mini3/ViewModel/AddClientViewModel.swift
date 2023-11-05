@@ -9,15 +9,15 @@ import SwiftUI
 import Contacts
 
 class AddClientViewModel: ObservableObject {
-    @Published var phoneContacts = [InitialContact]() {
+    @Published var phoneContacts = [Contact]() {
         didSet {
             if oldValue.count != phoneContacts.count {
                 sortContact()
             }
         }
     }
-    @Published var autoContacts = [InitialContact]()
-    @Published var manualContacts = [InitialContact]()
+    @Published var autoContacts = [Contact]()
+    @Published var manualContacts = [Contact]()
     
     @Published var searchText: String = ""
     
@@ -34,7 +34,7 @@ class AddClientViewModel: ObservableObject {
                 let request = CNContactFetchRequest(keysToFetch: keys)
                 
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
-                    let newContact = InitialContact(contactInfo: contact, isSelected: false)
+                    let newContact = Contact(contactInfo: contact, isSelected: false)
                     phoneContacts.append(newContact)
                 })
             }catch {
@@ -106,7 +106,7 @@ class AddClientViewModel: ObservableObject {
     
     // Funções de Selecionar Contatos
     
-    func selectContact(contact: InitialContact) {
+    func selectContact(contact: Contact) {
         let index = phoneContacts.firstIndex { c in
             return c.contactInfo.identifier == contact.contactInfo.identifier
         }
@@ -116,8 +116,8 @@ class AddClientViewModel: ObservableObject {
         filterContacts()
     }
     
-    func getBinding(contact: InitialContact) -> Binding<InitialContact?> {
-        let b = Binding<InitialContact?> {
+    func getBinding(contact: Contact) -> Binding<Contact?> {
+        let b = Binding<Contact?> {
             contact
         } set: { v in
             if let v {
@@ -137,11 +137,11 @@ class AddClientViewModel: ObservableObject {
         }
         
         for i in savedContacts {
-            let newClient = Client(contactInfo: i.contactInfo, preferences: Preferences.none)
+            let newClient = Client(contactInfo: i.contactInfo, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday!.createDate(), preferences: Preferences.none)
             ClientDataSource.shared.allClients.append(newClient)
         }
         
-        print(ClientDataSource.shared.allClients)
+        // print(ClientDataSource.shared.allClients)
         RouterService.shared.navigate(.allClients)
     }
     

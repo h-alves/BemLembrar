@@ -10,11 +10,41 @@ import Contacts
 
 struct Client {
     let contactInfo: CNContact
+    let fullName: String
+    let birthday: Date
     let preferences: Preferences
     
-    static var test = Client(contactInfo: CNMutableContact().createTestContact(), preferences: Preferences.none)
+    static var test = Client(contactInfo: CNMutableContact().createTestContact(), fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), preferences: Preferences.none)
 }
 
-enum Preferences {
-    case none, p1, p2, p3
+struct Preferences {
+    let cheiro: Cheiro
+    let pele: String
+    let atendimento: String
+    
+    static var none = Preferences(cheiro: .amadeirado, pele: "", atendimento: "")
+}
+
+enum Cheiro: String {
+    case doce = "doce"
+    case floral = "floral"
+    case citrico = "cítrico"
+    case herbal = "herbal"
+    case especiado = "especiado"
+    case amadeirado = "amadeirado"
+    case none = ""
+}
+
+enum Pele: String {
+    case normal = "normal"
+    case oleosa = "oleosa"
+    case seca = "seca"
+    case mista = "mista"
+    case none = ""
+}
+
+enum Atendimento: String {
+    case mensagem = "por mensagem"
+    case ligacao = "por ligacao"
+    case presencial = "presencial"
 }
