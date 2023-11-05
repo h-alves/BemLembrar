@@ -15,17 +15,18 @@ struct ClientCard: View {
             print("Clicado")
         } label: {
             HStack {
-                HStack {
+                HStack(spacing: 12) {
                     Image(systemName: "person.circle.fill")
                         .resizable()
                         .frame(width: 42, height: 42)
                         .foregroundStyle(.black)
                     
-                    VStack {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text("\(client.fullName)")
-                            .foregroundStyle(.black)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
                         
-                        // HStack com ForEach de todas as preferências
+                        PreferencesTags(smaller: true, preferences: client.preferences)
                     }
                 }
                 

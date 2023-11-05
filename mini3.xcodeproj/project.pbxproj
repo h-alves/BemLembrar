@@ -24,6 +24,8 @@
 		783E56102AF40D8900921298 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E560F2AF40D8900921298 /* ClientView.swift */; };
 		783E56122AF41A0400921298 /* ClientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56112AF41A0400921298 /* ClientCard.swift */; };
 		783E56142AF74BB800921298 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56132AF74BB800921298 /* DateComponents.swift */; };
+		783E56182AF7521E00921298 /* PreferencesTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56172AF7521E00921298 /* PreferencesTags.swift */; };
+		783E561A2AF752E500921298 /* IndividualTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56192AF752E500921298 /* IndividualTag.swift */; };
 		78E629CC2AED73A400CBB373 /* mini3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* mini3App.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		783E560F2AF40D8900921298 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		783E56112AF41A0400921298 /* ClientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCard.swift; sourceTree = "<group>"; };
 		783E56132AF74BB800921298 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
+		783E56172AF7521E00921298 /* PreferencesTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTags.swift; sourceTree = "<group>"; };
+		783E56192AF752E500921298 /* IndividualTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTag.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* mini3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mini3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* mini3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mini3App.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				783E55E42AF0A55800921298 /* ContactCard.swift */,
 				783E56112AF41A0400921298 /* ClientCard.swift */,
 				783E56032AF3DFB100921298 /* SearchBar.swift */,
+				783E56172AF7521E00921298 /* PreferencesTags.swift */,
+				783E56192AF752E500921298 /* IndividualTag.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -241,12 +247,14 @@
 			files = (
 				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
 				C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */,
+				783E56182AF7521E00921298 /* PreferencesTags.swift in Sources */,
 				783E55E52AF0A55800921298 /* ContactCard.swift in Sources */,
 				783E56142AF74BB800921298 /* DateComponents.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */,
+				783E561A2AF752E500921298 /* IndividualTag.swift in Sources */,
 				783E55E02AF0A22700921298 /* Contact.swift in Sources */,
 				783E56042AF3DFB100921298 /* SearchBar.swift in Sources */,
 				783E560E2AF40CFA00921298 /* HomeView.swift in Sources */,

@@ -14,15 +14,16 @@ struct Client {
     let birthday: Date
     let preferences: Preferences
     
-    static var test = Client(contactInfo: CNMutableContact().createTestContact(), fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), preferences: Preferences.none)
+    static var test = Client(contactInfo: CNMutableContact().createTestContact(), fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), preferences: Preferences.test)
 }
 
 struct Preferences {
-    let cheiro: Cheiro
-    let pele: String
-    let atendimento: String
+    let cheiro: [Cheiro]
+    let pele: [Pele]
+    let atendimento: [Atendimento]
     
-    static var none = Preferences(cheiro: .amadeirado, pele: "", atendimento: "")
+    static var none = Preferences(cheiro: [], pele: [], atendimento: [])
+    static var test = Preferences(cheiro: [.amadeirado], pele: [.oleosa], atendimento: [.mensagem])
 }
 
 enum Cheiro: String {
@@ -32,7 +33,6 @@ enum Cheiro: String {
     case herbal = "herbal"
     case especiado = "especiado"
     case amadeirado = "amadeirado"
-    case none = ""
 }
 
 enum Pele: String {
@@ -40,7 +40,6 @@ enum Pele: String {
     case oleosa = "oleosa"
     case seca = "seca"
     case mista = "mista"
-    case none = ""
 }
 
 enum Atendimento: String {
