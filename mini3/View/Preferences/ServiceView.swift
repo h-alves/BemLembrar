@@ -10,7 +10,13 @@ import SwiftUI
 struct ServiceView: View {
     var body: some View {
         VStack {
+            TitleBar(symbol: "bubble.left", title: "Atendimento")
             
+            ScrollView {
+                VStack {
+                    
+                }
+            }
         }
     }
 }

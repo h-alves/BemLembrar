@@ -10,7 +10,13 @@ import SwiftUI
 struct SkinView: View {
     var body: some View {
         VStack {
+            TitleBar(symbol: "face.smiling", title: "Tipo de pele")
             
+            ScrollView {
+                VStack {
+                    
+                }
+            }
         }
     }
 }
