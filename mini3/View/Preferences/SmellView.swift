@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SmellView: View {
+    @ObservedObject var viewModel = PreferencesViewModel()
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -26,7 +28,7 @@ struct SmellView: View {
                         
                         VStack(spacing: 24) {
                             ForEach(Cheiro.allCases, id: \.rawValue) { c in
-                                PreferenceCard(cheiro: c,clientList: .constant([Client.test])) {
+                                PreferenceCard(cheiro: c,clientList: $viewModel.allClients) {
                                     print("a")
                                 }
                             }

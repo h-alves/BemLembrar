@@ -11,7 +11,7 @@ import Contacts
 struct Client {
     let contactInfo: CNContact
     let fullName: String
-    let birthday: Date
+    let birthday: Date?
     let preferences: Preferences
     
     static var test = Client(contactInfo: CNMutableContact().createTestContact(), fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), preferences: Preferences.test)

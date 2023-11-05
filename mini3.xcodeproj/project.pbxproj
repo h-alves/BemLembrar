@@ -36,6 +36,7 @@
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
 		78E629D32AED73A500CBB373 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629D22AED73A500CBB373 /* Preview Assets.xcassets */; };
 		78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */; };
+		78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */; };
 		C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		78E629CF2AED73A500CBB373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78E629D22AED73A500CBB373 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCard.swift; sourceTree = "<group>"; };
+		78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
 		C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClientsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 			children = (
 				783E56092AF40C2A00921298 /* AllClientsViewModel.swift */,
 				783E55E12AF0A2D200921298 /* AddClientViewModel.swift */,
+				78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				783E56222AF8145800921298 /* ServiceView.swift in Sources */,
 				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
+				78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */,
 				C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */,
 				783E56182AF7521E00921298 /* PreferencesTags.swift in Sources */,
 				783E55E52AF0A55800921298 /* ContactCard.swift in Sources */,

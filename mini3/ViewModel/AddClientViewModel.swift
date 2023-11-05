@@ -137,12 +137,12 @@ class AddClientViewModel: ObservableObject {
         }
         
         for i in savedContacts {
-            let newClient = Client(contactInfo: i.contactInfo, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday!.createDate(), preferences: Preferences.none)
+            let newClient = Client(contactInfo: i.contactInfo, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday?.createDate(), preferences: Preferences.none)
             ClientDataSource.shared.allClients.append(newClient)
         }
         
         // print(ClientDataSource.shared.allClients)
-        RouterService.shared.navigate(.allClients)
+        RouterService.shared.navigate(.preferences)
     }
     
     func selectedContacts() -> String {

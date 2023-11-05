@@ -55,21 +55,23 @@ struct PreferenceCard: View {
                 }
                 
                 ScrollView(.horizontal) {
-                    // Todos os clientes
-                    ForEach(clientList, id: \.contactInfo.identifier) { client in
-                        VStack {
-                            Image("")
-                                .resizable()
-                                .frame(width: 65, height: 65)
-                                .background(.gray)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
-                            
-                            Text(client.fullName)
-                                .font(.system(size: 19))
-                                .fontWeight(.bold)
-                                .foregroundStyle(.gray)
-                                .frame(maxWidth: 100)
-                                .lineLimit(1)
+                    HStack {
+                        // Todos os clientes
+                        ForEach(clientList, id: \.contactInfo.identifier) { client in
+                            VStack {
+                                Image("")
+                                    .resizable()
+                                    .frame(width: 65, height: 65)
+                                    .background(.gray)
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                
+                                Text(client.fullName)
+                                    .font(.system(size: 19))
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.gray)
+                                    .frame(maxWidth: 100)
+                                    .lineLimit(1)
+                            }
                         }
                     }
                 }
