@@ -19,6 +19,10 @@ struct ContentView: View {
                 case .allClients: AllClientsView()
                 case .addClient: AddClientView()
                 case .profile: ClientView()
+                case .preferences: PreferencesView()
+                case .smell: SmellView()
+                case .skin: SkinView()
+                case .service: ServiceView()
                 }
             }
             .frame(maxWidth: .infinity)
