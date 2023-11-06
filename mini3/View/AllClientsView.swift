@@ -11,7 +11,7 @@ struct AllClientsView: View {
     @ObservedObject var viewModel = AllClientsViewModel()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             VStack(alignment:.leading) {
                 
                 Spacer()
@@ -58,15 +58,17 @@ struct AllClientsView: View {
                     Spacer()
                 }
             } else {
-                VStack(spacing: 16) {
-                    ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
-                        ClientCard(client: client) {
-                            RouterService.shared.navigate(.client)
+                ScrollView {
+                    VStack(spacing: 16) {
+                        ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
+                            ClientCard(client: client) {
+                                RouterService.shared.navigate(.client)
+                            }
                         }
                     }
+                    .padding(.top, 16)
+                    .padding(.horizontal, 32)
                 }
-                .padding(.top, 16)
-                .padding(.horizontal, 32)
             }
             
             Spacer()
