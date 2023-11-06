@@ -12,7 +12,7 @@ struct PreferenceCard: View {
     var pele: Pele = .normal
     var atendimento: Atendimento = .none
     
-    @Binding var clientList: [Client]
+    var clientList: [Client]
     
     var mainFunc: () -> Void
     
@@ -87,13 +87,13 @@ struct PreferenceCard: View {
 
 #Preview {
     VStack {
-        PreferenceCard(cheiro: .amadeirado, clientList: .constant([Client.test])) {
+        PreferenceCard(cheiro: .amadeirado, clientList: [Client.test]) {
             print("Clicado")
         }
-        PreferenceCard(pele: .oleosa, clientList: .constant([Client.test])) {
+        PreferenceCard(pele: .oleosa, clientList: [Client.test]) {
             print("Clicado")
         }
-        PreferenceCard(atendimento: .presencial, clientList: .constant([Client.test])) {
+        PreferenceCard(atendimento: .presencial, clientList: [Client.test]) {
             print("Clicado")
         }
     }

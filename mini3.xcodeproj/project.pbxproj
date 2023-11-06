@@ -37,6 +37,8 @@
 		78E629D32AED73A500CBB373 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629D22AED73A500CBB373 /* Preview Assets.xcassets */; };
 		78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */; };
 		78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */; };
+		78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */; };
+		78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */; };
 		C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		78E629D22AED73A500CBB373 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCard.swift; sourceTree = "<group>"; };
 		78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
+		78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSheetView.swift; sourceTree = "<group>"; };
+		78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceType.swift; sourceTree = "<group>"; };
 		C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClientsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,7 @@
 				783E560F2AF40D8900921298 /* ClientView.swift */,
 				783E55DD2AF0A20B00921298 /* AddClientView.swift */,
 				783E56232AF814B400921298 /* Preferences */,
+				78FEF4DD2AF8721C00A5A6D8 /* Sheets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				783E55E92AF1804900921298 /* Client.swift */,
 				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
 				783E56072AF4085D00921298 /* Screen.swift */,
+				78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +226,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		78FEF4DD2AF8721C00A5A6D8 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */,
+			);
+			path = Sheets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,11 +306,13 @@
 			files = (
 				783E56222AF8145800921298 /* ServiceView.swift in Sources */,
 				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
+				78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */,
 				78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */,
 				C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */,
 				783E56182AF7521E00921298 /* PreferencesTags.swift in Sources */,
 				783E55E52AF0A55800921298 /* ContactCard.swift in Sources */,
 				783E56142AF74BB800921298 /* DateComponents.swift in Sources */,
+				78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,

@@ -12,15 +12,15 @@ struct Client {
     let contactInfo: CNContact
     let fullName: String
     let birthday: Date?
-    let preferences: Preferences
+    var preferences: Preferences
     
     static var test = Client(contactInfo: CNMutableContact().createTestContact(), fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), preferences: Preferences.test)
 }
 
 struct Preferences {
-    let cheiro: [Cheiro]
-    let pele: [Pele]
-    let atendimento: [Atendimento]
+    var cheiro: [Cheiro]
+    var pele: [Pele]
+    var atendimento: [Atendimento]
     
     static var test = Preferences(cheiro: [.amadeirado], pele: [.oleosa], atendimento: [.mensagem])
     static var none = Preferences(cheiro: [], pele: [], atendimento: [])
