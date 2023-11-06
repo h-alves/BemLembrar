@@ -47,7 +47,7 @@ struct SmellView: View {
                 Button {
                     RouterService.shared.navigate(.skin)
                 } label: {
-                    Text("Próximo ->")
+                    Text("Próximo")
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)

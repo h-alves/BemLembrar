@@ -19,11 +19,11 @@ struct Client {
 
 struct Preferences {
     var cheiro: [Cheiro]
-    var pele: [Pele]
-    var atendimento: [Atendimento]
+    var pele: Pele
+    var atendimento: Atendimento
     
-    static var test = Preferences(cheiro: [.amadeirado], pele: [.oleosa], atendimento: [.mensagem])
-    static var none = Preferences(cheiro: [], pele: [], atendimento: [])
+    static var test = Preferences(cheiro: [.amadeirado], pele: .oleosa, atendimento: .mensagem)
+    static var none = Preferences(cheiro: [], pele: .normal, atendimento: .none)
 }
 
 enum Cheiro: String, CaseIterable {

@@ -22,12 +22,12 @@ class PreferencesViewModel: ObservableObject {
                     filteredContacts.append(contact)
                 }
             } else if pele != .normal {
-                if !client.preferences.pele.contains(pele) {
+                if client.preferences.pele != pele {
                     let contact = Contact(contactInfo: client.contactInfo, isSelected: false)
                     filteredContacts.append(contact)
                 }
             } else if atendimento != .none {
-                if !client.preferences.atendimento.contains(atendimento) {
+                if client.preferences.atendimento != atendimento {
                     let contact = Contact(contactInfo: client.contactInfo, isSelected: false)
                     filteredContacts.append(contact)
                 }
@@ -79,9 +79,9 @@ class PreferencesViewModel: ObservableObject {
                     if cheiro != .none {
                         allClients[index].preferences.cheiro.append(cheiro)
                     } else if pele != .normal {
-                        allClients[index].preferences.pele.append(pele)
+                        allClients[index].preferences.pele = pele
                     } else if atendimento != .none {
-                        allClients[index].preferences.atendimento.append(atendimento)
+                        allClients[index].preferences.atendimento = atendimento
                     }
                 }
             }

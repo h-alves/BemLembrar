@@ -28,7 +28,7 @@ struct ServiceView: View {
                         
                         VStack(spacing: 24) {
                             ForEach(Atendimento.allCases, id: \.rawValue) { a in
-                                PreferenceCard(atendimento: a,clientList: viewModel.allClients.filter({ $0.preferences.atendimento.contains(a) })) {
+                                PreferenceCard(atendimento: a,clientList: viewModel.allClients.filter({ $0.preferences.atendimento == a })) {
                                     RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .service, atendimento: a))
                                 }
                             }
@@ -46,7 +46,7 @@ struct ServiceView: View {
                 Button {
                     RouterService.shared.navigate(.allClients)
                 } label: {
-                    Text("Próximo ->")
+                    Text("Finalizar")
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)

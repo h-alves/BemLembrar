@@ -28,7 +28,7 @@ struct SkinView: View {
                         
                         VStack(spacing: 24) {
                             ForEach(Pele.allCases, id: \.rawValue) { p in
-                                PreferenceCard(pele: p,clientList: viewModel.allClients.filter({ $0.preferences.pele.contains(p) })) {
+                                PreferenceCard(pele: p,clientList: viewModel.allClients.filter({ $0.preferences.pele == p })) {
                                     RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .skin, pele: p))
                                 }
                             }
@@ -36,6 +36,7 @@ struct SkinView: View {
                     }
                     .padding(.top, 24)
                     .padding(.horizontal, 36)
+                    .padding(.bottom, 98)
                 }
                 .scrollIndicators(.hidden)
             }
@@ -46,7 +47,7 @@ struct SkinView: View {
                 Button {
                     RouterService.shared.navigate(.service)
                 } label: {
-                    Text("Próximo ->")
+                    Text("Próximo")
                         .fontWeight(.bold)
                         .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)
