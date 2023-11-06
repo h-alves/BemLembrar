@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ClientCard: View {
     var client: Client
+    var mainFunc: () -> Void
     
     var body: some View {
         Button {
-            print("Clicado")
+            mainFunc()
         } label: {
             HStack {
                 HStack(spacing: 12) {
@@ -46,5 +47,7 @@ struct ClientCard: View {
 }
 
 #Preview {
-    ClientCard(client: Client.test)
+    ClientCard(client: Client.test) {
+        print("clicado")
+    }
 }

@@ -18,7 +18,7 @@ struct ContentView: View {
                 case .home: HomeView()
                 case .allClients: AllClientsView()
                 case .addClient: AddClientView()
-                case .profile: ClientView()
+                case .client: ClientView()
                 case .preferences: PreferencesView()
                 case .smell: SmellView()
                 case .skin: SkinView()
