@@ -27,7 +27,7 @@ struct ClientSheetView: View {
                 
                 Button {
                     // Mudar as informações
-                    viewModel.saveData(cheiro: cheiro)
+                    viewModel.saveData(cheiro: cheiro, pele: pele, atendimento: atendimento)
                     RouterService.shared.hideSheet()
                 } label: {
                     Text("Selecionar contatos")
@@ -35,7 +35,7 @@ struct ClientSheetView: View {
             }
         }
         .onAppear {
-            viewModel.filterContacts(cheiro: cheiro)
+            viewModel.filterContacts(cheiro: cheiro, pele: pele, atendimento: atendimento)
         }
     }
 }

@@ -36,6 +36,7 @@ struct SmellView: View {
                     }
                     .padding(.top, 24)
                     .padding(.horizontal, 36)
+                    .padding(.bottom, 98)
                 }
                 .scrollIndicators(.hidden)
             }
