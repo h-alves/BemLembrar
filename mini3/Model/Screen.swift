@@ -12,5 +12,9 @@ enum Screen {
     case home
     case allClients
     case addClient
-    case profile
+    case client
+    case preferences
+    case smell
+    case skin
+    case service
 }

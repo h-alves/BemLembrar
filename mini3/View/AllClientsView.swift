@@ -21,7 +21,6 @@ struct AllClientsView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
                 
-                
                 HStack {
                     SearchBar(searchText: $viewModel.searchText) {
                         print("a")
@@ -45,13 +44,30 @@ struct AllClientsView: View {
             .padding(.horizontal, 32)
             .background(Color(.systemGray6))
             
-            VStack(spacing: 16) {
-                ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
-                    ClientCard(client: client)
+            if viewModel.allClients.isEmpty {
+                VStack(spacing: 24) {
+                    Spacer()
+                    
+                    Circle()
+                        .frame(width: 142)
+                    Text("Você ainda não adicionou nenhum cliente :(")
+                        .font(.system(size: 16))
+                        .frame(maxWidth: 192)
+                        .multilineTextAlignment(.center)
+                    
+                    Spacer()
                 }
+            } else {
+                VStack(spacing: 16) {
+                    ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
+                        ClientCard(client: client) {
+                            RouterService.shared.navigate(.client)
+                        }
+                    }
+                }
+                .padding(.top, 16)
+                .padding(.horizontal, 32)
             }
-            .padding(.top, 16)
-            .padding(.horizontal, 32)
             
             Spacer()
         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContactCard: View {
-    @Binding var contact: InitialContact?
+    @Binding var contact: Contact?
     var mainFunc: () -> Void
     
     var body: some View {
@@ -57,7 +57,7 @@ struct ContactCard: View {
 }
 
 #Preview {
-    ContactCard(contact: .constant(InitialContact.test)) {
+    ContactCard(contact: .constant(Contact.test)) {
         print("a")
     }
 }

@@ -9,23 +9,25 @@ import SwiftUI
 
 struct ClientCard: View {
     var client: Client
+    var mainFunc: () -> Void
     
     var body: some View {
         Button {
-            print("Clicado")
+            mainFunc()
         } label: {
             HStack {
-                HStack {
+                HStack(spacing: 12) {
                     Image(systemName: "person.circle.fill")
                         .resizable()
                         .frame(width: 42, height: 42)
                         .foregroundStyle(.black)
                     
-                    VStack {
-                        Text("\(client.contactInfo.givenName) \(client.contactInfo.familyName)")
-                            .foregroundStyle(.black)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("\(client.fullName)")
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
                         
-                        // HStack com ForEach de todas as preferências
+                        PreferencesTags(smaller: true, preferences: client.preferences)
                     }
                 }
                 
@@ -45,5 +47,7 @@ struct ClientCard: View {
 }
 
 #Preview {
-    ClientCard(client: Client.test)
+    ClientCard(client: Client.test) {
+        print("clicado")
+    }
 }

@@ -10,11 +10,57 @@ import Contacts
 
 struct Client {
     let contactInfo: CNContact
-    let preferences: Preferences
+    let fullName: String
+    let birthday: Date?
+    var preferences: Preferences
     
-    static var test = Client(contactInfo: CNMutableContact().createTestContact(), preferences: Preferences.none)
+    static var test = Client(contactInfo: CNMutableContact().createTestContact(), fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), preferences: Preferences.test)
 }
 
-enum Preferences {
-    case none, p1, p2, p3
+struct Preferences {
+    var cheiro: [Cheiro]
+    var pele: Pele
+    var atendimento: Atendimento
+    
+    static var test = Preferences(cheiro: [.amadeirado], pele: .oleosa, atendimento: .mensagem)
+    static var none = Preferences(cheiro: [], pele: .normal, atendimento: .none)
+}
+
+enum Cheiro: String, CaseIterable {
+    case none = ""
+    
+    case doce = "doce"
+    case amadeirado = "amadeirado"
+    case floral = "floral"
+    case citrico = "cítrico"
+    case herbal = "herbal"
+    case especiado = "especiado"
+    
+    static var allCases: [Cheiro] {
+        return [.doce, .amadeirado, .floral, .citrico, .herbal, .especiado]
+    }
+}
+
+enum Pele: String, CaseIterable {
+    case normal = "normal"
+    
+    case oleosa = "oleosa"
+    case seca = "seca"
+    case mista = "mista"
+    
+    static var allCases: [Pele] {
+        return [.oleosa, .seca, .mista]
+    }
+}
+
+enum Atendimento: String, CaseIterable {
+    case none = ""
+    
+    case mensagem = "por mensagem"
+    case ligacao = "por ligacao"
+    case presencial = "presencial"
+    
+    static var allCases: [Atendimento] {
+        return [.mensagem, .ligacao, .presencial]
+    }
 }
