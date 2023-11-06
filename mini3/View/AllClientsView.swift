@@ -62,7 +62,7 @@ struct AllClientsView: View {
                     VStack(spacing: 16) {
                         ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
                             ClientCard(client: client) {
-                                RouterService.shared.navigate(.client)
+                                RouterService.shared.navigate(.client(client: client))
                             }
                         }
                     }

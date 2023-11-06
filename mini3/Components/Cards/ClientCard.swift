@@ -27,7 +27,7 @@ struct ClientCard: View {
                             .fontWeight(.semibold)
                             .foregroundStyle(.white)
                         
-                        PreferencesTags(smaller: true, preferences: client.preferences)
+                        PreferencesTagsBig(preferences: client.preferences)
                     }
                 }
                 
