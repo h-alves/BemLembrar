@@ -30,7 +30,7 @@ class AddClientViewModel: ObservableObject {
         case .authorized:
             do {
                 // Elementos que o Contacts retorna
-                let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactBirthdayKey as CNKeyDescriptor]
+                let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactBirthdayKey as CNKeyDescriptor, CNContactPostalAddressesKey as CNKeyDescriptor]
                 let request = CNContactFetchRequest(keysToFetch: keys)
                 
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
@@ -137,7 +137,12 @@ class AddClientViewModel: ObservableObject {
         }
         
         for i in savedContacts {
-            let newClient = Client(contactInfo: i.contactInfo, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday?.createDate(), preferences: Preferences.none)
+            var address = ""
+            if !i.contactInfo.postalAddresses.isEmpty {
+                address = i.contactInfo.postalAddresses[0].value.formatAddress()
+            }
+            
+            let newClient = Client(contactInfo: i.contactInfo, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none)
             ClientDataSource.shared.allClients.append(newClient)
         }
         

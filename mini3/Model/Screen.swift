@@ -12,7 +12,7 @@ enum Screen {
     case home
     case allClients
     case addClient
-    case client
+    case client(client: Client)
     case preferences
     case smell
     case skin

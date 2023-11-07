@@ -8,109 +8,124 @@
 import SwiftUI
 
 struct ClientView: View {
+    var client: Client
+    
     var body: some View {
-        VStack {
-            Circle()
-                .frame(maxWidth: 200, maxHeight: 200)
-                .foregroundColor(.gray)
-                .padding(.top, 32)
-            
-            Text("Nome da cliente")
-                .font(.system(size: 34))
-            
-            Button(action: {
-                        // Coloque a ação que você deseja executar quando o botão for pressionado aqui
+        NavigationStack {
+            VStack {
+                VStack {
+                    Circle()
+                        .frame(maxWidth: 200, maxHeight: 200)
+                        .foregroundStyle(.gray)
+                        .padding(.top, 32)
+                    
+                    Text(client.fullName)
+                        .font(.system(size: 34))
+                    
+                    Button(action: {
                         print("Botão pressionado!")
                     }) {
                         Text("Entrar em contato")
                             .font(.system(size: 22))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .padding()
                     }
-                    .frame(maxWidth: 298, maxHeight: 46)
-                    .background(Color.black)
-                    .cornerRadius(10)
-        }
-        .padding(.bottom, 12)
-        
-        VStack(alignment: .leading) {
-            
-            Text("Preferências:")
-                .font(.system(size: 17))
-                .bold()
-            
-            Text("Lembre-se do que sua cliente mais gosta!")
-                .font(.system(size: 13))
-            
-            HStack {
+                    .frame(maxWidth: .infinity)
+                    .background(.black)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .padding(.bottom, 12)
                 
-                Rectangle()
-                    .frame(maxWidth: 57, maxHeight: 18)
-                    .cornerRadius(8)
-                    .overlay(
-                        Text("base 07")
-                            .foregroundColor(.white)
-                            .font(.system(size: 12))
-                    )
-                
-                Rectangle()
-                    .frame(maxWidth: 57, maxHeight: 18)
-                    .cornerRadius(8)
-                    .overlay(
-                        Text("doce")
-                            .foregroundColor(.white)
-                            .font(.system(size: 12))
-                    )
-                
-                Rectangle()
-                    .frame(maxWidth: 57, maxHeight: 18)
-                    .cornerRadius(8)
-                    .overlay(
-                        Text("ligação")
-                            .foregroundColor(.white)
-                            .font(.system(size: 12))
-                    )
-                
-                Rectangle()
-                    .frame(maxWidth: 57, maxHeight: 18)
-                    .cornerRadius(8)
-                    .overlay(
-                        Text("pele oleosa")
-                            .foregroundColor(.white)
-                            .font(.system(size: 12))
-                    )
-                
+                VStack(spacing: 16) {
+                    if client.birthday != nil && !client.contactInfo.postalAddresses.isEmpty {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Informações gerais:")
+                                    .font(.system(size: 17))
+                                    .bold()
+                                
+                                if client.birthday != nil {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        HStack(spacing: 0) {
+                                            Text("Aniversário: \((client.birthday?.formatted(date: .numeric, time: .omitted))!)")
+                                        }
+                                        .font(.system(size: 13))
+                                    }
+                                }
+                                
+                                if !client.contactInfo.postalAddresses.isEmpty {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        HStack(spacing: 0) {
+                                            Text("Endereço: \(client.address!)")
+                                        }
+                                        .font(.system(size: 13))
+                                    }
+                                }
+                            }
+                            
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Preferências:")
+                                .font(.system(size: 17))
+                                .bold()
+                            
+                            Text("Lembre-se do que sua cliente mais gosta!")
+                                .font(.system(size: 13))
+                            
+                            PreferencesTagsBig(preferences: client.preferences)
+                        }
+                        
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Anotações:")
+                                .font(.system(size: 17))
+                                .bold()
+                            
+                            Text("Aqui você pode registrar alergias, tanana e \ndetalhes para garantir sempre o melhor atendimento!")
+                                .font(.system(size: 13))
+                        }
+                        
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    
+                    Spacer()
+                }
+            }
+            .padding(.horizontal, 32)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        RouterService.shared.navigate(.allClients)
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 17))
+                            .fontWeight(.bold)
+                    }
+                }
             }
         }
-        .frame(width: 330, height: 99)
-        .background(Color(.systemGray5))
-        .cornerRadius(12)
-        .padding(0)
-        .padding(.bottom, 12)
-        
-        VStack(alignment: .leading) {
-            
-            Text("Anotações:")
-                .font(.system(size: 17))
-                .bold()
-                .padding(.horizontal, 12)
-            
-            Text("Aqui você pode registrar alergias, tanana e \ndetalhes para garantir sempre o melhor atendimento!")
-                .font(.system(size: 13))
-                .padding(.horizontal, 12)
-            
-            // Verificar o espaçamento dentro do VStack (retangulo)
-            
-        }
-        .frame(width: 330, height: 109)
-        .background(Color(.systemGray5))
-        .cornerRadius(12)
-        
-        Spacer()
-        
     }
 }
 
 #Preview {
-    ClientView()
+    ClientView(client: Client.test)
 }
