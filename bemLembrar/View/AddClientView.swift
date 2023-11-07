@@ -16,11 +16,13 @@ struct AddClientView: View {
             VStack {
                 Spacer()
                 
-                Text("Sugestões")
-                
-                ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
-                    ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
-                        viewModel.selectContact(contact: phoneContact)
+                if !viewModel.autoContacts.isEmpty {
+                    Text("Sugestões")
+                    
+                    ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
+                        ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                            viewModel.selectContact(contact: phoneContact)
+                        }
                     }
                 }
                 
