@@ -64,6 +64,7 @@ struct AddClientView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity)
+            .padding(.horizontal, 24)
             
             VStack {
                 Spacer()
@@ -76,13 +77,15 @@ struct AddClientView: View {
                         .foregroundStyle(viewModel.disabled() ? .black : .white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(viewModel.disabled() ? .gray : .blue)
+                        .background(viewModel.disabled() ? .white : Color(.systemGray4))
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
+                .padding(.top, 12)
+                .padding(.horizontal, 36)
+                .background(.gray)
                 .disabled(viewModel.disabled())
             }
         }
-        .padding(.horizontal, 24)
         .onAppear {
             viewModel.getContactList()
         }
