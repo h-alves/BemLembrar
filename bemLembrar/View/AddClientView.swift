@@ -58,6 +58,7 @@ struct AddClientView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical)
+                    .padding(.bottom, 60)
                 }
                 .scrollIndicators(.hidden)
                 
@@ -74,10 +75,10 @@ struct AddClientView: View {
                 } label: {
                     Text("Adicionar Clientes\(viewModel.selectedContacts())")
                         .fontWeight(.bold)
-                        .foregroundStyle(viewModel.disabled() ? .black : .white)
+                        .foregroundStyle(viewModel.disabled() ? .white : .black)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(viewModel.disabled() ? .white : Color(.systemGray4))
+                        .background(viewModel.disabled() ? Color(.systemGray3) : Color(.systemGray4))
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
                 .padding(.top, 12)
