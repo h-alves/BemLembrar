@@ -41,6 +41,7 @@
 		78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */; };
 		78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */; };
 		78FEF4E72AF96E9400A5A6D8 /* PreferencesTagBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4E62AF96E9400A5A6D8 /* PreferencesTagBig.swift */; };
+		78FEF4E92AF9D76B00A5A6D8 /* CNPostalAdress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4E82AF9D76B00A5A6D8 /* CNPostalAdress.swift */; };
 		C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceType.swift; sourceTree = "<group>"; };
 		78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexStack.swift; sourceTree = "<group>"; };
 		78FEF4E62AF96E9400A5A6D8 /* PreferencesTagBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTagBig.swift; sourceTree = "<group>"; };
+		78FEF4E82AF9D76B00A5A6D8 /* CNPostalAdress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNPostalAdress.swift; sourceTree = "<group>"; };
 		C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClientsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				783E55E72AF0A64D00921298 /* CNMutableContact.swift */,
+				78FEF4E82AF9D76B00A5A6D8 /* CNPostalAdress.swift */,
 				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 				783E56132AF74BB800921298 /* DateComponents.swift */,
 				78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */,
@@ -321,6 +324,7 @@
 				78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
+				78FEF4E92AF9D76B00A5A6D8 /* CNPostalAdress.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				78FEF4E72AF96E9400A5A6D8 /* PreferencesTagBig.swift in Sources */,
 				783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */,

@@ -12,7 +12,9 @@ struct PreferencesTagsSmall: View {
     
     var body: some View {
         HStack {
-            IndividualTag(texto: preferences.cheiro[0].rawValue)
+            if preferences.cheiro.count > 0 {
+                IndividualTag(texto: preferences.cheiro[0].rawValue)
+            }
             IndividualTag(texto: preferences.pele.rawValue)
             IndividualTag(texto: preferences.atendimento.rawValue)
         }

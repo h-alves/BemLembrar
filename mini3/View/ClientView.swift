@@ -37,19 +37,26 @@ struct ClientView: View {
                 .padding(.bottom, 12)
                 
                 VStack(spacing: 16) {
-                    if client.birthday != nil {
+                    if client.birthday != nil && !client.contactInfo.postalAddresses.isEmpty {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Informações gerais:")
                                     .font(.system(size: 17))
                                     .bold()
                                 
-                                VStack(alignment: .leading, spacing: 6) {
-                                    if client.birthday != nil {
+                                if client.birthday != nil {
+                                    VStack(alignment: .leading, spacing: 6) {
                                         HStack(spacing: 0) {
-                                            Text("Aniversário: ")
-                                            
-                                            Text((client.birthday?.formatted(date: .numeric, time: .omitted))!)
+                                            Text("Aniversário: \((client.birthday?.formatted(date: .numeric, time: .omitted))!)")
+                                        }
+                                        .font(.system(size: 13))
+                                    }
+                                }
+                                
+                                if !client.contactInfo.postalAddresses.isEmpty {
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        HStack(spacing: 0) {
+                                            Text("Endereço: \(client.address!)")
                                         }
                                         .font(.system(size: 13))
                                     }
@@ -73,7 +80,7 @@ struct ClientView: View {
                             Text("Lembre-se do que sua cliente mais gosta!")
                                 .font(.system(size: 13))
                             
-                            PreferencesTagsBig(preferences: Preferences.test)
+                            PreferencesTagsBig(preferences: client.preferences)
                         }
                         
                         Spacer()
