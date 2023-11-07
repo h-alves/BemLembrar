@@ -11,7 +11,7 @@ class RouterService: ObservableObject {
     
     static var shared = RouterService()
     
-    @Published var screen: Screen = .onboarding
+    @Published var screen: Screen = .allClients
     
     @Published var isSheetPresented: Bool = false
     @Published var isAlertPresented: Bool = false
