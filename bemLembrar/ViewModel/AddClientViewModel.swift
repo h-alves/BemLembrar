@@ -21,6 +21,14 @@ class AddClientViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
+    @Published var number = ""
+    @Published var givenName = ""
+    @Published var familyName = ""
+    @Published var birthday = Date()
+    @Published var street = ""
+    @Published var city = ""
+    @Published var state = ""
+    
     // Funções de Criar as Listas
     
     func getContactList() {
@@ -127,6 +135,50 @@ class AddClientViewModel: ObservableObject {
         }
         
         return b
+    }
+    
+    func addContact() {
+        if number != "" && givenName != "" {
+            let contact = CNMutableContact()
+            
+            contact.phoneNumbers = [CNLabeledValue(
+                label: CNLabelPhoneNumberiPhone,
+                value: CNPhoneNumber(stringValue: number))]
+            
+            contact.givenName = givenName
+            if familyName != "" {
+                contact.familyName = familyName
+            }
+            
+            let calendar = Calendar.current
+            if calendar.dateComponents([.day,.month,.year], from: birthday) != calendar.dateComponents([.day,.month,.year], from: Date()) {
+                print(calendar.dateComponents([.day,.month,.year], from: birthday))
+                contact.birthday = calendar.dateComponents([.day,.month,.year], from: birthday)
+            }
+            
+            if street != "" || city != "" || state != "" {
+                let homeAddress = CNMutablePostalAddress()
+                homeAddress.street = street
+                homeAddress.city = city
+                homeAddress.state = state
+                contact.postalAddresses = [CNLabeledValue(label: CNLabelHome, value: homeAddress)]
+            }
+            
+            let c = Contact(contactInfo: contact, isSelected: true)
+            
+            phoneContacts.append(c)
+            manualContacts.append(c)
+            
+            number = ""
+            givenName = ""
+            familyName = ""
+            birthday = Date()
+            street = ""
+            city = ""
+            state = ""
+        } else {
+            print("ERRO - Número e/ou nome incompleto")
+        }
     }
     
     // Funções de Salvar
