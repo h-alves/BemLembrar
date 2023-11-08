@@ -35,8 +35,7 @@ struct AddClientView: View {
                     }
                     
                     Button {
-                        print("Ir para formulário")
-                        // Puxar sheet de adicionar contato sem puxar os dados do Contacts
+                        viewModel.isPresented = true
                     } label: {
                         Image(systemName: "plus")
                             .font(.system(size: 16))
@@ -89,6 +88,9 @@ struct AddClientView: View {
         }
         .onAppear {
             viewModel.getContactList()
+        }
+        .sheet(isPresented: $viewModel.isPresented) {
+            NewContactView(viewModel: viewModel)
         }
     }
 }
