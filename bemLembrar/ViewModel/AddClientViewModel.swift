@@ -9,6 +9,8 @@ import SwiftUI
 import Contacts
 
 class AddClientViewModel: ObservableObject {
+    @Published var isPresented = false
+    
     @Published var phoneContacts = [Contact]() {
         didSet {
             if oldValue.count != phoneContacts.count {
@@ -176,6 +178,9 @@ class AddClientViewModel: ObservableObject {
             street = ""
             city = ""
             state = ""
+            
+            sortContact()
+            updateList()
         } else {
             print("ERRO - Número e/ou nome incompleto")
         }
