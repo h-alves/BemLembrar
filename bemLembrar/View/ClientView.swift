@@ -37,7 +37,7 @@ struct ClientView: View {
                 .padding(.bottom, 12)
                 
                 VStack(spacing: 16) {
-                    if client.birthday != nil && !client.contactInfo.postalAddresses.isEmpty {
+                    if client.birthday != nil || !client.contactInfo.postalAddresses.isEmpty {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Informações gerais:")

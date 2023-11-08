@@ -16,11 +16,13 @@ struct AddClientView: View {
             VStack {
                 Spacer()
                 
-                Text("Sugestões")
-                
-                ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
-                    ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
-                        viewModel.selectContact(contact: phoneContact)
+                if !viewModel.autoContacts.isEmpty {
+                    Text("Sugestões")
+                    
+                    ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
+                        ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                            viewModel.selectContact(contact: phoneContact)
+                        }
                     }
                 }
                 
@@ -33,8 +35,7 @@ struct AddClientView: View {
                     }
                     
                     Button {
-                        print("Ir para formulário")
-                        // Puxar sheet de adicionar contato sem puxar os dados do Contacts
+                        viewModel.isPresented = true
                     } label: {
                         Image(systemName: "plus")
                             .font(.system(size: 16))
@@ -56,12 +57,14 @@ struct AddClientView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical)
+                    .padding(.bottom, 60)
                 }
                 .scrollIndicators(.hidden)
                 
                 Spacer()
             }
             .frame(maxWidth: .infinity)
+            .padding(.horizontal, 24)
             
             VStack {
                 Spacer()
@@ -71,18 +74,23 @@ struct AddClientView: View {
                 } label: {
                     Text("Adicionar Clientes\(viewModel.selectedContacts())")
                         .fontWeight(.bold)
-                        .foregroundStyle(viewModel.disabled() ? .black : .white)
+                        .foregroundStyle(viewModel.disabled() ? .white : .black)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(viewModel.disabled() ? .gray : .blue)
+                        .background(viewModel.disabled() ? Color(.systemGray3) : Color(.systemGray4))
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
+                .padding(.top, 12)
+                .padding(.horizontal, 36)
+                .background(.gray)
                 .disabled(viewModel.disabled())
             }
         }
-        .padding(.horizontal, 24)
         .onAppear {
             viewModel.getContactList()
+        }
+        .sheet(isPresented: $viewModel.isPresented) {
+            NewContactView(viewModel: viewModel)
         }
     }
 }

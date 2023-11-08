@@ -15,5 +15,13 @@ class AllClientsViewModel: ObservableObject {
     
     func updateList() {
         allClients = ClientDataSource.shared.allClients
+        
+        if searchText != "" {
+            allClients = allClients.filter{ c in
+                let textFormat = searchText.lowercased()
+                
+                return c.fullName.lowercased().contains(textFormat)
+            }
+        }
     }
 }

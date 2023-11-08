@@ -57,8 +57,8 @@ enum Pele: String, CaseIterable {
 enum Atendimento: String, CaseIterable {
     case none = ""
     
-    case mensagem = "por mensagem"
-    case ligacao = "por ligacao"
+    case mensagem = "mensagem"
+    case ligacao = "ligacao"
     case presencial = "presencial"
     
     static var allCases: [Atendimento] {

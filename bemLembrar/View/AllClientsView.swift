@@ -23,7 +23,7 @@ struct AllClientsView: View {
                 
                 HStack {
                     SearchBar(searchText: $viewModel.searchText) {
-                        print("a")
+                        viewModel.updateList()
                     }
                     
                     Button(action: {
