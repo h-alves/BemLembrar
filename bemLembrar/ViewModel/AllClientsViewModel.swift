@@ -11,7 +11,12 @@ import Contacts
 class AllClientsViewModel: ObservableObject {
     @Published var allClients = [Client]()
     
+    @Published var client = Client.test
+    
     @Published var searchText: String = ""
+    
+    @Published var isEditing = false
+    @Published var isPresented = false
     
     func updateList() {
         allClients = ClientDataSource.shared.allClients
@@ -22,6 +27,27 @@ class AllClientsViewModel: ObservableObject {
                 
                 return c.fullName.lowercased().contains(textFormat)
             }
+        }
+    }
+    
+    func editList() {
+        if isEditing {
+            ClientDataSource.shared.allClients = allClients
+        }
+        
+        if !allClients.isEmpty {
+            isEditing.toggle()
+        }
+    }
+    
+    func delete() {
+        allClients.removeAll { c in
+            c.contactInfo.identifier == client.contactInfo.identifier
+        }
+        
+        if allClients.isEmpty {
+            isEditing.toggle()
+            ClientDataSource.shared.allClients = allClients
         }
     }
 }
