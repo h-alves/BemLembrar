@@ -39,6 +39,7 @@
 		78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */; };
 		78EEC6BC2AFC43430030F5EA /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */; };
 		78EEC6BE2AFC50580030F5EA /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BD2AFC50580030F5EA /* Preferences.swift */; };
+		78EEC6C02AFC88FD0030F5EA /* ClientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */; };
 		78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */; };
 		78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */; };
 		78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */; };
@@ -83,6 +84,7 @@
 		78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEditView.swift; sourceTree = "<group>"; };
 		78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		78EEC6BD2AFC50580030F5EA /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientButton.swift; sourceTree = "<group>"; };
 		78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCard.swift; sourceTree = "<group>"; };
 		78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
 		78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSheetView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				783E56032AF3DFB100921298 /* SearchBar.swift */,
 				783E56262AF8176300921298 /* TitleBar.swift */,
 				78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */,
+				78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */,
 				783E56242AF8172100921298 /* Cards */,
 				783E56252AF8172B00921298 /* Tags */,
 			);
@@ -354,6 +357,7 @@
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,
+				78EEC6C02AFC88FD0030F5EA /* ClientButton.swift in Sources */,
 				783E561E2AF8144B00921298 /* SmellView.swift in Sources */,
 				78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */,
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,

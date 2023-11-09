@@ -23,17 +23,15 @@ struct ClientView: View {
                     Text(client.fullName)
                         .font(.system(size: 34))
                     
-                    Button(action: {
-                        print("Botão pressionado!")
-                    }) {
-                        Text("Entrar em contato")
-                            .font(.system(size: 22))
-                            .foregroundStyle(.white)
-                            .padding()
+                    HStack {
+                        ClientButton(symbol: "message.fill", text: "mensagem") {
+                            print("MENSAGEM")
+                        }
+                        
+                        ClientButton(symbol: "phone.circle.fill", text: "ligar") {
+                            print("LIGAR")
+                        }
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(.black)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 .padding(.bottom, 12)
                 
