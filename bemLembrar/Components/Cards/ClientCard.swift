@@ -18,44 +18,50 @@ struct ClientCard: View {
             mainFunc()
         } label: {
             HStack {
-                if isEditing {
-                    Button {
-                        deleteFunc()
-                    } label: {
-                        Image(systemName: "x.circle.fill")
-                            .foregroundStyle(.red)
-                            .fontWeight(.bold)
-                    }
-                }
-                
-                HStack {
-                    HStack(spacing: 12) {
+                HStack(spacing: 12) {
+                    if isEditing {
+                        Button {
+                            deleteFunc()
+                        } label: {
+                            ZStack {
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 35))
+                                    .fontWeight(.bold)
+                                
+                                Image(systemName: "x.circle.fill")
+                                    .foregroundStyle(.red)
+                                    .font(.system(size: 35))
+                                    .fontWeight(.bold)
+                            }
+                        }
+                    } else {
                         Image(systemName: "person.circle.fill")
                             .resizable()
                             .frame(width: 42, height: 42)
                             .foregroundStyle(.black)
-                        
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("\(client.fullName)")
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.white)
-                            
-                            PreferencesTagsSmall(preferences: client.preferences)
-                        }
                     }
                     
-                    Spacer()
-                    
-                    Image(systemName: "chevron.forward")
-                        .font(.system(size: 24))
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.black)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("\(client.fullName)")
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
+                        
+                        PreferencesTagsSmall(preferences: client.preferences)
+                    }
                 }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(.gray)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                
+                Spacer()
+                
+                Image(systemName: "chevron.forward")
+                    .font(.system(size: 24))
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.black)
             }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(.gray)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
         }
     }
 }
