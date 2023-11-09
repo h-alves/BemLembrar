@@ -13,6 +13,8 @@ class AllClientsViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
+    @Published var isEditing = false
+    
     func updateList() {
         allClients = ClientDataSource.shared.allClients
         
@@ -22,6 +24,26 @@ class AllClientsViewModel: ObservableObject {
                 
                 return c.fullName.lowercased().contains(textFormat)
             }
+        }
+    }
+    
+    func editList() {
+        if isEditing {
+            ClientDataSource.shared.allClients = allClients
+        }
+        
+        if !allClients.isEmpty {
+            isEditing.toggle()
+        }
+    }
+    
+    func delete(client: Client) {
+        allClients.removeAll { c in
+            c.contactInfo.identifier == client.contactInfo.identifier
+        }
+        
+        if allClients.isEmpty {
+            isEditing.toggle()
         }
     }
 }

@@ -16,10 +16,21 @@ struct AllClientsView: View {
                 
                 Spacer()
                 
-                Text("Meus Clientes")
-                    .font(.system(size: 32))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
+                HStack {
+                    Text("Meus Clientes")
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                    
+                    Spacer()
+                    
+                    Button {
+                        viewModel.editList()
+                    } label: {
+                        Image(systemName: viewModel.isEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                    }
+                    .disabled(viewModel.allClients.isEmpty)
+                }
                 
                 HStack {
                     SearchBar(searchText: $viewModel.searchText) {
@@ -61,8 +72,10 @@ struct AllClientsView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
-                            ClientCard(client: client) {
+                            ClientCard(client: client, isEditing: viewModel.isEditing) {
                                 RouterService.shared.navigate(.client(client: client))
+                            } deleteFunc: {
+                                viewModel.delete(client: client)
                             }
                         }
                     }
