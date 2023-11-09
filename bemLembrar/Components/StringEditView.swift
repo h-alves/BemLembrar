@@ -20,6 +20,7 @@ struct StringEditView: View {
                 HStack(spacing: 0) {
                     Text("\(title):")
                     Text(text)
+                        .lineLimit(1)
                 }
             }
             

@@ -13,116 +13,128 @@ struct ClientView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            ScrollView {
                 VStack {
-                    Circle()
-                        .frame(maxWidth: 200, maxHeight: 200)
-                        .foregroundStyle(.gray)
-                        .padding(.top, 32)
-                    
-                    Text(client.fullName)
-                        .font(.system(size: 34))
-                    
-                    HStack {
-                        ClientButton(symbol: "message.fill", text: "mensagem") {
-                            print("MENSAGEM")
-                        }
+                    VStack {
+                        Circle()
+                            .frame(maxWidth: 200, maxHeight: 200)
+                            .foregroundStyle(.gray)
+                            .padding(.top, 32)
                         
-                        ClientButton(symbol: "phone.circle.fill", text: "ligar") {
-                            print("LIGAR")
+                        Text(client.fullName)
+                            .font(.system(size: 34))
+                        
+                        HStack {
+                            ClientButton(symbol: "message.fill", text: "mensagem") {
+                                print("MENSAGEM")
+                            }
+                            
+                            ClientButton(symbol: "phone.circle.fill", text: "ligar") {
+                                print("LIGAR")
+                            }
                         }
                     }
-                }
-                .padding(.bottom, 12)
-                
-                VStack(spacing: 16) {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("Informações gerais:")
-                                    .font(.system(size: 17))
-                                    .bold()
+                    .padding(.bottom, 12)
+                    
+                    VStack(spacing: 16) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("Informações gerais:")
+                                        .font(.system(size: 17))
+                                        .bold()
+                                    
+                                    Spacer()
+                                    
+                                    Button {
+                                        viewModel.saveInfo()
+                                    } label: {
+                                        Image(systemName: viewModel.infoIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                    }
+                                }
                                 
-                                Spacer()
+                                VStack(alignment: .leading, spacing: 6) {
+                                    DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.infoIsEditing)
+                                }
                                 
-                                Button {
-                                    viewModel.saveData()
-                                } label: {
-                                    Image(systemName: viewModel.isEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                VStack(alignment: .leading, spacing: 6) {
+                                    StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.infoIsEditing)
                                 }
                             }
                             
-                            VStack(alignment: .leading, spacing: 6) {
-                                DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.isEditing)
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Preferências:")
+                                    .font(.system(size: 17))
+                                    .bold()
+                                
+                                Text("Lembre-se do que sua cliente mais gosta!")
+                                    .font(.system(size: 13))
+                                
+                                PreferencesTagsBig(preferences: client.preferences)
                             }
                             
-                            VStack(alignment: .leading, spacing: 6) {
-                                StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.isEditing)
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        
+                        HStack {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("Anotações:")
+                                        .font(.system(size: 17))
+                                        .bold()
+                                    
+                                    Spacer()
+                                    
+                                    Button {
+                                        viewModel.saveAnnotation()
+                                    } label: {
+                                        Image(systemName: viewModel.annotationIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                    }
+                                }
+                                
+                                BigStringEditView(text: $viewModel.annotation, isEditing: $viewModel.annotationIsEditing)
                             }
+                            
+                            Spacer()
                         }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
                         
                         Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray5))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Preferências:")
-                                .font(.system(size: 17))
-                                .bold()
-                            
-                            Text("Lembre-se do que sua cliente mais gosta!")
-                                .font(.system(size: 13))
-                            
-                            PreferencesTagsBig(preferences: client.preferences)
-                        }
-                        
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray5))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Anotações:")
-                                .font(.system(size: 17))
-                                .bold()
-                            
-                            Text("Aqui você pode registrar alergias, tanana e \ndetalhes para garantir sempre o melhor atendimento!")
-                                .font(.system(size: 13))
-                        }
-                        
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray5))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
-                    Spacer()
-                }
-            }
-            .padding(.horizontal, 32)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        RouterService.shared.navigate(.allClients)
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 17))
-                            .fontWeight(.bold)
                     }
                 }
-            }
-            .onAppear {
-                viewModel.updateClient(client: client)
+                .padding(.horizontal, 32)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            RouterService.shared.navigate(.allClients)
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 17))
+                                .fontWeight(.bold)
+                        }
+                    }
+                }
+                .onAppear {
+                    viewModel.updateClient(client: client)
+                }
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 
