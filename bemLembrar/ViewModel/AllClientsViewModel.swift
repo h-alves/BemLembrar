@@ -44,6 +44,7 @@ class AllClientsViewModel: ObservableObject {
         
         if allClients.isEmpty {
             isEditing.toggle()
+            ClientDataSource.shared.allClients = allClients
         }
     }
 }

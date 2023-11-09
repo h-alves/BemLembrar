@@ -27,9 +27,6 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)
         }
-        .alert(isPresented: $router.isAlertPresented) {
-            router.alert
-        }
         .sheet(isPresented: $router.isSheetPresented) {
             router.sheet
         }
