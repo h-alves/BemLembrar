@@ -30,6 +30,11 @@ struct ContentView: View {
         .sheet(isPresented: $router.isSheetPresented) {
             router.sheet
         }
+        .overlay {
+            if router.isPopUpPresented {
+                router.popUp
+            }
+        }
     }
 }
 
