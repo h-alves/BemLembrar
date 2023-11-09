@@ -15,7 +15,6 @@ struct ContentView: View {
             VStack {
                 switch(router.screen) {
                 case .onboarding: OnboardingView()
-                case .home: HomeView()
                 case .allClients: AllClientsView()
                 case .addClient: AddClientView()
                 case .client(client: let client): ClientView(client: client)

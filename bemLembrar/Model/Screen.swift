@@ -9,7 +9,6 @@ import Foundation
 
 enum Screen {
     case onboarding
-    case home
     case allClients
     case addClient
     case client(client: Client)

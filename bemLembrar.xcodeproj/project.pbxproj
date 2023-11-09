@@ -20,7 +20,6 @@
 		783E56082AF4085D00921298 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56072AF4085D00921298 /* Screen.swift */; };
 		783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56092AF40C2A00921298 /* AllClientsViewModel.swift */; };
 		783E560C2AF40C8000921298 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E560B2AF40C8000921298 /* OnboardingView.swift */; };
-		783E560E2AF40CFA00921298 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E560D2AF40CFA00921298 /* HomeView.swift */; };
 		783E56102AF40D8900921298 /* ClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E560F2AF40D8900921298 /* ClientView.swift */; };
 		783E56122AF41A0400921298 /* ClientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56112AF41A0400921298 /* ClientCard.swift */; };
 		783E56142AF74BB800921298 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56132AF74BB800921298 /* DateComponents.swift */; };
@@ -66,7 +65,6 @@
 		783E56072AF4085D00921298 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		783E56092AF40C2A00921298 /* AllClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClientsViewModel.swift; sourceTree = "<group>"; };
 		783E560B2AF40C8000921298 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; usesTabs = 0; };
-		783E560D2AF40CFA00921298 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		783E560F2AF40D8900921298 /* ClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientView.swift; sourceTree = "<group>"; };
 		783E56112AF41A0400921298 /* ClientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCard.swift; sourceTree = "<group>"; };
 		783E56132AF74BB800921298 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				783E560B2AF40C8000921298 /* OnboardingView.swift */,
-				783E560D2AF40CFA00921298 /* HomeView.swift */,
 				C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */,
 				783E560F2AF40D8900921298 /* ClientView.swift */,
 				783E55DD2AF0A20B00921298 /* AddClientView.swift */,
@@ -359,7 +356,6 @@
 				78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */,
 				78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */,
 				783E56042AF3DFB100921298 /* SearchBar.swift in Sources */,
-				783E560E2AF40CFA00921298 /* HomeView.swift in Sources */,
 				783E55EA2AF1804900921298 /* Client.swift in Sources */,
 				783E561C2AF8138F00921298 /* PreferencesView.swift in Sources */,
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
