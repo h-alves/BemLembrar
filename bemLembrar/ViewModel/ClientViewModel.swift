@@ -20,11 +20,13 @@ class ClientViewModel: ObservableObject {
         
         self.address = client.address ?? ""
         self.birthday = client.birthday ?? Date()
+        
+        print(client)
     }
     
     func saveData() {
         if isEditing {
-            if birthday != Date() {
+            if birthday.formatted(date: .numeric, time: .omitted) != Date().formatted(date: .numeric, time: .omitted) {
                 client.birthday = birthday
             }
             
@@ -40,6 +42,8 @@ class ClientViewModel: ObservableObject {
             }
             
             ClientDataSource.shared.allClients = allClients
+            
+            print(ClientDataSource.shared.allClients)
         }
         
         self.isEditing.toggle()

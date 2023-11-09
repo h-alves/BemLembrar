@@ -13,11 +13,11 @@ struct StringEditView: View {
     @Binding var isEditing: Bool
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack {
             if isEditing {
                 TextField(title, text: $text)
             } else {
-                HStack {
+                HStack(spacing: 0) {
                     Text("\(title):")
                     Text(text)
                 }

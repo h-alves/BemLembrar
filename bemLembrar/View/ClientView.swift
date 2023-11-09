@@ -53,7 +53,7 @@ struct ClientView: View {
                             }
                             
                             VStack(alignment: .leading, spacing: 6) {
-                                
+                                DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.isEditing)
                             }
                             
                             VStack(alignment: .leading, spacing: 6) {

@@ -9,6 +9,7 @@ import Foundation
 import Contacts
 
 extension CNPostalAddress {
+    
     func formatAddress() -> String {
         var address = self.street
         
