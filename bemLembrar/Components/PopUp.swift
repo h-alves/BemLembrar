@@ -31,15 +31,15 @@ struct PopUp: View {
                 
                 HStack {
                     Button {
-                        mainFunc()
-                    } label: {
-                        Text(buttonText)
-                    }
-                    
-                    Button {
                         secondaryFunc()
                     } label: {
                         Text(secondaryText)
+                    }
+                    
+                    Button {
+                        mainFunc()
+                    } label: {
+                        Text(buttonText)
                     }
                 }
             }

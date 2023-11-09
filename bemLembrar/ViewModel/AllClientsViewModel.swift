@@ -11,9 +11,12 @@ import Contacts
 class AllClientsViewModel: ObservableObject {
     @Published var allClients = [Client]()
     
+    @Published var client = Client.test
+    
     @Published var searchText: String = ""
     
     @Published var isEditing = false
+    @Published var isPresented = false
     
     func updateList() {
         allClients = ClientDataSource.shared.allClients
@@ -37,7 +40,7 @@ class AllClientsViewModel: ObservableObject {
         }
     }
     
-    func delete(client: Client) {
+    func delete() {
         allClients.removeAll { c in
             c.contactInfo.identifier == client.contactInfo.identifier
         }

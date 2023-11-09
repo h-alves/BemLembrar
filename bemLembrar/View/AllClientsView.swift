@@ -75,7 +75,8 @@ struct AllClientsView: View {
                             ClientCard(client: client, isEditing: viewModel.isEditing) {
                                 RouterService.shared.navigate(.client(client: client))
                             } deleteFunc: {
-                                viewModel.delete(client: client)
+                                viewModel.isPresented = true
+                                viewModel.client = client
                             }
                         }
                     }
@@ -88,6 +89,16 @@ struct AllClientsView: View {
         }
         .onAppear {
             viewModel.updateList()
+        }
+        .overlay {
+            if viewModel.isPresented {
+                PopUp(title: "Teste", bodyText: "teste", buttonText: "Botão 1", secondaryText: "botão 2") {
+                    viewModel.delete()
+                    viewModel.isPresented = false
+                } secondaryFunc: {
+                    viewModel.isPresented = false
+                }
+            }
         }
     }
 }
