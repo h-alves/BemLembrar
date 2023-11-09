@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ClientView: View {
+    @ObservedObject var viewModel = ClientViewModel()
     var client: Client
     
     var body: some View {
@@ -37,39 +38,37 @@ struct ClientView: View {
                 .padding(.bottom, 12)
                 
                 VStack(spacing: 16) {
-                    if client.birthday != nil || !client.contactInfo.postalAddresses.isEmpty {
-                        HStack {
-                            VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            HStack {
                                 Text("Informações gerais:")
                                     .font(.system(size: 17))
                                     .bold()
                                 
-                                if client.birthday != nil {
-                                    VStack(alignment: .leading, spacing: 6) {
-                                        HStack(spacing: 0) {
-                                            Text("Aniversário: \((client.birthday?.formatted(date: .numeric, time: .omitted))!)")
-                                        }
-                                        .font(.system(size: 13))
-                                    }
-                                }
+                                Spacer()
                                 
-                                if !client.contactInfo.postalAddresses.isEmpty {
-                                    VStack(alignment: .leading, spacing: 6) {
-                                        HStack(spacing: 0) {
-                                            Text("Endereço: \(client.address!)")
-                                        }
-                                        .font(.system(size: 13))
-                                    }
+                                Button {
+                                    viewModel.saveData()
+                                } label: {
+                                    Image(systemName: viewModel.isEditing ? "checkmark.circle.fill" : "square.and.pencil")
                                 }
                             }
                             
-                            Spacer()
+                            VStack(alignment: .leading, spacing: 6) {
+                                
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 6) {
+                                StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.isEditing)
+                            }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(.systemGray5))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        
+                        Spacer()
                     }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
                     
                     HStack {
                         VStack(alignment: .leading) {
@@ -121,6 +120,9 @@ struct ClientView: View {
                             .fontWeight(.bold)
                     }
                 }
+            }
+            .onAppear {
+                viewModel.updateClient(client: client)
             }
         }
     }
