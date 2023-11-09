@@ -36,6 +36,12 @@
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
 		78E629D32AED73A500CBB373 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629D22AED73A500CBB373 /* Preview Assets.xcassets */; };
 		78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */; };
+		78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */; };
+		78EEC6BC2AFC43430030F5EA /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */; };
+		78EEC6BE2AFC50580030F5EA /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BD2AFC50580030F5EA /* Preferences.swift */; };
+		78EEC6C02AFC88FD0030F5EA /* ClientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */; };
+		78EEC6C22AFC8AE50030F5EA /* DateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */; };
+		78EEC6C82AFC948C0030F5EA /* BigStringEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */; };
 		78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */; };
 		78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */; };
 		78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */; };
@@ -77,6 +83,12 @@
 		78E629CF2AED73A500CBB373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78E629D22AED73A500CBB373 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactView.swift; sourceTree = "<group>"; };
+		78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEditView.swift; sourceTree = "<group>"; };
+		78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
+		78EEC6BD2AFC50580030F5EA /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientButton.swift; sourceTree = "<group>"; };
+		78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEditView.swift; sourceTree = "<group>"; };
+		78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigStringEditView.swift; sourceTree = "<group>"; };
 		78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCard.swift; sourceTree = "<group>"; };
 		78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
 		78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSheetView.swift; sourceTree = "<group>"; };
@@ -116,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				783E56092AF40C2A00921298 /* AllClientsViewModel.swift */,
+				78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */,
 				783E55E12AF0A2D200921298 /* AddClientViewModel.swift */,
 				78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */,
 			);
@@ -127,6 +140,7 @@
 			children = (
 				783E55DF2AF0A22700921298 /* Contact.swift */,
 				783E55E92AF1804900921298 /* Client.swift */,
+				78EEC6BD2AFC50580030F5EA /* Preferences.swift */,
 				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
 				783E56072AF4085D00921298 /* Screen.swift */,
 				78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */,
@@ -139,6 +153,10 @@
 			children = (
 				783E56032AF3DFB100921298 /* SearchBar.swift */,
 				783E56262AF8176300921298 /* TitleBar.swift */,
+				78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */,
+				78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */,
+				78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */,
+				78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */,
 				783E56242AF8172100921298 /* Cards */,
 				783E56252AF8172B00921298 /* Tags */,
 			);
@@ -320,11 +338,15 @@
 				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
 				78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */,
 				78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */,
+				78EEC6C22AFC8AE50030F5EA /* DateEditView.swift in Sources */,
 				C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */,
 				783E56182AF7521E00921298 /* PreferencesTagsSmall.swift in Sources */,
 				783E55E52AF0A55800921298 /* ContactCard.swift in Sources */,
+				78EEC6BC2AFC43430030F5EA /* ClientViewModel.swift in Sources */,
 				783E56142AF74BB800921298 /* DateComponents.swift in Sources */,
+				78EEC6C82AFC948C0030F5EA /* BigStringEditView.swift in Sources */,
 				78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */,
+				78EEC6BE2AFC50580030F5EA /* Preferences.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				78FEF4E92AF9D76B00A5A6D8 /* CNPostalAdress.swift in Sources */,
@@ -335,6 +357,7 @@
 				783E55E02AF0A22700921298 /* Contact.swift in Sources */,
 				78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */,
 				78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */,
+				78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */,
 				783E56042AF3DFB100921298 /* SearchBar.swift in Sources */,
 				783E560E2AF40CFA00921298 /* HomeView.swift in Sources */,
 				783E55EA2AF1804900921298 /* Client.swift in Sources */,
@@ -342,6 +365,7 @@
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,
+				78EEC6C02AFC88FD0030F5EA /* ClientButton.swift in Sources */,
 				783E561E2AF8144B00921298 /* SmellView.swift in Sources */,
 				78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */,
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,
