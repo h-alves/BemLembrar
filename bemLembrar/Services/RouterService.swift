@@ -19,6 +19,7 @@ class RouterService: ObservableObject {
     @Published var sheet: AnyView = AnyView(Text("Sheet"))
     @Published var popUp: PopUp = PopUp(title: "", bodyText: "", buttonText: "", secondaryText: "", mainFunc: {}, secondaryFunc: {})
     
+    
     func showSheet(_ sheet: some View) {
         self.sheet = AnyView(sheet)
         isSheetPresented = true

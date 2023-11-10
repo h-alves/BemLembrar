@@ -145,8 +145,8 @@
 			children = (
 				783E55DF2AF0A22700921298 /* Contact.swift */,
 				783E55E92AF1804900921298 /* Client.swift */,
-				78EEC6BD2AFC50580030F5EA /* Preferences.swift */,
 				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
+				78EEC6BD2AFC50580030F5EA /* Preferences.swift */,
 				783E56072AF4085D00921298 /* Screen.swift */,
 				78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */,
 			);
