@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContactCard: View {
     @Binding var contact: Contact?
+    var color: Color
     var mainFunc: () -> Void
     
     var body: some View {
@@ -52,12 +53,12 @@ struct ContactCard: View {
         if contact!.isSelected {
             return .gray
         }
-        return .white
+        return color
     }
 }
 
 #Preview {
-    ContactCard(contact: .constant(Contact.test)) {
+    ContactCard(contact: .constant(Contact.test), color: .white) {
         print("a")
     }
 }
