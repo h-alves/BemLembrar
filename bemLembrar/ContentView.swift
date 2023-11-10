@@ -16,7 +16,7 @@ struct ContentView: View {
                 switch(router.screen) {
                 case .onboarding: OnboardingView()
                 case .allClients: AllClientsView()
-                case .addClient: AddClientView()
+                case .addClient: AddClientManager()
                 case .client(client: let client): ClientView(client: client)
                 case .preferences: PreferencesView()
                 case .smell: SmellView()
