@@ -76,11 +76,14 @@ struct AllClientsView: View {
                 VStack(spacing: 24) {
                     Spacer()
                     
-                    Circle()
-                        .frame(width: 142)
-                    Text("Você ainda não adicionou nenhum cliente :(")
+                    Image("noClients")
+                        .resizable()
+                        .frame(width: 227, height: 288)
+                    
+                    Text("Nessa tela, ficarão todos os seus clientes, comece adicionando alguns deles!")
+                        .foregroundStyle(.gray)
                         .font(.system(size: 16))
-                        .frame(maxWidth: 192)
+                        .frame(maxWidth: 219)
                         .multilineTextAlignment(.center)
                     
                     Spacer()
