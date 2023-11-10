@@ -24,31 +24,47 @@ struct PopUp: View {
                 .ignoresSafeArea()
             
             VStack {
-                VStack {
+                VStack(spacing: 6) {
                     Text(title)
+                        .font(.title3)
+                        .fontWeight(.bold)
                     Text(bodyText)
+                        .multilineTextAlignment(.center)
                 }
+                .padding()
                 
-                HStack {
+                HStack(spacing: 0) {
                     Button {
                         secondaryFunc()
                     } label: {
                         Text(secondaryText)
+                            .foregroundStyle(.black)
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.lightGray))
                     
                     Button {
                         mainFunc()
                     } label: {
                         Text(buttonText)
+                            .foregroundStyle(.white)
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(.red)
                 }
+                .fontWeight(.bold)
             }
+            .background()
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal, 40)
         }
     }
 }
 
 #Preview {
-    PopUp(title: "teste", bodyText: "teste", buttonText: "teste", secondaryText: "teste") {
+    PopUp(title: "Deletar Cliente?", bodyText: "Esse cliente será permanentemente deletado da sua lista de clientes.", buttonText: "Deletar", secondaryText: "Cancelar") {
         print("a")
     } secondaryFunc: {
         print("b")
