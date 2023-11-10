@@ -30,6 +30,8 @@
 		783E56202AF8145300921298 /* SkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561F2AF8145300921298 /* SkinView.swift */; };
 		783E56222AF8145800921298 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56212AF8145800921298 /* ServiceView.swift */; };
 		783E56272AF8176300921298 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56262AF8176300921298 /* TitleBar.swift */; };
+		78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14082AFDC51E0094CF66 /* AddClientManager.swift */; };
+		78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */; };
 		78E629CC2AED73A400CBB373 /* bemLembrarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		783E561F2AF8145300921298 /* SkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinView.swift; sourceTree = "<group>"; };
 		783E56212AF8145800921298 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
 		783E56262AF8176300921298 /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
+		78AF14082AFDC51E0094CF66 /* AddClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientManager.swift; sourceTree = "<group>"; };
+		78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectedView.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* bemLembrar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bemLembrar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bemLembrarApp.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,7 +120,9 @@
 				783E560B2AF40C8000921298 /* OnboardingView.swift */,
 				C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */,
 				783E560F2AF40D8900921298 /* ClientView.swift */,
+				78AF14082AFDC51E0094CF66 /* AddClientManager.swift */,
 				783E55DD2AF0A20B00921298 /* AddClientView.swift */,
+				78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */,
 				783E56232AF814B400921298 /* Preferences */,
 				78FEF4DD2AF8721C00A5A6D8 /* Sheets */,
 			);
@@ -358,12 +364,14 @@
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				78FEF4E92AF9D76B00A5A6D8 /* CNPostalAdress.swift in Sources */,
+				78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				78FEF4E72AF96E9400A5A6D8 /* PreferencesTagBig.swift in Sources */,
 				783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */,
 				783E561A2AF752E500921298 /* IndividualTag.swift in Sources */,
 				783E55E02AF0A22700921298 /* Contact.swift in Sources */,
 				78EEC6CA2AFD5F410030F5EA /* PopUp.swift in Sources */,
+				78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */,
 				78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */,
 				78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */,
 				78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */,
@@ -527,6 +535,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,6 +571,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

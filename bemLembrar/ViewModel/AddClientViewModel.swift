@@ -9,6 +9,8 @@ import SwiftUI
 import Contacts
 
 class AddClientViewModel: ObservableObject {
+    @Published var denied = false
+    
     @Published var isPresented = false
     
     @Published var phoneContacts = [Contact]() {
@@ -38,6 +40,8 @@ class AddClientViewModel: ObservableObject {
         
         switch CNContactStore.authorizationStatus(for: .contacts) {
         case .authorized:
+            print("authorized")
+            denied = false
             do {
                 // Elementos que o Contacts retorna
                 let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactBirthdayKey as CNKeyDescriptor, CNContactPostalAddressesKey as CNKeyDescriptor]
@@ -50,14 +54,17 @@ class AddClientViewModel: ObservableObject {
             }catch {
                 print("Error on contact fetching \(error)")
             }
+            print(denied)
         case .denied:
             print("denied")
+            self.denied = true
         case .notDetermined:
             print("notDetermined")
             CNStore.requestAccess(for: .contacts) { granted, error in
                 if granted {
                     self.getContactList()
                 } else if let error = error {
+                    self.denied = true
                     print("Error requesting contact access: \(error)")
                 }
             }

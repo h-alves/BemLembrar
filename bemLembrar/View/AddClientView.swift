@@ -9,10 +9,25 @@ import SwiftUI
 import Contacts
 
 struct AddClientView: View {
-    @ObservedObject var viewModel = AddClientViewModel()
+    @ObservedObject var viewModel: AddClientViewModel
     
     var body: some View {
-        NavigationStack {
+        if viewModel.denied {
+            VStack {
+                Text("NÃO PERMITIDO")
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        RouterService.shared.navigate(.allClients)
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 17))
+                            .fontWeight(.bold)
+                    }
+                }
+            }
+        } else {
             ZStack {
                 VStack {
                     Spacer()
@@ -87,27 +102,10 @@ struct AddClientView: View {
                     .disabled(viewModel.disabled())
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        RouterService.shared.navigate(.allClients)
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 17))
-                            .fontWeight(.bold)
-                    }
-                }
-            }
-        }
-        .onAppear {
-            viewModel.getContactList()
-        }
-        .sheet(isPresented: $viewModel.isPresented) {
-            NewContactView(viewModel: viewModel)
         }
     }
 }
 
 #Preview {
-    AddClientView()
+    AddClientView(viewModel: AddClientViewModel())
 }

@@ -14,6 +14,6 @@ class ClientDataSource: ObservableObject {
     
     private init(allClients: [Client] = [Client]()) {
         self.allClients = allClients
-        self.allClients.append(Client.test)
+        // self.allClients.append(Client.test)
     }
 }
