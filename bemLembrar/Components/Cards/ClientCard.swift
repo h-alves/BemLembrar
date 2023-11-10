@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ClientCard: View {
     var client: Client
+    var isEditing: Bool
     var mainFunc: () -> Void
+    var deleteFunc: () -> Void
     
     var body: some View {
         Button {
@@ -17,10 +19,28 @@ struct ClientCard: View {
         } label: {
             HStack {
                 HStack(spacing: 12) {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .frame(width: 42, height: 42)
-                        .foregroundStyle(.black)
+                    if isEditing {
+                        Button {
+                            deleteFunc()
+                        } label: {
+                            ZStack {
+                                Image(systemName: "circle.fill")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 35))
+                                    .fontWeight(.bold)
+                                
+                                Image(systemName: "x.circle.fill")
+                                    .foregroundStyle(.red)
+                                    .font(.system(size: 35))
+                                    .fontWeight(.bold)
+                            }
+                        }
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 42, height: 42)
+                            .foregroundStyle(.black)
+                    }
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("\(client.fullName)")
@@ -47,7 +67,9 @@ struct ClientCard: View {
 }
 
 #Preview {
-    ClientCard(client: Client.test) {
+    ClientCard(client: Client.test, isEditing: false) {
         print("clicado")
+    } deleteFunc: {
+        print("apagado")
     }
 }

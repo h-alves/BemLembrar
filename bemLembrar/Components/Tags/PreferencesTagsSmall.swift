@@ -11,7 +11,7 @@ struct PreferencesTagsSmall: View {
     var preferences: Preferences
     
     var body: some View {
-        HStack {
+        HStack(spacing: 6) {
             if preferences.cheiro.count > 0 {
                 IndividualTag(texto: preferences.cheiro[0].rawValue)
             }

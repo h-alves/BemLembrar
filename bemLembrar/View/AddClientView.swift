@@ -12,77 +12,98 @@ struct AddClientView: View {
     @ObservedObject var viewModel = AddClientViewModel()
     
     var body: some View {
-        ZStack {
-            VStack {
-                Spacer()
-                
-                Text("Sugestões")
-                
-                ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
-                    ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
-                        viewModel.selectContact(contact: phoneContact)
-                    }
-                }
-                
-                Text("Todos os contatos")
-                
-                HStack {
-                    // Barra de pesquisa
-                    SearchBar(searchText: $viewModel.searchText) {
-                        viewModel.updateList()
-                    }
+        NavigationStack {
+            ZStack {
+                VStack {
+                    Spacer()
                     
-                    Button {
-                        print("Ir para formulário")
-                        // Puxar sheet de adicionar contato sem puxar os dados do Contacts
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.system(size: 16))
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.gray)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                }
-                
-                ScrollView {
-                    VStack {
-                        ForEach(viewModel.manualContacts, id: \.contactInfo.identifier) { phoneContact in
+                    if !viewModel.autoContacts.isEmpty {
+                        Text("Sugestões")
+                        
+                        ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
                             ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
                                 viewModel.selectContact(contact: phoneContact)
                             }
                         }
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical)
-                }
-                .scrollIndicators(.hidden)
-                
-                Spacer()
-            }
-            .frame(maxWidth: .infinity)
-            
-            VStack {
-                Spacer()
-                
-                Button {
-                    viewModel.saveData()
-                } label: {
-                    Text("Adicionar Clientes\(viewModel.selectedContacts())")
-                        .fontWeight(.bold)
-                        .foregroundStyle(viewModel.disabled() ? .black : .white)
+                    
+                    Text("Todos os contatos")
+                    
+                    HStack {
+                        // Barra de pesquisa
+                        SearchBar(searchText: $viewModel.searchText) {
+                            viewModel.updateList()
+                        }
+                        
+                        Button {
+                            viewModel.isPresented = true
+                        } label: {
+                            Image(systemName: "plus")
+                                .font(.system(size: 16))
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.gray)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                    }
+                    
+                    ScrollView {
+                        VStack {
+                            ForEach(viewModel.manualContacts, id: \.contactInfo.identifier) { phoneContact in
+                                ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                                    viewModel.selectContact(contact: phoneContact)
+                                }
+                            }
+                        }
                         .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(viewModel.disabled() ? .gray : .blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .padding(.vertical)
+                        .padding(.bottom, 60)
+                    }
+                    .scrollIndicators(.hidden)
+                    
+                    Spacer()
                 }
-                .disabled(viewModel.disabled())
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 24)
+                
+                VStack {
+                    Spacer()
+                    
+                    Button {
+                        viewModel.saveData()
+                    } label: {
+                        Text("Adicionar Clientes\(viewModel.selectedContacts())")
+                            .fontWeight(.bold)
+                            .foregroundStyle(viewModel.disabled() ? .white : .black)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(viewModel.disabled() ? Color(.systemGray3) : Color(.systemGray4))
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                    }
+                    .padding(.top, 12)
+                    .padding(.horizontal, 36)
+                    .background(.gray)
+                    .disabled(viewModel.disabled())
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        RouterService.shared.navigate(.allClients)
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 17))
+                            .fontWeight(.bold)
+                    }
+                }
             }
         }
-        .padding(.horizontal, 24)
         .onAppear {
             viewModel.getContactList()
+        }
+        .sheet(isPresented: $viewModel.isPresented) {
+            NewContactView(viewModel: viewModel)
         }
     }
 }

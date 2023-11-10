@@ -9,9 +9,23 @@ import Foundation
 import Contacts
 
 extension CNPostalAddress {
+    
     func formatAddress() -> String {
         var address = self.street
-        address += " - " + self.city + ", " + self.state
+        
+        if self.street != "" && (self.city != "" || self.state != "") {
+            address += " - "
+        }
+        
+        if self.city != "" {
+            address += self.city
+            if self.state != "" {
+                address += ", "
+            }
+        }
+        if self.state != "" {
+            address += self.state
+        }
         
         return address
     }

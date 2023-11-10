@@ -13,34 +13,62 @@ struct AllClientsView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment:.leading) {
-                
-                Spacer()
-                
-                Text("Meus Clientes")
-                    .font(.system(size: 32))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
-                
                 HStack {
+                    Text("Meus Clientes")
+                        .font(.system(size: 32))
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                    
+                    Spacer()
+                    
+                    Button {
+                        viewModel.editList()
+                    } label: {
+                        Image(systemName: viewModel.isEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                    }
+                    .disabled(viewModel.allClients.isEmpty)
+                }
+                
+                VStack {
                     SearchBar(searchText: $viewModel.searchText) {
-                        print("a")
+                        viewModel.updateList()
                     }
                     
-                    Button(action: {
-                        RouterService.shared.navigate(.addClient)
-                    }) {
-                        Text("+ Adicionar")
-                            .fontWeight(.medium)
+                    HStack {
+                        Button(action: {
+                            RouterService.shared.navigate(.addClient)
+                        }) {
+                            HStack {
+                                Image(systemName: "plus")
+                                
+                                Text("Adicionar")
+                            }
+                            .fontWeight(.bold)
                             .foregroundStyle(.white)
                             .padding(12)
-                            .background(Color(.systemGray2))
+                            .background(.gray)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        
+                        Button(action: {
+                            RouterService.shared.navigate(.smell)
+                        }) {
+                            HStack {
+                                Image(systemName: viewModel.allClients.isEmpty ? "lock.fill" : "square.and.pencil")
+                                
+                                Text("Preferências")
+                            }
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                            .padding(12)
+                            .background(viewModel.allClients.isEmpty ? Color(.systemGray4) : .gray)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        .disabled(viewModel.allClients.isEmpty)
                     }
-                    .frame(width: 116, height: 42)
                 }
-                .padding(.bottom, 21)
+                .padding(.bottom, 12)
             }
-            .frame(height: 140)
             .padding(.horizontal, 32)
             .background(Color(.systemGray6))
             
@@ -61,8 +89,11 @@ struct AllClientsView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
-                            ClientCard(client: client) {
+                            ClientCard(client: client, isEditing: viewModel.isEditing) {
                                 RouterService.shared.navigate(.client(client: client))
+                            } deleteFunc: {
+                                viewModel.isPresented = true
+                                viewModel.client = client
                             }
                         }
                     }
@@ -75,6 +106,16 @@ struct AllClientsView: View {
         }
         .onAppear {
             viewModel.updateList()
+        }
+        .overlay {
+            if viewModel.isPresented {
+                PopUp(title: "Deletar Cliente?", bodyText: "Esse cliente será permanentemente deletado da sua lista de clientes.", buttonText: "Deletar", secondaryText: "Cancelar") {
+                    viewModel.delete()
+                    viewModel.isPresented = false
+                } secondaryFunc: {
+                    viewModel.isPresented = false
+                }
+            }
         }
     }
 }

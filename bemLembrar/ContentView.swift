@@ -15,7 +15,6 @@ struct ContentView: View {
             VStack {
                 switch(router.screen) {
                 case .onboarding: OnboardingView()
-                case .home: HomeView()
                 case .allClients: AllClientsView()
                 case .addClient: AddClientView()
                 case .client(client: let client): ClientView(client: client)
@@ -28,11 +27,13 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)
         }
-        .alert(isPresented: $router.isAlertPresented) {
-            router.alert
-        }
         .sheet(isPresented: $router.isSheetPresented) {
             router.sheet
+        }
+        .overlay {
+            if router.isPopUpPresented {
+                router.popUp
+            }
         }
     }
 }
