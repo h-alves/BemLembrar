@@ -9,11 +9,42 @@ import Foundation
 
 class ClientDataSource: ObservableObject {
     static let shared = ClientDataSource()
+    let defaults = UserDefaults.standard
     
-    @Published var allClients = [Client]()
+    @Published var allClients = [Client]() {
+        didSet {
+            if oldValue != allClients {
+                save()
+            }
+        }
+    }
     
     private init(allClients: [Client] = [Client]()) {
         self.allClients = allClients
-        // self.allClients.append(Client.test)
+        retrieve()
+        // self.allClients.append(Client.test)r
+    }
+    
+    func save() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(allClients) {
+            defaults.set(encoded, forKey: "saved")
+            print("saved \(allClients.count)")
+        }
+    }
+    
+    func retrieve() {
+        if let saved = defaults.object(forKey: "saved") as? Data {
+            print("saved")
+            let decoder = JSONDecoder()
+            
+            do {
+                let loaded = try decoder.decode([Client].self, from: saved)
+                allClients = loaded
+                print("retrieved \(loaded.count)")
+            } catch {
+                print(error)
+            }
+        }
     }
 }

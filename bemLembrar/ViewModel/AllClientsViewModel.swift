@@ -7,6 +7,7 @@
 
 import Foundation
 import Contacts
+import Combine
 
 class AllClientsViewModel: ObservableObject {
     @Published var allClients = [Client]()
@@ -17,6 +18,21 @@ class AllClientsViewModel: ObservableObject {
     
     @Published var isEditing = false
     @Published var isPresented = false
+    
+    var bag = Set<AnyCancellable>()
+    
+    func subscribe() {
+        ClientDataSource.shared.$allClients.sink { clients in
+            self.updateList()
+        }.store(in: &bag)
+    }
+    
+    func cancelSubscription() {
+        for item in bag {
+            item.cancel()
+        }
+        bag.removeAll()
+    }
     
     func updateList() {
         allClients = ClientDataSource.shared.allClients

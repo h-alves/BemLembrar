@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Preferences {
+struct Preferences: Codable {
     var cheiro: [Cheiro]
     var pele: Pele
     var atendimento: Atendimento
@@ -16,7 +16,7 @@ struct Preferences {
     static var none = Preferences(cheiro: [], pele: .normal, atendimento: .none)
 }
 
-enum Cheiro: String, CaseIterable {
+enum Cheiro: String, CaseIterable, Codable {
     case none = ""
     
     case doce = "doce"
@@ -31,7 +31,7 @@ enum Cheiro: String, CaseIterable {
     }
 }
 
-enum Pele: String, CaseIterable {
+enum Pele: String, CaseIterable, Codable {
     case normal = "normal"
     
     case oleosa = "oleosa"
@@ -43,7 +43,7 @@ enum Pele: String, CaseIterable {
     }
 }
 
-enum Atendimento: String, CaseIterable {
+enum Atendimento: String, CaseIterable, Codable {
     case none = ""
     
     case mensagem = "mensagem"

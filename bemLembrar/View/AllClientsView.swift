@@ -108,7 +108,10 @@ struct AllClientsView: View {
             Spacer()
         }
         .onAppear {
-            viewModel.updateList()
+            viewModel.subscribe()
+        }
+        .onDisappear {
+            viewModel.cancelSubscription()
         }
         .overlay {
             if viewModel.isPresented {

@@ -55,16 +55,13 @@ class ClientViewModel: ObservableObject {
         if annotationIsEditing {
             client.annotation = annotation
             
-            var allClients = ClientDataSource.shared.allClients
             let id = client.contactInfo.identifier
             
-            for (index,originalClient) in allClients.enumerated() {
+            for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
                 if originalClient.contactInfo.identifier == id {
-                    allClients[index].self = client
+                    ClientDataSource.shared.allClients[index].self = client
                 }
             }
-            
-            ClientDataSource.shared.allClients = allClients
         }
         
         self.annotationIsEditing.toggle()
