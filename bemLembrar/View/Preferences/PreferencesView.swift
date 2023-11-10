@@ -8,102 +8,89 @@
 import SwiftUI
 
 struct PreferencesView: View {
+    let titleTexts = ["Fragrâncias", "Tipo de pele", "Atendimento"]
+    let descriptionTexts = ["Guarde as preferências das suas clientes para fazer recomendações personalizadas com os aromas que elas mais gostam", "Registre para nunca mais esquecer o tipo de pele da sua cliente: normal, seca, oleosa ou mista.", "Cada pessoa prefere um tipo específico de atendimento. Registre a melhor forma de entrar em contato com cada cliente!"]
+    
+    @State var selectIndex = 0
+    
     var body: some View {
-        
         VStack {
+            Spacer()
             
-            VStack(alignment: .leading) {
-                
-                Text("Agora só faltam as preferências das suas clientes!")
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Agora só falta incluir as preferências das suas clientes!")
                     .foregroundStyle(.white)
                     .font(.system(size: 32))
-                    .bold()
-                    .padding(.bottom, 12)
+                    .fontWeight(.semibold)
                 
-                Text("Selecione suas clientes de acordo com \nas preferências delas nos seguintes \ntópicos:")
+                Text("Escolha suas clientes com base nas preferências delas nos seguintes tópicos:")
                     .foregroundStyle(.white)
                     .font(.system(size: 16))
-                    .padding(.bottom, 35)
             }
             
-            VStack {
-                
-                HStack {
-                    
-                    Image(systemName: "nose")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 40))
-                    
-                    VStack(alignment: .leading) {
+            Spacer()
+            
+            TabView(selection: $selectIndex) {
+                ForEach(0..<3, id: \.self) { index in
+                    VStack {
+                        HStack(alignment: .center, spacing: 12) {
+                            ForEach((0..<3), id: \.self) { index in
+                                if index > self.selectIndex {
+                                    Circle()
+                                        .stroke(lineWidth: 2)
+                                        .foregroundColor(.white)
+                                        .frame(width: 16, height: 16)
+                                } else {
+                                    Circle()
+                                        .fill(.white)
+                                        .frame(width: 16, height: 16)
+                                }
+                            }
+                        }
+                        .animation(.default, value: selectIndex)
+                        .frame(maxWidth: .infinity, maxHeight: 20)
                         
-                        Text("Cheiros")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 24))
-                            .bold()
                         
-                        Text("Salve os gostos da suas clientes \npara os cheiros dos produtos \nque você indica e vende.")
-                            .font(.system(size: 16))
-                            .foregroundStyle(.white)
-                    }
-                }
-                .padding(.bottom, 28)
-                
-                HStack {
-                    
-                    Image(systemName: "face.smiling")
-                        .font(.system(size: 40))
-                        .foregroundStyle(.white)
-                    
-                    VStack(alignment: .leading) {
-                        
-                        Text("Tipo de pele")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 24))
-                            .bold()
-                        
-                        Text("Salve para sempre lembrar qual \né o tipo de pele da sua cliente: \nnormal, seca, oleosa ou mista.")
-                            .font(.system(size: 16))
-                            .foregroundStyle(.white)
-                    }
-                }
-                .padding(.bottom, 28)
-                
-                HStack {
-                    
-                    Image(systemName: "bubble.left")
-                        .font(.system(size: 40))
-                        .foregroundStyle(.white)
-                    
-                    VStack(alignment: .leading) {
-                        
-                        Text("Atendimento")
-                            .foregroundStyle(.white)
-                            .font(.system(size: 24))
-                            .bold()
-                        
-                        Text("Cada pessoa prefere um tipo de \natendimento, salve qual é o \nmelhor jeito de entrar em \ncontato com a sua cliente.")
-                            .font(.system(size: 16))
-                            .foregroundStyle(.white)
+                        Image("preferenceImage\(selectIndex+1)")
+                            .resizable()
+                            .frame(width: 241, height: 241)
+                            .clipShape(Circle())
+                            
+                        VStack(spacing: 12) {
+                            Text("\(titleTexts[selectIndex])")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 24))
+                                .fontWeight(.semibold)
+                            
+                            Text("\(descriptionTexts[selectIndex])")
+                                .foregroundStyle(.white)
+                                .font(.system(size: 14))
+                                .multilineTextAlignment(.center)
+                                .frame(maxHeight: 58)
+                        }
                     }
                 }
             }
-            .padding(.bottom, 71)
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .frame(height: 400)
+            
+            Spacer()
             
             Button {
                 RouterService.shared.navigate(.smell)
             } label: {
-                Text("Selecionar preferências")
-                    .font(.system(size: 16))
+                Text("Continuar")
                     .foregroundStyle(.black)
+                    .fontWeight(.bold)
                     .padding()
+                    .frame(maxWidth: .infinity)
+                    .background()
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
             }
-            .frame(maxWidth: 298, maxHeight: 46)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
         }
+        .padding(.horizontal, 36)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("FundoOnboarding"))
+        .background(Color(.darkGray))
     }
 }
 

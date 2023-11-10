@@ -19,7 +19,7 @@ struct ClientSheetView: View {
     var body: some View {
         VStack {
             ForEach(viewModel.filteredContacts, id: \.contactInfo.identifier) { client in
-                ContactCard(contact: viewModel.getBinding(contact: client)) {
+                ContactCard(contact: viewModel.getBinding(contact: client), color: .white) {
                     viewModel.selectContact(contact: client)
                 }
             }

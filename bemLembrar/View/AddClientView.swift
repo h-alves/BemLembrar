@@ -12,37 +12,43 @@ struct AddClientView: View {
     @ObservedObject var viewModel: AddClientViewModel
     
     var body: some View {
-        if viewModel.denied {
-            VStack {
-                Text("NÃO PERMITIDO")
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        RouterService.shared.navigate(.allClients)
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 17))
-                            .fontWeight(.bold)
+        ZStack {
+            VStack(spacing: 24) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Adicionar clientes")
+                            .font(.system(size: 34))
+                        
+                        Text("Selecione **quais contatos são seus clientes**")
+                            .font(.system(size: 16))
                     }
-                }
-            }
-        } else {
-            ZStack {
-                VStack {
-                    Spacer()
                     
-                    if !viewModel.autoContacts.isEmpty {
+                    Spacer()
+                }
+                
+                if !viewModel.autoContacts.isEmpty {
+                    VStack(alignment: .leading) {
                         Text("Sugestões")
+                            .font(.system(size: 17))
+                            .fontWeight(.semibold)
+                        
+                        Text("Identificamos alguns contatos como clientes:")
+                            .font(.system(size: 13))
                         
                         ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
-                            ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                            ContactCard(contact: viewModel.getBinding(contact: phoneContact), color: Color(.systemGray5)) {
                                 viewModel.selectContact(contact: phoneContact)
                             }
                         }
                     }
-                    
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                
+                VStack(alignment: .leading, spacing: 10) {
                     Text("Todos os contatos")
+                        .font(.system(size: 28))
                     
                     HStack {
                         // Barra de pesquisa
@@ -66,7 +72,7 @@ struct AddClientView: View {
                     ScrollView {
                         VStack {
                             ForEach(viewModel.manualContacts, id: \.contactInfo.identifier) { phoneContact in
-                                ContactCard(contact: viewModel.getBinding(contact: phoneContact)) {
+                                ContactCard(contact: viewModel.getBinding(contact: phoneContact), color: .white) {
                                     viewModel.selectContact(contact: phoneContact)
                                 }
                             }
@@ -76,31 +82,31 @@ struct AddClientView: View {
                         .padding(.bottom, 60)
                     }
                     .scrollIndicators(.hidden)
-                    
-                    Spacer()
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 24)
                 
-                VStack {
-                    Spacer()
-                    
-                    Button {
-                        viewModel.saveData()
-                    } label: {
-                        Text("Adicionar Clientes\(viewModel.selectedContacts())")
-                            .fontWeight(.bold)
-                            .foregroundStyle(viewModel.disabled() ? .white : .black)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(viewModel.disabled() ? Color(.systemGray3) : Color(.systemGray4))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                    }
-                    .padding(.top, 12)
-                    .padding(.horizontal, 36)
-                    .background(.gray)
-                    .disabled(viewModel.disabled())
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 24)
+            
+            VStack {
+                Spacer()
+                
+                Button {
+                    viewModel.saveData()
+                } label: {
+                    Text("Adicionar Clientes\(viewModel.selectedContacts())")
+                        .fontWeight(.bold)
+                        .foregroundStyle(viewModel.disabled() ? .white : .black)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(viewModel.disabled() ? Color(.systemGray3) : Color(.systemGray4))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
+                .padding(.top, 12)
+                .padding(.horizontal, 36)
+                .background(.gray)
+                .disabled(viewModel.disabled())
             }
         }
     }
