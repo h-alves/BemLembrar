@@ -33,9 +33,9 @@ struct SearchBar: View {
                         }
                     , alignment: .trailing
                 )
-                .onChange(of: searchText) { oldValue, newValue in
+                .onChange(of: searchText, perform: { value in
                     mainFunc()
-                }
+                })
         }
         .padding(12)
         .overlay(
