@@ -133,8 +133,8 @@ struct ClientView: View {
                     viewModel.updateClient(client: client)
                 }
             }
+            .scrollIndicators(.hidden)
         }
-        .scrollIndicators(.hidden)
     }
 }
 

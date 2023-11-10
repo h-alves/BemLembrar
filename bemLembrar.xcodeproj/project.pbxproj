@@ -150,15 +150,13 @@
 		783E55E32AF0A54300921298 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				783E56032AF3DFB100921298 /* SearchBar.swift */,
 				783E56262AF8176300921298 /* TitleBar.swift */,
-				78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */,
-				78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */,
-				78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */,
+				783E56032AF3DFB100921298 /* SearchBar.swift */,
 				78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */,
 				78EEC6C92AFD5F410030F5EA /* PopUp.swift */,
 				783E56242AF8172100921298 /* Cards */,
 				783E56252AF8172B00921298 /* Tags */,
+				78EEC6CB2AFDA85A0030F5EA /* EditFields */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -253,6 +251,16 @@
 				78E629D22AED73A500CBB373 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		78EEC6CB2AFDA85A0030F5EA /* EditFields */ = {
+			isa = PBXGroup;
+			children = (
+				78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */,
+				78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */,
+				78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */,
+			);
+			path = EditFields;
 			sourceTree = "<group>";
 		};
 		78FEF4DD2AF8721C00A5A6D8 /* Sheets */ = {
