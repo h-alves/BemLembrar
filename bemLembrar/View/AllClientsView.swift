@@ -13,9 +13,6 @@ struct AllClientsView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment:.leading) {
-                
-                Spacer()
-                
                 HStack {
                     Text("Meus Clientes")
                         .font(.system(size: 32))
@@ -32,26 +29,46 @@ struct AllClientsView: View {
                     .disabled(viewModel.allClients.isEmpty)
                 }
                 
-                HStack {
+                VStack {
                     SearchBar(searchText: $viewModel.searchText) {
                         viewModel.updateList()
                     }
                     
-                    Button(action: {
-                        RouterService.shared.navigate(.addClient)
-                    }) {
-                        Text("+ Adicionar")
-                            .fontWeight(.medium)
+                    HStack {
+                        Button(action: {
+                            RouterService.shared.navigate(.addClient)
+                        }) {
+                            HStack {
+                                Image(systemName: "plus")
+                                
+                                Text("Adicionar")
+                            }
+                            .fontWeight(.bold)
                             .foregroundStyle(.white)
                             .padding(12)
-                            .background(Color(.systemGray2))
+                            .background(.gray)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        
+                        Button(action: {
+                            RouterService.shared.navigate(.smell)
+                        }) {
+                            HStack {
+                                Image(systemName: viewModel.allClients.isEmpty ? "lock.fill" : "square.and.pencil")
+                                
+                                Text("Preferências")
+                            }
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                            .padding(12)
+                            .background(viewModel.allClients.isEmpty ? Color(.systemGray4) : .gray)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                        }
+                        .disabled(viewModel.allClients.isEmpty)
                     }
-                    .frame(width: 116, height: 42)
                 }
-                .padding(.bottom, 21)
+                .padding(.bottom, 12)
             }
-            .frame(height: 140)
             .padding(.horizontal, 32)
             .background(Color(.systemGray6))
             
