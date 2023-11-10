@@ -18,70 +18,93 @@ struct PreferenceCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            // Título
-            if cheiro != .none {
-                Text("\(cheiro.rawValue.capitalized)?")
-                    .font(.system(size: 18))
-                    .fontWeight(.semibold)
-            } else if pele != .normal {
-                Text("\(pele.rawValue.capitalized)?")
-                    .font(.system(size: 18))
-                    .fontWeight(.semibold)
-            } else if atendimento != .none {
-                Text("\(atendimento.rawValue.capitalized)?")
-                    .font(.system(size: 18))
-                    .fontWeight(.semibold)
-            }
-            
-            HStack {
-                // Botão de adicionar
-                VStack {
+            if clientList.isEmpty {
+                Button {
+                    mainFunc()
+                } label: {
+                    HStack {
+                        // Título
+                        if cheiro != .none {
+                            Text("\(cheiro.rawValue.capitalized)?")
+                                .foregroundStyle(.black)
+                                .font(.system(size: 18))
+                                .fontWeight(.semibold)
+                        } else if pele != .normal {
+                            Text("\(pele.rawValue.capitalized)?")
+                                .foregroundStyle(.black)
+                                .font(.system(size: 18))
+                                .fontWeight(.semibold)
+                        } else if atendimento != .none {
+                            Text("\(atendimento.rawValue.capitalized)?")
+                                .foregroundStyle(.black)
+                                .font(.system(size: 18))
+                                .fontWeight(.semibold)
+                        }
+                        
+                        Spacer()
+                        
+                        Image(systemName: "plus")
+                            .foregroundStyle(.black)
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                    }
+                }
+            } else {
+                HStack {
+                    // Título
+                    if cheiro != .none {
+                        Text("\(cheiro.rawValue.capitalized)?")
+                            .foregroundStyle(.black)
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                    } else if pele != .normal {
+                        Text("\(pele.rawValue.capitalized)?")
+                            .foregroundStyle(.black)
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                    } else if atendimento != .none {
+                        Text("\(atendimento.rawValue.capitalized)?")
+                            .foregroundStyle(.black)
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                    }
+                    
+                    Spacer()
+                    
                     Button {
                         mainFunc()
                     } label: {
                         Image(systemName: "plus")
-                            .font(.system(size: 32))
+                            .foregroundStyle(.black)
+                            .font(.system(size: 18))
                             .fontWeight(.semibold)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.gray)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
-                    
-                    Text("Adicionar")
-                        .font(.system(size: 19))
-                        .fontWeight(.bold)
-                        .foregroundStyle(.gray)
                 }
-                
-                ScrollView(.horizontal) {
-                    HStack {
-                        // Todos os clientes
-                        ForEach(clientList, id: \.contactInfo.identifier) { client in
-                            VStack {
-                                Image("")
-                                    .resizable()
-                                    .frame(width: 65, height: 65)
-                                    .background(.gray)
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                                
+            }
+            
+            if !clientList.isEmpty {
+                HStack {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            // Todos os clientes
+                            ForEach(clientList, id: \.contactInfo.identifier) { client in
                                 Text(client.fullName)
-                                    .font(.system(size: 19))
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.gray)
-                                    .frame(maxWidth: 100)
-                                    .lineLimit(1)
+                                    .font(.system(size: 17))
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 8)
+                                    .background(Color(.systemGray4))
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                             }
                         }
                     }
+                    .scrollIndicators(.hidden)
                 }
-                .scrollIndicators(.hidden)
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(32)
+        .padding(18)
         .background(Color(.systemGray5))
-        .clipShape(RoundedRectangle(cornerRadius: 24))
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 

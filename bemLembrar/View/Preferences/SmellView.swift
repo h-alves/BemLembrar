@@ -14,7 +14,7 @@ struct SmellView: View {
         NavigationStack {
             ZStack {
                 VStack(spacing: 0) {
-                    TitleBar(symbol: "nose", title: "Cheiros")
+                    TitleBar(symbol: "nose", title: "Fragrâncias")
                     
                     ScrollView {
                         VStack {
