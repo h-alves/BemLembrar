@@ -63,9 +63,21 @@ class AllClientsViewModel: ObservableObject {
         
         updateList()
         
+        recreateNotifications()
+        
         if allClients.isEmpty {
             isEditing.toggle()
             ClientDataSource.shared.allClients = allClients
+        }
+    }
+    
+    func recreateNotifications() {
+        NotificationManager.shared.cancelAllNotifications()
+        
+        for i in ClientDataSource.shared.allClients {
+            if i.birthday != nil {
+                NotificationManager.shared.scheduleNotification(fullName: i.fullName, timeInterval: i.birthday!.getMonthDay(), repeats: false)
+            }
         }
     }
 }
