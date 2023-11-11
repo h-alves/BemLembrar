@@ -53,6 +53,6 @@ extension Client: Codable {
 
 extension Client: Equatable {
     static func == (lhs: Client, rhs: Client) -> Bool {
-        return lhs.identifier == rhs.identifier && lhs.fullName == rhs.fullName && lhs.birthday == rhs.birthday && lhs.annotation == rhs.annotation && lhs.preferences == rhs.preferences
+        return lhs.identifier == rhs.identifier && lhs.fullName == rhs.fullName && lhs.birthday == rhs.birthday && lhs.address == rhs.address && lhs.annotation == rhs.annotation && lhs.preferences == rhs.preferences
     }
 }
