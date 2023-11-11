@@ -78,7 +78,7 @@ struct ClientView: View {
                                 Text("Lembre-se do que sua cliente mais gosta!")
                                     .font(.system(size: 13))
                                 
-                                PreferencesTagsBig(preferences: client.preferences)
+                                PreferencesTag(big: true, preferences: client.preferences)
                             }
                             
                             Spacer()

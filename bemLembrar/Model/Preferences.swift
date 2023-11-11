@@ -16,6 +16,10 @@ struct Preferences: Codable {
     static var none = Preferences(cheiro: [], pele: .normal, atendimento: .none)
 }
 
+extension Preferences: Equatable {
+    
+}
+
 enum Cheiro: String, CaseIterable, Codable {
     case none = ""
     

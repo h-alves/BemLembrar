@@ -34,16 +34,13 @@ class ClientViewModel: ObservableObject {
             
             client.address = address
             
-            var allClients = ClientDataSource.shared.allClients
             let id = client.identifier
             
-            for (index,originalClient) in allClients.enumerated() {
+            for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
                 if originalClient.identifier == id {
-                    allClients[index].self = client
+                    ClientDataSource.shared.allClients[index].self = client
                 }
             }
-            
-            ClientDataSource.shared.allClients = allClients
             
             print(ClientDataSource.shared.allClients)
         }

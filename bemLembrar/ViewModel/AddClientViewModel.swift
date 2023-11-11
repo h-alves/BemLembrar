@@ -48,7 +48,7 @@ class AddClientViewModel: ObservableObject {
                 let request = CNContactFetchRequest(keysToFetch: keys)
                 
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
-                    let newContact = Contact(contactInfo: contact, isSelected: false)
+                    let newContact = Contact(contactInfo: contact, identifier: contact.identifier, isSelected: false)
                     phoneContacts.append(newContact)
                 })
             }catch {
@@ -173,7 +173,7 @@ class AddClientViewModel: ObservableObject {
                 contact.postalAddresses = [CNLabeledValue(label: CNLabelHome, value: homeAddress)]
             }
             
-            let c = Contact(contactInfo: contact, isSelected: true)
+            let c = Contact(contactInfo: contact, identifier: contact.identifier, isSelected: true)
             
             phoneContacts.append(c)
             manualContacts.append(c)

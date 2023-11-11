@@ -29,7 +29,7 @@ struct SmellView: View {
                             
                             VStack(spacing: 24) {
                                 ForEach(Cheiro.allCases, id: \.rawValue) { c in
-                                    PreferenceCard(cheiro: c,clientList: viewModel.allClients.filter({ $0.preferences.cheiro.contains(c) })) {
+                                    PreferenceCard(cheiro: c,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.cheiro.contains(c) })) {
                                         RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .smell, cheiro: c))
                                     }
                                 }
@@ -60,6 +60,12 @@ struct SmellView: View {
                     .padding(.horizontal, 36)
                     .background(.gray)
                 }
+            }
+            .onAppear {
+                viewModel.subscribe()
+            }
+            .onDisappear {
+                viewModel.cancelSubscription()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
