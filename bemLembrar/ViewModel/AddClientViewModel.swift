@@ -206,7 +206,7 @@ class AddClientViewModel: ObservableObject {
                 address = i.contactInfo.postalAddresses[0].value.formatAddress()
             }
             
-            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
+            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
             ClientDataSource.shared.allClients.append(newClient)
         }
         

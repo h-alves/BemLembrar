@@ -23,6 +23,7 @@ struct ClientView: View {
                         
                         Text(client.fullName)
                             .font(.system(size: 34))
+                            .lineLimit(1)
                         
                         HStack {
                             ClientButton(symbol: "message.fill", text: "mensagem") {
