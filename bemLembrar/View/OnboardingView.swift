@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @Binding var onboarding: Bool
+    
     @State var selectIndex = 0
     
     var body: some View {
@@ -59,6 +61,7 @@ struct OnboardingView: View {
             Spacer()
             
             Button {
+                onboarding = false
                 RouterService.shared.navigate(.allClients)
             } label: {
                 Text("Continuar")
@@ -77,5 +80,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(onboarding: .constant(true))
 }

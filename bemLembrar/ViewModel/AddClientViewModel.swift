@@ -211,7 +211,6 @@ class AddClientViewModel: ObservableObject {
         }
         
         // print(ClientDataSource.shared.allClients)
-        RouterService.shared.navigate(.preferences)
     }
     
     func selectedContacts() -> String {
