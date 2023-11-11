@@ -87,7 +87,7 @@ struct PreferenceCard: View {
                     ScrollView(.horizontal) {
                         HStack {
                             // Todos os clientes
-                            ForEach(clientList, id: \.contactInfo.identifier) { client in
+                            ForEach(clientList, id: \.identifier) { client in
                                 Text(client.fullName)
                                     .font(.system(size: 17))
                                     .padding(.horizontal, 20)

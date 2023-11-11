@@ -58,7 +58,7 @@ class AllClientsViewModel: ObservableObject {
     
     func delete() {
         allClients.removeAll { c in
-            c.contactInfo.identifier == client.contactInfo.identifier
+            c.contactInfo.identifier == client.identifier
         }
         
         if allClients.isEmpty {

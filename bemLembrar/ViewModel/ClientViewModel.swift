@@ -35,10 +35,10 @@ class ClientViewModel: ObservableObject {
             client.address = address
             
             var allClients = ClientDataSource.shared.allClients
-            let id = client.contactInfo.identifier
+            let id = client.identifier
             
             for (index,originalClient) in allClients.enumerated() {
-                if originalClient.contactInfo.identifier == id {
+                if originalClient.identifier == id {
                     allClients[index].self = client
                 }
             }
@@ -55,10 +55,10 @@ class ClientViewModel: ObservableObject {
         if annotationIsEditing {
             client.annotation = annotation
             
-            let id = client.contactInfo.identifier
+            let id = client.identifier
             
             for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
-                if originalClient.contactInfo.identifier == id {
+                if originalClient.identifier == id {
                     ClientDataSource.shared.allClients[index].self = client
                 }
             }

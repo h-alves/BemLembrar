@@ -91,7 +91,7 @@ struct AllClientsView: View {
             } else {
                 ScrollView {
                     VStack(spacing: 16) {
-                        ForEach(viewModel.allClients, id: \.contactInfo.identifier) { client in
+                        ForEach(viewModel.allClients, id: \.identifier) { client in
                             ClientCard(client: client, isEditing: viewModel.isEditing) {
                                 RouterService.shared.navigate(.client(client: client))
                             } deleteFunc: {
