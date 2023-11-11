@@ -79,17 +79,21 @@ struct PreferencesView: View {
             
             Spacer()
             
-            Button {
-                onboarding = false
-                RouterService.shared.navigate(.smell)
-            } label: {
-                Text("Continuar")
-                    .foregroundStyle(.black)
-                    .fontWeight(.bold)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background()
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            if selectIndex >= 2 {
+                Button {
+                    onboarding = false
+                    RouterService.shared.navigate(.smell)
+                } label: {
+                    Text("Continuar")
+                        .foregroundStyle(.black)
+                        .fontWeight(.bold)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background()
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            } else {
+                Spacer(minLength: 55)
             }
         }
         .padding(.horizontal, 36)
