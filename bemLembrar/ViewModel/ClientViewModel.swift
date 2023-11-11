@@ -71,7 +71,7 @@ class ClientViewModel: ObservableObject {
         
         for i in ClientDataSource.shared.allClients {
             if i.birthday != nil {
-                NotificationManager.shared.scheduleNotification(fullName: i.fullName, timeInterval: i.birthday!.getMonthDay(), repeats: false)
+                NotificationManager.shared.scheduleNotification(fullName: i.fullName, date: i.birthday!.getMonthDay(), repeats: true)
             }
         }
     }

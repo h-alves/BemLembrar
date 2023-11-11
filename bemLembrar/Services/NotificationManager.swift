@@ -26,13 +26,13 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    func scheduleNotification(fullName: String, timeInterval: TimeInterval, repeats: Bool) {
+    func scheduleNotification(fullName: String, date: DateComponents, repeats: Bool) {
         let content = UNMutableNotificationContent()
         content.title = fullName
         content.body = fullName
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: repeats)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: repeats)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         

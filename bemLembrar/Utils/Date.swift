@@ -9,24 +9,12 @@ import Foundation
 
 extension Date {
     
-    func getMonthDay() -> TimeInterval {
+    func getMonthDay() -> DateComponents {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.month, .day], from: self)
+        components.hour = 11
         
-        // Obter o ano atual
-        let currentYear = calendar.component(.year, from: Date())
-        
-        components.year = currentYear
-        
-        let newDate = calendar.date(from: components)
-        
-        if Date() > newDate! {
-            components.year = currentYear + 1
-            print("ano q vem: \(calendar.date(from: components)!)")
-            return calendar.date(from: components)!.timeIntervalSinceNow
-        }
-        
-        print("esse ano: \(newDate!)")
-        return newDate!.timeIntervalSinceNow
+        print("data: \(calendar.date(from: components)!)")
+        return components
     }
 }

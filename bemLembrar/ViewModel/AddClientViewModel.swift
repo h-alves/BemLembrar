@@ -211,7 +211,7 @@ class AddClientViewModel: ObservableObject {
             
             if newClient.birthday != nil {
                 // Agendando notificação pro aniversário da pessoa
-                NotificationManager.shared.scheduleNotification(fullName: newClient.fullName, timeInterval: newClient.birthday!.getMonthDay(), repeats: false)
+                NotificationManager.shared.scheduleNotification(fullName: newClient.fullName, date: newClient.birthday!.getMonthDay(), repeats: true)
             }
         }
         
