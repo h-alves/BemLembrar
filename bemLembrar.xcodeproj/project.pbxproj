@@ -32,6 +32,8 @@
 		78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14082AFDC51E0094CF66 /* AddClientManager.swift */; };
 		78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */; };
 		78AF140F2AFFCCB40094CF66 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF140E2AFFCCB40094CF66 /* String.swift */; };
+		78AF14112B0018C90094CF66 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14102B0018C90094CF66 /* NotificationManager.swift */; };
+		78AF14152B0029830094CF66 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14142B0029830094CF66 /* Date.swift */; };
 		78E629CC2AED73A400CBB373 /* bemLembrarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		78AF14082AFDC51E0094CF66 /* AddClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientManager.swift; sourceTree = "<group>"; };
 		78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectedView.swift; sourceTree = "<group>"; };
 		78AF140E2AFFCCB40094CF66 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		78AF14102B0018C90094CF66 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		78AF14142B0029830094CF66 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* bemLembrar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bemLembrar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bemLembrarApp.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,8 +177,9 @@
 				78AF140E2AFFCCB40094CF66 /* String.swift */,
 				783E55E72AF0A64D00921298 /* CNMutableContact.swift */,
 				78FEF4E82AF9D76B00A5A6D8 /* CNPostalAdress.swift */,
-				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 				783E56132AF74BB800921298 /* DateComponents.swift */,
+				78AF14142B0029830094CF66 /* Date.swift */,
+				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 				78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */,
 			);
 			path = Utils;
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				783E55FD2AF2D59400921298 /* RouterService.swift */,
+				78AF14102B0018C90094CF66 /* NotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
 				78FEF4E92AF9D76B00A5A6D8 /* CNPostalAdress.swift in Sources */,
+				78AF14152B0029830094CF66 /* Date.swift in Sources */,
 				78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				78FEF4E72AF96E9400A5A6D8 /* PreferencesTag.swift in Sources */,
@@ -374,6 +381,7 @@
 				78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */,
 				78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */,
 				78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */,
+				78AF14112B0018C90094CF66 /* NotificationManager.swift in Sources */,
 				78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */,
 				783E56042AF3DFB100921298 /* SearchBar.swift in Sources */,
 				783E55EA2AF1804900921298 /* Client.swift in Sources */,
