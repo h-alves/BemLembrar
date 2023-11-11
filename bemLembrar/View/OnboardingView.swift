@@ -80,6 +80,11 @@ struct OnboardingView: View {
         .padding(.horizontal, 36)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.darkGray))
+        .onChange(of: selectIndex, perform: { value in
+            if selectIndex == 2 {
+                NotificationManager.shared.requestPermission()
+            }
+        })
     }
 }
 

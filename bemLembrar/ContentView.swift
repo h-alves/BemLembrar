@@ -30,6 +30,11 @@ struct ContentView: View {
             .frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)
         }
+        .onAppear {
+            if onboarding {
+                RouterService.shared.screen = .onboarding
+            }
+        }
         .sheet(isPresented: $router.isSheetPresented) {
             router.sheet
         }
