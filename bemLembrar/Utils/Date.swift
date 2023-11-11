@@ -17,4 +17,12 @@ extension Date {
         print("data: \(calendar.date(from: components)!)")
         return components
     }
+    
+    func formatText() -> String {
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
+        
+        return dateFormatter.string(from: self)
+    }
 }

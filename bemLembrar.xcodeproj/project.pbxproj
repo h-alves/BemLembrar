@@ -177,8 +177,8 @@
 				78AF140E2AFFCCB40094CF66 /* String.swift */,
 				783E55E72AF0A64D00921298 /* CNMutableContact.swift */,
 				78FEF4E82AF9D76B00A5A6D8 /* CNPostalAdress.swift */,
-				783E56132AF74BB800921298 /* DateComponents.swift */,
 				78AF14142B0029830094CF66 /* Date.swift */,
+				783E56132AF74BB800921298 /* DateComponents.swift */,
 				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 				78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */,
 			);
