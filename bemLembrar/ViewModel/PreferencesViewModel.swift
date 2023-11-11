@@ -6,36 +6,58 @@
 //
 
 import SwiftUI
+import Combine
+import Contacts
 
 class PreferencesViewModel: ObservableObject {
-    @Published var allClients = ClientDataSource.shared.allClients
+    @Published var allClients = [Client]()
     
     @Published var filteredContacts = [Contact]()
+    
+    var bag = Set<AnyCancellable>()
+    
+    func subscribe() {
+        ClientDataSource.shared.$allClients.sink { clients in
+            self.updateList()
+        }.store(in: &bag)
+    }
+    
+    func cancelSubscription() {
+        for item in bag {
+            item.cancel()
+        }
+        bag.removeAll()
+    }
     
     // Funções pra Manter a Lista de Contatos
     
     func filterContacts(cheiro: Cheiro, pele: Pele, atendimento: Atendimento) {
-        for client in allClients {
+        for client in ClientDataSource.shared.allClients {
             if cheiro != .none {
                 if !client.preferences.cheiro.contains(cheiro) {
-                    let contact = Contact(contactInfo: client.contactInfo, isSelected: false)
+                    let contact = Contact(contactInfo: CNMutableContact().createID(identifier: client.identifier, fullName: client.fullName), identifier: client.identifier, isSelected: false)
                     filteredContacts.append(contact)
                 }
             } else if pele != .normal {
                 if client.preferences.pele != pele {
-                    let contact = Contact(contactInfo: client.contactInfo, isSelected: false)
+                    let contact = Contact(contactInfo: CNMutableContact().createID(identifier: client.identifier, fullName: client.fullName), identifier: client.identifier, isSelected: false)
                     filteredContacts.append(contact)
                 }
             } else if atendimento != .none {
                 if client.preferences.atendimento != atendimento {
-                    let contact = Contact(contactInfo: client.contactInfo, isSelected: false)
+                    let contact = Contact(contactInfo: CNMutableContact().createID(identifier: client.identifier, fullName: client.fullName), identifier: client.identifier, isSelected: false)
                     filteredContacts.append(contact)
                 }
             }
         }
+        print(filteredContacts)
     }
     
     func updateList() {
+        allClients = ClientDataSource.shared.allClients
+    }
+    
+    func updateFiltered() {
         filteredContacts = filteredContacts
     }
     
@@ -43,12 +65,12 @@ class PreferencesViewModel: ObservableObject {
     
     func selectContact(contact: Contact) {
         let index = filteredContacts.firstIndex { c in
-            return c.contactInfo.identifier == contact.contactInfo.identifier
+            return c.identifier == contact.identifier
         }
         
         filteredContacts[index!].isSelected.toggle()
         
-        updateList()
+        updateFiltered()
     }
     
     func getBinding(contact: Contact) -> Binding<Contact?> {
@@ -72,21 +94,22 @@ class PreferencesViewModel: ObservableObject {
         }
         
         for contact in selectedContacts {
-            let contactInfo = contact.contactInfo
+            let id = contact.identifier
             
-            for (index,client) in allClients.enumerated() {
-                if client.contactInfo == contactInfo {
+            for (index,client) in ClientDataSource.shared.allClients.enumerated() {
+                if client.identifier == id {
                     if cheiro != .none {
-                        allClients[index].preferences.cheiro.append(cheiro)
+                        ClientDataSource.shared.allClients[index].preferences.cheiro.append(cheiro)
                     } else if pele != .normal {
-                        allClients[index].preferences.pele = pele
+                        ClientDataSource.shared.allClients[index].preferences.pele = pele
                     } else if atendimento != .none {
-                        allClients[index].preferences.atendimento = atendimento
+                        ClientDataSource.shared.allClients[index].preferences.atendimento = atendimento
                     }
                 }
             }
         }
         
-        ClientDataSource.shared.allClients = allClients
+        updateList()
+        ClientDataSource.shared.save()
     }
 }

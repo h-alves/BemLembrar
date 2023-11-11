@@ -10,7 +10,8 @@ import Contacts
 
 struct Contact: Equatable {
     var contactInfo: CNContact
+    var identifier: String
     var isSelected: Bool
     
-    static var test = Contact(contactInfo: CNMutableContact().createTestContact(), isSelected: false)
+    static var test = Contact(contactInfo: CNMutableContact().createTestContact(), identifier: CNMutableContact().createTestContact().identifier, isSelected: false)
 }

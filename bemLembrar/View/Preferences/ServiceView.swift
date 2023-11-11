@@ -61,6 +61,12 @@ struct ServiceView: View {
                     .background(.gray)
                 }
             }
+            .onAppear {
+                viewModel.subscribe()
+            }
+            .onDisappear {
+                viewModel.cancelSubscription()
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {

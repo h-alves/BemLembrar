@@ -48,7 +48,7 @@ class AddClientViewModel: ObservableObject {
                 let request = CNContactFetchRequest(keysToFetch: keys)
                 
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
-                    let newContact = Contact(contactInfo: contact, isSelected: false)
+                    let newContact = Contact(contactInfo: contact, identifier: contact.identifier, isSelected: false)
                     phoneContacts.append(newContact)
                 })
             }catch {
@@ -173,7 +173,7 @@ class AddClientViewModel: ObservableObject {
                 contact.postalAddresses = [CNLabeledValue(label: CNLabelHome, value: homeAddress)]
             }
             
-            let c = Contact(contactInfo: contact, isSelected: true)
+            let c = Contact(contactInfo: contact, identifier: contact.identifier, isSelected: true)
             
             phoneContacts.append(c)
             manualContacts.append(c)
@@ -206,7 +206,7 @@ class AddClientViewModel: ObservableObject {
                 address = i.contactInfo.postalAddresses[0].value.formatAddress()
             }
             
-            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, fullName: i.contactInfo.givenName + " " + i.contactInfo.familyName, birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
+            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
             ClientDataSource.shared.allClients.append(newClient)
         }
         

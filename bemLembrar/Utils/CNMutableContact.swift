@@ -10,6 +10,14 @@ import Contacts
 
 extension CNMutableContact {
     
+    func createID(identifier: String, fullName: String) -> CNMutableContact {
+        let contact = CNMutableContact()
+        
+        contact.givenName = fullName
+        
+        return contact
+    }
+    
     // Creating a contact for testing in previews
     func createTestContact(givenName: String = "John", familyName: String = "Appleseed") -> CNMutableContact {
         let contact = CNMutableContact()

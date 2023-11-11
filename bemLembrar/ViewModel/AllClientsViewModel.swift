@@ -57,9 +57,11 @@ class AllClientsViewModel: ObservableObject {
     }
     
     func delete() {
-        allClients.removeAll { c in
-            c.contactInfo.identifier == client.contactInfo.identifier
+        ClientDataSource.shared.allClients.removeAll { c in
+            c.identifier == client.identifier
         }
+        
+        updateList()
         
         if allClients.isEmpty {
             isEditing.toggle()
