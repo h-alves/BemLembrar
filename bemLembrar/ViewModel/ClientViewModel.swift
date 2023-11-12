@@ -23,7 +23,7 @@ class ClientViewModel: ObservableObject {
     func updateClient(client: Client) {
         self.client = client
         
-        self.address = client.address ?? ""
+        self.address = client.address
         self.birthday = client.birthday ?? Date()
         self.annotation = client.annotation
         

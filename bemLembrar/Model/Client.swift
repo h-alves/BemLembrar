@@ -14,7 +14,7 @@ struct Client {
     let number: String
     let fullName: String
     var birthday: Date?
-    var address: String?
+    var address: String
     var preferences: Preferences
     var annotation: String
     
@@ -36,7 +36,7 @@ extension Client: Codable {
         } else {
             birthday = nil
         }
-        address = try container.decodeIfPresent(String.self, forKey: .address)
+        address = try container.decode(String.self, forKey: .address)
         preferences = try container.decode(Preferences.self, forKey: .preferences)
         annotation = try container.decode(String.self, forKey: .annotation)
         contactInfo = CNContact()
@@ -56,6 +56,6 @@ extension Client: Codable {
 
 extension Client: Equatable {
     static func == (lhs: Client, rhs: Client) -> Bool {
-        return lhs.identifier == rhs.identifier && lhs.fullName == rhs.fullName && lhs.birthday == rhs.birthday && lhs.address == rhs.address && lhs.annotation == rhs.annotation && lhs.preferences == rhs.preferences
+        return lhs.identifier == rhs.identifier && lhs.number == rhs.number && lhs.fullName == rhs.fullName && lhs.birthday == rhs.birthday && lhs.address == rhs.address && lhs.annotation == rhs.annotation && lhs.preferences == rhs.preferences
     }
 }
