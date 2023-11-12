@@ -71,10 +71,10 @@ class ClientViewModel: ObservableObject {
     }
     
     func recreateNotifications() {
-        NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "birthday")
+        NotificationManager.shared.cancelDateNotification(identifier: client.identifier, type: "birthday")
         
         if client.birthday != nil {
-            NotificationManager.shared.scheduleNotification(identifier: client.identifier, type: "birthday", fullName: client.fullName, date: client.birthday!.getMonthDay(), repeats: true)
+            NotificationManager.shared.scheduleDateNotification(identifier: client.identifier, type: "birthday", fullName: client.fullName, date: client.birthday!.getMonthDay(), repeats: true)
         }
     }
     

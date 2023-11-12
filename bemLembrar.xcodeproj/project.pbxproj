@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7834BC5F2B016A720057D6A1 /* ComemorativeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC5E2B016A720057D6A1 /* ComemorativeDate.swift */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7834BC5E2B016A720057D6A1 /* ComemorativeDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComemorativeDate.swift; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */,
 				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
 				783E56072AF4085D00921298 /* Screen.swift */,
+				7834BC5E2B016A720057D6A1 /* ComemorativeDate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			files = (
 				783E56222AF8145800921298 /* ServiceView.swift in Sources */,
 				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
+				7834BC5F2B016A720057D6A1 /* ComemorativeDate.swift in Sources */,
 				78AF140F2AFFCCB40094CF66 /* String.swift in Sources */,
 				78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */,
 				78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */,
