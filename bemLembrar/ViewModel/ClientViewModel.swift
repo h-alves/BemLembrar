@@ -78,6 +78,13 @@ class ClientViewModel: ObservableObject {
         registerContact()
     }
     
+    func shareMessage() {
+        let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        UIApplication.shared.currentUIWindow()?.rootViewController?.present(activityVC, animated: true, completion: nil)
+        
+        registerContact()
+    }
+    
     func registerContact() {
         client.lastContact = Date()
         lastContact = Date()
@@ -94,10 +101,5 @@ class ClientViewModel: ObservableObject {
 //                print(ClientDataSource.shared.allClients[index].self)
             }
         }
-    }
-    
-    func getText() -> String {
-        registerContact()
-        return shareText
     }
 }
