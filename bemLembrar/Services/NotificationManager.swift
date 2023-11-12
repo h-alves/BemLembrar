@@ -26,7 +26,7 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    func scheduleNotification(identifier: String, type: String, fullName: String, date: DateComponents, repeats: Bool) {
+    func scheduleDateNotification(identifier: String, type: String, fullName: String, date: DateComponents, repeats: Bool) {
         let content = UNMutableNotificationContent()
         content.title = fullName
         content.body = fullName
@@ -39,22 +39,47 @@ class NotificationManager: ObservableObject {
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("Houve um erro ao agendar a notificação: \(error)")
+                print("Houve um erro ao agendar a notificação de data: \(error)")
             } else {
-                print("Notificação agendada com sucesso!")
+                print("Notificação de data agendada com sucesso!")
             }
         }
         
-        print("Tentativa de agendar uma notificação")
+        print("Tentativa de agendar uma notificação de data")
+    }
+    
+    func scheduleComemorativeNotification(identifier: String, date: DateComponents, name: String) {
+        let content = UNMutableNotificationContent()
+        content.title = name
+        content.body = "Tá chegando hein"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Houve um erro ao agendar a notificação de data comemorativa: \(error)")
+            } else {
+                print("Notificação de data comemorativa agendada com sucesso!")
+            }
+        }
+        
+        print("Tentativa de agendar uma notificação de data comemorativa")
     }
 
     func cancelAllNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
-    func cancelNotification(identifier: String, type: String) {
+    func cancelDateNotification(identifier: String, type: String) {
         let id = identifier + type
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+    }
+    
+    func cancelComemorativeNotification(identifier: String) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     }
     
 }

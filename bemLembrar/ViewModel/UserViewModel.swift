@@ -42,6 +42,18 @@ class UserViewModel: ObservableObject {
     
     func saveStrategies() {
         for (index, strategy) in strategies.enumerated() {
+            if UserData.shared.user.strategies[index] == .comemorative {
+                if !UserData.shared.user.strategies[index].isSelected && strategy.isSelected {
+                    for i in ComemorativeDate.allDates {
+                        NotificationManager.shared.scheduleComemorativeNotification(identifier: i.identifier, date: i.date, name: i.name)
+                    }
+                } else if UserData.shared.user.strategies[index].isSelected && !strategy.isSelected {
+                    for i in ComemorativeDate.allDates {
+                        NotificationManager.shared.cancelComemorativeNotification(identifier: i.identifier)
+                    }
+                }
+            }
+            
             UserData.shared.user.strategies[index] = strategy
         }
         
