@@ -40,6 +40,8 @@
 		78AF141D2B01087A0094CF66 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF141C2B01087A0094CF66 /* UserData.swift */; };
 		78AF141F2B010D180094CF66 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF141E2B010D180094CF66 /* UserView.swift */; };
 		78AF14212B010D300094CF66 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14202B010D300094CF66 /* UserViewModel.swift */; };
+		78AF14232B0117B30094CF66 /* BrandsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14222B0117B30094CF66 /* BrandsSheetView.swift */; };
+		78AF14252B0117FF0094CF66 /* StrategySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14242B0117FF0094CF66 /* StrategySheetView.swift */; };
 		78E629CC2AED73A400CBB373 /* bemLembrarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
@@ -96,6 +98,8 @@
 		78AF141C2B01087A0094CF66 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		78AF141E2B010D180094CF66 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		78AF14202B010D300094CF66 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		78AF14222B0117B30094CF66 /* BrandsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsSheetView.swift; sourceTree = "<group>"; };
+		78AF14242B0117FF0094CF66 /* StrategySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySheetView.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* bemLembrar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bemLembrar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bemLembrarApp.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 			children = (
 				78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */,
 				78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */,
+				78AF14222B0117B30094CF66 /* BrandsSheetView.swift */,
+				78AF14242B0117FF0094CF66 /* StrategySheetView.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -394,6 +400,8 @@
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				78FEF4E72AF96E9400A5A6D8 /* PreferencesTag.swift in Sources */,
 				783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */,
+				78AF14232B0117B30094CF66 /* BrandsSheetView.swift in Sources */,
+				78AF14252B0117FF0094CF66 /* StrategySheetView.swift in Sources */,
 				783E561A2AF752E500921298 /* IndividualTag.swift in Sources */,
 				78AF14172B0106990094CF66 /* User.swift in Sources */,
 				783E55E02AF0A22700921298 /* Contact.swift in Sources */,
