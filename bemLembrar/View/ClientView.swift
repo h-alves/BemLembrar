@@ -32,6 +32,7 @@ struct ClientView: View {
                             
                             ClientButton(symbol: "phone.circle.fill", text: "ligar") {
                                 print("LIGAR")
+                                viewModel.callClient()
                             }
                         }
                     }

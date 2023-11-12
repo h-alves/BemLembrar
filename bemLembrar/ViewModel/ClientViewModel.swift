@@ -75,4 +75,11 @@ class ClientViewModel: ObservableObject {
             }
         }
     }
+    
+    func callClient() {
+        let telephone = "tel://"
+        let formattedString = telephone + client.number
+        guard let url = URL(string: formattedString) else { return }
+        UIApplication.shared.open(url)
+    }
 }
