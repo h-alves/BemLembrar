@@ -26,8 +26,17 @@ struct ClientView: View {
                             .lineLimit(1)
                         
                         HStack {
-                            ClientButton(symbol: "message.fill", text: "mensagem") {
-                                print("MENSAGEM")
+                            ShareLink(item: viewModel.shareText, preview: SharePreview(viewModel.shareText, image: Image("noClients"))) {
+                                HStack {
+                                    Image(systemName: "message.fill")
+                                    
+                                    Text("Mensagem")
+                                }
+                                .font(.system(size: 22))
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.black)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
                             }
                             
                             ClientButton(symbol: "phone.circle.fill", text: "ligar") {

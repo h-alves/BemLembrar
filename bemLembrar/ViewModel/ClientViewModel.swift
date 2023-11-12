@@ -18,12 +18,16 @@ class ClientViewModel: ObservableObject {
     
     @Published var annotation = ""
     
+    @Published var shareText = ""
+    
     func updateClient(client: Client) {
         self.client = client
         
         self.address = client.address ?? ""
         self.birthday = client.birthday ?? Date()
         self.annotation = client.annotation
+        
+        self.shareText = "Olá \(client.fullName), como você está? Espero que bem! Vim aqui falar contigo por que blá blá blá"
     }
     
     func saveInfo() {
