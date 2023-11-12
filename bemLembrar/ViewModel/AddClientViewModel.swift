@@ -44,7 +44,7 @@ class AddClientViewModel: ObservableObject {
             denied = false
             do {
                 // Elementos que o Contacts retorna
-                let keys = [CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactBirthdayKey as CNKeyDescriptor, CNContactPostalAddressesKey as CNKeyDescriptor]
+                let keys = [CNContactPhoneNumbersKey as CNKeyDescriptor, CNContactGivenNameKey as CNKeyDescriptor, CNContactFamilyNameKey as CNKeyDescriptor, CNContactBirthdayKey as CNKeyDescriptor, CNContactPostalAddressesKey as CNKeyDescriptor]
                 let request = CNContactFetchRequest(keysToFetch: keys)
                 
                 try CNStore.enumerateContacts(with: request, usingBlock: { contact, _ in
@@ -206,12 +206,16 @@ class AddClientViewModel: ObservableObject {
                 address = i.contactInfo.postalAddresses[0].value.formatAddress()
             }
             
-            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
+            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, number: i.contactInfo.phoneNumbers[0].value.stringValue, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
             ClientDataSource.shared.allClients.append(newClient)
+            
+            if newClient.birthday != nil {
+                // Agendando notificação pro aniversário da pessoa
+                NotificationManager.shared.scheduleNotification(fullName: newClient.fullName, date: newClient.birthday!.getMonthDay(), repeats: true)
+            }
         }
         
         // print(ClientDataSource.shared.allClients)
-        RouterService.shared.navigate(.preferences)
     }
     
     func selectedContacts() -> String {

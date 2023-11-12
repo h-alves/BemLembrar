@@ -23,7 +23,7 @@ struct DateEditView: View {
                     .clipped()
             } else {
                 if date.formatted(date: .numeric, time: .omitted) != Date().formatted(date: .numeric, time: .omitted) {
-                    Text(date.formatted(date: .numeric, time: .omitted))
+                    Text(date.formatText())
                 }
             }
             

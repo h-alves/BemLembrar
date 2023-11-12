@@ -10,6 +10,8 @@ import SwiftUI
 struct AddClientManager: View {
     @ObservedObject var viewModel = AddClientViewModel()
     
+    @Binding var onboarding: Bool
+    
     var body: some View {
         NavigationStack {
             if viewModel.denied {
@@ -26,7 +28,7 @@ struct AddClientManager: View {
                         }
                     }
             } else {
-                AddClientView(viewModel: viewModel)
+                AddClientView(viewModel: viewModel, onboarding: $onboarding)
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
                             Button {
@@ -51,5 +53,5 @@ struct AddClientManager: View {
 }
 
 #Preview {
-    AddClientManager()
+    AddClientManager(onboarding: .constant(true))
 }

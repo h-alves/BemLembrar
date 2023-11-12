@@ -11,6 +11,8 @@ import Contacts
 struct AddClientView: View {
     @ObservedObject var viewModel: AddClientViewModel
     
+    @Binding var onboarding: Bool
+    
     var body: some View {
         ZStack {
             VStack(spacing: 24) {
@@ -94,6 +96,11 @@ struct AddClientView: View {
                 
                 Button {
                     viewModel.saveData()
+                    if onboarding {
+                        RouterService.shared.navigate(.preferences)
+                    } else {
+                        RouterService.shared.navigate(.smell)
+                    }
                 } label: {
                     Text("Adicionar Clientes\(viewModel.selectedContacts())")
                         .fontWeight(.bold)
@@ -113,5 +120,5 @@ struct AddClientView: View {
 }
 
 #Preview {
-    AddClientView(viewModel: AddClientViewModel())
+    AddClientView(viewModel: AddClientViewModel(), onboarding: .constant(true))
 }

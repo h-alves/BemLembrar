@@ -18,12 +18,16 @@ class ClientViewModel: ObservableObject {
     
     @Published var annotation = ""
     
+    @Published var shareText = ""
+    
     func updateClient(client: Client) {
         self.client = client
         
-        self.address = client.address ?? ""
+        self.address = client.address
         self.birthday = client.birthday ?? Date()
         self.annotation = client.annotation
+        
+        self.shareText = "Olá \(client.fullName), como você está? Espero que bem! Vim aqui falar contigo por que blá blá blá"
     }
     
     func saveInfo() {
@@ -45,6 +49,8 @@ class ClientViewModel: ObservableObject {
             print(ClientDataSource.shared.allClients)
         }
         
+        recreateNotifications()
+        
         self.infoIsEditing.toggle()
     }
     
@@ -62,5 +68,22 @@ class ClientViewModel: ObservableObject {
         }
         
         self.annotationIsEditing.toggle()
+    }
+    
+    func recreateNotifications() {
+        NotificationManager.shared.cancelAllNotifications()
+        
+        for i in ClientDataSource.shared.allClients {
+            if i.birthday != nil {
+                NotificationManager.shared.scheduleNotification(fullName: i.fullName, date: i.birthday!.getMonthDay(), repeats: true)
+            }
+        }
+    }
+    
+    func callClient() {
+        let telephone = "tel://"
+        let formattedString = telephone + client.number
+        guard let url = URL(string: formattedString) else { return }
+        UIApplication.shared.open(url)
     }
 }

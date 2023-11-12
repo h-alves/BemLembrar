@@ -13,6 +13,8 @@ struct PreferencesView: View {
     
     @State var selectIndex = 0
     
+    @Binding var onboarding: Bool
+    
     var body: some View {
         VStack {
             Spacer()
@@ -30,62 +32,68 @@ struct PreferencesView: View {
             
             Spacer()
             
-            TabView(selection: $selectIndex) {
-                ForEach(0..<3, id: \.self) { index in
-                    VStack {
-                        HStack(alignment: .center, spacing: 12) {
-                            ForEach((0..<3), id: \.self) { index in
-                                if index > self.selectIndex {
-                                    Circle()
-                                        .stroke(lineWidth: 2)
-                                        .foregroundColor(.white)
-                                        .frame(width: 16, height: 16)
-                                } else {
-                                    Circle()
-                                        .fill(.white)
-                                        .frame(width: 16, height: 16)
-                                }
-                            }
-                        }
-                        .animation(.default, value: selectIndex)
-                        .frame(maxWidth: .infinity, maxHeight: 20)
-                        
-                        
-                        Image("preferenceImage\(selectIndex+1)")
-                            .resizable()
-                            .frame(width: 241, height: 241)
-                            .clipShape(Circle())
-                            
-                        VStack(spacing: 12) {
-                            Text("\(titleTexts[selectIndex])")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 24))
-                                .fontWeight(.semibold)
-                            
-                            Text("\(descriptionTexts[selectIndex])")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 14))
-                                .multilineTextAlignment(.center)
-                                .frame(maxHeight: 58)
+            VStack {
+                HStack(alignment: .center, spacing: 12) {
+                    ForEach((0..<3), id: \.self) { index in
+                        if index > self.selectIndex {
+                            Circle()
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(.white)
+                                .frame(width: 16, height: 16)
+                        } else {
+                            Circle()
+                                .fill(.white)
+                                .frame(width: 16, height: 16)
                         }
                     }
                 }
+                .animation(.default, value: selectIndex)
+                .frame(maxWidth: .infinity, maxHeight: 20)
+                
+                TabView(selection: $selectIndex) {
+                    ForEach(0..<3, id: \.self) { index in
+                        VStack {
+                            Image("preferenceImage\(selectIndex+1)")
+                                .resizable()
+                                .frame(width: 241, height: 241)
+                                .clipShape(Circle())
+                            
+                            VStack(spacing: 12) {
+                                Text("\(titleTexts[selectIndex])")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 24))
+                                    .fontWeight(.semibold)
+                                
+                                Text("\(descriptionTexts[selectIndex])")
+                                    .foregroundStyle(.white)
+                                    .font(.system(size: 14))
+                                    .multilineTextAlignment(.center)
+                                    .frame(maxHeight: 58)
+                            }
+                        }
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .frame(height: 400)
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(height: 400)
             
             Spacer()
             
-            Button {
-                RouterService.shared.navigate(.smell)
-            } label: {
-                Text("Continuar")
-                    .foregroundStyle(.black)
-                    .fontWeight(.bold)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background()
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            if selectIndex >= 2 {
+                Button {
+                    onboarding = false
+                    RouterService.shared.navigate(.smell)
+                } label: {
+                    Text("Continuar")
+                        .foregroundStyle(.black)
+                        .fontWeight(.bold)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background()
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            } else {
+                Spacer(minLength: 55)
             }
         }
         .padding(.horizontal, 36)
@@ -95,5 +103,5 @@ struct PreferencesView: View {
 }
 
 #Preview {
-    PreferencesView()
+    PreferencesView(onboarding: .constant(true))
 }
