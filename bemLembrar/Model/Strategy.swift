@@ -10,20 +10,21 @@ import Foundation
 struct Strategy: Codable {
     let name: String
     var isSelected: Bool
+    var timeInterval: TimeInterval
     
     static var allStrategies: [Strategy] = [
-        Strategy(name: "2+2+2", isSelected: false),
-        Strategy(name: "Anual", isSelected: false),
-        Strategy(name: "Mensal", isSelected: false),
-        Strategy(name: "Semanal", isSelected: false),
-        Strategy(name: "Apenas em datas comemorativas", isSelected: false)
+        Strategy(name: "2+2+2", isSelected: false, timeInterval: 2),
+        Strategy(name: "Anual", isSelected: false, timeInterval: 2),
+        Strategy(name: "Mensal", isSelected: false, timeInterval: 2),
+        Strategy(name: "Semanal", isSelected: false, timeInterval: 2),
+        Strategy(name: "Apenas em datas comemorativas", isSelected: false, timeInterval: 2)
     ]
     
-    static var twoTwoTwo = Strategy(name: "2+2+2", isSelected: false)
-    static var anual = Strategy(name: "Anual", isSelected: false)
-    static var monthly = Strategy(name: "Mensal", isSelected: false)
-    static var weekly = Strategy(name: "Semanal", isSelected: false)
-    static var comemorative = Strategy(name: "Apenas em datas comemorativas", isSelected: false)
+    static var twoTwoTwo = Strategy(name: "2+2+2", isSelected: false, timeInterval: 2)
+    static var anual = Strategy(name: "Anual", isSelected: false, timeInterval: 2)
+    static var monthly = Strategy(name: "Mensal", isSelected: false, timeInterval: 2)
+    static var weekly = Strategy(name: "Semanal", isSelected: false, timeInterval: 2)
+    static var comemorative = Strategy(name: "Apenas em datas comemorativas", isSelected: false, timeInterval: 2)
 }
 
 extension Strategy: Equatable {

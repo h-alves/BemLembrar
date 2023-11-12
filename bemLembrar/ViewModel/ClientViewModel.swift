@@ -35,6 +35,19 @@ class ClientViewModel: ObservableObject {
         self.shareText = "Olá \(client.fullName), como você está? Espero que bem! Vim aqui falar contigo por que blá blá blá"
     }
     
+    func changeOnDataSource() {
+        let id = client.identifier
+        
+        for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
+            if originalClient.identifier == id {
+                ClientDataSource.shared.allClients[index].self = client
+//                print(ClientDataSource.shared.allClients[index].self)
+            }
+        }
+    }
+    
+    // Funções de salvar edições
+    
     func saveInfo() {
         if infoIsEditing {
             if birthday.formatted(date: .numeric, time: .omitted) != Date().formatted(date: .numeric, time: .omitted) {
@@ -61,13 +74,7 @@ class ClientViewModel: ObservableObject {
         self.annotationIsEditing.toggle()
     }
     
-    func recreateNotifications() {
-        NotificationManager.shared.cancelDateNotification(identifier: client.identifier, type: "birthday")
-        
-        if client.birthday != nil {
-            NotificationManager.shared.scheduleDateNotification(identifier: client.identifier, type: "birthday", fullName: client.fullName, date: client.birthday!.getMonthDay(), repeats: true)
-        }
-    }
+    // Funções de entrar em contato
     
     func callClient() {
         let telephone = "tel://"
@@ -92,14 +99,17 @@ class ClientViewModel: ObservableObject {
         changeOnDataSource()
     }
     
-    func changeOnDataSource() {
-        let id = client.identifier
+    // Funções de notificação
+    
+    func recreateNotifications() {
+        NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "birthday")
         
-        for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
-            if originalClient.identifier == id {
-                ClientDataSource.shared.allClients[index].self = client
-//                print(ClientDataSource.shared.allClients[index].self)
-            }
+        if client.birthday != nil {
+            NotificationManager.shared.scheduleDateNotification(identifier: client.identifier, fullName: client.fullName, date: client.birthday!.getMonthDay(), repeats: true)
         }
+    }
+    
+    func setContactNotification() {
+        NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, interval: Strategy.monthly.timeInterval, repeats: false)
     }
 }
