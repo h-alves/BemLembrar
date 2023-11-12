@@ -13,7 +13,7 @@ struct ComemorativeDate {
     let name: String
     
     static var allDates: [ComemorativeDate] = [
-        .christmas, .mother, .father
+        .christmas, .mother, .father, .love
     ]
     
     static var christmas = ComemorativeDate(identifier: "christmas", date: Date().createComponents(day: 20, month: 12), name: "Natal")

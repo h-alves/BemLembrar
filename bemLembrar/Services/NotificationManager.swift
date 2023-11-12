@@ -76,10 +76,12 @@ class NotificationManager: ObservableObject {
     func cancelDateNotification(identifier: String, type: String) {
         let id = identifier + type
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
+        print("Notificação de data cancelada com sucesso!")
     }
     
     func cancelComemorativeNotification(identifier: String) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+        print("Notificação de data comemorativa cancelada com sucesso!")
     }
     
 }
