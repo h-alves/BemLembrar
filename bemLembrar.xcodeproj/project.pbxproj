@@ -168,14 +168,14 @@
 			isa = PBXGroup;
 			children = (
 				78AF14162B0106990094CF66 /* User.swift */,
+				78AF141C2B01087A0094CF66 /* UserData.swift */,
 				78AF14182B0107000094CF66 /* Brand.swift */,
 				78AF141A2B0107510094CF66 /* Strategy.swift */,
-				78AF141C2B01087A0094CF66 /* UserData.swift */,
 				783E55DF2AF0A22700921298 /* Contact.swift */,
 				783E55E92AF1804900921298 /* Client.swift */,
+				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
 				78EEC6BD2AFC50580030F5EA /* Preferences.swift */,
 				78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */,
-				783E55EB2AF1824000921298 /* ClientDataSource.swift */,
 				783E56072AF4085D00921298 /* Screen.swift */,
 				7834BC5E2B016A720057D6A1 /* ComemorativeDate.swift */,
 			);

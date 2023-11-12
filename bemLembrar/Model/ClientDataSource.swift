@@ -17,6 +17,7 @@ class ClientDataSource: ObservableObject {
         didSet {
             if oldValue != allClients {
                 save()
+                print("Valores diferentes")
             }
         }
     }

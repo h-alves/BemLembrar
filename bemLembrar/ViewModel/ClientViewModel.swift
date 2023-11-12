@@ -18,14 +18,19 @@ class ClientViewModel: ObservableObject {
     
     @Published var annotation = ""
     
+    @Published var lastContact = Date.distantPast
+    
     @Published var shareText = ""
     
     func updateClient(client: Client) {
+//        print(client)
+        
         self.client = client
         
         self.address = client.address
         self.birthday = client.birthday ?? Date()
         self.annotation = client.annotation
+        self.lastContact = client.lastContact ?? Date.distantPast
         
         self.shareText = "Olá \(client.fullName), como você está? Espero que bem! Vim aqui falar contigo por que blá blá blá"
     }
@@ -38,15 +43,7 @@ class ClientViewModel: ObservableObject {
             
             client.address = address
             
-            let id = client.identifier
-            
-            for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
-                if originalClient.identifier == id {
-                    ClientDataSource.shared.allClients[index].self = client
-                }
-            }
-            
-            print(ClientDataSource.shared.allClients)
+            changeOnDataSource()
         }
         
         recreateNotifications()
@@ -58,13 +55,7 @@ class ClientViewModel: ObservableObject {
         if annotationIsEditing {
             client.annotation = annotation
             
-            let id = client.identifier
-            
-            for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
-                if originalClient.identifier == id {
-                    ClientDataSource.shared.allClients[index].self = client
-                }
-            }
+            changeOnDataSource()
         }
         
         self.annotationIsEditing.toggle()
@@ -83,5 +74,30 @@ class ClientViewModel: ObservableObject {
         let formattedString = telephone + client.number
         guard let url = URL(string: formattedString) else { return }
         UIApplication.shared.open(url)
+        
+        registerContact()
+    }
+    
+    func registerContact() {
+        client.lastContact = Date()
+        lastContact = Date()
+        
+        changeOnDataSource()
+    }
+    
+    func changeOnDataSource() {
+        let id = client.identifier
+        
+        for (index,originalClient) in ClientDataSource.shared.allClients.enumerated() {
+            if originalClient.identifier == id {
+                ClientDataSource.shared.allClients[index].self = client
+//                print(ClientDataSource.shared.allClients[index].self)
+            }
+        }
+    }
+    
+    func getText() -> String {
+        registerContact()
+        return shareText
     }
 }

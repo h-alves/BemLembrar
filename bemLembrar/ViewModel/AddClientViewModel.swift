@@ -220,7 +220,7 @@ class AddClientViewModel: ObservableObject {
             }
         }
         
-         print(ClientDataSource.shared.allClients)
+//         print(ClientDataSource.shared.allClients)
     }
     
     func selectedContacts() -> String {

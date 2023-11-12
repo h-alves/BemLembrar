@@ -21,9 +21,14 @@ struct ClientView: View {
                             .foregroundStyle(.gray)
                             .padding(.top, 32)
                         
-                        Text(client.fullName)
-                            .font(.system(size: 34))
-                            .lineLimit(1)
+                        VStack {
+                            Text(client.fullName)
+                                .font(.system(size: 34))
+                                .lineLimit(1)
+                            if viewModel.lastContact != Date.distantPast {
+                                Text(viewModel.lastContact.formatted())
+                            }
+                        }
                         
                         HStack {
                             ShareLink(item: viewModel.shareText, preview: SharePreview(viewModel.shareText, image: Image("noClients"))) {
