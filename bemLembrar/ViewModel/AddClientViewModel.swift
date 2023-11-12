@@ -201,21 +201,26 @@ class AddClientViewModel: ObservableObject {
         }
         
         for i in savedContacts {
+            var number = ""
+            if !i.contactInfo.phoneNumbers.isEmpty {
+                number = i.contactInfo.phoneNumbers[0].value.stringValue
+            }
+            
             var address = ""
             if !i.contactInfo.postalAddresses.isEmpty {
                 address = i.contactInfo.postalAddresses[0].value.formatAddress()
             }
             
-            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, number: i.contactInfo.phoneNumbers[0].value.stringValue, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
+            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, number: number, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
             ClientDataSource.shared.allClients.append(newClient)
             
             if newClient.birthday != nil {
                 // Agendando notificação pro aniversário da pessoa
-                NotificationManager.shared.scheduleNotification(fullName: newClient.fullName, date: newClient.birthday!.getMonthDay(), repeats: true)
+                NotificationManager.shared.scheduleNotification(identifier: i.identifier, type: "birthday", fullName: newClient.fullName, date: newClient.birthday!.getMonthDay(), repeats: true)
             }
         }
         
-        // print(ClientDataSource.shared.allClients)
+         print(ClientDataSource.shared.allClients)
     }
     
     func selectedContacts() -> String {

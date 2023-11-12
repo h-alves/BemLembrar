@@ -26,15 +26,16 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    func scheduleNotification(fullName: String, date: DateComponents, repeats: Bool) {
+    func scheduleNotification(identifier: String, type: String, fullName: String, date: DateComponents, repeats: Bool) {
         let content = UNMutableNotificationContent()
         content.title = fullName
         content.body = fullName
         content.sound = UNNotificationSound.default
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: repeats)
+        let id = identifier + type
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
@@ -49,6 +50,11 @@ class NotificationManager: ObservableObject {
 
     func cancelAllNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
+    func cancelNotification(identifier: String, type: String) {
+        let id = identifier + type
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
     
 }
