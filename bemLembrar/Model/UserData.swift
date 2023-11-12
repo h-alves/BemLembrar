@@ -48,11 +48,4 @@ class UserData: ObservableObject {
             }
         }
     }
-    
-    func setInfo(name: String, image: String, brands: [Brand], strategy: [Strategy]) {
-        user.name = name
-        user.image = image
-        user.brands = brands
-        user.strategy = strategy
-    }
 }

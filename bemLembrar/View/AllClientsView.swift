@@ -13,6 +13,13 @@ struct AllClientsView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment:.leading) {
+                Button {
+                    RouterService.shared.navigate(.user)
+                } label: {
+                    Text(UserData.shared.user.name)
+                        .lineLimit(1)
+                }
+                
                 HStack {
                     Text("Meus Clientes")
                         .font(.system(size: 32))
