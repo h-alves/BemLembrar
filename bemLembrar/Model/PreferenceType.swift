@@ -8,5 +8,5 @@
 import Foundation
 
 enum PreferenceType {
-    case smell,skin,service
+    case smell, skin, service
 }

@@ -22,12 +22,12 @@ struct Client {
 }
 
 extension Client: Codable {
-    enum CodingKeys: String, CodingKey {
+    enum ClientCodingKeys: String, CodingKey {
         case identifier, number, fullName, birthday, address, preferences, annotation
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: ClientCodingKeys.self)
         identifier = try container.decode(String.self, forKey: .identifier)
         number = try container.decode(String.self, forKey: .number)
         fullName = try container.decode(String.self, forKey: .fullName)
@@ -43,7 +43,7 @@ extension Client: Codable {
     }
     
     func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
+        var container = encoder.container(keyedBy: ClientCodingKeys.self)
         try container.encode(identifier, forKey: .identifier)
         try container.encode(number, forKey: .number)
         try container.encode(fullName, forKey: .fullName)

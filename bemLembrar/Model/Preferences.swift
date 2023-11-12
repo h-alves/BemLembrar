@@ -17,7 +17,6 @@ struct Preferences: Codable {
 }
 
 extension Preferences: Equatable {
-    
 }
 
 enum Cheiro: String, CaseIterable, Codable {

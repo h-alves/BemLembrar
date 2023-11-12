@@ -19,7 +19,6 @@ extension Date {
     }
     
     func formatText() -> String {
-        let calendar = Calendar.current
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM"
         
