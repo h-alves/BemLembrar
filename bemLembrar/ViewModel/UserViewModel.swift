@@ -11,7 +11,9 @@ class UserViewModel: ObservableObject {
     @Published var name = UserData.shared.user.name
     @Published var image = UserData.shared.user.image
     @Published var brands = UserData.shared.user.brands
-    @Published var strategies = UserData.shared.user.strategies
+    @Published var strategies = Strategy.allStrategies.refactor()
+    @Published var twoTwoTwo = UserData.shared.user.twoTwoTwo
+    @Published var comemorative = UserData.shared.user.comemorative
     
     @Published var brandIsEditing = false
     @Published var strategyIsEditing = false
@@ -36,29 +38,42 @@ class UserViewModel: ObservableObject {
         for (index, originalStrategy) in strategies.enumerated() {
             if originalStrategy == strategy {
                 strategies[index].isSelected.toggle()
+            } else {
+                strategies[index].isSelected = false
             }
         }
     }
     
     func saveStrategies() {
-        for (index, strategy) in strategies.enumerated() {
-            if UserData.shared.user.strategies[index].name == "Apenas em datas comemorativas" {
-                if !UserData.shared.user.strategies[index].isSelected && strategy.isSelected {
-                    for i in ComemorativeDate.allDates {
-                        NotificationManager.shared.scheduleComemorativeNotification(identifier: i.identifier, date: i.date, name: i.name)
-                    }
-                } else if UserData.shared.user.strategies[index].isSelected && !strategy.isSelected {
-                    print("Caiu no cancelamento")
-                    
-                    for i in ComemorativeDate.allDates {
-                        NotificationManager.shared.cancelComemorativeNotification(identifier: i.identifier)
-                    }
-                }
-            }
-            
-            UserData.shared.user.strategies[index] = strategy
-        }
+        UserData.shared.user.strategy = getStrategy()
+        
+        UserData.shared.user.twoTwoTwo = twoTwoTwo
+        
+        setComemorativeNotification()
+        
+        UserData.shared.user.comemorative = comemorative
         
         strategyIsEditing.toggle()
+    }
+    
+    func getStrategy() -> Strategy {
+        for strategy in strategies {
+            if strategy.isSelected {
+                return strategy
+            }
+        }
+        return .none
+    }
+    
+    func setComemorativeNotification() {
+        if !UserData.shared.user.comemorative && comemorative {
+            for i in ComemorativeDate.allDates {
+                NotificationManager.shared.scheduleComemorativeNotification(identifier: i.identifier, date: i.date, name: i.name)
+            }
+        } else if UserData.shared.user.comemorative && !comemorative {
+            for i in ComemorativeDate.allDates {
+                NotificationManager.shared.cancelComemorativeNotification(identifier: i.identifier)
+            }
+        }
     }
 }

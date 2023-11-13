@@ -211,16 +211,16 @@ class AddClientViewModel: ObservableObject {
                 address = i.contactInfo.postalAddresses[0].value.formatAddress()
             }
             
-            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, number: number, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "")
+            let newClient = Client(contactInfo: i.contactInfo, identifier: i.contactInfo.identifier, number: number, fullName: (i.contactInfo.givenName + " " + i.contactInfo.familyName).removeClient(), birthday: i.contactInfo.birthday?.createDate(), address: address, preferences: Preferences.none, annotation: "", twoStage: twoStageType.none)
             ClientDataSource.shared.allClients.append(newClient)
             
             if newClient.birthday != nil {
                 // Agendando notificação pro aniversário da pessoa
-                NotificationManager.shared.scheduleDateNotification(identifier: i.identifier, type: "birthday", fullName: newClient.fullName, date: newClient.birthday!.getMonthDay(), repeats: true)
+                NotificationManager.shared.scheduleDateNotification(identifier: i.identifier, fullName: newClient.fullName, date: newClient.birthday!.getMonthDay(), repeats: true)
             }
         }
         
-         print(ClientDataSource.shared.allClients)
+//         print(ClientDataSource.shared.allClients)
     }
     
     func selectedContacts() -> String {

@@ -26,14 +26,16 @@ class NotificationManager: ObservableObject {
         }
     }
     
-    func scheduleDateNotification(identifier: String, type: String, fullName: String, date: DateComponents, repeats: Bool) {
+    // Funções de marcar notificação
+    
+    func scheduleDateNotification(identifier: String, fullName: String, date: DateComponents, repeats: Bool) {
         let content = UNMutableNotificationContent()
         content.title = fullName
         content.body = fullName
         content.sound = UNNotificationSound.default
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: repeats)
-        let id = identifier + type
+        let id = identifier + "birthday"
         
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         
@@ -46,6 +48,32 @@ class NotificationManager: ObservableObject {
         }
         
         print("Tentativa de agendar uma notificação de data")
+    }
+    
+    func scheduleTimeIntervalNotification(identifier: String, fullName: String, time: String, interval: TimeInterval, repeats: Bool) {
+        let content = UNMutableNotificationContent()
+        content.title = fullName
+        content.body = "Já fazem \(time) que você não fala com o fulano."
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: repeats)
+        let id = identifier + "lastContact"
+        
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Houve um erro ao agendar a notificação de intervalo: \(error)")
+            } else {
+                print("Notificação de intervalo agendada com sucesso!")
+            }
+        }
+        
+        print("Tentativa de agendar uma notificação de intervalo")
+        
+        let calendar = Calendar.current
+        print(time)
+        print(calendar.date(byAdding: .second, value: Int(interval), to: Date()))
     }
     
     func scheduleComemorativeNotification(identifier: String, date: DateComponents, name: String) {
@@ -68,12 +96,14 @@ class NotificationManager: ObservableObject {
         
         print("Tentativa de agendar uma notificação de data comemorativa")
     }
+    
+    // Funções de cancelar notificação
 
     func cancelAllNotifications() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
-    func cancelDateNotification(identifier: String, type: String) {
+    func cancelNotification(identifier: String, type: String) {
         let id = identifier + type
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
         print("Notificação de data cancelada com sucesso!")
