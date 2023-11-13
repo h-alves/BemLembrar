@@ -71,9 +71,9 @@ class NotificationManager: ObservableObject {
         
         print("Tentativa de agendar uma notificação de intervalo")
         
-        let calendar = Calendar.current
-        print(time)
-        print(calendar.date(byAdding: .second, value: Int(interval), to: Date()))
+//        let calendar = Calendar.current
+//        print(time)
+//        print(calendar.date(byAdding: .second, value: Int(interval), to: Date()))
     }
     
     func scheduleComemorativeNotification(identifier: String, date: DateComponents, name: String) {
