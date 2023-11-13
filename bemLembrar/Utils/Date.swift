@@ -19,10 +19,18 @@ extension Date {
     }
     
     func formatText() -> String {
-        let calendar = Calendar.current
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM"
         
         return dateFormatter.string(from: self)
+    }
+    
+    func createComponents(day: Int, month: Int) -> DateComponents {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.day], from: self)
+        components.day = day
+        components.month = month
+        
+        return components
     }
 }

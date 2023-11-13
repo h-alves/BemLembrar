@@ -25,6 +25,7 @@ struct ContentView: View {
                 case .smell: SmellView()
                 case .skin: SkinView()
                 case .service: ServiceView()
+                case .user: UserView()
                 }
             }
             .frame(maxWidth: .infinity)

@@ -16,4 +16,5 @@ enum Screen {
     case smell
     case skin
     case service
+    case user
 }

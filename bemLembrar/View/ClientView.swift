@@ -21,26 +21,35 @@ struct ClientView: View {
                             .foregroundStyle(.gray)
                             .padding(.top, 32)
                         
-                        Text(client.fullName)
-                            .font(.system(size: 34))
-                            .lineLimit(1)
+                        VStack {
+                            Text(client.fullName)
+                                .font(.system(size: 34))
+                                .lineLimit(1)
+                            if viewModel.lastContact != Date.distantPast {
+                                Text(viewModel.lastContact.formatted())
+                            }
+                        }
                         
                         HStack {
-                            ShareLink(item: viewModel.shareText, preview: SharePreview(viewModel.shareText, image: Image("noClients"))) {
-                                HStack {
-                                    Image(systemName: "message.fill")
-                                    
-                                    Text("Mensagem")
-                                }
-                                .font(.system(size: 22))
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(.black)
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
+//                            ShareLink(item: viewModel.shareText, preview: SharePreview(viewModel.shareText, image: Image("noClients"))) {
+//                                HStack {
+//                                    Image(systemName: "message.fill")
+//                                    
+//                                    Text("Mensagem")
+//                                }
+//                                .font(.system(size: 22))
+//                                .foregroundStyle(.white)
+//                                .padding()
+//                                .background(.black)
+//                                .clipShape(RoundedRectangle(cornerRadius: 12))
+//                            }
+                            
+                            ClientButton(symbol: "message.fill", text: "Mensagem") {
+                                viewModel.shareMessage()
                             }
                             
                             ClientButton(symbol: "phone.circle.fill", text: "ligar") {
-                                print("LIGAR")
+//                                print("LIGAR")
                                 viewModel.callClient()
                             }
                         }
