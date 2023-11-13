@@ -50,10 +50,10 @@ class NotificationManager: ObservableObject {
         print("Tentativa de agendar uma notificação de data")
     }
     
-    func scheduleTimeIntervalNotification(identifier: String, fullName: String, interval: TimeInterval, repeats: Bool) {
+    func scheduleTimeIntervalNotification(identifier: String, fullName: String, time: String, interval: TimeInterval, repeats: Bool) {
         let content = UNMutableNotificationContent()
         content.title = fullName
-        content.body = fullName
+        content.body = "Já fazem \(time) que você não fala com o fulano."
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: repeats)
@@ -70,6 +70,10 @@ class NotificationManager: ObservableObject {
         }
         
         print("Tentativa de agendar uma notificação de intervalo")
+        
+        let calendar = Calendar.current
+        print(time)
+        print(calendar.date(byAdding: .second, value: Int(interval), to: Date()))
     }
     
     func scheduleComemorativeNotification(identifier: String, date: DateComponents, name: String) {

@@ -10,24 +10,22 @@ import Foundation
 struct Strategy: Codable {
     let name: String
     var isSelected: Bool
-    var timeInterval: TimeInterval
+    var timeInterval: Int
+    var time: String
     
     static var allStrategies: [Strategy] = [
-        Strategy(name: "Há cada 2 meses", isSelected: false, timeInterval: getInterval(value: 60)),
-        Strategy(name: "Mensal", isSelected: false, timeInterval: getInterval(value: 30)),
-        Strategy(name: "Quinzenal", isSelected: false, timeInterval: getInterval(value: 14)),
-        Strategy(name: "Semanal", isSelected: false, timeInterval: getInterval(value: 7))
+        Strategy(name: "Há cada 2 meses", isSelected: false, timeInterval: 61, time: "2 meses"),
+        Strategy(name: "Mensal", isSelected: false, timeInterval: 30, time: "1 mês"),
+        Strategy(name: "Quinzenal", isSelected: false, timeInterval: 14, time: "2 semanas"),
+        Strategy(name: "Semanal", isSelected: false, timeInterval: 7, time: "1 semana")
     ]
     
-    static var none = Strategy(name: "", isSelected: true, timeInterval: 2)
+    static var none = Strategy(name: "", isSelected: true, timeInterval: 0, time: "")
     
-    static var twoTwoTwo = Strategy(name: "2+2+2", isSelected: false, timeInterval: 0)
-    static var comemorative = Strategy(name: "Apenas em datas comemorativas", isSelected: false, timeInterval: 0)
-    
-    static var twoMonth = Strategy(name: "Há cada 2 meses", isSelected: false, timeInterval: getInterval(value: 60))
-    static var monthly = Strategy(name: "Mensal", isSelected: false, timeInterval: 2)
-    static var twoWeek = Strategy(name: "Quinzenal", isSelected: false, timeInterval: getInterval(value: 14))
-    static var weekly = Strategy(name: "Semanal", isSelected: false, timeInterval: 2)
+    static var twoMonth = Strategy(name: "Há cada 2 meses", isSelected: false, timeInterval: 61, time: "2 meses")
+    static var monthly = Strategy(name: "Mensal", isSelected: false, timeInterval: 30, time: "1 mês")
+    static var twoWeek = Strategy(name: "Quinzenal", isSelected: false, timeInterval: 14, time: "2 semanas")
+    static var weekly = Strategy(name: "Semanal", isSelected: false, timeInterval: 7, time: "1 semana")
 }
 
 extension Strategy: Equatable {

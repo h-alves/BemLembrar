@@ -18,13 +18,14 @@ struct Client {
     var preferences: Preferences
     var annotation: String
     var lastContact: Date?
+    var twoStage: twoStageType
     
-    static var test = Client(contactInfo: CNMutableContact().createTestContact(), identifier: "A", number: CNMutableContact().createTestContact().phoneNumbers[0].value.stringValue, fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), address: "Rua X, 1226", preferences: Preferences.test, annotation: "")
+    static var test = Client(contactInfo: CNMutableContact().createTestContact(), identifier: "A", number: CNMutableContact().createTestContact().phoneNumbers[0].value.stringValue, fullName: CNMutableContact().createTestContact().givenName + " " + CNMutableContact().createTestContact().familyName, birthday: CNMutableContact().createTestContact().birthday!.createDate(), address: "Rua X, 1226", preferences: Preferences.test, annotation: "", twoStage: .none)
 }
 
 extension Client: Codable {
     enum ClientCodingKeys: String, CodingKey {
-        case identifier, number, fullName, birthday, address, preferences, annotation, lastContact
+        case identifier, number, fullName, birthday, address, preferences, annotation, lastContact, twoStage
     }
     
     init(from decoder: Decoder) throws {
@@ -45,6 +46,7 @@ extension Client: Codable {
         } else {
             lastContact = nil
         }
+        twoStage = try container.decode(twoStageType.self, forKey: .twoStage)
         contactInfo = CNContact()
     }
     
@@ -58,11 +60,31 @@ extension Client: Codable {
         try container.encode(preferences, forKey: .preferences)
         try container.encode(annotation, forKey: .annotation)
         try container.encode(lastContact?.timeIntervalSince1970, forKey: .lastContact)
+        try container.encode(twoStage, forKey: .twoStage)
     }
 }
 
 extension Client: Equatable {
     static func == (lhs: Client, rhs: Client) -> Bool {
         return lhs.identifier == rhs.identifier && lhs.number == rhs.number && lhs.fullName == rhs.fullName && lhs.birthday == rhs.birthday && lhs.address == rhs.address && lhs.annotation == rhs.annotation && lhs.preferences == rhs.preferences && lhs.lastContact == rhs.lastContact
+    }
+}
+
+enum twoStageType: Codable {
+    case none, day, week, month
+}
+
+extension twoStageType {
+    
+    func advance() -> twoStageType {
+        if self == .day {
+            return .week
+        } else if self == .week {
+            return .month
+        } else if self == .month {
+            return .none
+        } else {
+            return .day
+        }
     }
 }

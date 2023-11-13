@@ -95,6 +95,9 @@ class ClientViewModel: ObservableObject {
     func registerContact() {
         client.lastContact = Date()
         lastContact = Date()
+        if UserData.shared.user.twoTwoTwo {
+            client.twoStage = client.twoStage.advance()
+        }
         
         changeOnDataSource()
         setContactNotification()
@@ -113,6 +116,30 @@ class ClientViewModel: ObservableObject {
     func setContactNotification() {
         NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "lastContact")
         
-        NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, interval: UserData.shared.user.strategy.timeInterval, repeats: false)
+        if UserData.shared.user.twoTwoTwo {
+            if client.twoStage == .day {
+                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: "2 dias", interval: getInterval(value: 2), repeats: false)
+            } else if client.twoStage == .week {
+                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: "2 semanas", interval: getInterval(value: 14), repeats: false)
+            } else if client.twoStage == .month {
+                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: "2 meses", interval: getInterval(value: 60), repeats: false)
+            } else {
+                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: UserData.shared.user.strategy.time, interval: getInterval(value: UserData.shared.user.strategy.timeInterval), repeats: false)
+            }
+        } else {
+            NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: UserData.shared.user.strategy.time, interval: getInterval(value: UserData.shared.user.strategy.timeInterval), repeats: false)
+        }
+    }
+    
+    func getInterval(value: Int) -> TimeInterval {
+        let calendar = Calendar.current
+        
+        var futureDate = calendar.date(byAdding: .day, value: value, to: Date())
+        var components = calendar.dateComponents([.month,.day,.year], from: futureDate!)
+        components.hour = 11
+        
+        futureDate = calendar.date(from: components)
+        
+        return futureDate!.timeIntervalSinceNow
     }
 }

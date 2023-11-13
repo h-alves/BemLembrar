@@ -35,11 +35,11 @@ struct UserView: View {
                     }
                     
                     if UserData.shared.user.twoTwoTwo {
-                        Text(Strategy.twoTwoTwo.name)
+                        Text("2+2+2")
                     }
                     
                     if UserData.shared.user.comemorative {
-                        Text(Strategy.comemorative.name)
+                        Text("Datas comemorativas")
                     }
                     
                     Button {
