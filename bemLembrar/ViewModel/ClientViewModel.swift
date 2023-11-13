@@ -111,7 +111,7 @@ class ClientViewModel: ObservableObject {
     }
     
     func setContactNotification() {
-//        NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "lastContact")
+        NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "lastContact")
         
         NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, interval: UserData.shared.user.strategy.timeInterval, repeats: false)
     }
