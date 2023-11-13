@@ -33,4 +33,12 @@ extension Date {
         
         return components
     }
+    
+    func todayAtEleven() -> Date {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.month,.day,.year], from: self)
+        components.hour = 11
+        
+        return calendar.date(from: components)!
+    }
 }

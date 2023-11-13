@@ -30,10 +30,16 @@ struct UserView: View {
                 }
                 
                 HStack {
-                    ForEach(viewModel.strategies, id: \.name) { strategy in
-                        if strategy.isSelected {
-                            Text(strategy.name)
-                        }
+                    if UserData.shared.user.strategy != .none {
+                        Text(UserData.shared.user.strategy.name)
+                    }
+                    
+                    if UserData.shared.user.twoTwoTwo {
+                        Text(Strategy.twoTwoTwo.name)
+                    }
+                    
+                    if UserData.shared.user.comemorative {
+                        Text(Strategy.comemorative.name)
                     }
                     
                     Button {

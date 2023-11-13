@@ -59,7 +59,7 @@ class ClientViewModel: ObservableObject {
             changeOnDataSource()
         }
         
-        recreateNotifications()
+        setBirthdayNotification()
         
         self.infoIsEditing.toggle()
     }
@@ -97,11 +97,12 @@ class ClientViewModel: ObservableObject {
         lastContact = Date()
         
         changeOnDataSource()
+        setContactNotification()
     }
     
     // Funções de notificação
     
-    func recreateNotifications() {
+    func setBirthdayNotification() {
         NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "birthday")
         
         if client.birthday != nil {
@@ -112,6 +113,6 @@ class ClientViewModel: ObservableObject {
     func setContactNotification() {
         NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "lastContact")
         
-        NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, interval: Strategy.monthly.timeInterval, repeats: false)
+        NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, interval: UserData.shared.user.strategy.timeInterval, repeats: false)
     }
 }
