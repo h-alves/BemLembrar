@@ -39,7 +39,11 @@ extension Strategy: Equatable {
 func getInterval(value: Int) -> TimeInterval {
     let calendar = Calendar.current
     
-    let futureDate = calendar.date(byAdding: .day, value: value, to: Date().todayAtEleven())
+    var futureDate = calendar.date(byAdding: .day, value: value, to: Date())
+    var components = calendar.dateComponents([.month,.day,.year], from: futureDate!)
+    components.hour = 11
+    
+    futureDate = calendar.date(from: components)
     
     return futureDate!.timeIntervalSinceNow
 }
