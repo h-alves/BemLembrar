@@ -11,109 +11,111 @@ struct AllClientsView: View {
     @ObservedObject var viewModel = AllClientsViewModel()
     
     var body: some View {
-        VStack(spacing: 0) {
-            VStack(alignment:.leading) {
-                Button {
-                    RouterService.shared.navigate(.user)
-                } label: {
-                    Text(UserData.shared.user.name)
-                        .lineLimit(1)
-                }
-                
+        VStack(spacing: 32) {
+            // Top Title
+            VStack(alignment: .leading, spacing: 16) {
                 HStack {
-                    Text("Meus Clientes")
-                        .font(.system(size: 32))
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.leading)
-                    
-                    Spacer()
-                    
                     Button {
-                        viewModel.editList()
+                        RouterService.shared.navigate(.user)
                     } label: {
-                        Image(systemName: viewModel.isEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                        Image(UserData.shared.user.image)
+                            .resizable()
+                            .frame(width: 80, height: 80)
                     }
-                    .disabled(viewModel.allClients.isEmpty)
+                    
+                    VStack(alignment: .leading) {
+                        Text(UserData.shared.user.name)
+                            .foregroundStyle(.verdeClaro)
+                            .font(.title3)
+                        
+                        Text("Meus clientes")
+                            .foregroundStyle(.verde)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                    }
                 }
                 
-                VStack {
+                VStack(spacing: 10) {
                     SearchBar(searchText: $viewModel.searchText) {
                         viewModel.updateList()
                     }
                     
                     HStack {
-                        Button(action: {
+                        BLButton(symbol: "plus", text: "Adicionar", infinity: false, disabled: false, opposite: false, color: .verde, textColor: .branco) {
                             RouterService.shared.navigate(.addClient)
-                        }) {
-                            HStack {
-                                Image(systemName: "plus")
-                                
-                                Text("Adicionar")
-                            }
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding(12)
-                            .background(.gray)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
-                        
-                        Button(action: {
+
+                        BLButton(symbol: "square.and.pencil", text: "Preferências", disabled: viewModel.allClients.isEmpty, opposite: false, color: .verde, textColor: .branco) {
                             RouterService.shared.navigate(.smell)
-                        }) {
-                            HStack {
-                                Image(systemName: viewModel.allClients.isEmpty ? "lock.fill" : "square.and.pencil")
-                                
-                                Text("Preferências")
-                            }
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding(12)
-                            .background(viewModel.allClients.isEmpty ? Color(.systemGray4) : .gray)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
                         }
-                        .disabled(viewModel.allClients.isEmpty)
                     }
                 }
-                .padding(.bottom, 12)
             }
             .padding(.horizontal, 32)
-            .background(Color(.systemGray6))
             
-            if viewModel.allClients.isEmpty {
-                VStack(spacing: 24) {
-                    Spacer()
-                    
-                    Image("noClients")
-                        .resizable()
-                        .frame(width: 227, height: 288)
-                    
-                    Text("Nessa tela, ficarão todos os seus clientes, comece adicionando alguns deles!")
-                        .foregroundStyle(.gray)
-                        .font(.system(size: 16))
-                        .frame(maxWidth: 219)
-                        .multilineTextAlignment(.center)
-                    
-                    Spacer()
-                }
-            } else {
-                ScrollView {
-                    VStack(spacing: 16) {
-                        ForEach(viewModel.allClients, id: \.identifier) { client in
-                            ClientCard(client: client, isEditing: viewModel.isEditing) {
-                                RouterService.shared.navigate(.client(client: client))
-                            } deleteFunc: {
-                                viewModel.isPresented = true
-                                viewModel.client = client
+            // Clients
+            VStack {
+                if viewModel.allClients.isEmpty {
+                    VStack(spacing: 20) {
+                        Image("noClients")
+                            .resizable()
+                            .frame(width: 204, height: 260)
+                        
+                        Text("Nessa tela, ficarão todos os seus clientes, comece adicionando alguns deles!")
+                            .foregroundStyle(.branco)
+                            .frame(maxWidth: 280)
+                            .multilineTextAlignment(.center)
+                    }
+                } else {
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            HStack {
+                                Spacer()
+                                
+                                Button {
+                                    viewModel.editList()
+                                } label: {
+                                    HStack(spacing: 5) {
+                                        Image(systemName: viewModel.isEditing ? "" : "square.and.pencil")
+                                            .font(.system(size: 15))
+                                        
+                                        Text(viewModel.isEditing ? "voltar" : "editar")
+                                            .font(.headline)
+                                    }
+                                    .foregroundStyle(viewModel.allClients.isEmpty ? .verdeClaro : .branco)
+                                }
+                                .disabled(viewModel.allClients.isEmpty)
+                            }
+                            
+                            ForEach(viewModel.allClientsSearch, id: \.identifier) { client in
+                                ClientCard(client: client, isEditing: viewModel.isEditing) {
+                                    RouterService.shared.navigate(.client(client: client))
+                                } deleteFunc: {
+                                    viewModel.isPresented = true
+                                    viewModel.client = client
+                                }
                             }
                         }
                     }
-                    .padding(.top, 16)
-                    .padding(.horizontal, 32)
+                    .scrollIndicators(.hidden)
                 }
             }
-            
-            Spacer()
+            .padding(.top, 32)
+            .padding(.horizontal, 32)
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: .infinity)
+            .background(.verde)
+            .clipShape(
+                .rect (
+                    topLeadingRadius: 32,
+                    bottomLeadingRadius: 0,
+                    bottomTrailingRadius: 0,
+                    topTrailingRadius: 32
+                )
+            )
+            .ignoresSafeArea()
         }
+        .background(.branco)
         .onAppear {
             viewModel.subscribe()
         }
@@ -130,6 +132,93 @@ struct AllClientsView: View {
                 }
             }
         }
+        
+//        VStack(spacing: 0) {
+//            VStack(alignment: .leading, spacing: 10) {
+//                HStack {
+//                    Button {
+//                        RouterService.shared.navigate(.user)
+//                    } label: {
+//                        Image(UserData.shared.user.image)
+//                    }
+//                    
+//                    VStack(alignment: .leading) {
+//                        Text(UserData.shared.user.name)
+//                            .foregroundStyle(.verdeClaro)
+//                            .font(.title3)
+//                            .fontWeight(.semibold)
+//                            .lineLimit(1)
+//                        
+//                        Text("Meus Clientes")
+//                            .foregroundStyle(.verde)
+//                            .font(.largeTitle)
+//                            .fontWeight(.bold)
+//                            .multilineTextAlignment(.leading)
+//                    }
+//                    
+////                    Button {
+////                        viewModel.editList()
+////                    } label: {
+////                        Image(systemName: viewModel.isEditing ? "checkmark.circle.fill" : "square.and.pencil")
+////                    }
+////                    .disabled(viewModel.allClients.isEmpty)
+//                }
+//                
+//                VStack {
+//                    SearchBar(searchText: $viewModel.searchText) {
+//                        viewModel.updateList()
+//                    }
+//                    
+//                    HStack {
+//                        BLButton(symbol: "plus", text: "Adicionar", infinity: false, disabled: false, opposite: false, color: .verde, textColor: .branco) {
+//                            RouterService.shared.navigate(.addClient)
+//                        }
+//                        
+//                        BLButton(symbol: "square.and.pencil", text: "Preferências", disabled: viewModel.allClients.isEmpty, opposite: false, color: .verde, textColor: .branco) {
+//                            RouterService.shared.navigate(.smell)
+//                        }
+//                    }
+//                }
+//                .padding(.bottom, 12)
+//            }
+//            .padding(.horizontal, 32)
+//            .background(Color(.systemGray6))
+//            
+//            if viewModel.allClients.isEmpty {
+//                VStack(spacing: 24) {
+//                    Spacer()
+//                    
+//                    Image("noClients")
+//                        .resizable()
+//                        .frame(width: 227, height: 288)
+//                    
+//                    Text("Nessa tela, ficarão todos os seus clientes, comece adicionando alguns deles!")
+//                        .foregroundStyle(.gray)
+//                        .font(.system(size: 16))
+//                        .frame(maxWidth: 219)
+//                        .multilineTextAlignment(.center)
+//                    
+//                    Spacer()
+//                }
+//            } else {
+//                ScrollView {
+//                    VStack(spacing: 16) {
+//                        ForEach(viewModel.allClients, id: \.identifier) { client in
+//                            ClientCard(client: client, isEditing: viewModel.isEditing) {
+//                                RouterService.shared.navigate(.client(client: client))
+//                            } deleteFunc: {
+//                                viewModel.isPresented = true
+//                                viewModel.client = client
+//                            }
+//                        }
+//                    }
+//                    .padding(.top, 16)
+//                    .padding(.horizontal, 32)
+//                }
+//            }
+//            
+//            Spacer()
+//        }
     }
 }
 

@@ -11,10 +11,12 @@ import Combine
 
 class AllClientsViewModel: ObservableObject {
     @Published var allClients = [Client]()
+    @Published var allClientsSearch = [Client]()
     
     @Published var client = Client.test
     
     @Published var searchText: String = ""
+    @Published var isDisabled = true
     
     @Published var isEditing = false
     @Published var isPresented = false
@@ -36,13 +38,16 @@ class AllClientsViewModel: ObservableObject {
     
     func updateList() {
         allClients = ClientDataSource.shared.allClients
+        allClientsSearch = ClientDataSource.shared.allClients
         
         if searchText != "" {
-            allClients = allClients.filter{ c in
+            allClientsSearch = allClients.filter{ c in
                 let textFormat = searchText.lowercased()
                 
                 return c.fullName.lowercased().contains(textFormat)
             }
+        } else {
+            allClientsSearch = allClients
         }
     }
     

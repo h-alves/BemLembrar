@@ -26,25 +26,25 @@ struct PreferenceCard: View {
                         // Título
                         if cheiro != .none {
                             Text("\(cheiro.rawValue.capitalized)?")
-                                .foregroundStyle(.black)
-                                .font(.system(size: 18))
+                                .foregroundStyle(.verde)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                         } else if pele != .normal {
                             Text("\(pele.rawValue.capitalized)?")
-                                .foregroundStyle(.black)
-                                .font(.system(size: 18))
+                                .foregroundStyle(.verde)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                         } else if atendimento != .none {
                             Text("\(atendimento.rawValue.capitalized)?")
-                                .foregroundStyle(.black)
-                                .font(.system(size: 18))
+                                .foregroundStyle(.verde)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                         }
                         
                         Spacer()
                         
                         Image(systemName: "plus")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.verde)
                             .font(.system(size: 18))
                             .fontWeight(.semibold)
                     }
@@ -54,18 +54,18 @@ struct PreferenceCard: View {
                     // Título
                     if cheiro != .none {
                         Text("\(cheiro.rawValue.capitalized)?")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                            .foregroundStyle(.verde)
+                            .font(.title3)
                             .fontWeight(.semibold)
                     } else if pele != .normal {
                         Text("\(pele.rawValue.capitalized)?")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                            .foregroundStyle(.verde)
+                            .font(.title3)
                             .fontWeight(.semibold)
                     } else if atendimento != .none {
                         Text("\(atendimento.rawValue.capitalized)?")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                            .foregroundStyle(.verde)
+                            .font(.title3)
                             .fontWeight(.semibold)
                     }
                     
@@ -75,7 +75,7 @@ struct PreferenceCard: View {
                         mainFunc()
                     } label: {
                         Image(systemName: "plus")
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.verde)
                             .font(.system(size: 18))
                             .fontWeight(.semibold)
                     }
@@ -89,11 +89,15 @@ struct PreferenceCard: View {
                             // Todos os clientes
                             ForEach(clientList, id: \.identifier) { client in
                                 Text(client.fullName)
-                                    .font(.system(size: 17))
+                                    .foregroundStyle(.verde)
+                                    .font(.headline)
                                     .padding(.horizontal, 20)
                                     .padding(.vertical, 8)
-                                    .background(Color(.systemGray4))
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .stroke(.rosa, lineWidth: 2)
+                                    }
+                                    .padding(1)
                             }
                         }
                     }
@@ -103,8 +107,9 @@ struct PreferenceCard: View {
         }
         .frame(maxWidth: .infinity)
         .padding(18)
-        .background(Color(.systemGray5))
+        .background(.branco)
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(radius: 5)
     }
 }
 
@@ -120,5 +125,7 @@ struct PreferenceCard: View {
             print("Clicado")
         }
     }
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .padding(32)
+    .background(.branco)
 }

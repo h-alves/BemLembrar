@@ -23,6 +23,8 @@ class AddClientViewModel: ObservableObject {
     @Published var autoContacts = [Contact]()
     @Published var manualContacts = [Contact]()
     
+    @Published var phoneSearchContacts = [Contact]()
+    
     @Published var searchText: String = ""
     
     @Published var number = ""
@@ -90,6 +92,8 @@ class AddClientViewModel: ObservableObject {
             }
         }
         
+        phoneSearchContacts = phoneContacts
+        
         autoContacts = phoneContacts.filter { c in
             c.contactInfo.givenName.localizedCaseInsensitiveContains("cliente") || c.contactInfo.familyName.localizedCaseInsensitiveContains("cliente")
         }
@@ -112,12 +116,14 @@ class AddClientViewModel: ObservableObject {
         }
         
         if searchText != "" {
-            manualContacts = manualContacts.filter { c in
+            phoneSearchContacts = phoneContacts.filter { c in
                 let completeName = (c.contactInfo.givenName + " " + c.contactInfo.familyName).lowercased()
                 let textFormat = searchText.lowercased()
                 
                 return completeName.contains(textFormat)
             }
+        } else {
+            phoneSearchContacts = phoneContacts
         }
     }
     
@@ -243,5 +249,22 @@ class AddClientViewModel: ObservableObject {
             return true
         }
         return false
+    }
+    
+    // Funções de filtragem por letra
+    
+    func hasContact(letter: String) -> Bool {
+        if listFromLetter(letter: letter).isEmpty {
+            return false
+        }
+        return true
+    }
+    
+    func listFromLetter(letter: String) -> [Contact] {
+        let newList = manualContacts.filter { c in
+            String(c.contactInfo.givenName.prefix(1)).lowercased() == letter.lowercased()
+        }
+        
+        return newList
     }
 }

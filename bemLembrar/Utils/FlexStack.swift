@@ -10,8 +10,8 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct FlexStack: Layout {
   
-  public var verticalSpacing = 8.0
-  public var horzontalSpacing = 8.0
+  public var verticalSpacing = 6.0
+  public var horzontalSpacing = 6.0
   
   static var layoutProperties: LayoutProperties {
     var properties = LayoutProperties()
