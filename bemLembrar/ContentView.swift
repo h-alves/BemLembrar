@@ -17,7 +17,8 @@ struct ContentView: View {
         ZStack {
             VStack {
                 switch(router.screen) {
-                case .onboarding: OnboardingView(onboarding: $onboarding)
+                case .onboarding: OnboardingView()
+                case .guide: GuideView(onboarding: $onboarding)
                 case .allClients: AllClientsView()
                 case .addClient: AddClientManager(onboarding: $preferences)
                 case .client(client: let client): ClientView(client: client)

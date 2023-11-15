@@ -101,10 +101,10 @@ struct AllClientsView: View {
                         }
                         .scrollIndicators(.hidden)
                     }
+                    .padding(.horizontal, 32)
                 }
             }
             .padding(.top, 32)
-            .padding(.horizontal, 32)
             .frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)
             .background(.verde)

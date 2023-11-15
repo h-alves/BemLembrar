@@ -14,38 +14,70 @@ struct ClientView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.branco
+                Color.rosa
                     .ignoresSafeArea()
                 
-                ScrollView {
+                VStack(spacing: 0) {
                     VStack {
-                        VStack {
-                            Circle()
-                                .frame(maxWidth: 200, maxHeight: 200)
-                                .foregroundStyle(.gray)
-                                .padding(.top, 32)
-                            
-                            VStack {
-                                Text(client.fullName)
-                                    .font(.system(size: 34))
-                                    .lineLimit(1)
-                                if viewModel.lastContact != Date.distantPast {
-                                    Text("Último contato: \(viewModel.lastContact.formatted(date: .numeric, time: .omitted))")
+                        Spacer()
+                        
+                        Image(client.image)
+                            .resizable()
+                            .frame(maxWidth: 200, maxHeight: 200)
+                            .overlay(alignment: .bottomTrailing) {
+                                Button {
+                                    print("Clicado")
+                                } label: {
+                                    ZStack {
+                                        Image(systemName: "circle.fill")
+                                            .foregroundStyle(.branco)
+                                            .font(.system(size: 48))
+                                        Image(systemName: "square.and.pencil.circle.fill")
+                                            .foregroundStyle(.verde)
+                                            .font(.system(size: 48))
+                                    }
                                 }
                             }
-                            
-                            HStack {
-                                BLButton(symbol: "message.fill", text: "Mensagem", disabled: false, opposite: false, color: client.preferences.atendimento == .mensagem ? .verde : .verdeClaro, textColor: .branco) {
-                                    viewModel.shareMessage()
-                                }
-                                
-                                BLButton(symbol: "phone.fill", text: "Ligação", disabled: false, opposite: false, color: client.preferences.atendimento == .ligacao ? .verde : .verdeClaro, textColor: .branco) {
-                                    viewModel.shareMessage()
-                                }
+                        
+                        VStack {
+                            Text(client.fullName)
+                                .foregroundStyle(.verde)
+                                .font(.title)
+                                .fontWeight(.bold)
+                            if viewModel.lastContact != Date.distantPast {
+                                Text("Último contato: \(viewModel.lastContact.formatted(date: .numeric, time: .omitted))")
+                                    .foregroundStyle(.verdeClaro)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
                             }
                         }
-                        .padding(.bottom, 12)
                         
+                        HStack {
+                            BLButton(symbol: "message.fill", text: "Mensagem", disabled: false, opposite: false, color: client.preferences.atendimento == .mensagem ? .verde : .verdeClaro, textColor: .branco) {
+                                viewModel.shareMessage()
+                            }
+                            
+                            BLButton(symbol: "phone.fill", text: "Ligação", disabled: false, opposite: false, color: client.preferences.atendimento == .ligacao ? .verde : .verdeClaro, textColor: .branco) {
+                                viewModel.shareMessage()
+                            }
+                        }
+                    }
+                    .padding(.bottom, 16)
+                    .padding(.horizontal, 32)
+                    .background(.branco)
+                    .clipShape(
+                        .rect (
+                            topLeadingRadius: 0,
+                            bottomLeadingRadius: 16,
+                            bottomTrailingRadius: 16,
+                            topTrailingRadius: 0
+                        )
+                    )
+                    .ignoresSafeArea()
+                    .shadow(radius: 5)
+                    .padding(.bottom, 10)
+                    
+                    ScrollView {
                         VStack(spacing: 16) {
                             HStack {
                                 VStack(alignment: .leading) {
@@ -69,7 +101,7 @@ struct ClientView: View {
                                         }
                                     }
                                     .padding()
-                                    .background(Color(.systemGray5))
+                                    .background(.branco)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     
                                     HStack {
@@ -84,7 +116,7 @@ struct ClientView: View {
                                         }
                                     }
                                     .padding()
-                                    .background(Color(.systemGray5))
+                                    .background(.branco)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
                                 
@@ -107,7 +139,7 @@ struct ClientView: View {
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color(.systemGray5))
+                            .background(.branco)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             
                             HStack {
@@ -133,13 +165,15 @@ struct ClientView: View {
                             }
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color(.systemGray5))
+                            .background(.branco)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             
                             Spacer()
                         }
+                        .padding(.top, 24)
+                        .padding(.horizontal, 32)
                     }
-                    .padding(.horizontal, 32)
+                    .scrollIndicators(.hidden)
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
                             Button {
@@ -152,11 +186,11 @@ struct ClientView: View {
                             }
                         }
                     }
+                    .background(.rosa)
                     .onAppear {
                         viewModel.updateClient(client: client)
                     }
                 }
-                .scrollIndicators(.hidden)
             }
         }
     }
