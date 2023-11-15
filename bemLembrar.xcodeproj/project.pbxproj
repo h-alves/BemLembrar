@@ -54,7 +54,6 @@
 		78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */; };
 		78EEC6BC2AFC43430030F5EA /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */; };
 		78EEC6BE2AFC50580030F5EA /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BD2AFC50580030F5EA /* Preferences.swift */; };
-		78EEC6C02AFC88FD0030F5EA /* ClientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */; };
 		78EEC6C22AFC8AE50030F5EA /* DateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */; };
 		78EEC6C82AFC948C0030F5EA /* BigStringEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */; };
 		78EEC6CA2AFD5F410030F5EA /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6C92AFD5F410030F5EA /* PopUp.swift */; };
@@ -117,7 +116,6 @@
 		78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEditView.swift; sourceTree = "<group>"; };
 		78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		78EEC6BD2AFC50580030F5EA /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientButton.swift; sourceTree = "<group>"; };
 		78EEC6C12AFC8AE50030F5EA /* DateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEditView.swift; sourceTree = "<group>"; };
 		78EEC6C72AFC948C0030F5EA /* BigStringEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigStringEditView.swift; sourceTree = "<group>"; };
 		78EEC6C92AFD5F410030F5EA /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			children = (
 				783E56262AF8176300921298 /* TitleBar.swift */,
 				783E56032AF3DFB100921298 /* SearchBar.swift */,
-				78EEC6BF2AFC88FD0030F5EA /* ClientButton.swift */,
 				7834BC622B029B160057D6A1 /* BLButton.swift */,
 				78EEC6C92AFD5F410030F5EA /* PopUp.swift */,
 				783E56242AF8172100921298 /* Cards */,
@@ -436,7 +433,6 @@
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,
-				78EEC6C02AFC88FD0030F5EA /* ClientButton.swift in Sources */,
 				783E561E2AF8144B00921298 /* SmellView.swift in Sources */,
 				78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */,
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,
