@@ -57,7 +57,7 @@ struct GuideView: View {
                                                 .frame(width: 83, height: 81)
                                         }
                                         
-                                        Text("\(selectIndex+1)")
+                                        Text("0\(selectIndex+1).")
                                             .foregroundStyle(.branco)
                                             .font(.largeTitle)
                                             .fontWeight(.bold)

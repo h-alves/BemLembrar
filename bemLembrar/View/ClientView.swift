@@ -58,7 +58,7 @@ struct ClientView: View {
                             }
                             
                             BLButton(symbol: "phone.fill", text: "Ligação", disabled: false, opposite: false, color: client.preferences.atendimento == .ligacao ? .verde : .verdeClaro, textColor: .branco) {
-                                viewModel.shareMessage()
+                                viewModel.callClient()
                             }
                         }
                     }
