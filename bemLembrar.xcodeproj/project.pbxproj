@@ -144,17 +144,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		783E55DA2AF01CBC00921298 /* View */ = {
+		7834BC6A2B057D190057D6A1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				7834BC682B0571D70057D6A1 /* AdaptiveView.swift */,
 				783E560B2AF40C8000921298 /* OnboardingView.swift */,
 				7834BC662B056ED10057D6A1 /* GuideView.swift */,
-				C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */,
-				783E560F2AF40D8900921298 /* ClientView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		7834BC6B2B057D270057D6A1 /* AddClient */ = {
+			isa = PBXGroup;
+			children = (
 				78AF14082AFDC51E0094CF66 /* AddClientManager.swift */,
 				783E55DD2AF0A20B00921298 /* AddClientView.swift */,
 				78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */,
+			);
+			path = AddClient;
+			sourceTree = "<group>";
+		};
+		783E55DA2AF01CBC00921298 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78E629CD2AED73A400CBB373 /* ContentView.swift */,
+				7834BC682B0571D70057D6A1 /* AdaptiveView.swift */,
+				7834BC6A2B057D190057D6A1 /* Onboarding */,
+				C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */,
+				783E560F2AF40D8900921298 /* ClientView.swift */,
+				7834BC6B2B057D270057D6A1 /* AddClient */,
 				78AF141E2B010D180094CF66 /* UserView.swift */,
 				783E56232AF814B400921298 /* Preferences */,
 				78FEF4DD2AF8721C00A5A6D8 /* Sheets */,
@@ -281,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */,
-				78E629CD2AED73A400CBB373 /* ContentView.swift */,
 				783E55E32AF0A54300921298 /* Components */,
 				783E55DA2AF01CBC00921298 /* View */,
 				783E55DB2AF01CC900921298 /* ViewModel */,
