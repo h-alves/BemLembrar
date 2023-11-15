@@ -30,17 +30,17 @@ struct ClientView: View {
                                     .font(.system(size: 34))
                                     .lineLimit(1)
                                 if viewModel.lastContact != Date.distantPast {
-                                    Text(viewModel.lastContact.formatted())
+                                    Text("Último contato: \(viewModel.lastContact.formatted(date: .numeric, time: .omitted))")
                                 }
                             }
                             
                             HStack {
-                                ClientButton(symbol: "message.fill", text: "Mensagem") {
+                                BLButton(symbol: "message.fill", text: "Mensagem", disabled: false, opposite: false, color: client.preferences.atendimento == .mensagem ? .verde : .verdeClaro, textColor: .branco) {
                                     viewModel.shareMessage()
                                 }
                                 
-                                ClientButton(symbol: "phone.circle.fill", text: "ligar") {
-                                    viewModel.callClient()
+                                BLButton(symbol: "phone.fill", text: "Ligação", disabled: false, opposite: false, color: client.preferences.atendimento == .ligacao ? .verde : .verdeClaro, textColor: .branco) {
+                                    viewModel.shareMessage()
                                 }
                             }
                         }
@@ -55,29 +55,41 @@ struct ClientView: View {
                                             .bold()
                                         
                                         Spacer()
+                                    }
+                                    
+                                    HStack {
+                                        DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.birthdayIsEditing)
+                                        
+                                        Spacer()
                                         
                                         Button {
-                                            viewModel.saveInfo()
+                                            viewModel.saveBirthday()
                                         } label: {
-                                            Image(systemName: viewModel.infoIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                            Image(systemName: viewModel.birthdayIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
                                         }
                                     }
+                                    .padding()
+                                    .background(Color(.systemGray5))
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                     
-                                    VStack(alignment: .leading, spacing: 6) {
-                                        DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.infoIsEditing)
+                                    HStack {
+                                        StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.addressIsEditing)
+                                        
+                                        Spacer()
+                                        
+                                        Button {
+                                            viewModel.saveAddress()
+                                        } label: {
+                                            Image(systemName: viewModel.addressIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                        }
                                     }
-                                    
-                                    VStack(alignment: .leading, spacing: 6) {
-                                        StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.infoIsEditing)
-                                    }
+                                    .padding()
+                                    .background(Color(.systemGray5))
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
                                 
                                 Spacer()
                             }
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color(.systemGray5))
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
                             
                             HStack {
                                 VStack(alignment: .leading) {

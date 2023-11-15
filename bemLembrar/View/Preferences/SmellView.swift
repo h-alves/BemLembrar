@@ -23,7 +23,7 @@ struct SmellView: View {
                             VStack {
                                 HStack {
                                     Text("Quais gostam de cheiro...")
-                                        .font(.system(size: 24))
+                                        .font(.title3)
                                         .fontWeight(.semibold)
                                     
                                     Spacer()
@@ -48,20 +48,12 @@ struct SmellView: View {
                     VStack {
                         Spacer()
                         
-                        Button {
+                        BLButton(symbol: "arrow.forward", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
                             RouterService.shared.navigate(.skin)
-                        } label: {
-                            Text("Próximo")
-                                .fontWeight(.bold)
-                                .foregroundStyle(.black)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color(.systemGray4))
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
                         }
                         .padding(.top, 12)
                         .padding(.horizontal, 36)
-                        .background(.gray)
+                        .background(.verde)
                     }
                 }
                 .onAppear {

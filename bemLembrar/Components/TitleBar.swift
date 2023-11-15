@@ -17,7 +17,8 @@ struct TitleBar: View {
         VStack {
             Image(backgroundImage)
                 .resizable()
-                .frame(width: .infinity, height: 183)
+                .frame(height: 183)
+                .scaledToFit()
             
             HStack {
                 Image(image)

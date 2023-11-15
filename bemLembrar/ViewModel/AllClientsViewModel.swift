@@ -8,6 +8,7 @@
 import Foundation
 import Contacts
 import Combine
+import SwiftUI
 
 class AllClientsViewModel: ObservableObject {
     @Published var allClients = [Client]()

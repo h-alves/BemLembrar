@@ -67,39 +67,40 @@ struct AllClientsView: View {
                             .multilineTextAlignment(.center)
                     }
                 } else {
-                    ScrollView {
-                        VStack(spacing: 16) {
-                            HStack {
-                                Spacer()
-                                
-                                Button {
-                                    viewModel.editList()
-                                } label: {
-                                    HStack(spacing: 5) {
-                                        if !viewModel.isEditing {
-                                            Image(systemName: "square.and.pencil")
-                                                .font(.system(size: 15))
-                                        }
-                                        
-                                        Text(viewModel.isEditing ? "voltar" : "editar")
-                                            .font(.headline)
-                                    }
-                                    .foregroundStyle(viewModel.allClients.isEmpty ? .verdeClaro : .branco)
-                                }
-                                .disabled(viewModel.allClients.isEmpty)
-                            }
+                    VStack {
+                        HStack {
+                            Spacer()
                             
-                            ForEach(viewModel.allClientsSearch, id: \.identifier) { client in
-                                ClientCard(client: client, isEditing: viewModel.isEditing) {
-                                    RouterService.shared.navigate(.client(client: client))
-                                } deleteFunc: {
-                                    viewModel.isPresented = true
-                                    viewModel.client = client
+                            Button {
+                                viewModel.editList()
+                            } label: {
+                                HStack(spacing: 5) {
+                                    if !viewModel.isEditing {
+                                        Image(systemName: "square.and.pencil")
+                                            .font(.system(size: 15))
+                                    }
+                                    
+                                    Text(viewModel.isEditing ? "voltar" : "editar")
+                                        .font(.headline)
+                                }
+                                .foregroundStyle(.branco)
+                            }
+                        }
+                        
+                        ScrollView {
+                            VStack(spacing: 16) {
+                                ForEach(viewModel.allClientsSearch, id: \.identifier) { client in
+                                    ClientCard(client: client, isEditing: viewModel.isEditing) {
+                                        RouterService.shared.navigate(.client(client: client))
+                                    } deleteFunc: {
+                                        viewModel.isPresented = true
+                                        viewModel.client = client
+                                    }
                                 }
                             }
                         }
+                        .scrollIndicators(.hidden)
                     }
-                    .scrollIndicators(.hidden)
                 }
             }
             .padding(.top, 32)

@@ -10,7 +10,8 @@ import SwiftUI
 class ClientViewModel: ObservableObject {
     @Published var client = Client.test
     
-    @Published var infoIsEditing = false
+    @Published var addressIsEditing = false
+    @Published var birthdayIsEditing = false
     @Published var annotationIsEditing = false
     
     @Published var address = ""
@@ -48,20 +49,29 @@ class ClientViewModel: ObservableObject {
     
     // Funções de salvar edições
     
-    func saveInfo() {
-        if infoIsEditing {
+    func saveBirthday() {
+        if birthdayIsEditing {
             if birthday.formatted(date: .numeric, time: .omitted) != Date().formatted(date: .numeric, time: .omitted) {
                 client.birthday = birthday
             }
-            
-            client.address = address
             
             changeOnDataSource()
         }
         
         setBirthdayNotification()
         
-        self.infoIsEditing.toggle()
+        self.birthdayIsEditing.toggle()
+    }
+    
+    func saveAddress() {
+        if addressIsEditing {
+            client.address = address
+            
+            changeOnDataSource()
+        }
+        
+        
+        self.addressIsEditing.toggle()
     }
     
     func saveAnnotation() {

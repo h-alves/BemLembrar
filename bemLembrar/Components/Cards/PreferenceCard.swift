@@ -95,7 +95,7 @@ struct PreferenceCard: View {
                                     .padding(.vertical, 8)
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 12)
-                                            .stroke(.rosa, lineWidth: 2)
+                                            .stroke(.verde, lineWidth: 2)
                                     }
                                     .padding(1)
                             }

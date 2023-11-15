@@ -20,11 +20,11 @@ struct ClientSheetView: View {
         VStack {
             switch preferenceType {
             case .smell:
-                Text(cheiro.rawValue.capitalized)
+                Text("Fragância \(cheiro.rawValue.capitalized)")
             case .skin:
-                Text(pele.rawValue.capitalized)
+                Text("Pele \(pele.rawValue.capitalized)")
             case .service:
-                Text(atendimento.rawValue.capitalized)
+                Text("Atendimento \(atendimento.rawValue.capitalized)")
             }
             
             SearchBar(searchText: $viewModel.searchText) {
