@@ -13,133 +13,139 @@ struct ClientView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack {
+            ZStack {
+                Color.branco
+                    .ignoresSafeArea()
+                
+                ScrollView {
                     VStack {
-                        Circle()
-                            .frame(maxWidth: 200, maxHeight: 200)
-                            .foregroundStyle(.gray)
-                            .padding(.top, 32)
-                        
                         VStack {
-                            Text(client.fullName)
-                                .font(.system(size: 34))
-                                .lineLimit(1)
-                            if viewModel.lastContact != Date.distantPast {
-                                Text(viewModel.lastContact.formatted())
-                            }
-                        }
-                        
-                        HStack {
-                            ClientButton(symbol: "message.fill", text: "Mensagem") {
-                                viewModel.shareMessage()
+                            Circle()
+                                .frame(maxWidth: 200, maxHeight: 200)
+                                .foregroundStyle(.gray)
+                                .padding(.top, 32)
+                            
+                            VStack {
+                                Text(client.fullName)
+                                    .font(.system(size: 34))
+                                    .lineLimit(1)
+                                if viewModel.lastContact != Date.distantPast {
+                                    Text(viewModel.lastContact.formatted())
+                                }
                             }
                             
-                            ClientButton(symbol: "phone.circle.fill", text: "ligar") {
-                                viewModel.callClient()
+                            HStack {
+                                ClientButton(symbol: "message.fill", text: "Mensagem") {
+                                    viewModel.shareMessage()
+                                }
+                                
+                                ClientButton(symbol: "phone.circle.fill", text: "ligar") {
+                                    viewModel.callClient()
+                                }
                             }
                         }
-                    }
-                    .padding(.bottom, 12)
-                    
-                    VStack(spacing: 16) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Text("Informações gerais:")
-                                        .font(.system(size: 17))
-                                        .bold()
+                        .padding(.bottom, 12)
+                        
+                        VStack(spacing: 16) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text("Informações gerais:")
+                                            .font(.system(size: 17))
+                                            .bold()
+                                        
+                                        Spacer()
+                                        
+                                        Button {
+                                            viewModel.saveInfo()
+                                        } label: {
+                                            Image(systemName: viewModel.infoIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                        }
+                                    }
                                     
-                                    Spacer()
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.infoIsEditing)
+                                    }
                                     
-                                    Button {
-                                        viewModel.saveInfo()
-                                    } label: {
-                                        Image(systemName: viewModel.infoIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                    VStack(alignment: .leading, spacing: 6) {
+                                        StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.infoIsEditing)
                                     }
                                 }
                                 
-                                VStack(alignment: .leading, spacing: 6) {
-                                    DateEditView(title: "Aniversário", date: $viewModel.birthday, isEditing: $viewModel.infoIsEditing)
-                                }
-                                
-                                VStack(alignment: .leading, spacing: 6) {
-                                    StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.infoIsEditing)
-                                }
+                                Spacer()
                             }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(.systemGray5))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
                             
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(.systemGray5))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Preferências:")
-                                    .font(.system(size: 17))
-                                    .bold()
-                                
-                                Text("Lembre-se do que sua cliente mais gosta!")
-                                    .font(.system(size: 13))
-                                
-                                PreferencesTag(big: true, preferences: client.preferences)
-                            }
-                            
-                            Spacer()
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(.systemGray5))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Text("Anotações:")
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("Preferências:")
                                         .font(.system(size: 17))
                                         .bold()
                                     
-                                    Spacer()
+                                    Text("Lembre-se do que sua cliente mais gosta!")
+                                        .font(.system(size: 13))
                                     
-                                    Button {
-                                        viewModel.saveAnnotation()
-                                    } label: {
-                                        Image(systemName: viewModel.annotationIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
-                                    }
+                                    PreferencesTag(big: true, preferences: client.preferences)
                                 }
                                 
-                                BigStringEditView(text: $viewModel.annotation, isEditing: $viewModel.annotationIsEditing)
+                                Spacer()
                             }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(.systemGray5))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        Text("Anotações:")
+                                            .font(.system(size: 17))
+                                            .bold()
+                                        
+                                        Spacer()
+                                        
+                                        Button {
+                                            viewModel.saveAnnotation()
+                                        } label: {
+                                            Image(systemName: viewModel.annotationIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
+                                        }
+                                    }
+                                    
+                                    BigStringEditView(text: $viewModel.annotation, isEditing: $viewModel.annotationIsEditing)
+                                }
+                                
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(.systemGray5))
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
                             
                             Spacer()
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(.systemGray5))
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        
-                        Spacer()
                     }
-                }
-                .padding(.horizontal, 32)
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                            RouterService.shared.navigate(.allClients)
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 17))
-                                .fontWeight(.bold)
+                    .padding(.horizontal, 32)
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button {
+                                RouterService.shared.navigate(.allClients)
+                            } label: {
+                                Image(systemName: "chevron.left.circle.fill")
+                                    .foregroundStyle(.verde)
+                                    .font(.system(size: 32))
+                                    .padding(.bottom, 10)
+                            }
                         }
                     }
+                    .onAppear {
+                        viewModel.updateClient(client: client)
+                    }
                 }
-                .onAppear {
-                    viewModel.updateClient(client: client)
-                }
+                .scrollIndicators(.hidden)
             }
-            .scrollIndicators(.hidden)
         }
     }
 }

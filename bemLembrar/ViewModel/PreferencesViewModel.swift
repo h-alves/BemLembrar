@@ -13,6 +13,9 @@ class PreferencesViewModel: ObservableObject {
     @Published var allClients = [Client]()
     
     @Published var filteredContacts = [Contact]()
+    @Published var searchContacts = [Contact]()
+    
+    @Published var searchText = ""
     
     var bag = Set<AnyCancellable>()
     
@@ -58,7 +61,16 @@ class PreferencesViewModel: ObservableObject {
     }
     
     func updateFiltered() {
-        filteredContacts = filteredContacts
+        if searchText != "" {
+            searchContacts = filteredContacts.filter { c in
+                let completeName = (c.contactInfo.givenName + " " + c.contactInfo.familyName).lowercased()
+                let textFormat = searchText.lowercased()
+                
+                return completeName.contains(textFormat)
+            }
+        } else {
+            searchContacts = filteredContacts
+        }
     }
     
     // Funções de Selecionar Contatos
@@ -111,5 +123,22 @@ class PreferencesViewModel: ObservableObject {
         
         updateList()
         ClientDataSource.shared.save()
+    }
+    
+    // Funções de filtragem por letra
+    
+    func hasContact(letter: String) -> Bool {
+        if listFromLetter(letter: letter).isEmpty {
+            return false
+        }
+        return true
+    }
+    
+    func listFromLetter(letter: String) -> [Contact] {
+        let newList = filteredContacts.filter { c in
+            String(c.contactInfo.givenName.prefix(1)).lowercased() == letter.lowercased()
+        }
+        
+        return newList
     }
 }

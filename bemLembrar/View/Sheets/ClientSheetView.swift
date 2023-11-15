@@ -18,26 +18,54 @@ struct ClientSheetView: View {
     
     var body: some View {
         VStack {
-            ForEach(viewModel.filteredContacts, id: \.identifier) { client in
-                ContactCard(contact: viewModel.getBinding(contact: client), background: "light", color: .white) {
-                    viewModel.selectContact(contact: client)
+            switch preferenceType {
+            case .smell:
+                Text(cheiro.rawValue.capitalized)
+            case .skin:
+                Text(pele.rawValue.capitalized)
+            case .service:
+                Text(atendimento.rawValue.capitalized)
+            }
+            
+            SearchBar(searchText: $viewModel.searchText) {
+                viewModel.updateFiltered()
+            }
+            
+            if viewModel.searchText == "" {
+                VStack(alignment: .leading,spacing: 16) {
+                    ForEach(Letters.shared.allLetters, id: \.description) { letter in
+                        if viewModel.hasContact(letter: letter) {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(letter)
+                                    .foregroundStyle(.verde)
+                                    .font(.callout)
+                                    .fontWeight(.semibold)
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    ForEach(viewModel.listFromLetter(letter: letter), id: \.contactInfo.identifier) { contact in
+                                        ContactCard(contact: viewModel.getBinding(contact: contact), background: "light", color: .white) {
+                                            viewModel.selectContact(contact: contact)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                ForEach(viewModel.searchContacts, id: \.identifier) { client in
+                    ContactCard(contact: viewModel.getBinding(contact: client), background: "light", color: .white) {
+                        viewModel.selectContact(contact: client)
+                    }
                 }
             }
             
-            Button {
-                // Mudar as informações
+            BLButton(symbol: "checkmark", text: "Concluir", disabled: false, opposite: false, color: .verde, textColor: .branco) {
                 viewModel.saveData(cheiro: cheiro, pele: pele, atendimento: atendimento)
                 RouterService.shared.hideSheet()
-            } label: {
-                Text("Selecionar contatos")
-                    .foregroundStyle(.black)
             }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color(.systemGray4))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 32)
         .onAppear {
             viewModel.filterContacts(cheiro: cheiro, pele: pele, atendimento: atendimento)
         }
