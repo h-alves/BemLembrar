@@ -76,8 +76,10 @@ struct AllClientsView: View {
                                     viewModel.editList()
                                 } label: {
                                     HStack(spacing: 5) {
-                                        Image(systemName: viewModel.isEditing ? "" : "square.and.pencil")
-                                            .font(.system(size: 15))
+                                        if !viewModel.isEditing {
+                                            Image(systemName: "square.and.pencil")
+                                                .font(.system(size: 15))
+                                        }
                                         
                                         Text(viewModel.isEditing ? "voltar" : "editar")
                                             .font(.headline)
