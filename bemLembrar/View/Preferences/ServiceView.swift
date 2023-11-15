@@ -14,7 +14,7 @@ struct ServiceView: View {
         NavigationStack {
             ZStack {
                 VStack(spacing: 0) {
-                    TitleBar(symbol: "bubble.left", title: "Atendimento")
+                    TitleBar(backgroundImage: "teste", image: "bubble.left", title: "Atendimento", color: .rosaEscuro)
                     
                     ScrollView {
                         VStack {

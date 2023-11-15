@@ -14,7 +14,7 @@ struct SkinView: View {
         NavigationStack {
             ZStack {
                 VStack(spacing: 0) {
-                    TitleBar(symbol: "face.smiling", title: "Tipo de pele")
+                    TitleBar(backgroundImage: "teste", image: "face.smiling", title: "Tipo de pele", color: .azul)
                     
                     ScrollView {
                         VStack {
