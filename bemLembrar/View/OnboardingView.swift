@@ -28,6 +28,7 @@ struct OnboardingView: View {
                     .foregroundStyle(.preto)
                     .font(.body)
             }
+            .padding(.horizontal, 32)
             
             Spacer()
             
@@ -47,7 +48,6 @@ struct OnboardingView: View {
                                 Text(descriptionTexts[selectIndex])
                                     .foregroundStyle(.preto)
                                     .font(.headline)
-                                    .frame(width: 230)
                             }
                             
                             Image("onboardingImage\(selectIndex+1)")
@@ -55,16 +55,15 @@ struct OnboardingView: View {
                                 .frame(width: 225, height: 225)
                         }
                     }
+                    .padding()
+                    .frame(maxWidth: 329)
+                    .background(.branco)
+                    .clipShape (
+                        RoundedRectangle(cornerRadius: 12)
+                    )
+                    .shadow(radius: 5)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                .padding()
-                .frame(maxWidth: 329)
-                .frame(maxHeight: 340)
-                .background(.branco)
-                .clipShape (
-                    RoundedRectangle(cornerRadius: 12)
-                )
-                .shadow(radius: 5)
                 
                 HStack(alignment: .center, spacing: 4) {
                     ForEach((0..<3), id: \.self) { index in
@@ -92,11 +91,24 @@ struct OnboardingView: View {
                     onboarding = false
                     RouterService.shared.navigate(.allClients)
                 }
+                .padding(.horizontal, 32)
             } else {
-                Spacer(minLength: 39)
+                Button {
+                    print("Clicado")
+                } label: {
+                    Text("Começar")
+                        .foregroundStyle(.rosa)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(.rosa)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
+                }
+                .disabled(true)
             }
         }
-        .padding(.horizontal, 32)
+//        .padding(.horizontal, 32)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.rosa)
         .onChange(of: selectIndex, perform: { value in
