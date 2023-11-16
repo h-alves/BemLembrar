@@ -14,23 +14,21 @@ struct Strategy: Codable {
     var time: String
     
     static var allStrategies: [Strategy] = [
-        Strategy(name: "Há cada 2 meses", isSelected: false, timeInterval: 61, time: "2 meses"),
+        Strategy(name: "2+2+2", isSelected: false, timeInterval: 0, time: "2+2+2"),
         Strategy(name: "Mensal", isSelected: false, timeInterval: 30, time: "1 mês"),
-        Strategy(name: "Quinzenal", isSelected: false, timeInterval: 14, time: "2 semanas"),
         Strategy(name: "Semanal", isSelected: false, timeInterval: 7, time: "1 semana")
     ]
     
     static var none = Strategy(name: "", isSelected: true, timeInterval: 0, time: "")
     
-    static var twoMonth = Strategy(name: "Há cada 2 meses", isSelected: false, timeInterval: 61, time: "2 meses")
+    static var twoTwoTwo = Strategy(name: "2+2+2", isSelected: false, timeInterval: 0, time: "2+2+2")
     static var monthly = Strategy(name: "Mensal", isSelected: false, timeInterval: 30, time: "1 mês")
-    static var twoWeek = Strategy(name: "Quinzenal", isSelected: false, timeInterval: 14, time: "2 semanas")
     static var weekly = Strategy(name: "Semanal", isSelected: false, timeInterval: 7, time: "1 semana")
 }
 
 extension Strategy: Equatable {
     static func == (lhs: Strategy, rhs: Strategy) -> Bool {
-        return lhs.name == rhs.name && lhs.isSelected == rhs.isSelected
+        return lhs.name == rhs.name && lhs.isSelected == rhs.isSelected && lhs.timeInterval == rhs.timeInterval && lhs.time == rhs.time
     }
 }
 

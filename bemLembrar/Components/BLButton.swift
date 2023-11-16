@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BLButton: View {
     var symbol: String
+    var font: Font = .title3
     var text: String = ""
     var infinity: Bool = true
     var disabled: Bool
@@ -27,7 +28,7 @@ struct BLButton: View {
                         if text != "" {
                             Text(text)
                                 .foregroundStyle(getTextColor())
-                                .font(.title3)
+                                .font(font)
                                 .fontWeight(.semibold)
                         }
                     }
@@ -41,7 +42,7 @@ struct BLButton: View {
                         if text != "" {
                             Text(text)
                                 .foregroundStyle(getTextColor())
-                                .font(.title3)
+                                .font(font)
                                 .fontWeight(.semibold)
                         }
                     }
@@ -62,7 +63,7 @@ struct BLButton: View {
                         if text != "" {
                             Text(text)
                                 .foregroundStyle(getTextColor())
-                                .font(.title3)
+                                .font(font)
                                 .fontWeight(.semibold)
                         }
                     }
@@ -76,7 +77,7 @@ struct BLButton: View {
                         if text != "" {
                             Text(text)
                                 .foregroundStyle(getTextColor())
-                                .font(.title3)
+                                .font(font)
                                 .fontWeight(.semibold)
                         }
                     }

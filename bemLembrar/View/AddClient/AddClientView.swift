@@ -15,128 +15,134 @@ struct AddClientView: View {
     
     var body: some View {
         ZStack {
+            Color.branco
+                .ignoresSafeArea(edges: .top)
+            
+            Color.verde
+                .ignoresSafeArea(edges: .bottom)
             VStack(spacing: 24) {
-                VStack(spacing: 8) {
-                    HStack {
-                        Text("Adicionar clientes")
-                            .foregroundStyle(.verde)
-                            .font(.largeTitle)
-                            .fontWeight(.semibold)
-                        
-                        Spacer()
-                    }
-                    
-                    HStack(spacing: 10) {
-                        SearchBar(searchText: $viewModel.searchText) {
-                            viewModel.updateList()
-                        }
-                        
-                        Button {
-                            viewModel.isPresented = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                                .foregroundStyle(.verde)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 12)
-                                .background(.rosa)
-                                .clipShape(RoundedRectangle(cornerRadius: 14))
-                        }
-                    }
-                }
-                
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 32) {
-                        
-                        // Sugestões
-                        if !viewModel.autoContacts.isEmpty && viewModel.searchText == "" {
-                            VStack(alignment: .leading, spacing: 12) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Sugestões")
-                                        .foregroundStyle(.branco)
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                    
-                                    Text("Identificamos alguns contatos como clientes:")
-                                        .foregroundStyle(.branco)
-                                        .font(.body)
+                VStack(spacing: 0) {
+                    VStack(alignment: .leading, spacing: 24) {
+                        VStack(spacing: 16) {
+                            VStack(spacing: 4) {
+                                Text("Adicione seus contatos à sua lista de clientes")
+                                    .foregroundStyle(.preto)
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                
+                                Text("Identifique quem são os seus clientes e os selecione para adicioná-los")
+                                    .foregroundStyle(.preto)
+                                    .font(.body)
+                            }
+                            
+                            HStack(spacing: 12) {
+                                SearchBar(searchText: $viewModel.searchText) {
+                                    viewModel.updateList()
                                 }
                                 
-                                ScrollView {
-                                    VStack(spacing: 8) {
-                                        ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
-                                            ContactCard(contact: viewModel.getBinding(contact: phoneContact), background: "dark", color: Color(.systemGray5)) {
-                                                viewModel.selectContact(contact: phoneContact)
-                                            }
-                                        }
-                                    }
-                                    .padding(.bottom, 12)
+                                Button {
+                                    viewModel.isPresented = true
+                                } label: {
+                                    Image(systemName: "plus")
+                                        .foregroundStyle(.branco)
+                                        .font(.subheadline)
+                                        .fontWeight(.bold)
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 14)
+                                        .background(.verde)
+                                        .clipShape(RoundedRectangle(cornerRadius: 14))
                                 }
-                                .scrollIndicators(.hidden)
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.top, 14)
-                            .background(.verde)
-                            .clipShape(RoundedRectangle(cornerRadius: 14))
                         }
                         
-                        // Todos os contatos
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Todos os contatos")
-                                .foregroundStyle(.verde)
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
-                            if viewModel.searchText != "" {
-                                VStack(spacing: 8) {
-                                    ForEach(viewModel.phoneSearchContacts, id: \.contactInfo.identifier) { phoneContact in
-                                        ContactCard(contact: viewModel.getBinding(contact: phoneContact), background: "light", color: .white) {
-                                            viewModel.selectContact(contact: phoneContact)
+                        ScrollView {
+                            VStack(spacing: 24) {
+                                
+                                // Sugestões
+                                if !viewModel.autoContacts.isEmpty && viewModel.searchText == "" {
+                                    VStack(alignment: .leading, spacing: 12) {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text("Sugestões")
+                                                .foregroundStyle(.branco)
+                                                .font(.title3)
+                                                .fontWeight(.semibold)
+                                            
+                                            Text("Identificamos alguns contatos como clientes: ")
+                                                .foregroundStyle(.branco)
+                                                .font(.body)
                                         }
-                                    }
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical)
-                                .padding(.bottom, 60)
-                            } else {
-                                VStack(alignment: .leading,spacing: 16) {
-                                    ForEach(Letters.shared.allLetters, id: \.description) { letter in
-                                        if viewModel.hasContact(letter: letter) {
-                                            VStack(alignment: .leading, spacing: 6) {
-                                                Text(letter)
-                                                    .foregroundStyle(.verde)
-                                                    .font(.callout)
-                                                    .fontWeight(.semibold)
-                                                
-                                                VStack(alignment: .leading, spacing: 8) {
-                                                    ForEach(viewModel.listFromLetter(letter: letter), id: \.contactInfo.identifier) { contact in
-                                                        ContactCard(contact: viewModel.getBinding(contact: contact), background: "light", color: .white) {
-                                                            viewModel.selectContact(contact: contact)
-                                                        }
-                                                    }
+                                        
+                                        VStack(spacing: 8) {
+                                            ForEach(viewModel.autoContacts, id: \.contactInfo.identifier) { phoneContact in
+                                                ContactCard(contact: viewModel.getBinding(contact: phoneContact), background: "dark", color: Color(.systemGray5)) {
+                                                    viewModel.selectContact(contact: phoneContact)
                                                 }
                                             }
                                         }
                                     }
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 14)
+                                    .background(.verde)
+                                    .clipShape(RoundedRectangle(cornerRadius: 14))
                                 }
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical)
-                                .padding(.bottom, 60)
+                                
+                                // Todos os contatos
+                                if !viewModel.manualContacts.isEmpty {
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        Text("Todos os contatos")
+                                            .foregroundStyle(.verde)
+                                            .font(.title2)
+                                            .fontWeight(.semibold)
+                                        
+                                        VStack(spacing: 12) {
+                                            if viewModel.searchText == "" {
+                                                ForEach(Letters.shared.allLetters, id: \.description) { letter in
+                                                    if viewModel.hasContact(letter: letter) {
+                                                        VStack(alignment: .leading, spacing: 4) {
+                                                            Text(letter)
+                                                                .foregroundStyle(.verde)
+                                                                .font(.callout)
+                                                                .fontWeight(.semibold)
+                                                            
+                                                            VStack(alignment: .leading, spacing: 8) {
+                                                                ForEach(viewModel.listFromLetter(letter: letter), id: \.contactInfo.identifier) { contact in
+                                                                    ContactCard(contact: viewModel.getBinding(contact: contact), background: "light", color: .white) {
+                                                                        viewModel.selectContact(contact: contact)
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                ForEach(viewModel.phoneSearchContacts, id: \.contactInfo) {contact in
+                                                    ContactCard(contact: viewModel.getBinding(contact: contact), background: "light", color: .white) {
+                                                        viewModel.selectContact(contact: contact)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .padding(.bottom, 14)
+                                    }
+                                }
                             }
                         }
+                        .scrollIndicators(.hidden)
                     }
+                    .padding(.horizontal, 32)
                 }
-                .scrollIndicators(.hidden)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal, 32)
-            .background(.branco)
-            
-            VStack {
-                Spacer()
+                .background(.branco)
+                .clipShape(
+                    .rect (
+                        topLeadingRadius: 0,
+                        bottomLeadingRadius: 32,
+                        bottomTrailingRadius: 32,
+                        topTrailingRadius: 0
+                    )
+                )
+                .shadow(radius: 5, y: 12)
                 
-                BLButton(symbol: "", text: "Adicionar clientes\(viewModel.selectedContacts())", disabled: viewModel.disabled(), opposite: false, color: .rosa, textColor: .verde) {
+                BLButton(symbol: "", text: "Adicionar clientes\(viewModel.selectedContacts())", disabled: viewModel.disabled(), opposite: false, color: .branco, textColor: .verde) {
                     viewModel.saveData()
                     if onboarding {
                         RouterService.shared.navigate(.preferences)
@@ -144,11 +150,12 @@ struct AddClientView: View {
                         RouterService.shared.navigate(.smell)
                     }
                 }
-                .padding(.top, 24)
                 .padding(.horizontal, 32)
-                .background(.verde)
+                
+                Spacer()
             }
         }
+
     }
 }
 

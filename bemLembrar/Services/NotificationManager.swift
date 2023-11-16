@@ -112,8 +112,8 @@ class NotificationManager: ObservableObject {
     
     func schedule222Notification(identifier: String, fullName: String, time: String, interval: TimeInterval, repeats: Bool) {
         let content = UNMutableNotificationContent()
-        content.title = fullName
-        content.body = "Já fazem \(time) que você não fala com o fulano."
+        content.title = "2+2+2 é a chave"
+        content.body = "Agora é o momento ideal para se reconectar! Vamos bater um papo com \(fullName)? 🥰❣️️"
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: repeats)

@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct GuideView: View {
-    @Binding var onboarding: Bool
-    
     @State var selectIndex = 0
     
     let descriptionTexts = ["Comece criando sua lista de clientes a partir dos seus contatos.", "Identifique as clientes em sua lista de contatos e registre suas preferências!", "E receba notificações sobre suas clientes para fortalecer seus laços."]
@@ -47,15 +45,9 @@ struct GuideView: View {
                             VStack(spacing: 32) {
                                 HStack(spacing: 16) {
                                     ZStack {
-                                        AdaptiveView {
-                                            Image("flowerNumberDark")
-                                                .resizable()
-                                                .frame(width: 83, height: 81)
-                                        } dark: {
-                                            Image("flowerNumberDark")
-                                                .resizable()
-                                                .frame(width: 83, height: 81)
-                                        }
+                                        Image("flowerNumber")
+                                            .resizable()
+                                            .frame(width: 83, height: 81)
                                         
                                         Text("0\(selectIndex+1).")
                                             .foregroundStyle(.branco)
@@ -100,7 +92,7 @@ struct GuideView: View {
                 } else {
                     BLButton(symbol: "", text: "Criar conta", disabled: false, opposite: false, color: .branco, textColor: .verde) {
                         NotificationManager.shared.requestPermission()
-                        RouterService.shared.navigate(.allClients)
+                        RouterService.shared.navigate(.register)
                     }
                     .padding(.horizontal, 32)
                 }
@@ -112,5 +104,5 @@ struct GuideView: View {
 }
 
 #Preview {
-    GuideView(onboarding: .constant(true))
+    GuideView()
 }

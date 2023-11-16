@@ -53,14 +53,15 @@ struct ClientView: View {
                         }
                         
                         HStack {
-                            BLButton(symbol: "message.fill", text: "Mensagem", disabled: false, opposite: false, color: client.preferences.atendimento == .mensagem ? .verde : .verdeClaro, textColor: .branco) {
+                            BLButton(symbol: "message.fill", text: "Mensagem", infinity: false, disabled: false, opposite: false, color: client.preferences.atendimento == .mensagem ? .verde : .verdeClaro, textColor: .branco) {
                                 viewModel.shareMessage()
                             }
                             
-                            BLButton(symbol: "phone.fill", text: "Ligação", disabled: false, opposite: false, color: client.preferences.atendimento == .ligacao ? .verde : .verdeClaro, textColor: .branco) {
+                            BLButton(symbol: "phone.fill", text: "Ligação", infinity: false, disabled: false, opposite: false, color: client.preferences.atendimento == .ligacao ? .verde : .verdeClaro, textColor: .branco) {
                                 viewModel.callClient()
                             }
                         }
+                        .frame(maxWidth: .infinity)
                     }
                     .padding(.bottom, 16)
                     .padding(.horizontal, 32)

@@ -23,11 +23,9 @@ struct ClientCard: View {
                         Button {
                             deleteFunc()
                         } label: {
-                            ZStack {
-                                Image("deleteClient")
-                                    .resizable()
-                                    .frame(width: 46, height: 45)
-                            }
+                            Image("\(client.image)Delete")
+                                .resizable()
+                                .frame(width: 46, height: 45)
                         }
                     } else {
                         Image(client.image)

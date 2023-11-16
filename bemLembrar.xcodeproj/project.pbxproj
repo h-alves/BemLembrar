@@ -12,7 +12,8 @@
 		7834BC632B029B160057D6A1 /* BLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC622B029B160057D6A1 /* BLButton.swift */; };
 		7834BC652B02A8B20057D6A1 /* Letters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC642B02A8B20057D6A1 /* Letters.swift */; };
 		7834BC672B056ED10057D6A1 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC662B056ED10057D6A1 /* GuideView.swift */; };
-		7834BC692B0571D70057D6A1 /* AdaptiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC682B0571D70057D6A1 /* AdaptiveView.swift */; };
+		7834BC6D2B0599B90057D6A1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC6C2B0599B90057D6A1 /* RegisterView.swift */; };
+		7834BC712B05A2AA0057D6A1 /* TextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC702B05A2AA0057D6A1 /* TextCard.swift */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -75,7 +76,8 @@
 		7834BC622B029B160057D6A1 /* BLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLButton.swift; sourceTree = "<group>"; };
 		7834BC642B02A8B20057D6A1 /* Letters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letters.swift; sourceTree = "<group>"; };
 		7834BC662B056ED10057D6A1 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
-		7834BC682B0571D70057D6A1 /* AdaptiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveView.swift; sourceTree = "<group>"; };
+		7834BC6C2B0599B90057D6A1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		7834BC702B05A2AA0057D6A1 /* TextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCard.swift; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				783E560B2AF40C8000921298 /* OnboardingView.swift */,
 				7834BC662B056ED10057D6A1 /* GuideView.swift */,
+				7834BC6C2B0599B90057D6A1 /* RegisterView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -167,12 +170,11 @@
 			isa = PBXGroup;
 			children = (
 				78E629CD2AED73A400CBB373 /* ContentView.swift */,
-				7834BC682B0571D70057D6A1 /* AdaptiveView.swift */,
 				7834BC6A2B057D190057D6A1 /* Onboarding */,
 				C08A4A2D2AF2D65600C81997 /* AllClientsView.swift */,
 				783E560F2AF40D8900921298 /* ClientView.swift */,
-				7834BC6B2B057D270057D6A1 /* AddClient */,
 				78AF141E2B010D180094CF66 /* UserView.swift */,
+				7834BC6B2B057D270057D6A1 /* AddClient */,
 				783E56232AF814B400921298 /* Preferences */,
 				78FEF4DD2AF8721C00A5A6D8 /* Sheets */,
 			);
@@ -182,11 +184,11 @@
 		783E55DB2AF01CC900921298 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				78AF14202B010D300094CF66 /* UserViewModel.swift */,
 				783E56092AF40C2A00921298 /* AllClientsViewModel.swift */,
 				78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */,
 				783E55E12AF0A2D200921298 /* AddClientViewModel.swift */,
 				78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */,
-				78AF14202B010D300094CF66 /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,6 +267,7 @@
 				783E55E42AF0A55800921298 /* ContactCard.swift */,
 				783E56112AF41A0400921298 /* ClientCard.swift */,
 				78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */,
+				7834BC702B05A2AA0057D6A1 /* TextCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7834BC712B05A2AA0057D6A1 /* TextCard.swift in Sources */,
 				783E56222AF8145800921298 /* ServiceView.swift in Sources */,
 				783E56062AF3E5EF00921298 /* UIApplication.swift in Sources */,
 				7834BC5F2B016A720057D6A1 /* ComemorativeDate.swift in Sources */,
@@ -443,7 +447,6 @@
 				78EEC6CA2AFD5F410030F5EA /* PopUp.swift in Sources */,
 				78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */,
 				78AF141F2B010D180094CF66 /* UserView.swift in Sources */,
-				7834BC692B0571D70057D6A1 /* AdaptiveView.swift in Sources */,
 				78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */,
 				78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */,
 				78AF14112B0018C90094CF66 /* NotificationManager.swift in Sources */,
@@ -462,6 +465,7 @@
 				783E56102AF40D8900921298 /* ClientView.swift in Sources */,
 				783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */,
 				7834BC672B056ED10057D6A1 /* GuideView.swift in Sources */,
+				7834BC6D2B0599B90057D6A1 /* RegisterView.swift in Sources */,
 				783E56202AF8145300921298 /* SkinView.swift in Sources */,
 				78AF141B2B0107510094CF66 /* Strategy.swift in Sources */,
 				783E560C2AF40C8000921298 /* OnboardingView.swift in Sources */,

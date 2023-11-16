@@ -33,7 +33,10 @@ class ClientViewModel: ObservableObject {
         self.annotation = client.annotation
         self.lastContact = client.lastContact ?? Date.distantPast
         
-        self.shareText = "Olá \(client.fullName), como você está? Espero que bem! Vim aqui falar contigo por que blá blá blá"
+        self.shareText = "ooi querida \(client.fullName)🫶\ncomo você está? Está precisando de algum dos nossos produtos??🥰💐"
+        if client.birthday == Date() {
+            self.shareText = "Ooi \(client.fullName)! 🥳✨\nFeliz aniversário, te desejo muito amor, paz e sabedoria nessa nova primavera da sua vida! 🥰 💐 Obrigada pela confiança na minha consultoria e que sua luz nunca se apague"
+        }
     }
     
     func changeOnDataSource() {
@@ -135,10 +138,8 @@ class ClientViewModel: ObservableObject {
                 NotificationManager.shared.schedule222Notification(identifier: client.identifier, fullName: client.fullName, time: "2 semanas", interval: getInterval(value: 14), repeats: false)
             } else if client.twoStage == .month {
                 NotificationManager.shared.schedule222Notification(identifier: client.identifier, fullName: client.fullName, time: "2 meses", interval: getInterval(value: 60), repeats: false)
-            } else {
-                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: UserData.shared.user.strategy.time, interval: getInterval(value: UserData.shared.user.strategy.timeInterval), repeats: false)
             }
-        } else {
+        } else if UserData.shared.user.strategy != .none {
             NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: UserData.shared.user.strategy.time, interval: getInterval(value: UserData.shared.user.strategy.timeInterval), repeats: false)
         }
         

@@ -10,15 +10,9 @@ import SwiftUI
 struct OnboardingView: View {
     var body: some View {
         VStack(spacing: 48) {
-            AdaptiveView {
-                Image("onboardingTopBarLight")
-                    .resizable()
-                    .frame(width: .infinity, height: 88)
-            } dark: {
-                Image("onboardingTopBarDark")
-                    .resizable()
-                    .frame(width: .infinity, height: 88)
-            }
+            Image("onboardingTopBar")
+                .resizable()
+                .frame(width: .infinity, height: 88)
             
             VStack(spacing: 0) {
                 VStack(spacing: 32) {
@@ -41,15 +35,9 @@ struct OnboardingView: View {
                 
                 Spacer()
                 
-                AdaptiveView {
-                    Image("onboardingFlowerLight")
-                        .resizable()
-                        .frame(width: .infinity, height: 283)
-                } dark: {
-                    Image("onboardingFlowerDark")
-                        .resizable()
-                        .frame(width: .infinity, height: 283)
-                }
+                Image("onboardingFlower")
+                    .resizable()
+                    .frame(width: .infinity, height: 283)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
