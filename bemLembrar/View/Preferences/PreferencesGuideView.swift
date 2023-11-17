@@ -80,7 +80,7 @@ struct PreferencesGuideView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
+                .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                 
                 if selectIndex < 2 {
                     BLButton(symbol: "arrow.right", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {

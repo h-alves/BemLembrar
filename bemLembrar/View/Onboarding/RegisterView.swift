@@ -130,7 +130,7 @@ struct RegisterView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
+                .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                 
                 BLButton(symbol: viewModel.isDisabled() ? "" : "checkmark", text: "Concluir cadastro", disabled: viewModel.isDisabled(), opposite: !viewModel.isDisabled(), color: .branco, textColor: .preto) {
                     viewModel.registerUser()

@@ -49,7 +49,7 @@ struct RejectedView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
+                .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                 
                 BLButton(symbol: "", text: "Permitir acesso aos contatos", disabled: false, opposite: false, color: .branco, textColor: .preto) {
                     UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)

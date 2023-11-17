@@ -77,7 +77,7 @@ struct AllClientsView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
+                .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                 
                 VStack {
                     if viewModel.allClients.isEmpty {
