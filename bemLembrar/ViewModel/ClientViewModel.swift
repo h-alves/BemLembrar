@@ -34,7 +34,7 @@ class ClientViewModel: ObservableObject {
         self.lastContact = client.lastContact ?? Date.distantPast
         
         self.shareText = "ooi querida \(client.fullName)🫶\ncomo você está? Está precisando de algum dos nossos produtos??🥰💐"
-        if client.birthday == Date() {
+        if client.birthday?.getMonthDay() == Date().getMonthDay() {
             self.shareText = "Ooi \(client.fullName)! 🥳✨\nFeliz aniversário, te desejo muito amor, paz e sabedoria nessa nova primavera da sua vida! 🥰 💐 Obrigada pela confiança na minha consultoria e que sua luz nunca se apague"
         }
     }
@@ -99,6 +99,11 @@ class ClientViewModel: ObservableObject {
     }
     
     func shareMessage() {
+        self.shareText = "ooi querida \(client.fullName)🫶\ncomo você está? Está precisando de algum dos nossos produtos??🥰💐"
+        if client.birthday?.getMonthDay() == Date().getMonthDay() {
+            self.shareText = "Ooi \(client.fullName)! 🥳✨\nFeliz aniversário, te desejo muito amor, paz e sabedoria nessa nova primavera da sua vida! 🥰 💐 Obrigada pela confiança na minha consultoria e que sua luz nunca se apague"
+        }
+        
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         UIApplication.shared.currentUIWindow()?.rootViewController?.present(activityVC, animated: true, completion: nil)
         
