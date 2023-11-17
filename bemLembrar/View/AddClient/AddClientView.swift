@@ -20,6 +20,7 @@ struct AddClientView: View {
             
             Color.verde
                 .ignoresSafeArea(edges: .bottom)
+            
             VStack(spacing: 24) {
                 VStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 24) {

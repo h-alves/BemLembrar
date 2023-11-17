@@ -13,72 +13,169 @@ struct SkinView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.rosa
-                    .ignoresSafeArea()
-                ZStack {
+                Color.branco
+                    .ignoresSafeArea(edges: .top)
+                
+                Color.azul
+                    .ignoresSafeArea(edges: .bottom)
+                
+                VStack(spacing: 24) {
                     VStack(spacing: 0) {
-                        TitleBar(backgroundImage: "teste", image: "face.smiling", title: "Tipo de pele", color: .azul)
+                        Image("skinImage")
+                            .resizable()
+                            .frame(width: 393, height: 183)
+                            .clipShape(
+                                .rect (
+                                    topLeadingRadius: 24,
+                                    bottomLeadingRadius: 0,
+                                    bottomTrailingRadius: 0,
+                                    topTrailingRadius: 24
+                                )
+                            )
                         
-                        ScrollView {
-                            VStack {
-                                HStack {
-                                    Text("Quais possuem a pele...")
+                        VStack(alignment: .leading, spacing: 24) {
+                            ScrollView {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Tipo de pele")
+                                        .foregroundStyle(.azul)
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                    
+                                    Text("Selecione suas clientes de acordo com a preferência")
+                                        .foregroundStyle(.preto)
+                                        .font(.body)
+                                }
+                                .padding(.top, 24)
+                                
+                                Divider()
+                                
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text("Quais gostam de cheiro...")
+                                        .foregroundStyle(.preto)
                                         .font(.title3)
                                         .fontWeight(.semibold)
                                     
-                                    Spacer()
-                                }
-                                .frame(maxWidth: .infinity)
-                                
-                                VStack(spacing: 24) {
-                                    ForEach(Pele.allCases, id: \.rawValue) { p in
-                                        PreferenceCard(pele: p,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.pele == p })) {
-                                            RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .skin, pele: p))
+                                    VStack(spacing: 16) {
+                                        ForEach(Pele.allCases, id: \.rawValue) { p in
+                                            PreferenceCard(pele: p,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.pele == p })) {
+                                                RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .skin, pele: p))
+                                            }
+                                            .padding(.horizontal, 1)
                                         }
                                     }
                                 }
+                                .padding(.bottom, 24)
                             }
-                            .padding(.top, 24)
-                            .padding(.horizontal, 36)
-                            .padding(.bottom, 98)
+                            .scrollIndicators(.hidden)
                         }
-                        .scrollIndicators(.hidden)
+                        .padding(.horizontal, 32)
                     }
+                    .background(.branco)
+                    .clipShape(
+                        .rect (
+                            topLeadingRadius: 0,
+                            bottomLeadingRadius: 32,
+                            bottomTrailingRadius: 32,
+                            topTrailingRadius: 0
+                        )
+                    )
+                    .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                     
-                    VStack {
-                        Spacer()
-                        
-                        BLButton(symbol: "arrow.forward", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
-                            RouterService.shared.navigate(.service)
-                        }
-                        .padding(.top, 12)
-                        .padding(.horizontal, 36)
-                        .background(.verde)
+                    BLButton(symbol: "arrow.right", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
+                        RouterService.shared.navigate(.service)
                     }
+                    .padding(.horizontal, 32)
+                    
+                    Spacer()
                 }
-                .onAppear {
-                    viewModel.subscribe()
-                }
-                .onDisappear {
-                    viewModel.cancelSubscription()
-                }
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                            RouterService.shared.navigate(.smell)
-                        } label: {
-                            HStack {
-                                Image("backButton")
-                                    .resizable()
-                                    .frame(width: 54, height: 56)
-                                
-                                Text("Cheiros")
-                            }
-                        }
+            }
+            .onAppear {
+                viewModel.subscribe()
+            }
+            .onDisappear {
+                viewModel.cancelSubscription()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        RouterService.shared.navigate(.allClients)
+                    } label: {
+                        Image("backButton")
+                            .resizable()
+                            .frame(width: 54, height: 56)
                     }
                 }
             }
         }
+        
+//        NavigationStack {
+//            ZStack {
+//                Color.rosa
+//                    .ignoresSafeArea()
+//                ZStack {
+//                    VStack(spacing: 0) {
+//                        TitleBar(backgroundImage: "teste", image: "face.smiling", title: "Tipo de pele", color: .azul)
+//                        
+//                        ScrollView {
+//                            VStack {
+//                                HStack {
+//                                    Text("Quais possuem a pele...")
+//                                        .font(.title3)
+//                                        .fontWeight(.semibold)
+//                                    
+//                                    Spacer()
+//                                }
+//                                .frame(maxWidth: .infinity)
+//                                
+//                                VStack(spacing: 24) {
+//                                    ForEach(Pele.allCases, id: \.rawValue) { p in
+//                                        PreferenceCard(pele: p,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.pele == p })) {
+//                                            RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .skin, pele: p))
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                            .padding(.top, 24)
+//                            .padding(.horizontal, 36)
+//                            .padding(.bottom, 98)
+//                        }
+//                        .scrollIndicators(.hidden)
+//                    }
+//                    
+//                    VStack {
+//                        Spacer()
+//                        
+//                        BLButton(symbol: "arrow.forward", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
+//                            RouterService.shared.navigate(.service)
+//                        }
+//                        .padding(.top, 12)
+//                        .padding(.horizontal, 36)
+//                        .background(.verde)
+//                    }
+//                }
+//                .onAppear {
+//                    viewModel.subscribe()
+//                }
+//                .onDisappear {
+//                    viewModel.cancelSubscription()
+//                }
+//                .toolbar {
+//                    ToolbarItem(placement: .topBarLeading) {
+//                        Button {
+//                            RouterService.shared.navigate(.smell)
+//                        } label: {
+//                            HStack {
+//                                Image("backButton")
+//                                    .resizable()
+//                                    .frame(width: 54, height: 56)
+//                                
+//                                Text("Cheiros")
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 }
 
