@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BLButton: View {
     var symbol: String
-    var font: Font = .title3
+    var font: Font = .headline
     var text: String = ""
     var infinity: Bool = true
     var disabled: Bool
@@ -35,7 +35,7 @@ struct BLButton: View {
                     
                     Image(systemName: getSymbol())
                         .foregroundStyle(getTextColor())
-                        .font(.system(size: 16))
+                        .font(.subheadline)
                         .fontWeight(.bold)
                     
                     if !opposite {
@@ -70,7 +70,7 @@ struct BLButton: View {
                     
                     Image(systemName: getSymbol())
                         .foregroundStyle(getTextColor())
-                        .font(.system(size: 16))
+                        .font(.subheadline)
                         .fontWeight(.bold)
                     
                     if !opposite {
@@ -100,7 +100,7 @@ struct BLButton: View {
     
     func getTextColor() -> Color {
         if disabled {
-            return .branco
+            return .verdeOpaco
         }
         return textColor
     }

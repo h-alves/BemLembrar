@@ -14,7 +14,8 @@ enum Screen {
     case allClients
     case addClient
     case client(client: Client)
-    case preferences
+    case prefOnboarding
+    case prefGuide
     case smell
     case skin
     case service

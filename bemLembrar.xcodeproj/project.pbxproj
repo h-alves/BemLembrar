@@ -14,6 +14,7 @@
 		7834BC672B056ED10057D6A1 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC662B056ED10057D6A1 /* GuideView.swift */; };
 		7834BC6D2B0599B90057D6A1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC6C2B0599B90057D6A1 /* RegisterView.swift */; };
 		7834BC712B05A2AA0057D6A1 /* TextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC702B05A2AA0057D6A1 /* TextCard.swift */; };
+		7834BC752B06964D0057D6A1 /* PreferencesOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -31,7 +32,7 @@
 		783E56122AF41A0400921298 /* ClientCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56112AF41A0400921298 /* ClientCard.swift */; };
 		783E56142AF74BB800921298 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56132AF74BB800921298 /* DateComponents.swift */; };
 		783E561A2AF752E500921298 /* IndividualTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56192AF752E500921298 /* IndividualTag.swift */; };
-		783E561C2AF8138F00921298 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561B2AF8138F00921298 /* PreferencesView.swift */; };
+		783E561C2AF8138F00921298 /* PreferencesGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561B2AF8138F00921298 /* PreferencesGuideView.swift */; };
 		783E561E2AF8144B00921298 /* SmellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561D2AF8144B00921298 /* SmellView.swift */; };
 		783E56202AF8145300921298 /* SkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561F2AF8145300921298 /* SkinView.swift */; };
 		783E56222AF8145800921298 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56212AF8145800921298 /* ServiceView.swift */; };
@@ -78,6 +79,7 @@
 		7834BC662B056ED10057D6A1 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		7834BC6C2B0599B90057D6A1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7834BC702B05A2AA0057D6A1 /* TextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCard.swift; sourceTree = "<group>"; };
+		7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesOnboardingView.swift; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 		783E56112AF41A0400921298 /* ClientCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCard.swift; sourceTree = "<group>"; };
 		783E56132AF74BB800921298 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
 		783E56192AF752E500921298 /* IndividualTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTag.swift; sourceTree = "<group>"; };
-		783E561B2AF8138F00921298 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		783E561B2AF8138F00921298 /* PreferencesGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesGuideView.swift; sourceTree = "<group>"; };
 		783E561D2AF8144B00921298 /* SmellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmellView.swift; sourceTree = "<group>"; };
 		783E561F2AF8145300921298 /* SkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinView.swift; sourceTree = "<group>"; };
 		783E56212AF8145800921298 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
@@ -253,7 +255,8 @@
 		783E56232AF814B400921298 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				783E561B2AF8138F00921298 /* PreferencesView.swift */,
+				7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */,
+				783E561B2AF8138F00921298 /* PreferencesGuideView.swift */,
 				783E561D2AF8144B00921298 /* SmellView.swift */,
 				783E561F2AF8145300921298 /* SkinView.swift */,
 				783E56212AF8145800921298 /* ServiceView.swift */,
@@ -418,6 +421,7 @@
 				7834BC5F2B016A720057D6A1 /* ComemorativeDate.swift in Sources */,
 				78AF140F2AFFCCB40094CF66 /* String.swift in Sources */,
 				78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */,
+				7834BC752B06964D0057D6A1 /* PreferencesOnboardingView.swift in Sources */,
 				78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */,
 				78EEC6C22AFC8AE50030F5EA /* DateEditView.swift in Sources */,
 				C08A4A2E2AF2D65600C81997 /* AllClientsView.swift in Sources */,
@@ -455,7 +459,7 @@
 				78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */,
 				783E56042AF3DFB100921298 /* SearchBar.swift in Sources */,
 				783E55EA2AF1804900921298 /* Client.swift in Sources */,
-				783E561C2AF8138F00921298 /* PreferencesView.swift in Sources */,
+				783E561C2AF8138F00921298 /* PreferencesGuideView.swift in Sources */,
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,

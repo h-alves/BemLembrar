@@ -24,7 +24,7 @@ struct RegisterView: View {
                 VStack(spacing: 0) {
                     Image("onboardingTopBar")
                         .resizable()
-                        .frame(width: .infinity, height: 88)
+                        .frame(width: 393, height: 88)
                     
                     VStack(alignment: .leading, spacing: 24) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -52,7 +52,7 @@ struct RegisterView: View {
                                             .padding(.vertical, 8)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 14)
-                                                    .stroke(.rosa, lineWidth: 2)
+                                                    .stroke(viewModel.name.isEmpty ? .rosa : .verde, lineWidth: 2)
                                             )
                                             .padding(.horizontal, 1)
                                     }
@@ -130,10 +130,12 @@ struct RegisterView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(radius: 5, y: 12)
+                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
                 
-                BLButton(symbol: viewModel.isDisabled() ? "" : "checkmark", text: "Concluir cadastro", disabled: viewModel.isDisabled(), opposite: !viewModel.isDisabled(), color: .branco, textColor: .verde) {
+                BLButton(symbol: viewModel.isDisabled() ? "" : "checkmark", text: "Concluir cadastro", disabled: viewModel.isDisabled(), opposite: !viewModel.isDisabled(), color: .branco, textColor: .preto) {
                     viewModel.registerUser()
+                    onboarding = false
+                    RouterService.shared.navigate(.allClients)
                 }
                 .padding(.horizontal, 32)
                 

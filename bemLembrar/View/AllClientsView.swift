@@ -18,12 +18,12 @@ struct AllClientsView: View {
             Color.rosa
             
             VStack(spacing: 16) {
-                VStack(spacing: 16) {
+                VStack(alignment: .leading, spacing: 16) {
                     HStack(spacing: 10) {
                         Button {
                             RouterService.shared.navigate(.user)
                         } label: {
-                            Image("\(UserData.shared.user.image)Profile")
+                            Image("\(UserData.shared.user.image)")
                                 .resizable()
                                 .frame(width: 80, height: 81)
                                 .overlay(alignment: .bottomTrailing) {
@@ -77,7 +77,7 @@ struct AllClientsView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(radius: 5, y: 8)
+                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
                 
                 VStack {
                     if viewModel.allClients.isEmpty {
@@ -124,6 +124,7 @@ struct AllClientsView: View {
                                     }
                                 }
                             }
+                            .scrollIndicators(.hidden)
                         }
                         .padding(.horizontal, 32)
                     }

@@ -12,7 +12,7 @@ struct OnboardingView: View {
         VStack(spacing: 48) {
             Image("onboardingTopBar")
                 .resizable()
-                .frame(width: .infinity, height: 88)
+                .frame(width: 393, height: 88)
             
             VStack(spacing: 0) {
                 VStack(spacing: 32) {
@@ -37,7 +37,7 @@ struct OnboardingView: View {
                 
                 Image("onboardingFlower")
                     .resizable()
-                    .frame(width: .infinity, height: 283)
+                    .frame(width: 393, height: 283)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

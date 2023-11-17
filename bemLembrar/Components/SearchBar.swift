@@ -42,7 +42,7 @@ struct SearchBar: View {
         .padding(.vertical, 8)
         .overlay(
             RoundedRectangle(cornerRadius: 14)
-                .stroke(.rosa, lineWidth: 2)
+                .stroke(searchText.isEmpty ? .rosa : .verde, lineWidth: 2)
         )
     }
 }

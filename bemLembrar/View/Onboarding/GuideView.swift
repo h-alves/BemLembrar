@@ -63,6 +63,8 @@ struct GuideView: View {
                                 Image("onboardingImage\(selectIndex+1)")
                                     .resizable()
                                     .frame(width: 305, height: 296)
+                                
+                                Spacer()
                             }
                             .padding(.horizontal, 32)
                         }
@@ -70,7 +72,6 @@ struct GuideView: View {
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 }
                 .padding(.top, 24)
-                .padding(.bottom, 100)
                 .background(.branco)
                 .clipShape(
                     .rect (
@@ -83,14 +84,14 @@ struct GuideView: View {
                 .shadow(radius: 5, y: 12)
                 
                 if selectIndex < 2 {
-                    BLButton(symbol: "arrow.right", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
+                    BLButton(symbol: "arrow.right", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .preto) {
                         withAnimation {
                             selectIndex+=1
                         }
                     }
                     .padding(.horizontal, 32)
                 } else {
-                    BLButton(symbol: "", text: "Criar conta", disabled: false, opposite: false, color: .branco, textColor: .verde) {
+                    BLButton(symbol: "", text: "Criar conta", disabled: false, opposite: false, color: .branco, textColor: .preto) {
                         NotificationManager.shared.requestPermission()
                         RouterService.shared.navigate(.register)
                     }

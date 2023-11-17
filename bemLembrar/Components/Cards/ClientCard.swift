@@ -23,7 +23,7 @@ struct ClientCard: View {
                         Button {
                             deleteFunc()
                         } label: {
-                            Image("\(client.image)Delete")
+                            Image("deleteClient")
                                 .resizable()
                                 .frame(width: 46, height: 45)
                         }

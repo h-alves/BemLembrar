@@ -140,12 +140,12 @@ struct AddClientView: View {
                         topTrailingRadius: 0
                     )
                 )
-                .shadow(radius: 5, y: 12)
+                .shadow(color: .preto.opacity(0.2), radius: 5, y: 8)
                 
                 BLButton(symbol: "", text: "Adicionar clientes\(viewModel.selectedContacts())", disabled: viewModel.disabled(), opposite: false, color: .branco, textColor: .verde) {
                     viewModel.saveData()
                     if onboarding {
-                        RouterService.shared.navigate(.preferences)
+                        RouterService.shared.navigate(.prefOnboarding)
                     } else {
                         RouterService.shared.navigate(.smell)
                     }
