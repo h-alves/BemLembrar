@@ -91,58 +91,6 @@ struct ClientSheetView: View {
         .onAppear {
             viewModel.filterContacts(cheiro: cheiro, pele: pele, atendimento: atendimento)
         }
-//        VStack {
-//            switch preferenceType {
-//            case .smell:
-//                Text("Fragância \(cheiro.rawValue.capitalized)")
-//            case .skin:
-//                Text("Pele \(pele.rawValue.capitalized)")
-//            case .service:
-//                Text("Atendimento \(atendimento.rawValue.capitalized)")
-//            }
-//            
-//            SearchBar(searchText: $viewModel.searchText) {
-//                viewModel.updateFiltered()
-//            }
-//            
-//            if viewModel.searchText == "" {
-//                VStack(alignment: .leading,spacing: 16) {
-//                    ForEach(Letters.shared.allLetters, id: \.description) { letter in
-//                        if viewModel.hasContact(letter: letter) {
-//                            VStack(alignment: .leading, spacing: 6) {
-//                                Text(letter)
-//                                    .foregroundStyle(.verde)
-//                                    .font(.callout)
-//                                    .fontWeight(.semibold)
-//                                
-//                                VStack(alignment: .leading, spacing: 8) {
-//                                    ForEach(viewModel.listFromLetter(letter: letter), id: \.contactInfo.identifier) { contact in
-//                                        ContactCard(contact: viewModel.getBinding(contact: contact), background: "light", color: .white) {
-//                                            viewModel.selectContact(contact: contact)
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            } else {
-//                ForEach(viewModel.searchContacts, id: \.identifier) { client in
-//                    ContactCard(contact: viewModel.getBinding(contact: client), background: "light", color: .white) {
-//                        viewModel.selectContact(contact: client)
-//                    }
-//                }
-//            }
-//            
-//            BLButton(symbol: "checkmark", text: "Concluir", disabled: false, opposite: false, color: .verde, textColor: .branco) {
-//                viewModel.saveData(cheiro: cheiro, pele: pele, atendimento: atendimento)
-//                RouterService.shared.hideSheet()
-//            }
-//        }
-//        .padding(.horizontal, 32)
-//        .onAppear {
-//            viewModel.filterContacts(cheiro: cheiro, pele: pele, atendimento: atendimento)
-//        }
     }
 }
 
