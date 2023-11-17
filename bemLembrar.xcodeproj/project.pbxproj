@@ -20,6 +20,7 @@
 		7834BC7F2B06FF570057D6A1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC7E2B06FF570057D6A1 /* Color.swift */; };
 		7834BC812B07017D0057D6A1 /* BLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC802B07017D0057D6A1 /* BLTextField.swift */; };
 		7834BC832B0722710057D6A1 /* BLDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC822B0722710057D6A1 /* BLDatePicker.swift */; };
+		7834BC852B07A5A50057D6A1 /* SheetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC842B07A5A50057D6A1 /* SheetLine.swift */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -90,6 +91,7 @@
 		7834BC7E2B06FF570057D6A1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7834BC802B07017D0057D6A1 /* BLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLTextField.swift; sourceTree = "<group>"; };
 		7834BC822B0722710057D6A1 /* BLDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLDatePicker.swift; sourceTree = "<group>"; };
+		7834BC842B07A5A50057D6A1 /* SheetLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetLine.swift; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				7834BC822B0722710057D6A1 /* BLDatePicker.swift */,
 				78EEC6C92AFD5F410030F5EA /* PopUp.swift */,
 				7834BC7C2B06FE270057D6A1 /* Divider.swift */,
+				7834BC842B07A5A50057D6A1 /* SheetLine.swift */,
 				783E56242AF8172100921298 /* Cards */,
 				783E56252AF8172B00921298 /* Tags */,
 				78EEC6CB2AFDA85A0030F5EA /* EditFields */,
@@ -487,6 +490,7 @@
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,
 				783E56102AF40D8900921298 /* ClientView.swift in Sources */,
 				7834BC7D2B06FE270057D6A1 /* Divider.swift in Sources */,
+				7834BC852B07A5A50057D6A1 /* SheetLine.swift in Sources */,
 				783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */,
 				7834BC672B056ED10057D6A1 /* GuideView.swift in Sources */,
 				7834BC6D2B0599B90057D6A1 /* RegisterView.swift in Sources */,

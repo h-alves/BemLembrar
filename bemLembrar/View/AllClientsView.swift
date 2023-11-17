@@ -139,7 +139,7 @@ struct AllClientsView: View {
             }
             .overlay {
                 if viewModel.isPresented {
-                    PopUp(title: "Deletar Cliente?", bodyText: "Esse cliente será permanentemente deletado da sua lista de clientes.", buttonText: "Deletar", secondaryText: "Cancelar") {
+                    PopUp(title: "Deletar Cliente?", bodyText: "Esse cliente será permanentemente deletado da sua lista de clientes.", buttonText: "Sim", secondaryText: "Não") {
                         viewModel.delete()
                         viewModel.isPresented = false
                     } secondaryFunc: {

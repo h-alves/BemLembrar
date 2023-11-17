@@ -13,9 +13,7 @@ struct NewContactView: View {
     var body: some View {
         VStack {
             VStack(spacing: 24) {
-                RoundedRectangle(cornerRadius: 32)
-                    .foregroundStyle(.rosa)
-                    .frame(width: 55, height: 4)
+                SheetLine()
                 
                 VStack(alignment: .leading, spacing: 24) {
                     Text("Novo contato")

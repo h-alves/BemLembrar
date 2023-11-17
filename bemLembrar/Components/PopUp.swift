@@ -19,46 +19,64 @@ struct PopUp: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundStyle(.gray)
-                .opacity(0.6)
+                .foregroundStyle(.preto)
+                .opacity(0.3)
                 .ignoresSafeArea()
             
-            VStack {
-                VStack(spacing: 6) {
-                    Text(title)
-                        .font(.title3)
+            VStack(spacing: 24) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Você tem certeza que quer excluir essa cliente?")
+                        .foregroundStyle(.verde)
+                        .font(.title)
                         .fontWeight(.bold)
-                    Text(bodyText)
-                        .multilineTextAlignment(.center)
-                }
-                .padding()
-                
-                HStack(spacing: 0) {
-                    Button {
-                        secondaryFunc()
-                    } label: {
-                        Text(secondaryText)
-                            .foregroundStyle(.black)
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.lightGray))
                     
+                    Text("Continuar resultará na perda dos dados da cliente. Ao adicioná-la novamente, será necessário recriar todas as preferências e informações.")
+                        .foregroundStyle(.preto)
+                        .font(.body)
+                }
+                
+                VStack {
                     Button {
                         mainFunc()
                     } label: {
                         Text(buttonText)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.verde)
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 8)
+                            .clipShape(RoundedRectangle(cornerRadius: 14))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(.verde, lineWidth: 2)
+                            }
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(.red)
+                    
+                    Button {
+                        secondaryFunc()
+                    } label: {
+                        Text(secondaryText)
+                            .foregroundStyle(.branco)
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 8)
+                            .background(.verde)
+                            .clipShape(RoundedRectangle(cornerRadius: 14))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(.verde, lineWidth: 2)
+                            }
+                    }
                 }
-                .fontWeight(.bold)
             }
-            .background()
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding(.horizontal, 40)
+            .padding(.horizontal, 24)
+            .padding(.bottom, 24)
+            .padding(.top, 16)
+            .background(.branco)
+            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .shadow(color: .pretoShadow, radius: 10, y: 4)
+            .padding(.horizontal, 32)
         }
     }
 }
