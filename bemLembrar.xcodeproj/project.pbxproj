@@ -15,6 +15,7 @@
 		7834BC6D2B0599B90057D6A1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC6C2B0599B90057D6A1 /* RegisterView.swift */; };
 		7834BC712B05A2AA0057D6A1 /* TextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC702B05A2AA0057D6A1 /* TextCard.swift */; };
 		7834BC752B06964D0057D6A1 /* PreferencesOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */; };
+		7834BC7B2B06F3960057D6A1 /* ImageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC7A2B06F3960057D6A1 /* ImageSheetView.swift */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -80,6 +81,7 @@
 		7834BC6C2B0599B90057D6A1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7834BC702B05A2AA0057D6A1 /* TextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCard.swift; sourceTree = "<group>"; };
 		7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesOnboardingView.swift; sourceTree = "<group>"; };
+		7834BC7A2B06F3960057D6A1 /* ImageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSheetView.swift; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */,
 				78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */,
 				78AF14222B0117B30094CF66 /* BrandsSheetView.swift */,
+				7834BC7A2B06F3960057D6A1 /* ImageSheetView.swift */,
 				78AF14242B0117FF0094CF66 /* StrategySheetView.swift */,
 			);
 			path = Sheets;
@@ -463,6 +466,7 @@
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,
+				7834BC7B2B06F3960057D6A1 /* ImageSheetView.swift in Sources */,
 				783E561E2AF8144B00921298 /* SmellView.swift in Sources */,
 				78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */,
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,

@@ -13,6 +13,12 @@ struct UserView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Button {
+                    viewModel.imageIsEditing.toggle()
+                } label: {
+                    Image(viewModel.image)
+                }
+                
                 Text(viewModel.name)
                 
                 HStack {
@@ -34,14 +40,6 @@ struct UserView: View {
                         Text(UserData.shared.user.strategy.name)
                     }
                     
-                    if UserData.shared.user.twoTwoTwo {
-                        Text("2+2+2")
-                    }
-                    
-                    if UserData.shared.user.comemorative {
-                        Text("Datas comemorativas")
-                    }
-                    
                     Button {
                         viewModel.strategyIsEditing.toggle()
                     } label: {
@@ -60,11 +58,17 @@ struct UserView: View {
                     }
                 }
             }
+            .onAppear {
+                viewModel.getImageList()
+            }
             .sheet(isPresented: $viewModel.brandIsEditing) {
                 BrandsSheetView(viewModel: viewModel)
             }
             .sheet(isPresented: $viewModel.strategyIsEditing) {
                 StrategySheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $viewModel.imageIsEditing) {
+                ImageSheetView(viewModel: viewModel)
             }
         }
     }

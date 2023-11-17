@@ -11,11 +11,26 @@ import SwiftUI
 class UserViewModel: ObservableObject {
     @Published var name = UserData.shared.user.name
     @Published var image = UserData.shared.user.image
+    @Published var images = [String]()
     @Published var brands = UserData.shared.user.brands
     @Published var strategies = Strategy.allStrategies.refactor()
     
+    @Published var imageIsEditing = false
     @Published var brandIsEditing = false
     @Published var strategyIsEditing = false
+    
+    func getImageList() {
+        for i in 1...10 {
+            images.append("userImage\(i)")
+        }
+        
+        print(images)
+    }
+    
+    func selectImage(image: String) {
+        self.image = image
+        UserData.shared.user.image = image
+    }
     
     func selectBrand(brand: Brand) {
         for (index, originalBrand) in brands.enumerated() {
