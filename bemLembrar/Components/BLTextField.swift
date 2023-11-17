@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct BLTextField: View {
+    var placeholderText: String = "Seu nome"
     @Binding var text: String
     
     var body: some View {
-        TextField("Seu nome", text: $text)
+        TextField("\(placeholderText)", text: $text)
             .font(.headline)
             .foregroundStyle(.preto)
             .padding(.horizontal, 12)

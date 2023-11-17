@@ -68,9 +68,9 @@ struct SkinView: View {
                             RouterService.shared.navigate(.smell)
                         } label: {
                             HStack {
-                                Image(systemName: "chevron.left")
-                                    .font(.system(size: 17))
-                                    .fontWeight(.bold)
+                                Image("backButton")
+                                    .resizable()
+                                    .frame(width: 54, height: 56)
                                 
                                 Text("Cheiros")
                             }

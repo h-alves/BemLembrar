@@ -23,7 +23,9 @@ struct ClientView: View {
                         
                         Image(client.image)
                             .resizable()
-                            .frame(maxWidth: 200, maxHeight: 200)
+                            .frame(maxWidth: 120, maxHeight: 116)
+                            .padding(.trailing, 24)
+                            .padding(.bottom, 4)
                             .overlay(alignment: .bottomTrailing) {
                                 Button {
                                     print("Clicado")
@@ -31,10 +33,10 @@ struct ClientView: View {
                                     ZStack {
                                         Image(systemName: "circle.fill")
                                             .foregroundStyle(.branco)
-                                            .font(.system(size: 48))
+                                            .font(.system(size: 40))
                                         Image(systemName: "square.and.pencil.circle.fill")
                                             .foregroundStyle(.verde)
-                                            .font(.system(size: 48))
+                                            .font(.system(size: 40))
                                     }
                                 }
                             }
@@ -105,20 +107,9 @@ struct ClientView: View {
                                     .background(.branco)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     
-                                    HStack {
-                                        StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.addressIsEditing)
-                                        
-                                        Spacer()
-                                        
-                                        Button {
-                                            viewModel.saveAddress()
-                                        } label: {
-                                            Image(systemName: viewModel.addressIsEditing ? "checkmark.circle.fill" : "square.and.pencil")
-                                        }
+                                    StringEditView(title: "Endereço", text: $viewModel.address, isEditing: $viewModel.addressIsEditing) {
+                                        viewModel.saveAddress()
                                     }
-                                    .padding()
-                                    .background(.branco)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
                                 
                                 Spacer()
@@ -180,10 +171,9 @@ struct ClientView: View {
                             Button {
                                 RouterService.shared.navigate(.allClients)
                             } label: {
-                                Image(systemName: "chevron.left.circle.fill")
-                                    .foregroundStyle(.verde)
-                                    .font(.system(size: 32))
-                                    .padding(.bottom, 10)
+                                Image("backButton")
+                                    .resizable()
+                                    .frame(width: 54, height: 56)
                             }
                         }
                     }

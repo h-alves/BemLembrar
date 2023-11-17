@@ -48,7 +48,7 @@ struct RegisterView: View {
                                         BLTextField(text: $viewModel.name)
                                     }
                                     
-                                    Divider(color: .verdeOpaco)
+                                    Divider()
                                     
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Com quais marcas você trabalha?")
@@ -64,7 +64,7 @@ struct RegisterView: View {
                                         }
                                     }
                                     
-                                    Divider(color: .verdeOpaco)
+                                    Divider()
                                     
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Qual é a sua estratégia de recontato com as clientes?")

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Divider: View {
-    var color: Color
+    var color: Color = .verdeOpaco
     
     var body: some View {
         HStack(spacing: 16) {

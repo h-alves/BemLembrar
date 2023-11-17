@@ -11,58 +11,71 @@ struct NewContactView: View {
     @ObservedObject var viewModel: AddClientViewModel
     
     var body: some View {
-        VStack(spacing: 24) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Dados Pessoais")
-                    .font(.title)
-                    .fontWeight(.bold)
+        VStack {
+            VStack(spacing: 24) {
+                RoundedRectangle(cornerRadius: 32)
+                    .foregroundStyle(.rosa)
+                    .frame(width: 55, height: 4)
                 
-                VStack {
-                    TextField("Telefone", text: $viewModel.number)
+                VStack(alignment: .leading, spacing: 24) {
+                    Text("Novo contato")
+                        .foregroundStyle(.verde)
+                        .font(.title)
+                        .fontWeight(.bold)
                     
-                    TextField("Nome", text: $viewModel.givenName)
-                    
-                    TextField("Sobrenome", text: $viewModel.familyName)
-                    
-                    DatePicker("Aniversário:", selection: $viewModel.birthday, displayedComponents: [.date])
+                    VStack(spacing: 32) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Dados Essenciais")
+                                .foregroundStyle(.verde)
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                            
+                            BLTextField(placeholderText: "Nome", text: $viewModel.givenName)
+                            
+                            BLTextField(placeholderText: "Sobrenome", text: $viewModel.familyName)
+                            
+                            BLTextField(placeholderText: "Telefone", text: $viewModel.number)
+                        }
+                        
+                        Divider()
+                        
+                        VStack(alignment: .leading, spacing: 12) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Dados Opcionais")
+                                    .foregroundStyle(.verde)
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                
+                                BLDatePicker(date: $viewModel.birthday)
+                            }
+                            
+                            Text("Endereço")
+                                .foregroundStyle(.verde)
+                                .font(.headline)
+                            
+                            VStack(spacing: 8) {
+                                BLTextField(placeholderText: "Rua", text: $viewModel.street)
+                                
+                                BLTextField(placeholderText: "Cidade", text: $viewModel.city)
+                                
+                                BLTextField(placeholderText: "Estado", text: $viewModel.state)
+                            }
+                        }
+                    }
                 }
-                .padding()
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding(.horizontal, 32)
             }
             
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Endereço")
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                VStack {
-                    TextField("Rua", text: $viewModel.street)
-                    
-                    TextField("Cidade", text: $viewModel.city)
-                    
-                    TextField("Estado", text: $viewModel.state)
-                }
-                .padding()
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-            }
+            Spacer()
             
-            Button {
+            BLButton(symbol: "checkmark", text: "Concluir", disabled: viewModel.givenName == "" || viewModel.number == "", opposite: viewModel.givenName != "" && viewModel.number != "", color: .verde, textColor: .branco) {
                 viewModel.addContact()
                 viewModel.isPresented = false
-            } label: {
-                Text("Salvar")
-                    .foregroundStyle(.black)
             }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color(.systemGray2))
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal, 32)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.horizontal, 12)
-        .background(Color(.systemGray5))
+        .padding(.top, 12)
+        .background(.branco)
     }
 }
 

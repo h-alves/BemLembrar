@@ -52,9 +52,9 @@ struct UserView: View {
                     Button {
                         RouterService.shared.navigate(.allClients)
                     } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 17))
-                            .fontWeight(.bold)
+                        Image("backButton")
+                            .resizable()
+                            .frame(width: 54, height: 56)
                     }
                 }
             }
