@@ -14,14 +14,11 @@ struct DateEditView: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            Text("\(title):")
-            
-            if isEditing {
+            if !isEditing {
                 DatePicker(title, selection: $date, displayedComponents: [.date])
-                    .labelsHidden()
-                    .scaleEffect(CGSize(width: 0.8, height: 0.8))
-                    .clipped()
             } else {
+                Text("\(title):")
+                
                 if date.formatted(date: .numeric, time: .omitted) != Date().formatted(date: .numeric, time: .omitted) {
                     Text(date.formatText())
                 }
@@ -35,4 +32,5 @@ struct DateEditView: View {
 
 #Preview {
     DateEditView(title: "teste", date: .constant(Date()), isEditing: .constant(false))
+        .padding(.horizontal, 32)
 }

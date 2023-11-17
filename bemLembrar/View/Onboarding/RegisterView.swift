@@ -45,31 +45,10 @@ struct RegisterView: View {
                                             .foregroundStyle(.preto)
                                             .font(.headline)
                                         
-                                        TextField("Seu nome", text: $viewModel.name)
-                                            .font(.headline)
-                                            .foregroundStyle(.verdeClaro)
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 8)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 14)
-                                                    .stroke(viewModel.name.isEmpty ? .rosa : .verde, lineWidth: 2)
-                                            )
-                                            .padding(.horizontal, 1)
+                                        BLTextField(text: $viewModel.name)
                                     }
                                     
-                                    HStack(spacing: 16) {
-                                        RoundedRectangle(cornerRadius: 2)
-                                            .foregroundStyle(.verdeOpaco)
-                                            .frame(height: 2)
-                                        
-                                        Image("flowerLine")
-                                            .resizable()
-                                            .frame(width: 26, height: 27)
-                                        
-                                        RoundedRectangle(cornerRadius: 2)
-                                            .foregroundStyle(.verdeOpaco)
-                                            .frame(height: 2)
-                                    }
+                                    Divider(color: .verdeOpaco)
                                     
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Com quais marcas você trabalha?")
@@ -85,19 +64,7 @@ struct RegisterView: View {
                                         }
                                     }
                                     
-                                    HStack(spacing: 16) {
-                                        RoundedRectangle(cornerRadius: 2)
-                                            .foregroundStyle(.verdeOpaco)
-                                            .frame(height: 2)
-                                        
-                                        Image("flowerLine")
-                                            .resizable()
-                                            .frame(width: 26, height: 27)
-                                        
-                                        RoundedRectangle(cornerRadius: 2)
-                                            .foregroundStyle(.verdeOpaco)
-                                            .frame(height: 2)
-                                    }
+                                    Divider(color: .verdeOpaco)
                                     
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Qual é a sua estratégia de recontato com as clientes?")
