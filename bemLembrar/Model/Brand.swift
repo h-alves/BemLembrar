@@ -12,16 +12,18 @@ struct Brand: Codable {
     var isSelected: Bool
     
     static var allBrands: [Brand] = [
-        Brand(name: "Mary Kay", isSelected: false),
         Brand(name: "Avon", isSelected: false),
-        Brand(name: "Natura", isSelected: false),
-        Brand(name: "Boticário", isSelected: false)
+        Brand(name: "Boticário", isSelected: false),
+        Brand(name: "Eudora", isSelected: false),
+        Brand(name: "Mary Kay", isSelected: false),
+        Brand(name: "Natura", isSelected: false)
     ]
     
-    static var marykay = Brand(name: "Mary Kay", isSelected: false)
     static var avon = Brand(name: "Avon", isSelected: false)
-    static var natura = Brand(name: "Natura", isSelected: false)
     static var boticario = Brand(name: "Boticário", isSelected: false)
+    static var eudora = Brand(name: "Eudora", isSelected: false)
+    static var marykay = Brand(name: "Mary Kay", isSelected: false)
+    static var natura = Brand(name: "Natura", isSelected: false)
 }
 
 extension Brand: Equatable {

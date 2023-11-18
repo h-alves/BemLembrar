@@ -17,35 +17,27 @@ struct ClientCard: View {
         Button {
             mainFunc()
         } label: {
-            HStack {
+            HStack(alignment: .center) {
                 HStack(spacing: 12) {
                     if isEditing {
                         Button {
                             deleteFunc()
                         } label: {
-                            ZStack {
-                                Image(systemName: "circle.fill")
-                                    .foregroundStyle(.white)
-                                    .font(.system(size: 35))
-                                    .fontWeight(.bold)
-                                
-                                Image(systemName: "x.circle.fill")
-                                    .foregroundStyle(.red)
-                                    .font(.system(size: 35))
-                                    .fontWeight(.bold)
-                            }
+                            Image("deleteClient")
+                                .resizable()
+                                .frame(width: 46, height: 45)
                         }
                     } else {
-                        Image(systemName: "person.circle.fill")
+                        Image(client.image)
                             .resizable()
-                            .frame(width: 42, height: 42)
-                            .foregroundStyle(.black)
+                            .frame(width: 46, height: 45)
                     }
                     
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .leading, spacing: 6) {
                         Text("\(client.fullName)")
+                            .foregroundStyle(.verde)
+                            .font(.headline)
                             .fontWeight(.semibold)
-                            .foregroundStyle(.white)
                         
                         PreferencesTag(big: false, preferences: client.preferences)
                     }
@@ -54,13 +46,14 @@ struct ClientCard: View {
                 Spacer()
                 
                 Image(systemName: "chevron.forward")
+                    .foregroundStyle(.verde)
                     .font(.system(size: 24))
                     .fontWeight(.semibold)
-                    .foregroundStyle(.black)
             }
             .frame(maxWidth: .infinity)
-            .padding()
-            .background(.gray)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .background(.branco)
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
     }

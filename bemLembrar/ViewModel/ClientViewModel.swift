@@ -10,8 +10,12 @@ import SwiftUI
 class ClientViewModel: ObservableObject {
     @Published var client = Client.test
     
-    @Published var infoIsEditing = false
+    @Published var imageIsEditing = false
+    @Published var addressIsEditing = false
+    @Published var birthdayIsEditing = false
     @Published var annotationIsEditing = false
+    
+    @Published var images = [String]()
     
     @Published var address = ""
     @Published var birthday = Date()
@@ -21,6 +25,19 @@ class ClientViewModel: ObservableObject {
     @Published var lastContact = Date.distantPast
     
     @Published var shareText = ""
+    
+    func getImageList() {
+        for i in 1...5 {
+            images.append("clientImage\(i)")
+        }
+        
+        print(images)
+    }
+    
+    func selectImage(image: String) {
+        self.client.image = image
+        changeOnDataSource()
+    }
     
     func updateClient(client: Client) {
 //        print(client)
@@ -32,7 +49,10 @@ class ClientViewModel: ObservableObject {
         self.annotation = client.annotation
         self.lastContact = client.lastContact ?? Date.distantPast
         
-        self.shareText = "Olá \(client.fullName), como você está? Espero que bem! Vim aqui falar contigo por que blá blá blá"
+        self.shareText = "ooi querida \(client.fullName)🫶\ncomo você está? Está precisando de algum dos nossos produtos??🥰💐"
+        if client.birthday?.getMonthDay() == Date().getMonthDay() {
+            self.shareText = "Ooi \(client.fullName)! 🥳✨\nFeliz aniversário, te desejo muito amor, paz e sabedoria nessa nova primavera da sua vida! 🥰 💐 Obrigada pela confiança na minha consultoria e que sua luz nunca se apague"
+        }
     }
     
     func changeOnDataSource() {
@@ -48,20 +68,29 @@ class ClientViewModel: ObservableObject {
     
     // Funções de salvar edições
     
-    func saveInfo() {
-        if infoIsEditing {
+    func saveBirthday() {
+        if birthdayIsEditing {
             if birthday.formatted(date: .numeric, time: .omitted) != Date().formatted(date: .numeric, time: .omitted) {
                 client.birthday = birthday
             }
-            
-            client.address = address
             
             changeOnDataSource()
         }
         
         setBirthdayNotification()
         
-        self.infoIsEditing.toggle()
+        self.birthdayIsEditing.toggle()
+    }
+    
+    func saveAddress() {
+        if addressIsEditing {
+            client.address = address
+            
+            changeOnDataSource()
+        }
+        
+        
+        self.addressIsEditing.toggle()
     }
     
     func saveAnnotation() {
@@ -86,6 +115,11 @@ class ClientViewModel: ObservableObject {
     }
     
     func shareMessage() {
+        self.shareText = "ooi querida \(client.fullName)🫶\ncomo você está? Está precisando de algum dos nossos produtos??🥰💐"
+        if client.birthday?.getMonthDay() == Date().getMonthDay() {
+            self.shareText = "Ooi \(client.fullName)! 🥳✨\nFeliz aniversário, te desejo muito amor, paz e sabedoria nessa nova primavera da sua vida! 🥰 💐 Obrigada pela confiança na minha consultoria e que sua luz nunca se apague"
+        }
+        
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         UIApplication.shared.currentUIWindow()?.rootViewController?.present(activityVC, animated: true, completion: nil)
         
@@ -115,20 +149,22 @@ class ClientViewModel: ObservableObject {
     
     func setContactNotification() {
         NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "lastContact")
+        NotificationManager.shared.cancelNotification(identifier: client.identifier, type: "oneYear")
         
         if UserData.shared.user.twoTwoTwo {
             if client.twoStage == .day {
-                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: "2 dias", interval: getInterval(value: 2), repeats: false)
+                NotificationManager.shared.schedule222Notification(identifier: client.identifier, fullName: client.fullName, time: "2 dias", interval: getInterval(value: 2), repeats: false)
+                print(client.twoStage)
             } else if client.twoStage == .week {
-                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: "2 semanas", interval: getInterval(value: 14), repeats: false)
+                NotificationManager.shared.schedule222Notification(identifier: client.identifier, fullName: client.fullName, time: "2 semanas", interval: getInterval(value: 14), repeats: false)
             } else if client.twoStage == .month {
-                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: "2 meses", interval: getInterval(value: 60), repeats: false)
-            } else {
-                NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: UserData.shared.user.strategy.time, interval: getInterval(value: UserData.shared.user.strategy.timeInterval), repeats: false)
+                NotificationManager.shared.schedule222Notification(identifier: client.identifier, fullName: client.fullName, time: "2 meses", interval: getInterval(value: 60), repeats: false)
             }
-        } else {
+        } else if UserData.shared.user.strategy != .none {
             NotificationManager.shared.scheduleTimeIntervalNotification(identifier: client.identifier, fullName: client.fullName, time: UserData.shared.user.strategy.time, interval: getInterval(value: UserData.shared.user.strategy.timeInterval), repeats: false)
         }
+        
+        NotificationManager.shared.scheduleYearNotification(identifier: client.identifier, fullName: client.fullName, repeats: false)
     }
     
     func getInterval(value: Int) -> TimeInterval {
