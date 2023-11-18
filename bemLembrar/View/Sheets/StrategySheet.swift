@@ -46,27 +46,6 @@ struct StrategySheet: View {
         .padding(.top, 12)
         .background(.branco)
         .presentationDetents([.medium])
-//        VStack {
-//            Text("ESTRATÉGIAS")
-//            
-//            ForEach(viewModel.strategies, id: \.name) { strategy in
-//                HStack {
-//                    Button {
-//                        viewModel.selectStrategy(strategy: strategy)
-//                    } label: {
-//                        Image(systemName: strategy.isSelected ? "square.fill" : "square")
-//                    }
-//                    
-//                    Text(strategy.name)
-//                }
-//            }
-//            
-//            Button {
-//                viewModel.saveStrategies()
-//            } label: {
-//                Text("Done")
-//            }
-//        }
     }
 }
 

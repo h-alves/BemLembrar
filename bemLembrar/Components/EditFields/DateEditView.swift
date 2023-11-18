@@ -82,7 +82,6 @@ struct DateEditView: View {
                 }
             }
         }
-        .font(.system(size: 13))
     }
 }
 

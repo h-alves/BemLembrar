@@ -10,7 +10,10 @@ import Foundation
 extension String {
     
     func removeClient() -> String {
-        let name = self.replacingOccurrences(of: "cliente ?", with: "", options: [.caseInsensitive, .regularExpression])
+        var name = self.replacingOccurrences(of: "cliente", with: "", options: [.caseInsensitive, .regularExpression])
+        name = self.replacingOccurrences(of: " cliente", with: "", options: [.caseInsensitive, .regularExpression])
+        name = self.replacingOccurrences(of: " cliente ", with: "", options: [.caseInsensitive, .regularExpression])
+        name = self.replacingOccurrences(of: "cliente ", with: "", options: [.caseInsensitive, .regularExpression])
         return name
     }
     

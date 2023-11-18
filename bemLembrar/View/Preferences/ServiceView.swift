@@ -35,17 +35,21 @@ struct ServiceView: View {
                         
                         VStack(alignment: .leading, spacing: 24) {
                             ScrollView {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Atendimento")
-                                        .foregroundStyle(.rosaEscuro)
-                                        .font(.title)
-                                        .fontWeight(.bold)
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("Atendimento")
+                                            .foregroundStyle(.rosaEscuro)
+                                            .font(.title)
+                                            .fontWeight(.bold)
+                                        
+                                        Text("Selecione suas clientes de acordo com a preferência")
+                                            .foregroundStyle(.preto)
+                                            .font(.body)
+                                    }
+                                    .padding(.top, 24)
                                     
-                                    Text("Selecione suas clientes de acordo com a preferência")
-                                        .foregroundStyle(.preto)
-                                        .font(.body)
+                                    Spacer()
                                 }
-                                .padding(.top, 24)
                                 
                                 Divider()
                                 

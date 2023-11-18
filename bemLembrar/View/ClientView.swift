@@ -99,7 +99,9 @@ struct ClientView: View {
                                     }
                                 }
                             }
+                            .padding(.bottom, 24)
                         }
+                        .scrollIndicators(.hidden)
                     }
                     .padding(.top, 24)
                     .padding(.horizontal, 32)

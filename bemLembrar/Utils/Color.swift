@@ -22,7 +22,7 @@ extension Color {
             return "preto"
         case .rosaEscuro:
             return "rosaEscuro"
-        case .rosaMédio:
+        case .rosaMédio:
             return "rosaMedio"
         case .rosa:
             return "rosa"

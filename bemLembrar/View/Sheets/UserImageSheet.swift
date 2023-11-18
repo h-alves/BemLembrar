@@ -23,7 +23,7 @@ struct UserImageSheet: View {
                                 .font(.title)
                                 .fontWeight(.bold)
                             
-                            Text("Como eu gostaria de ser chamada")
+                            Text("Como eu gostaria de ser chamada:")
                                 .foregroundStyle(.preto)
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -86,39 +86,6 @@ struct UserImageSheet: View {
         .padding(.top, 12)
         .background(.branco)
         .presentationDetents([.medium])
-//        VStack {
-//            Text("Imagens")
-//            
-//            HStack {
-//                ForEach(viewModel.images, id: \.self) { image in
-//                    Button {
-//                        viewModel.selectImage(image: image)
-//                    } label: {
-//                        ZStack {
-//                            Image(image)
-//                                .overlay(alignment: .bottomTrailing) {
-//                                    if viewModel.image == image {
-//                                        ZStack {
-//                                            Image(systemName: "circle.fill")
-//                                                .foregroundStyle(.branco)
-//                                                .font(.system(size: 32))
-//                                            Image(systemName: "checkmark.circle.fill")
-//                                                .foregroundStyle(.verde)
-//                                                .font(.system(size: 32))
-//                                        }
-//                                    }
-//                                }
-//                        }
-//                    }
-//                }
-//            }
-//            
-//            Button {
-//                viewModel.imageIsEditing.toggle()
-//            } label: {
-//                Text("Done")
-//            }
-//        }
     }
 }
 

@@ -91,7 +91,6 @@ struct BigStringEditView: View {
                 }
             }
         }
-        .font(.system(size: 13))
     }
 }
 

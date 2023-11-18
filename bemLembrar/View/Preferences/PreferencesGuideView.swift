@@ -46,26 +46,29 @@ struct PreferencesGuideView: View {
                     
                     TabView(selection: $selectIndex) {
                         ForEach(0..<3, id: \.self) { index in
-                            VStack(spacing: 32) {
-                                Image("preferencesImage\(selectIndex+1)")
-                                    .resizable()
-                                    .frame(width: 280, height: 280)
-                                
-                                VStack(spacing: 12) {
-                                    Text(titleTexts[selectIndex])
-                                        .foregroundStyle(colors[selectIndex])
-                                        .font(.largeTitle)
-                                        .fontWeight(.bold)
+                            ScrollView {
+                                VStack(spacing: 32) {
+                                    Image("preferencesImage\(selectIndex+1)")
+                                        .resizable()
+                                        .frame(width: 280, height: 280)
                                     
-                                    Text(descriptionTexts[selectIndex])
-                                        .foregroundStyle(.preto)
-                                        .font(.body)
-                                        .multilineTextAlignment(.center)
+                                    VStack(spacing: 12) {
+                                        Text(titleTexts[selectIndex])
+                                            .foregroundStyle(colors[selectIndex])
+                                            .font(.largeTitle)
+                                            .fontWeight(.bold)
+                                        
+                                        Text(descriptionTexts[selectIndex])
+                                            .foregroundStyle(.preto)
+                                            .font(.body)
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .padding(.horizontal, 32)
+                                    
+                                    Spacer()
                                 }
-                                .padding(.horizontal, 32)
-                                
-                                Spacer()
                             }
+                            .scrollIndicators(.hidden)
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

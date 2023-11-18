@@ -14,31 +14,34 @@ struct OnboardingView: View {
                 .resizable()
                 .frame(width: 393, height: 88)
             
-            VStack(spacing: 0) {
-                VStack(spacing: 32) {
-                    VStack(spacing: 16) {
-                        Text("Informações das suas clientes sempre bem lembradas!")
-                            .foregroundStyle(.preto)
-                            .font(.largeTitle)
-                            .fontWeight(.semibold)
+            ScrollView {
+                VStack(spacing: 0) {
+                    VStack(spacing: 32) {
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Informações das suas clientes sempre bem lembradas!")
+                                .foregroundStyle(.preto)
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
+                            
+                            Text("Monte sua lista de clientes e salve tudo sobre elas para facilitar o contato. Simples assim.")
+                                .foregroundStyle(.preto)
+                                .font(.body)
+                        }
                         
-                        Text("Monte sua lista de clientes e salve tudo sobre elas para facilitar o contato. Simples assim.")
-                            .foregroundStyle(.preto)
-                            .font(.body)
+                        BLButton(symbol: "", text: "Começar", disabled: false, opposite: false, color: .verde, textColor: .branco) {
+                            RouterService.shared.navigate(.guide)
+                        }
                     }
+                    .padding(.horizontal, 32)
                     
-                    BLButton(symbol: "", text: "Começar", disabled: false, opposite: false, color: .verde, textColor: .branco) {
-                        RouterService.shared.navigate(.guide)
-                    }
+                    Spacer()
+                    
+                    Image("onboardingFlower")
+                        .resizable()
+                        .frame(width: 393, height: 283)
                 }
-                .padding(.horizontal, 32)
-                
-                Spacer()
-                
-                Image("onboardingFlower")
-                    .resizable()
-                    .frame(width: 393, height: 283)
             }
+            .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(edges: .bottom)
