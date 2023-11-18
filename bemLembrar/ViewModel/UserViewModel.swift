@@ -29,7 +29,13 @@ class UserViewModel: ObservableObject {
     
     func selectImage(image: String) {
         self.image = image
+    }
+    
+    func saveImage() {
         UserData.shared.user.image = image
+        UserData.shared.user.name = name
+        
+        imageIsEditing.toggle()
     }
     
     func selectBrand(brand: Brand) {
@@ -51,7 +57,7 @@ class UserViewModel: ObservableObject {
     func selectStrategy(strategy: Strategy) {
         for (index, originalStrategy) in strategies.enumerated() {
             if originalStrategy == strategy {
-                strategies[index].isSelected.toggle()
+                strategies[index].isSelected = true
             } else {
                 strategies[index].isSelected = false
             }

@@ -20,7 +20,7 @@ struct TextCard: View {
             HStack(alignment: .center, spacing: 4) {
                 Image(systemName: getSymbol())
                     .foregroundColor(symbolColor())
-                    .font(.system(size: 16))
+                    .font(.subheadline)
                 
                 Text(text.capitalized)
                     .foregroundStyle(textColor())

@@ -358,9 +358,9 @@
 			children = (
 				78EEC6AF2AFAB2650030F5EA /* NewContactSheet.swift */,
 				78FEF4DA2AF8720500A5A6D8 /* ClientSheet.swift */,
-				78AF14222B0117B30094CF66 /* BrandsSheet.swift */,
-				7834BC7A2B06F3960057D6A1 /* UserImageSheet.swift */,
 				7834BC862B08371B0057D6A1 /* ClientImageSheet.swift */,
+				7834BC7A2B06F3960057D6A1 /* UserImageSheet.swift */,
+				78AF14222B0117B30094CF66 /* BrandsSheet.swift */,
 				78AF14242B0117FF0094CF66 /* StrategySheet.swift */,
 			);
 			path = Sheets;

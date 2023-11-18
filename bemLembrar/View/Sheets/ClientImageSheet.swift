@@ -15,51 +15,57 @@ struct ClientImageSheet: View {
             VStack(spacing: 24) {
                 SheetLine()
                 
-                VStack(spacing: 20) {
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("Ícone de \(viewModel.client.fullName):")
-                        
-                        HStack {
-                            ForEach(viewModel.images, id: \.self) { image in
-                                Button {
-                                    viewModel.selectImage(image: image)
-                                } label: {
-                                    Image(image)
-                                        .resizable()
-                                        .frame(width: 49, height: 48)
-                                        .overlay {
-                                            if viewModel.client.image == image {
-                                                ZStack {
-                                                    RoundedRectangle(cornerRadius: 13)
-                                                        .foregroundStyle(.verdeEscuro.opacity(0.8))
-                                                        .frame(width: 47, height: 46)
-                                                    
-                                                    RoundedRectangle(cornerRadius: 13)
-                                                        .stroke(.verdeEscuro, lineWidth: 2)
-                                                        .frame(width: 47, height: 46)
-                                                    
-                                                    Image(systemName: "checkmark")
-                                                        .foregroundStyle(.branco)
-                                                        .font(.system(size: 23))
-                                                        .fontWeight(.bold)
+                ScrollView {
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Ícone de \(viewModel.client.fullName):")
+                                .foregroundStyle(.preto)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            HStack(spacing: 15) {
+                                ForEach(viewModel.images, id: \.self) { image in
+                                    Button {
+                                        viewModel.selectImage(image: image)
+                                    } label: {
+                                        Image(image)
+                                            .resizable()
+                                            .frame(width: 49, height: 48)
+                                            .overlay {
+                                                if viewModel.client.image == image {
+                                                    ZStack {
+                                                        RoundedRectangle(cornerRadius: 13)
+                                                            .foregroundStyle(.verdeEscuro.opacity(0.8))
+                                                            .frame(width: 47, height: 46)
+                                                        
+                                                        RoundedRectangle(cornerRadius: 13)
+                                                            .stroke(.verdeEscuro, lineWidth: 2)
+                                                            .frame(width: 47, height: 46)
+                                                        
+                                                        Image(systemName: "checkmark")
+                                                            .foregroundStyle(.branco)
+                                                            .font(.system(size: 23))
+                                                            .fontWeight(.bold)
+                                                    }
                                                 }
                                             }
-                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                    
-                    HStack {
-                        Spacer()
                         
-                        BLButton(symbol: "checkmark", text: "Salvar", infinity: false, disabled: false, opposite: false, color: .verde, textColor: .branco) {
-                            viewModel.imageIsEditing.toggle()
+                        HStack {
+                            Spacer()
+                            
+                            BLButton(symbol: "checkmark", text: "Salvar", infinity: false, disabled: false, opposite: false, color: .verde, textColor: .branco) {
+                                viewModel.imageIsEditing.toggle()
+                            }
                         }
+                        
+                        Spacer()
                     }
-                    
-                    Spacer()
                 }
+                .scrollIndicators(.hidden)
             }
             .padding(.horizontal, 32)
         }
