@@ -15,7 +15,7 @@ struct User {
     var twoTwoTwo: Bool
     var comemorative: Bool
     
-    static var test = User(name: "Teste", image: "", brands: Brand.allBrands, strategy: Strategy.none, twoTwoTwo: false, comemorative: false)
+    static var test = User(name: "", image: "userImage1", brands: Brand.allBrands, strategy: Strategy.none, twoTwoTwo: false, comemorative: true)
 }
 
 extension User: Codable {

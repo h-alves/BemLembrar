@@ -14,4 +14,6 @@ struct Contact: Equatable {
     var isSelected: Bool
     
     static var test = Contact(contactInfo: CNMutableContact().createTestContact(), identifier: CNMutableContact().createTestContact().identifier, isSelected: false)
+    
+    static var testSelected = Contact(contactInfo: CNMutableContact().createTestContact(), identifier: CNMutableContact().createTestContact().identifier, isSelected: true)
 }

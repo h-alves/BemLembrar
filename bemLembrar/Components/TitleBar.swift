@@ -8,50 +8,49 @@
 import SwiftUI
 
 struct TitleBar: View {
-    var symbol: String
+    var backgroundImage: String
+    var image: String
     var title: String
+    var color: Color
     
     var body: some View {
-        VStack(alignment:.leading) {
+        VStack {
+            Image(backgroundImage)
+                .resizable()
+                .frame(height: 183)
+                .scaledToFit()
             
-            Spacer()
-            
-            VStack(spacing: 2) {
-                HStack {
-                    Image(systemName: symbol)
-                        .font(.system(size: 40))
-                        .fontWeight(.bold)
-                    
+            HStack {
+                Image(image)
+                    .resizable()
+                    .frame(width: 56, height: 58)
+                
+                VStack(alignment: .leading) {
                     Text(title)
-                        .font(.system(size: 40))
+                        .foregroundStyle(color)
+                        .font(.title)
                         .fontWeight(.bold)
                     
-                    Spacer()
+                    Text("Selecione suas clientes de acordo com a preferência")
+                        .foregroundStyle(.preto)
+                        .font(.title3)
+                        .fontWeight(.semibold)
                 }
                 
-                HStack {
-                    Text("Selecione suas clientes de acordo com a preferência")
-                        .font(.system(size: 22))
-                        .fontWeight(.bold)
-                        .foregroundStyle(.gray)
-                    
-                    Spacer()
-                }
-                    .frame(maxWidth: .infinity)
+                Spacer()
             }
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal, 36)
-            .padding(.bottom, 28)
+            .padding(.horizontal, 24)
+            .padding(.bottom, 32)
         }
-        .frame(height: 170)
-        .frame(maxWidth: .infinity)
-        .background(Color(.systemGray6))
+        .background(.branco)
+        .clipShape(RoundedRectangle(cornerRadius: 24))
+        .shadow(radius: 5, y: 5)
     }
 }
 
 #Preview {
     VStack {
-        TitleBar(symbol: "nose", title: "Cheiros")
+        TitleBar(backgroundImage: "teste", image: "nose", title: "Cheiros", color: .laranja)
         
         Spacer()
     }

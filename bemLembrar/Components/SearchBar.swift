@@ -13,19 +13,23 @@ struct SearchBar: View {
     var mainFunc: () -> Void
     
     var body: some View {
-        HStack {
+        HStack(spacing: 4) {
             Image(systemName: "magnifyingglass")
+                .foregroundStyle(searchText == "" ? .verdeClaro : .preto)
+                .font(.subheadline)
                 .fontWeight(.semibold)
-                .foregroundStyle(.gray)
             
             TextField("Pesquisar", text: $searchText)
+                .font(.title3.title3())
                 .fontWeight(.semibold)
-                .foregroundStyle(.gray)
+                .foregroundStyle(.preto)
                 .overlay(
                     Image(systemName:"xmark.circle.fill")
                         .padding()
                         .offset(x: 10)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(searchText == "" ? .verdeClaro : .preto)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
                             UIApplication.shared.endEditing()
@@ -37,10 +41,11 @@ struct SearchBar: View {
                     mainFunc()
                 })
         }
-        .padding(12)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
         .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(.gray, lineWidth: 2)
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(searchText.isEmpty ? .rosa : .verde, lineWidth: 2)
         )
     }
 }

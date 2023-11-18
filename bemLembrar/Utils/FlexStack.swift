@@ -10,8 +10,8 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct FlexStack: Layout {
   
-  public var verticalSpacing = 8.0
-  public var horzontalSpacing = 8.0
+  public var verticalSpacing = 6.0
+  public var horizontalSpacing = 6.0
   
   static var layoutProperties: LayoutProperties {
     var properties = LayoutProperties()
@@ -48,7 +48,7 @@ struct FlexStack: Layout {
     for line in cache.matrix {
       line.forEach { subview in
         subview.place(at: pointer, proposal: .unspecified)
-        pointer.x += subview.sizeThatFits(.unspecified).width + horzontalSpacing
+        pointer.x += subview.sizeThatFits(.unspecified).width + horizontalSpacing
       }
       pointer.x = bounds.minX
       pointer.y += getMaxHeight(of: line) + verticalSpacing
@@ -83,13 +83,13 @@ struct FlexStack: Layout {
       if lineWidthBuffer > maxLineWidth {
         // Break line
         outterIndexBuffer += 1
-        lineWidthBuffer = subview.sizeThatFits(.unspecified).width + horzontalSpacing
+        lineWidthBuffer = subview.sizeThatFits(.unspecified).width + horizontalSpacing
         matrixBuffer.append([subview])
         isFirstOfLine = true
       } else {
         // Not break line
         matrixBuffer[outterIndexBuffer].append(subview)
-        lineWidthBuffer += horzontalSpacing
+        lineWidthBuffer += horizontalSpacing
         isFirstOfLine = false
       }
       

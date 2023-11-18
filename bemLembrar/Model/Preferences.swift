@@ -13,7 +13,7 @@ struct Preferences: Codable {
     var atendimento: Atendimento
     
     static var test = Preferences(cheiro: [.amadeirado], pele: .oleosa, atendimento: .mensagem)
-    static var none = Preferences(cheiro: [], pele: .normal, atendimento: .none)
+    static var none = Preferences(cheiro: [], pele: .none, atendimento: .none)
 }
 
 extension Preferences: Equatable {
@@ -35,7 +35,7 @@ enum Cheiro: String, CaseIterable, Codable {
 }
 
 enum Pele: String, CaseIterable, Codable {
-    case normal = "normal"
+    case none = ""
     
     case oleosa = "oleosa"
     case seca = "seca"

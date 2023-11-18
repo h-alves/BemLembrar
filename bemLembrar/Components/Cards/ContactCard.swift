@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContactCard: View {
     @Binding var contact: Contact?
+    var background: String
     var color: Color
     var mainFunc: () -> Void
     
@@ -16,49 +17,110 @@ struct ContactCard: View {
         Button {
             mainFunc()
         } label: {
-            HStack {
+            HStack(spacing: 4) {
                 Image(systemName: getSymbol())
+                    .foregroundStyle(symbolColor())
+                    .font(.subheadline)
                 
                 Text("\(contact!.contactInfo.givenName) \(contact!.contactInfo.familyName)")
+                    .foregroundStyle(textColor())
+                    .font(.headline.headline())
+                    .fontWeight(.semibold)
                 
                 Spacer()
             }
-            .foregroundStyle(.black)
         }
         .frame(maxWidth: .infinity)
-        .padding(10)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .background(backgroundColor())
+        .clipShape(RoundedRectangle(cornerRadius: 14))
         .overlay(
-            RoundedRectangle(cornerRadius: 12.0)
+            RoundedRectangle(cornerRadius: 14.0)
                 .stroke(strokeColor(), lineWidth: 2)
         )
-        .background(backgroundColor())
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(2)
     }
     
     func getSymbol() -> String {
         if contact!.isSelected {
-            return "circle.fill"
+            return "square.fill"
         }
-        return "circle"
+        return "square"
     }
     
     func strokeColor() -> Color {
-        if contact!.isSelected {
-            return .gray
+        if background == "light" {
+            return .verde
         }
-        return .black
+        
+        return .branco
     }
     
     func backgroundColor() -> Color {
-        if contact!.isSelected {
-            return .gray
+        if background == "light" {
+            if contact!.isSelected {
+                return .verde
+            }
+            return .branco
         }
-        return color
+        
+        if contact!.isSelected {
+            return .branco
+        }
+        return .verde
+    }
+    
+    func textColor() -> Color {
+        if background == "light" {
+            if contact!.isSelected {
+                return .branco
+            }
+            return .verde
+        }
+        
+        if contact!.isSelected {
+            return .verde
+        }
+        return .branco
+    }
+    
+    func symbolColor() -> Color {
+        if contact!.isSelected {
+            return .rosa
+        }
+        
+        if background == "light" {
+            return .verde
+        }
+        return .branco
     }
 }
 
 #Preview {
-    ContactCard(contact: .constant(Contact.test), color: .white) {
-        print("a")
+    VStack {
+        VStack {
+            ContactCard(contact: .constant(Contact.test), background: "dark", color: .white) {
+                print("a")
+            }
+            
+            ContactCard(contact: .constant(Contact.testSelected), background: "dark", color: .white) {
+                print("a")
+            }
+        }
+        .padding()
+        .background(.verde)
+        
+        VStack {
+            ContactCard(contact: .constant(Contact.test), background: "light", color: .white) {
+                print("a")
+            }
+            
+            ContactCard(contact: .constant(Contact.testSelected), background: "light", color: .white) {
+                print("a")
+            }
+        }
+        .padding()
+        .background(.branco)
     }
 }

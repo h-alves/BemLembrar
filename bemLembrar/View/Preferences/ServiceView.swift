@@ -13,52 +13,84 @@ struct ServiceView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack(spacing: 0) {
-                    TitleBar(symbol: "bubble.left", title: "Atendimento")
-                    
-                    ScrollView {
-                        VStack {
-                            HStack {
-                                Text("Quais preferem...")
-                                    .font(.system(size: 24))
-                                    .fontWeight(.semibold)
+                Color.branco
+                    .ignoresSafeArea(edges: .top)
+                
+                Color.rosaEscuro
+                    .ignoresSafeArea(edges: .bottom)
+                
+                VStack(spacing: 24) {
+                    VStack(spacing: 0) {
+                        Image("serviceImage")
+                            .resizable()
+                            .frame(width: 393, height: 183)
+                            .clipShape(
+                                .rect (
+                                    topLeadingRadius: 24,
+                                    bottomLeadingRadius: 0,
+                                    bottomTrailingRadius: 0,
+                                    topTrailingRadius: 24
+                                )
+                            )
+                        
+                        VStack(alignment: .leading, spacing: 24) {
+                            ScrollView {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("Atendimento")
+                                            .foregroundStyle(.rosaEscuro)
+                                            .font(.title.title())
+                                            .fontWeight(.bold)
+                                        
+                                        Text("Selecione suas clientes de acordo com a preferência")
+                                            .foregroundStyle(.preto)
+                                            .font(.body.body())
+                                    }
+                                    .padding(.top, 24)
+                                    
+                                    Spacer()
+                                }
                                 
-                                Spacer()
-                            }
-                            .frame(maxWidth: .infinity)
-                            
-                            VStack(spacing: 24) {
-                                ForEach(Atendimento.allCases, id: \.rawValue) { a in
-                                    PreferenceCard(atendimento: a,clientList: viewModel.allClients.filter({ $0.preferences.atendimento == a })) {
-                                        RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .service, atendimento: a))
+                                Divider()
+                                
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text("Quais gostam de cheiro...")
+                                        .foregroundStyle(.preto)
+                                        .font(.title3.title3())
+                                        .fontWeight(.semibold)
+                                    
+                                    VStack(spacing: 16) {
+                                        ForEach(Atendimento.allCases, id: \.rawValue) { a in
+                                            PreferenceCard(atendimento: a,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.atendimento == a })) {
+                                                RouterService.shared.showSheet(ClientSheet(viewModel: viewModel, preferenceType: .service, atendimento: a))
+                                            }
+                                            .padding(.horizontal, 1)
+                                        }
                                     }
                                 }
+                                .padding(.bottom, 24)
                             }
+                            .scrollIndicators(.hidden)
                         }
-                        .padding(.top, 24)
-                        .padding(.horizontal, 36)
-                        .padding(.bottom, 98)
+                        .padding(.horizontal, 32)
                     }
-                    .scrollIndicators(.hidden)
-                }
-                
-                VStack {
-                    Spacer()
+                    .background(.branco)
+                    .clipShape(
+                        .rect (
+                            topLeadingRadius: 0,
+                            bottomLeadingRadius: 32,
+                            bottomTrailingRadius: 32,
+                            topTrailingRadius: 0
+                        )
+                    )
+                    .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                     
-                    Button {
+                    BLButton(symbol: "arrow.right", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
                         RouterService.shared.navigate(.allClients)
-                    } label: {
-                        Text("Finalizar")
-                            .fontWeight(.bold)
-                            .foregroundStyle(.black)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color(.systemGray4))
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
                     }
-                    .padding(.top, 12)
-                    .padding(.horizontal, 36)
-                    .background(.gray)
+                    .padding(.horizontal, 32)
+                    
+                    Spacer()
                 }
             }
             .onAppear {
@@ -70,15 +102,11 @@ struct ServiceView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        RouterService.shared.navigate(.skin)
+                        RouterService.shared.navigate(.allClients)
                     } label: {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 17))
-                                .fontWeight(.bold)
-                            
-                            Text("Tipos de Pele")
-                        }
+                        Image("backButton")
+                            .resizable()
+                            .frame(width: 54, height: 56)
                     }
                 }
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PreferenceCard: View {
     var cheiro: Cheiro = .none
-    var pele: Pele = .normal
+    var pele: Pele = .none
     var atendimento: Atendimento = .none
     
     var clientList: [Client]
@@ -26,27 +26,27 @@ struct PreferenceCard: View {
                         // Título
                         if cheiro != .none {
                             Text("\(cheiro.rawValue.capitalized)?")
-                                .foregroundStyle(.black)
-                                .font(.system(size: 18))
+                                .foregroundStyle(.verde)
+                                .font(.body.body())
                                 .fontWeight(.semibold)
-                        } else if pele != .normal {
+                        } else if pele != .none {
                             Text("\(pele.rawValue.capitalized)?")
-                                .foregroundStyle(.black)
-                                .font(.system(size: 18))
+                                .foregroundStyle(.verde)
+                                .font(.body.body())
                                 .fontWeight(.semibold)
                         } else if atendimento != .none {
                             Text("\(atendimento.rawValue.capitalized)?")
-                                .foregroundStyle(.black)
-                                .font(.system(size: 18))
+                                .foregroundStyle(.verde)
+                                .font(.body.body())
                                 .fontWeight(.semibold)
                         }
                         
                         Spacer()
                         
                         Image(systemName: "plus")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
-                            .fontWeight(.semibold)
+                            .foregroundStyle(.verde)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
                     }
                 }
             } else {
@@ -54,18 +54,18 @@ struct PreferenceCard: View {
                     // Título
                     if cheiro != .none {
                         Text("\(cheiro.rawValue.capitalized)?")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                            .foregroundStyle(.branco)
+                            .font(.body.body())
                             .fontWeight(.semibold)
-                    } else if pele != .normal {
+                    } else if pele != .none {
                         Text("\(pele.rawValue.capitalized)?")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                            .foregroundStyle(.branco)
+                            .font(.body.body())
                             .fontWeight(.semibold)
                     } else if atendimento != .none {
                         Text("\(atendimento.rawValue.capitalized)?")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                            .foregroundStyle(.branco)
+                            .font(.body.body())
                             .fontWeight(.semibold)
                     }
                     
@@ -75,9 +75,9 @@ struct PreferenceCard: View {
                         mainFunc()
                     } label: {
                         Image(systemName: "plus")
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
-                            .fontWeight(.semibold)
+                            .foregroundStyle(.branco)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
                     }
                 }
             }
@@ -89,11 +89,13 @@ struct PreferenceCard: View {
                             // Todos os clientes
                             ForEach(clientList, id: \.identifier) { client in
                                 Text(client.fullName)
-                                    .font(.system(size: 17))
+                                    .foregroundStyle(.verde)
+                                    .font(.headline.headline())
                                     .padding(.horizontal, 20)
                                     .padding(.vertical, 8)
-                                    .background(Color(.systemGray4))
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                                    .background(.branco)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .padding(1)
                             }
                         }
                     }
@@ -102,15 +104,20 @@ struct PreferenceCard: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(18)
-        .background(Color(.systemGray5))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .padding(.horizontal, 14)
+        .padding(.vertical, 12)
+        .background(clientList.isEmpty ? .branco : .verde)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay {
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(clientList.isEmpty ? .verdeClaro : .verde, lineWidth: 2)
+        }
     }
 }
 
 #Preview {
     VStack {
-        PreferenceCard(cheiro: .amadeirado, clientList: [Client.test]) {
+        PreferenceCard(cheiro: .amadeirado, clientList: []) {
             print("Clicado")
         }
         PreferenceCard(pele: .oleosa, clientList: [Client.test]) {
@@ -120,5 +127,7 @@ struct PreferenceCard: View {
             print("Clicado")
         }
     }
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
     .padding(32)
+    .background()
 }
