@@ -20,12 +20,12 @@ struct UserImageSheet: View {
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Meu perfil")
                                 .foregroundStyle(.preto)
-                                .font(.title)
+                                .font(.title.title())
                                 .fontWeight(.bold)
                             
                             Text("Como eu gostaria de ser chamada:")
                                 .foregroundStyle(.preto)
-                                .font(.title3)
+                                .font(.title3.title3())
                                 .fontWeight(.semibold)
                             
                             BLTextField(placeholderText: "Nome", text: $viewModel.name)
@@ -34,7 +34,7 @@ struct UserImageSheet: View {
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Meu ícone:")
                                 .foregroundStyle(.preto)
-                                .font(.title3)
+                                .font(.title3.title3())
                                 .fontWeight(.semibold)
                             
                             FlexStack(verticalSpacing: 16, horizontalSpacing: 16) {

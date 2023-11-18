@@ -38,7 +38,7 @@ struct DateEditView: View {
                         HStack {
                             Text("Adicione o aniversário de \(name)")
                                 .foregroundStyle(.verde)
-                                .font(.body)
+                                .font(.body.body())
                                 .multilineTextAlignment(.leading)
                             
                             Spacer()
@@ -60,7 +60,7 @@ struct DateEditView: View {
                         HStack {
                             Text("\(date.formatText())")
                                 .foregroundStyle(.branco)
-                                .font(.body)
+                                .font(.body.body())
                             
                             Spacer()
                             

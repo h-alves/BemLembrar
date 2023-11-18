@@ -25,15 +25,15 @@ struct AddClientView: View {
                 VStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 24) {
                         VStack(spacing: 16) {
-                            VStack(spacing: 4) {
+                            VStack(alignment: .leading, spacing: 4) {
                                 Text("Adicione seus contatos à sua lista de clientes")
                                     .foregroundStyle(.preto)
-                                    .font(.title)
+                                    .font(.title.title())
                                     .fontWeight(.bold)
                                 
                                 Text("Identifique quem são os seus clientes e os selecione para adicioná-los")
                                     .foregroundStyle(.preto)
-                                    .font(.body)
+                                    .font(.body.body())
                             }
                             
                             HStack(spacing: 12) {
@@ -65,12 +65,12 @@ struct AddClientView: View {
                                         VStack(alignment: .leading, spacing: 4) {
                                             Text("Sugestões")
                                                 .foregroundStyle(.branco)
-                                                .font(.title3)
+                                                .font(.title3.title3())
                                                 .fontWeight(.semibold)
                                             
                                             Text("Identificamos alguns contatos como clientes: ")
                                                 .foregroundStyle(.branco)
-                                                .font(.body)
+                                                .font(.body.body())
                                         }
                                         
                                         VStack(spacing: 8) {
@@ -92,7 +92,7 @@ struct AddClientView: View {
                                     VStack(alignment: .leading, spacing: 8) {
                                         Text("Todos os contatos")
                                             .foregroundStyle(.verde)
-                                            .font(.title2)
+                                            .font(.title2.title2())
                                             .fontWeight(.semibold)
                                         
                                         VStack(spacing: 12) {

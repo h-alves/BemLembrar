@@ -55,12 +55,12 @@ struct PreferencesGuideView: View {
                                     VStack(spacing: 12) {
                                         Text(titleTexts[selectIndex])
                                             .foregroundStyle(colors[selectIndex])
-                                            .font(.largeTitle)
+                                            .font(.largeTitle.largeTitle())
                                             .fontWeight(.bold)
                                         
                                         Text(descriptionTexts[selectIndex])
                                             .foregroundStyle(.preto)
-                                            .font(.body)
+                                            .font(.body.body())
                                             .multilineTextAlignment(.center)
                                     }
                                     .padding(.horizontal, 32)

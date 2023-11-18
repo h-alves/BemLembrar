@@ -19,7 +19,7 @@ struct StrategySheet: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Desejo realizar contato")
                             .foregroundStyle(.preto)
-                            .font(.title)
+                            .font(.title.title())
                             .fontWeight(.bold)
                         
                         VStack(spacing: 12) {

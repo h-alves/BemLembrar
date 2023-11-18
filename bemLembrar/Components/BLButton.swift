@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BLButton: View {
     var symbol: String
-    var font: Font = .headline
+    var font: Font = .headline.headline()
     var symbolFont: Font = .subheadline
     var text: String = ""
     var infinity: Bool = true

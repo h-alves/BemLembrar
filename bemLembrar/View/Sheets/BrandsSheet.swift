@@ -19,7 +19,7 @@ struct BrandsSheet: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Marcas que trabalho")
                             .foregroundStyle(.preto)
-                            .font(.title)
+                            .font(.title.title())
                             .fontWeight(.bold)
                         
                         VStack(spacing: 12) {

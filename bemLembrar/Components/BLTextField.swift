@@ -13,7 +13,7 @@ struct BLTextField: View {
     
     var body: some View {
         TextField("\(placeholderText)", text: $text)
-            .font(.headline)
+            .font(.headline.headline())
             .foregroundStyle(.preto)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)

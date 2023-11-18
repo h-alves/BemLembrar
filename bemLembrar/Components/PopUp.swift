@@ -27,12 +27,12 @@ struct PopUp: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Você tem certeza que quer excluir essa cliente?")
                         .foregroundStyle(.verde)
-                        .font(.title)
+                        .font(.title.title())
                         .fontWeight(.bold)
                     
                     Text("Continuar resultará na perda dos dados da cliente. Ao adicioná-la novamente, será necessário recriar todas as preferências e informações.")
                         .foregroundStyle(.preto)
-                        .font(.body)
+                        .font(.body.body())
                 }
                 
                 VStack {
@@ -41,7 +41,7 @@ struct PopUp: View {
                     } label: {
                         Text(buttonText)
                             .foregroundStyle(.verde)
-                            .font(.headline)
+                            .font(.headline.headline())
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal, 14)
                             .padding(.vertical, 8)
@@ -57,7 +57,7 @@ struct PopUp: View {
                     } label: {
                         Text(secondaryText)
                             .foregroundStyle(.branco)
-                            .font(.headline)
+                            .font(.headline.headline())
                             .frame(maxWidth: .infinity)
                             .padding(.horizontal, 14)
                             .padding(.vertical, 8)

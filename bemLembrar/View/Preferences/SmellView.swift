@@ -39,12 +39,12 @@ struct SmellView: View {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("Fragrâncias")
                                             .foregroundStyle(.laranja)
-                                            .font(.title)
+                                            .font(.title.title())
                                             .fontWeight(.bold)
                                         
                                         Text("Selecione suas clientes de acordo com a preferência")
                                             .foregroundStyle(.preto)
-                                            .font(.body)
+                                            .font(.body.body())
                                     }
                                     .padding(.top, 24)
                                     
@@ -56,7 +56,7 @@ struct SmellView: View {
                                 VStack(alignment: .leading, spacing: 12) {
                                     Text("Quais gostam de cheiro...")
                                         .foregroundStyle(.preto)
-                                        .font(.title3)
+                                        .font(.title3.title3())
                                         .fontWeight(.semibold)
                                     
                                     VStack(spacing: 16) {

@@ -38,7 +38,7 @@ struct StringEditView: View {
                     HStack {
                         Text("Adicione o endereço de \(name)")
                             .foregroundStyle(.verde)
-                            .font(.body)
+                            .font(.body.body())
                             .multilineTextAlignment(.leading)
                         
                         Spacer()
@@ -60,7 +60,7 @@ struct StringEditView: View {
                     HStack {
                         Text(text)
                             .foregroundStyle(.branco)
-                            .font(.body)
+                            .font(.body.body())
                             .multilineTextAlignment(.leading)
                         
                         Spacer()
@@ -87,7 +87,7 @@ struct StringEditView: View {
 
 #Preview {
     VStack {
-        StringEditView(title: "Endereço", placeholderText: "teste", text: .constant("teste"), isEditing: .constant(false)) {
+        StringEditView(title: "Endereço", placeholderText: "teste", text: .constant("teste"), isEditing: .constant(true)) {
             print("a")
         }
         

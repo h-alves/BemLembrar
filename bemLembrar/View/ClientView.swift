@@ -55,11 +55,11 @@ struct ClientView: View {
                                             if viewModel.lastContact != Date.distantPast {
                                                 Text("Último contato: \(viewModel.lastContact.formatted(date: .numeric, time: .omitted))")
                                                     .foregroundStyle(.verdeClaro)
-                                                    .font(.footnote)
+                                                    .font(.footnote.footnote())
                                             } else {
                                                 Text("")
                                                     .foregroundStyle(.verdeClaro)
-                                                    .font(.footnote)
+                                                    .font(.footnote.footnote())
                                             }
                                         }
                                     }
@@ -71,7 +71,7 @@ struct ClientView: View {
                                     VStack(alignment: .leading, spacing: 8) {
                                         Text("Aniversário")
                                             .foregroundStyle(.verde)
-                                            .font(.headline)
+                                            .font(.headline.headline())
                                         
                                         DateEditView(title: "Aniversário", name: viewModel.client.fullName.removeFamilyName(), date: $viewModel.birthday, isEditing: $viewModel.birthdayIsEditing) {
                                             viewModel.saveBirthday()
@@ -81,7 +81,7 @@ struct ClientView: View {
                                     VStack(alignment: .leading, spacing: 8) {
                                         Text("Endereço")
                                             .foregroundStyle(.verde)
-                                            .font(.headline)
+                                            .font(.headline.headline())
                                         
                                         StringEditView(title: "Endereço", placeholderText: "", name: viewModel.client.fullName.removeFamilyName(), text: $viewModel.address, isEditing: $viewModel.addressIsEditing) {
                                             viewModel.saveAddress()

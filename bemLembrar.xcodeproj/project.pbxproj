@@ -22,6 +22,10 @@
 		7834BC832B0722710057D6A1 /* BLDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC822B0722710057D6A1 /* BLDatePicker.swift */; };
 		7834BC852B07A5A50057D6A1 /* SheetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC842B07A5A50057D6A1 /* SheetLine.swift */; };
 		7834BC872B08371B0057D6A1 /* ClientImageSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC862B08371B0057D6A1 /* ClientImageSheet.swift */; };
+		7834BC892B0856A00057D6A1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC882B0856A00057D6A1 /* Fonts.swift */; };
+		7834BC982B085B310057D6A1 /* BricolageGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7834BC952B085B310057D6A1 /* BricolageGrotesque-Bold.ttf */; };
+		7834BC992B085B310057D6A1 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7834BC962B085B310057D6A1 /* Lato-Bold.ttf */; };
+		7834BC9A2B085B310057D6A1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7834BC972B085B310057D6A1 /* Lato-Regular.ttf */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -94,6 +98,11 @@
 		7834BC822B0722710057D6A1 /* BLDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLDatePicker.swift; sourceTree = "<group>"; };
 		7834BC842B07A5A50057D6A1 /* SheetLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetLine.swift; sourceTree = "<group>"; };
 		7834BC862B08371B0057D6A1 /* ClientImageSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientImageSheet.swift; sourceTree = "<group>"; };
+		7834BC882B0856A00057D6A1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7834BC942B085A7B0057D6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7834BC952B085B310057D6A1 /* BricolageGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BricolageGrotesque-Bold.ttf"; path = "../../../../../../Design/Fontes/BricolageGrotesque-Bold.ttf"; sourceTree = "<group>"; };
+		7834BC962B085B310057D6A1 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../../../Design/Fontes/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		7834BC972B085B310057D6A1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../../Design/Fontes/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -258,6 +267,7 @@
 				7834BC602B019EC70057D6A1 /* TimeInterval.swift */,
 				783E56052AF3E5EF00921298 /* UIApplication.swift */,
 				78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */,
+				7834BC882B0856A00057D6A1 /* Fonts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,6 +316,9 @@
 		78E629BF2AED73A400CBB373 = {
 			isa = PBXGroup;
 			children = (
+				7834BC952B085B310057D6A1 /* BricolageGrotesque-Bold.ttf */,
+				7834BC962B085B310057D6A1 /* Lato-Bold.ttf */,
+				7834BC972B085B310057D6A1 /* Lato-Regular.ttf */,
 				78E629CA2AED73A400CBB373 /* bemLembrar */,
 				78E629C92AED73A400CBB373 /* Products */,
 			);
@@ -322,6 +335,7 @@
 		78E629CA2AED73A400CBB373 /* bemLembrar */ = {
 			isa = PBXGroup;
 			children = (
+				7834BC942B085A7B0057D6A1 /* Info.plist */,
 				78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */,
 				783E55E32AF0A54300921298 /* Components */,
 				783E55DA2AF01CBC00921298 /* View */,
@@ -424,8 +438,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7834BC982B085B310057D6A1 /* BricolageGrotesque-Bold.ttf in Resources */,
 				78E629D32AED73A500CBB373 /* Preview Assets.xcassets in Resources */,
+				7834BC9A2B085B310057D6A1 /* Lato-Regular.ttf in Resources */,
 				78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */,
+				7834BC992B085B310057D6A1 /* Lato-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +477,7 @@
 				78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */,
 				78AF14192B0107000094CF66 /* Brand.swift in Sources */,
 				7834BC872B08371B0057D6A1 /* ClientImageSheet.swift in Sources */,
+				7834BC892B0856A00057D6A1 /* Fonts.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				7834BC652B02A8B20057D6A1 /* Letters.swift in Sources */,
 				7834BC612B019EC70057D6A1 /* TimeInterval.swift in Sources */,
@@ -639,6 +657,7 @@
 				DEVELOPMENT_TEAM = 225S533H7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bemLembrar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Bem Lembrar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Isso permite Bem Lembrar a deixar você escolher seus clientes e suas preferências.";
@@ -675,6 +694,7 @@
 				DEVELOPMENT_TEAM = 225S533H7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bemLembrar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Bem Lembrar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Isso permite Bem Lembrar a deixar você escolher seus clientes e suas preferências.";

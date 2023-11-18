@@ -16,16 +16,16 @@ struct OnboardingView: View {
             
             ScrollView {
                 VStack(spacing: 0) {
-                    VStack(spacing: 32) {
+                    VStack(alignment: .leading, spacing: 32) {
                         VStack(alignment: .leading, spacing: 16) {
                             Text("Informações das suas clientes sempre bem lembradas!")
                                 .foregroundStyle(.preto)
-                                .font(.largeTitle)
+                                .font(.largeTitle.largeTitle())
                                 .fontWeight(.semibold)
                             
                             Text("Monte sua lista de clientes e salve tudo sobre elas para facilitar o contato. Simples assim.")
                                 .foregroundStyle(.preto)
-                                .font(.body)
+                                .font(.body.body())
                         }
                         
                         BLButton(symbol: "", text: "Começar", disabled: false, opposite: false, color: .verde, textColor: .branco) {

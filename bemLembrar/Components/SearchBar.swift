@@ -15,11 +15,12 @@ struct SearchBar: View {
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: "magnifyingglass")
-                .fontWeight(.semibold)
                 .foregroundStyle(searchText == "" ? .verdeClaro : .preto)
+                .font(.subheadline)
+                .fontWeight(.semibold)
             
             TextField("Pesquisar", text: $searchText)
-                .font(.title3)
+                .font(.title3.title3())
                 .fontWeight(.semibold)
                 .foregroundStyle(.preto)
                 .overlay(
@@ -27,6 +28,8 @@ struct SearchBar: View {
                         .padding()
                         .offset(x: 10)
                         .foregroundStyle(searchText == "" ? .verdeClaro : .preto)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
                             UIApplication.shared.endEditing()

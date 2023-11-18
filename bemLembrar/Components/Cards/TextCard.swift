@@ -24,7 +24,7 @@ struct TextCard: View {
                 
                 Text(text.capitalized)
                     .foregroundStyle(textColor())
-                    .font(.headline)
+                    .font(.headline.headline())
                 
                 Spacer()
             }

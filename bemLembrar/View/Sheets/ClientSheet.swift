@@ -26,17 +26,17 @@ struct ClientSheet: View {
                     case .smell:
                         Text("Fragância \(cheiro.rawValue.capitalized)")
                             .foregroundStyle(.verde)
-                            .font(.title)
+                            .font(.title.title())
                             .fontWeight(.bold)
                     case .skin:
                         Text("Pele \(pele.rawValue.capitalized)")
                             .foregroundStyle(.verde)
-                            .font(.title)
+                            .font(.title.title())
                             .fontWeight(.bold)
                     case .service:
                         Text("Atendimento por \(atendimento.rawValue.capitalized)")
                             .foregroundStyle(.verde)
-                            .font(.title)
+                            .font(.title.title())
                             .fontWeight(.bold)
                     }
                     
@@ -54,7 +54,7 @@ struct ClientSheet: View {
                                         VStack(alignment: .leading, spacing: 6) {
                                             Text(letter)
                                                 .foregroundStyle(.verde)
-                                                .font(.callout)
+                                                .font(.callout.callout())
                                                 .fontWeight(.semibold)
                                             
                                             VStack(alignment: .leading, spacing: 8) {

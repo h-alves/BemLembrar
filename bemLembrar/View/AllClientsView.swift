@@ -41,11 +41,11 @@ struct AllClientsView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Text(UserData.shared.user.name)
                                 .foregroundStyle(.verdeClaro)
-                                .font(.title3)
+                                .font(.title3.title3())
                             
                             Text("Meus clientes")
                                 .foregroundStyle(.preto)
-                                .font(.largeTitle)
+                                .font(.largeTitle.largeTitle())
                                 .fontWeight(.semibold)
                         }
                     }
@@ -93,7 +93,7 @@ struct AllClientsView: View {
                                 
                                 Text("Comece adicionando seus clientes!")
                                     .foregroundStyle(.preto)
-                                    .font(.title3)
+                                    .font(.title3.title3())
                                     .multilineTextAlignment(.center)
                                 
                                 Spacer()

@@ -36,7 +36,7 @@ struct UserView: View {
                     
                     Text(UserData.shared.user.name)
                         .foregroundStyle(.verde)
-                        .font(.title)
+                        .font(.title.title())
                         .fontWeight(.bold)
                 }
                 
@@ -44,7 +44,7 @@ struct UserView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Marcas que trabalho:")
                             .foregroundStyle(.verde)
-                            .font(.title3)
+                            .font(.title3.title3())
                             .fontWeight(.semibold)
                         
                         Button {
@@ -82,7 +82,7 @@ struct UserView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Desejo realizar contato:")
                             .foregroundStyle(.verde)
-                            .font(.title3)
+                            .font(.title3.title3())
                             .fontWeight(.semibold)
                         
                         Button {

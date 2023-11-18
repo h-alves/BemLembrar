@@ -13,7 +13,7 @@ struct BLDatePicker: View {
     
     var body: some View {
         DatePicker(placeholderText, selection: $date, displayedComponents: .date)
-            .font(.headline)
+            .font(.headline.headline())
             .foregroundStyle(.preto)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)

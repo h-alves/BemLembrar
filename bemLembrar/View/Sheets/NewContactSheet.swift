@@ -18,14 +18,14 @@ struct NewContactSheet: View {
                 VStack(alignment: .leading, spacing: 24) {
                     Text("Novo contato")
                         .foregroundStyle(.verde)
-                        .font(.title)
+                        .font(.title.title())
                         .fontWeight(.bold)
                     
                     VStack(spacing: 32) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Dados Essenciais")
                                 .foregroundStyle(.verde)
-                                .font(.title2)
+                                .font(.title2.title2())
                                 .fontWeight(.semibold)
                             
                             BLTextField(placeholderText: "Nome", text: $viewModel.givenName)
@@ -41,7 +41,7 @@ struct NewContactSheet: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Dados Opcionais")
                                     .foregroundStyle(.verde)
-                                    .font(.title2)
+                                    .font(.title2.title2())
                                     .fontWeight(.semibold)
                                 
                                 BLDatePicker(date: $viewModel.birthday)

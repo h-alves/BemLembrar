@@ -16,7 +16,7 @@ struct IndividualTag: View {
         if !texto.isEmpty {
             Text(big ? "\(type.getName()) \(texto)" : texto)
                 .foregroundStyle(.branco)
-                .font(.callout)
+                .font(.callout.callout())
                 .fontWeight(.bold)
                 .padding(.horizontal, 8)
                 .padding(.vertical, 2)

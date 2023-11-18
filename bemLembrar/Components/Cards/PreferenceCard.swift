@@ -27,17 +27,17 @@ struct PreferenceCard: View {
                         if cheiro != .none {
                             Text("\(cheiro.rawValue.capitalized)?")
                                 .foregroundStyle(.verde)
-                                .font(.body)
+                                .font(.body.body())
                                 .fontWeight(.semibold)
                         } else if pele != .none {
                             Text("\(pele.rawValue.capitalized)?")
                                 .foregroundStyle(.verde)
-                                .font(.body)
+                                .font(.body.body())
                                 .fontWeight(.semibold)
                         } else if atendimento != .none {
                             Text("\(atendimento.rawValue.capitalized)?")
                                 .foregroundStyle(.verde)
-                                .font(.body)
+                                .font(.body.body())
                                 .fontWeight(.semibold)
                         }
                         
@@ -55,17 +55,17 @@ struct PreferenceCard: View {
                     if cheiro != .none {
                         Text("\(cheiro.rawValue.capitalized)?")
                             .foregroundStyle(.branco)
-                            .font(.body)
+                            .font(.body.body())
                             .fontWeight(.semibold)
                     } else if pele != .none {
                         Text("\(pele.rawValue.capitalized)?")
                             .foregroundStyle(.branco)
-                            .font(.body)
+                            .font(.body.body())
                             .fontWeight(.semibold)
                     } else if atendimento != .none {
                         Text("\(atendimento.rawValue.capitalized)?")
                             .foregroundStyle(.branco)
-                            .font(.body)
+                            .font(.body.body())
                             .fontWeight(.semibold)
                     }
                     
@@ -90,7 +90,7 @@ struct PreferenceCard: View {
                             ForEach(clientList, id: \.identifier) { client in
                                 Text(client.fullName)
                                     .foregroundStyle(.verde)
-                                    .font(.headline)
+                                    .font(.headline.headline())
                                     .padding(.horizontal, 20)
                                     .padding(.vertical, 8)
                                     .background(.branco)

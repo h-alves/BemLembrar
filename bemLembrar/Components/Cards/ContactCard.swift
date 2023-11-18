@@ -20,15 +20,15 @@ struct ContactCard: View {
             HStack(spacing: 4) {
                 Image(systemName: getSymbol())
                     .foregroundStyle(symbolColor())
+                    .font(.subheadline)
                 
                 Text("\(contact!.contactInfo.givenName) \(contact!.contactInfo.familyName)")
                     .foregroundStyle(textColor())
-                    .font(.headline)
+                    .font(.headline.headline())
                     .fontWeight(.semibold)
                 
                 Spacer()
             }
-            .foregroundStyle(.black)
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 12)

@@ -30,7 +30,7 @@ struct RegisterView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Nos conte um pouco mais sobre você!")
                                 .foregroundStyle(.preto)
-                                .font(.title)
+                                .font(.title.title())
                                 .fontWeight(.semibold)
                             
                             Text("Suas informações são confidenciais e usadas exclusivamente para melhorar sua experiência no aplicativo.")
@@ -43,7 +43,7 @@ struct RegisterView: View {
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Como você gostaria de ser chamada?")
                                             .foregroundStyle(.preto)
-                                            .font(.headline)
+                                            .font(.headline.headline())
                                         
                                         BLTextField(text: $viewModel.name)
                                     }
@@ -53,7 +53,7 @@ struct RegisterView: View {
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Com quais marcas você trabalha?")
                                             .foregroundStyle(.preto)
-                                            .font(.headline)
+                                            .font(.headline.headline())
                                         
                                         VStack(spacing: 10) {
                                             ForEach(viewModel.brands, id: \.name) { brand in
@@ -69,7 +69,7 @@ struct RegisterView: View {
                                     VStack(alignment: .leading, spacing: 12) {
                                         Text("Qual é a sua estratégia de recontato com as clientes?")
                                             .foregroundStyle(.preto)
-                                            .font(.headline)
+                                            .font(.headline.headline())
                                         
                                         VStack(spacing: 10) {
                                             ForEach(viewModel.strategies, id: \.name) { strategy in

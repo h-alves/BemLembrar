@@ -23,12 +23,12 @@ struct RejectedView: View {
                     VStack(alignment: .leading, spacing: 24) {
                         Text("Precisamos ver seus contatos!")
                             .foregroundStyle(.preto)
-                            .font(.largeTitle)
+                            .font(.largeTitle.largeTitle())
                             .fontWeight(.bold)
                         
                         Text("Não se preocupe, não vamos divulgar seus dados! Apenas precisamos dos contatos para facilitar o gerenciamento de clientes!")
                             .foregroundStyle(.preto)
-                            .font(.body)
+                            .font(.body.body())
                     }
                     .padding(.horizontal, 32)
                     

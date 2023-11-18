@@ -51,13 +51,13 @@ struct GuideView: View {
                                         
                                         Text("0\(selectIndex+1).")
                                             .foregroundStyle(.branco)
-                                            .font(.largeTitle)
+                                            .font(.largeTitle.largeTitle())
                                             .fontWeight(.bold)
                                     }
                                     
                                     Text(descriptionTexts[selectIndex])
                                         .foregroundStyle(.preto)
-                                        .font(.headline)
+                                        .font(.headline.headline())
                                 }
                                 
                                 Image("onboardingImage\(selectIndex+1)")

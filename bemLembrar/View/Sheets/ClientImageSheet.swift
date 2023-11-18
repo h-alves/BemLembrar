@@ -20,7 +20,7 @@ struct ClientImageSheet: View {
                         VStack(alignment: .leading, spacing: 16) {
                             Text("Ícone de \(viewModel.client.fullName):")
                                 .foregroundStyle(.preto)
-                                .font(.title3)
+                                .font(.title3.title3())
                                 .fontWeight(.semibold)
                             
                             HStack(spacing: 15) {

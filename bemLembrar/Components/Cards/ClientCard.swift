@@ -36,7 +36,7 @@ struct ClientCard: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("\(client.fullName)")
                             .foregroundStyle(.verde)
-                            .font(.headline)
+                            .font(.headline.headline())
                             .fontWeight(.semibold)
                         
                         PreferencesTag(big: false, preferences: client.preferences)

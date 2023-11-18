@@ -16,16 +16,16 @@ struct PreferencesOnboardingView: View {
             
             ScrollView {
                 VStack(spacing: 0) {
-                    VStack(spacing: 32) {
+                    VStack(alignment: .leading, spacing: 32) {
                         VStack(alignment: .leading, spacing: 16) {
                             Text("Agora só falta incluir as preferências das suas clientes!")
                                 .foregroundStyle(.preto)
-                                .font(.largeTitle)
+                                .font(.largeTitle.largeTitle())
                                 .fontWeight(.semibold)
                             
                             Text("Escolha suas clientes com base nas preferências delas em cada uma das categorias.")
                                 .foregroundStyle(.preto)
-                                .font(.body)
+                                .font(.body.body())
                         }
                         
                         BLButton(symbol: "", text: "Conheça as categorias", disabled: false, opposite: false, color: .verde, textColor: .branco) {

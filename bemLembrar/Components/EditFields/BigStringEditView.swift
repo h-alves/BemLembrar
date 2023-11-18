@@ -17,7 +17,7 @@ struct BigStringEditView: View {
             if isEditing {
                 HStack {
                     TextField("", text: $text, axis: .vertical)
-                        .font(.headline)
+                        .font(.headline.headline())
                         .foregroundStyle(.preto)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
@@ -45,7 +45,7 @@ struct BigStringEditView: View {
                         HStack {
                             Text("Aqui você pode registrar alergias, cores preferidas e detalhes para garantir sempre o melhor atendimento!")
                                 .foregroundStyle(.verde)
-                                .font(.body)
+                                .font(.body.body())
                                 .multilineTextAlignment(.leading)
                             
                             Spacer()
@@ -67,11 +67,10 @@ struct BigStringEditView: View {
                         HStack {
                             Text(text == "" ? "Aqui você pode registrar alergias, tanana e detalhes para garantir sempre o melhor atendimento!" : text)
                                 .foregroundStyle(.branco)
-                                .font(.body)
+                                .font(.body.body())
                                 .multilineTextAlignment(.leading)
                             
                             Spacer()
-                            
                             
                             Image(systemName: "square.and.pencil")
                                 .foregroundStyle(.branco)
