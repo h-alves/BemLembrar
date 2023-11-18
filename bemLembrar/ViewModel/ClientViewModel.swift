@@ -10,9 +10,12 @@ import SwiftUI
 class ClientViewModel: ObservableObject {
     @Published var client = Client.test
     
+    @Published var imageIsEditing = false
     @Published var addressIsEditing = false
     @Published var birthdayIsEditing = false
     @Published var annotationIsEditing = false
+    
+    @Published var images = [String]()
     
     @Published var address = ""
     @Published var birthday = Date()
@@ -22,6 +25,19 @@ class ClientViewModel: ObservableObject {
     @Published var lastContact = Date.distantPast
     
     @Published var shareText = ""
+    
+    func getImageList() {
+        for i in 1...5 {
+            images.append("clientImage\(i)")
+        }
+        
+        print(images)
+    }
+    
+    func selectImage(image: String) {
+        self.client.image = image
+        changeOnDataSource()
+    }
     
     func updateClient(client: Client) {
 //        print(client)

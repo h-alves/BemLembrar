@@ -10,8 +10,10 @@ import SwiftUI
 struct BLButton: View {
     var symbol: String
     var font: Font = .headline
+    var symbolFont: Font = .subheadline
     var text: String = ""
     var infinity: Bool = true
+    var vertical_padding: CGFloat = 8
     var disabled: Bool
     var opposite: Bool
     var color: Color
@@ -35,7 +37,7 @@ struct BLButton: View {
                     
                     Image(systemName: getSymbol())
                         .foregroundStyle(getTextColor())
-                        .font(.subheadline)
+                        .font(symbolFont)
                         .fontWeight(.bold)
                     
                     if !opposite {
@@ -49,7 +51,7 @@ struct BLButton: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 14)
-                .padding(.vertical, 8)
+                .padding(.vertical, vertical_padding)
                 .background(backgroundColor())
                 .clipShape(RoundedRectangle(cornerRadius: 14))
             }
@@ -70,7 +72,7 @@ struct BLButton: View {
                     
                     Image(systemName: getSymbol())
                         .foregroundStyle(getTextColor())
-                        .font(.subheadline)
+                        .font(symbolFont)
                         .fontWeight(.bold)
                     
                     if !opposite {

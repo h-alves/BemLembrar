@@ -58,7 +58,7 @@ struct SkinView: View {
                                     VStack(spacing: 16) {
                                         ForEach(Pele.allCases, id: \.rawValue) { p in
                                             PreferenceCard(pele: p,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.pele == p })) {
-                                                RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .skin, pele: p))
+                                                RouterService.shared.showSheet(ClientSheet(viewModel: viewModel, preferenceType: .skin, pele: p))
                                             }
                                             .padding(.horizontal, 1)
                                         }

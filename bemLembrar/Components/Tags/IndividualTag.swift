@@ -9,11 +9,12 @@ import SwiftUI
 
 struct IndividualTag: View {
     var texto: String
+    var big: Bool = false
     var type: PreferenceType
     
     var body: some View {
         if !texto.isEmpty {
-            Text(texto)
+            Text(big ? "\(type.getName()) \(texto)" : texto)
                 .foregroundStyle(.branco)
                 .font(.callout)
                 .fontWeight(.bold)

@@ -1,5 +1,5 @@
 //
-//  BrandsSheetView.swift
+//  StrategySheet.swift
 //  bemLembrar
 //
 //  Created by Henrique Semmer on 12/11/23.
@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct BrandsSheetView: View {
+struct StrategySheet: View {
     @ObservedObject var viewModel: UserViewModel
     
     var body: some View {
         VStack {
-            Text("MARCAS")
+            Text("ESTRATÉGIAS")
             
-            ForEach(viewModel.brands, id: \.name) { brand in
+            ForEach(viewModel.strategies, id: \.name) { strategy in
                 HStack {
                     Button {
-                        viewModel.selectBrand(brand: brand)
+                        viewModel.selectStrategy(strategy: strategy)
                     } label: {
-                        Image(systemName: brand.isSelected ? "square.fill" : "square")
+                        Image(systemName: strategy.isSelected ? "square.fill" : "square")
                     }
                     
-                    Text(brand.name)
+                    Text(strategy.name)
                 }
             }
             
             Button {
-                viewModel.saveBrands()
+                viewModel.saveStrategies()
             } label: {
                 Text("Done")
             }
@@ -36,5 +36,5 @@ struct BrandsSheetView: View {
 }
 
 #Preview {
-    BrandsSheetView(viewModel: UserViewModel())
+    StrategySheet(viewModel: UserViewModel())
 }

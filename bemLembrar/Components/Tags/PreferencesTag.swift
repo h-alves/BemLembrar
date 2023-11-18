@@ -16,14 +16,14 @@ struct PreferencesTag: View {
             if preferences.cheiro.count > 0 {
                 if big {
                     ForEach(preferences.cheiro, id: \.rawValue) { c in
-                        IndividualTag(texto: c.rawValue, type: .smell)
+                        IndividualTag(texto: c.rawValue, big: big, type: .smell)
                     }
                 } else {
                     IndividualTag(texto: preferences.cheiro[0].rawValue, type: .smell)
                 }
             }
-            IndividualTag(texto: preferences.pele.rawValue, type: .skin)
-            IndividualTag(texto: preferences.atendimento.rawValue, type: .service)
+            IndividualTag(texto: preferences.pele.rawValue, big: big, type: .skin)
+            IndividualTag(texto: preferences.atendimento.rawValue, big: big, type: .service)
         }
     }
 }

@@ -47,7 +47,7 @@ struct AddClientManager: View {
             viewModel.getContactList()
         }
         .sheet(isPresented: $viewModel.isPresented) {
-            NewContactView(viewModel: viewModel)
+            NewContactSheet(viewModel: viewModel)
         }
     }
 }

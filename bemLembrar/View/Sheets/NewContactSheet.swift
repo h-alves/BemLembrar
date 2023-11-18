@@ -1,5 +1,5 @@
 //
-//  NewContactView.swift
+//  NewContactSheet.swift
 //  bemLembrar
 //
 //  Created by Henrique Semmer on 07/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewContactView: View {
+struct NewContactSheet: View {
     @ObservedObject var viewModel: AddClientViewModel
     
     var body: some View {
@@ -78,5 +78,5 @@ struct NewContactView: View {
 }
 
 #Preview {
-    NewContactView(viewModel: AddClientViewModel())
+    NewContactSheet(viewModel: AddClientViewModel())
 }

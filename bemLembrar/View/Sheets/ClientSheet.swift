@@ -1,5 +1,5 @@
 //
-//  ClientSheetView.swift
+//  ClientSheet.swift
 //  bemLembrar
 //
 //  Created by Henrique Semmer on 05/11/23.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ClientSheetView: View {
+struct ClientSheet: View {
     @ObservedObject var viewModel: PreferencesViewModel
     
     var preferenceType: PreferenceType
     
     var cheiro: Cheiro = .none
-    var pele: Pele = .normal
+    var pele: Pele = .none
     var atendimento: Atendimento = .none
     
     var body: some View {
@@ -95,5 +95,5 @@ struct ClientSheetView: View {
 }
 
 #Preview {
-    ClientSheetView(viewModel: PreferencesViewModel(), preferenceType: .service)
+    ClientSheet(viewModel: PreferencesViewModel(), preferenceType: .service)
 }

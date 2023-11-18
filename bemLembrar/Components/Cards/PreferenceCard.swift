@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PreferenceCard: View {
     var cheiro: Cheiro = .none
-    var pele: Pele = .normal
+    var pele: Pele = .none
     var atendimento: Atendimento = .none
     
     var clientList: [Client]
@@ -29,7 +29,7 @@ struct PreferenceCard: View {
                                 .foregroundStyle(.verde)
                                 .font(.body)
                                 .fontWeight(.semibold)
-                        } else if pele != .normal {
+                        } else if pele != .none {
                             Text("\(pele.rawValue.capitalized)?")
                                 .foregroundStyle(.verde)
                                 .font(.body)
@@ -57,7 +57,7 @@ struct PreferenceCard: View {
                             .foregroundStyle(.branco)
                             .font(.body)
                             .fontWeight(.semibold)
-                    } else if pele != .normal {
+                    } else if pele != .none {
                         Text("\(pele.rawValue.capitalized)?")
                             .foregroundStyle(.branco)
                             .font(.body)

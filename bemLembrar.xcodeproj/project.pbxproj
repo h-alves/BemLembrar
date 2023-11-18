@@ -15,12 +15,13 @@
 		7834BC6D2B0599B90057D6A1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC6C2B0599B90057D6A1 /* RegisterView.swift */; };
 		7834BC712B05A2AA0057D6A1 /* TextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC702B05A2AA0057D6A1 /* TextCard.swift */; };
 		7834BC752B06964D0057D6A1 /* PreferencesOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */; };
-		7834BC7B2B06F3960057D6A1 /* ImageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC7A2B06F3960057D6A1 /* ImageSheetView.swift */; };
+		7834BC7B2B06F3960057D6A1 /* UserImageSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC7A2B06F3960057D6A1 /* UserImageSheet.swift */; };
 		7834BC7D2B06FE270057D6A1 /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC7C2B06FE270057D6A1 /* Divider.swift */; };
 		7834BC7F2B06FF570057D6A1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC7E2B06FF570057D6A1 /* Color.swift */; };
 		7834BC812B07017D0057D6A1 /* BLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC802B07017D0057D6A1 /* BLTextField.swift */; };
 		7834BC832B0722710057D6A1 /* BLDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC822B0722710057D6A1 /* BLDatePicker.swift */; };
 		7834BC852B07A5A50057D6A1 /* SheetLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC842B07A5A50057D6A1 /* SheetLine.swift */; };
+		7834BC872B08371B0057D6A1 /* ClientImageSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834BC862B08371B0057D6A1 /* ClientImageSheet.swift */; };
 		783E55DE2AF0A20B00921298 /* AddClientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DD2AF0A20B00921298 /* AddClientView.swift */; };
 		783E55E02AF0A22700921298 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55DF2AF0A22700921298 /* Contact.swift */; };
 		783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E55E12AF0A2D200921298 /* AddClientViewModel.swift */; };
@@ -54,13 +55,13 @@
 		78AF141D2B01087A0094CF66 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF141C2B01087A0094CF66 /* UserData.swift */; };
 		78AF141F2B010D180094CF66 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF141E2B010D180094CF66 /* UserView.swift */; };
 		78AF14212B010D300094CF66 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14202B010D300094CF66 /* UserViewModel.swift */; };
-		78AF14232B0117B30094CF66 /* BrandsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14222B0117B30094CF66 /* BrandsSheetView.swift */; };
-		78AF14252B0117FF0094CF66 /* StrategySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14242B0117FF0094CF66 /* StrategySheetView.swift */; };
+		78AF14232B0117B30094CF66 /* BrandsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14222B0117B30094CF66 /* BrandsSheet.swift */; };
+		78AF14252B0117FF0094CF66 /* StrategySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14242B0117FF0094CF66 /* StrategySheet.swift */; };
 		78E629CC2AED73A400CBB373 /* bemLembrarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */; };
 		78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E629CD2AED73A400CBB373 /* ContentView.swift */; };
 		78E629D02AED73A500CBB373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629CF2AED73A500CBB373 /* Assets.xcassets */; };
 		78E629D32AED73A500CBB373 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E629D22AED73A500CBB373 /* Preview Assets.xcassets */; };
-		78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */; };
+		78EEC6B02AFAB2650030F5EA /* NewContactSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6AF2AFAB2650030F5EA /* NewContactSheet.swift */; };
 		78EEC6BA2AFC3FFA0030F5EA /* StringEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */; };
 		78EEC6BC2AFC43430030F5EA /* ClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */; };
 		78EEC6BE2AFC50580030F5EA /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6BD2AFC50580030F5EA /* Preferences.swift */; };
@@ -69,7 +70,7 @@
 		78EEC6CA2AFD5F410030F5EA /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEC6C92AFD5F410030F5EA /* PopUp.swift */; };
 		78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */; };
 		78FEF4D72AF83CBE00A5A6D8 /* PreferencesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */; };
-		78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */; };
+		78FEF4DB2AF8720500A5A6D8 /* ClientSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DA2AF8720500A5A6D8 /* ClientSheet.swift */; };
 		78FEF4DF2AF8737A00A5A6D8 /* PreferenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */; };
 		78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */; };
 		78FEF4E72AF96E9400A5A6D8 /* PreferencesTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEF4E62AF96E9400A5A6D8 /* PreferencesTag.swift */; };
@@ -86,12 +87,13 @@
 		7834BC6C2B0599B90057D6A1 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7834BC702B05A2AA0057D6A1 /* TextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCard.swift; sourceTree = "<group>"; };
 		7834BC742B06964D0057D6A1 /* PreferencesOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesOnboardingView.swift; sourceTree = "<group>"; };
-		7834BC7A2B06F3960057D6A1 /* ImageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSheetView.swift; sourceTree = "<group>"; };
+		7834BC7A2B06F3960057D6A1 /* UserImageSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageSheet.swift; sourceTree = "<group>"; };
 		7834BC7C2B06FE270057D6A1 /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		7834BC7E2B06FF570057D6A1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7834BC802B07017D0057D6A1 /* BLTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLTextField.swift; sourceTree = "<group>"; };
 		7834BC822B0722710057D6A1 /* BLDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLDatePicker.swift; sourceTree = "<group>"; };
 		7834BC842B07A5A50057D6A1 /* SheetLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetLine.swift; sourceTree = "<group>"; };
+		7834BC862B08371B0057D6A1 /* ClientImageSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientImageSheet.swift; sourceTree = "<group>"; };
 		783E55DD2AF0A20B00921298 /* AddClientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientView.swift; sourceTree = "<group>"; };
 		783E55DF2AF0A22700921298 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		783E55E12AF0A2D200921298 /* AddClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientViewModel.swift; sourceTree = "<group>"; };
@@ -125,14 +127,14 @@
 		78AF141C2B01087A0094CF66 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		78AF141E2B010D180094CF66 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		78AF14202B010D300094CF66 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		78AF14222B0117B30094CF66 /* BrandsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsSheetView.swift; sourceTree = "<group>"; };
-		78AF14242B0117FF0094CF66 /* StrategySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySheetView.swift; sourceTree = "<group>"; };
+		78AF14222B0117B30094CF66 /* BrandsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsSheet.swift; sourceTree = "<group>"; };
+		78AF14242B0117FF0094CF66 /* StrategySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategySheet.swift; sourceTree = "<group>"; };
 		78E629C82AED73A400CBB373 /* bemLembrar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bemLembrar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E629CB2AED73A400CBB373 /* bemLembrarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bemLembrarApp.swift; sourceTree = "<group>"; };
 		78E629CD2AED73A400CBB373 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		78E629CF2AED73A500CBB373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78E629D22AED73A500CBB373 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactView.swift; sourceTree = "<group>"; };
+		78EEC6AF2AFAB2650030F5EA /* NewContactSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactSheet.swift; sourceTree = "<group>"; };
 		78EEC6B92AFC3FFA0030F5EA /* StringEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEditView.swift; sourceTree = "<group>"; };
 		78EEC6BB2AFC43430030F5EA /* ClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewModel.swift; sourceTree = "<group>"; };
 		78EEC6BD2AFC50580030F5EA /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -141,7 +143,7 @@
 		78EEC6C92AFD5F410030F5EA /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		78FEF4D42AF825CB00A5A6D8 /* PreferenceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCard.swift; sourceTree = "<group>"; };
 		78FEF4D62AF83CBE00A5A6D8 /* PreferencesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewModel.swift; sourceTree = "<group>"; };
-		78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSheetView.swift; sourceTree = "<group>"; };
+		78FEF4DA2AF8720500A5A6D8 /* ClientSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSheet.swift; sourceTree = "<group>"; };
 		78FEF4DE2AF8737A00A5A6D8 /* PreferenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceType.swift; sourceTree = "<group>"; };
 		78FEF4E42AF9686500A5A6D8 /* FlexStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexStack.swift; sourceTree = "<group>"; };
 		78FEF4E62AF96E9400A5A6D8 /* PreferencesTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTag.swift; sourceTree = "<group>"; };
@@ -354,11 +356,12 @@
 		78FEF4DD2AF8721C00A5A6D8 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
-				78EEC6AF2AFAB2650030F5EA /* NewContactView.swift */,
-				78FEF4DA2AF8720500A5A6D8 /* ClientSheetView.swift */,
-				78AF14222B0117B30094CF66 /* BrandsSheetView.swift */,
-				7834BC7A2B06F3960057D6A1 /* ImageSheetView.swift */,
-				78AF14242B0117FF0094CF66 /* StrategySheetView.swift */,
+				78EEC6AF2AFAB2650030F5EA /* NewContactSheet.swift */,
+				78FEF4DA2AF8720500A5A6D8 /* ClientSheet.swift */,
+				78AF14222B0117B30094CF66 /* BrandsSheet.swift */,
+				7834BC7A2B06F3960057D6A1 /* UserImageSheet.swift */,
+				7834BC862B08371B0057D6A1 /* ClientImageSheet.swift */,
+				78AF14242B0117FF0094CF66 /* StrategySheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -448,7 +451,7 @@
 				78EEC6BC2AFC43430030F5EA /* ClientViewModel.swift in Sources */,
 				783E56142AF74BB800921298 /* DateComponents.swift in Sources */,
 				78EEC6C82AFC948C0030F5EA /* BigStringEditView.swift in Sources */,
-				78FEF4DB2AF8720500A5A6D8 /* ClientSheetView.swift in Sources */,
+				78FEF4DB2AF8720500A5A6D8 /* ClientSheet.swift in Sources */,
 				78EEC6BE2AFC50580030F5EA /* Preferences.swift in Sources */,
 				78E629CE2AED73A400CBB373 /* ContentView.swift in Sources */,
 				783E55EC2AF1824000921298 /* ClientDataSource.swift in Sources */,
@@ -456,13 +459,14 @@
 				78AF14152B0029830094CF66 /* Date.swift in Sources */,
 				78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */,
 				78AF14192B0107000094CF66 /* Brand.swift in Sources */,
+				7834BC872B08371B0057D6A1 /* ClientImageSheet.swift in Sources */,
 				783E56082AF4085D00921298 /* Screen.swift in Sources */,
 				7834BC652B02A8B20057D6A1 /* Letters.swift in Sources */,
 				7834BC612B019EC70057D6A1 /* TimeInterval.swift in Sources */,
 				78FEF4E72AF96E9400A5A6D8 /* PreferencesTag.swift in Sources */,
 				783E55E82AF0A64D00921298 /* CNMutableContact.swift in Sources */,
-				78AF14232B0117B30094CF66 /* BrandsSheetView.swift in Sources */,
-				78AF14252B0117FF0094CF66 /* StrategySheetView.swift in Sources */,
+				78AF14232B0117B30094CF66 /* BrandsSheet.swift in Sources */,
+				78AF14252B0117FF0094CF66 /* StrategySheet.swift in Sources */,
 				783E561A2AF752E500921298 /* IndividualTag.swift in Sources */,
 				7834BC632B029B160057D6A1 /* BLButton.swift in Sources */,
 				78AF14172B0106990094CF66 /* User.swift in Sources */,
@@ -470,7 +474,7 @@
 				78EEC6CA2AFD5F410030F5EA /* PopUp.swift in Sources */,
 				78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */,
 				78AF141F2B010D180094CF66 /* UserView.swift in Sources */,
-				78EEC6B02AFAB2650030F5EA /* NewContactView.swift in Sources */,
+				78EEC6B02AFAB2650030F5EA /* NewContactSheet.swift in Sources */,
 				7834BC832B0722710057D6A1 /* BLDatePicker.swift in Sources */,
 				78FEF4E52AF9686500A5A6D8 /* FlexStack.swift in Sources */,
 				78AF14112B0018C90094CF66 /* NotificationManager.swift in Sources */,
@@ -484,7 +488,7 @@
 				783E55FE2AF2D59400921298 /* RouterService.swift in Sources */,
 				783E56122AF41A0400921298 /* ClientCard.swift in Sources */,
 				783E560A2AF40C2A00921298 /* AllClientsViewModel.swift in Sources */,
-				7834BC7B2B06F3960057D6A1 /* ImageSheetView.swift in Sources */,
+				7834BC7B2B06F3960057D6A1 /* UserImageSheet.swift in Sources */,
 				783E561E2AF8144B00921298 /* SmellView.swift in Sources */,
 				78FEF4D52AF825CB00A5A6D8 /* PreferenceCard.swift in Sources */,
 				783E55E22AF0A2D200921298 /* AddClientViewModel.swift in Sources */,

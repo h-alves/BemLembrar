@@ -1,5 +1,5 @@
 //
-//  ImageSheetView.swift
+//  UserImageSheet.swift
 //  bemLembrar
 //
 //  Created by Henrique Semmer on 16/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ImageSheetView: View {
+struct UserImageSheet: View {
     @ObservedObject var viewModel: UserViewModel
     
     var body: some View {
@@ -48,5 +48,5 @@ struct ImageSheetView: View {
 }
 
 #Preview {
-    ImageSheetView(viewModel: UserViewModel())
+    UserImageSheet(viewModel: UserViewModel())
 }

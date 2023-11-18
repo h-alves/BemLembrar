@@ -13,4 +13,14 @@ extension String {
         let name = self.replacingOccurrences(of: "cliente ?", with: "", options: [.caseInsensitive, .regularExpression])
         return name
     }
+    
+    func removeFamilyName() -> String {
+        var string = self
+        
+        if let spaceRange = string.range(of: " ") {
+            string.removeSubrange(spaceRange.lowerBound..<string.endIndex)
+        }
+        
+        return string
+    }
 }

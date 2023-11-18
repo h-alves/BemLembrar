@@ -58,7 +58,7 @@ struct ServiceView: View {
                                     VStack(spacing: 16) {
                                         ForEach(Atendimento.allCases, id: \.rawValue) { a in
                                             PreferenceCard(atendimento: a,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.atendimento == a })) {
-                                                RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .service, atendimento: a))
+                                                RouterService.shared.showSheet(ClientSheet(viewModel: viewModel, preferenceType: .service, atendimento: a))
                                             }
                                             .padding(.horizontal, 1)
                                         }

@@ -58,7 +58,7 @@ struct SmellView: View {
                                     VStack(spacing: 16) {
                                         ForEach(Cheiro.allCases, id: \.rawValue) { c in
                                             PreferenceCard(cheiro: c,clientList: ClientDataSource.shared.allClients.filter({ $0.preferences.cheiro.contains(c) })) {
-                                                RouterService.shared.showSheet(ClientSheetView(viewModel: viewModel, preferenceType: .smell, cheiro: c))
+                                                RouterService.shared.showSheet(ClientSheet(viewModel: viewModel, preferenceType: .smell, cheiro: c))
                                             }
                                             .padding(.horizontal, 1)
                                         }

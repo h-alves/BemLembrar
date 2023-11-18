@@ -62,13 +62,13 @@ struct UserView: View {
                 viewModel.getImageList()
             }
             .sheet(isPresented: $viewModel.brandIsEditing) {
-                BrandsSheetView(viewModel: viewModel)
+                BrandsSheet(viewModel: viewModel)
             }
             .sheet(isPresented: $viewModel.strategyIsEditing) {
-                StrategySheetView(viewModel: viewModel)
+                StrategySheet(viewModel: viewModel)
             }
             .sheet(isPresented: $viewModel.imageIsEditing) {
-                ImageSheetView(viewModel: viewModel)
+                UserImageSheet(viewModel: viewModel)
             }
         }
     }

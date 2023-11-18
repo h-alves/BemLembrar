@@ -41,7 +41,7 @@ class PreferencesViewModel: ObservableObject {
                     let contact = Contact(contactInfo: CNMutableContact().createID(identifier: client.identifier, fullName: client.fullName), identifier: client.identifier, isSelected: false)
                     filteredContacts.append(contact)
                 }
-            } else if pele != .normal {
+            } else if pele != .none {
                 if client.preferences.pele != pele {
                     let contact = Contact(contactInfo: CNMutableContact().createID(identifier: client.identifier, fullName: client.fullName), identifier: client.identifier, isSelected: false)
                     filteredContacts.append(contact)
@@ -112,7 +112,7 @@ class PreferencesViewModel: ObservableObject {
                 if client.identifier == id {
                     if cheiro != .none {
                         ClientDataSource.shared.allClients[index].preferences.cheiro.append(cheiro)
-                    } else if pele != .normal {
+                    } else if pele != .none {
                         ClientDataSource.shared.allClients[index].preferences.pele = pele
                     } else if atendimento != .none {
                         ClientDataSource.shared.allClients[index].preferences.atendimento = atendimento
