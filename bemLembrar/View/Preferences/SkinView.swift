@@ -108,6 +108,7 @@ struct SkinView: View {
                             .resizable()
                             .frame(width: 54, height: 56)
                     }
+                    .padding(.bottom, 10)
                 }
             }
         }

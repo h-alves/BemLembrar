@@ -33,16 +33,17 @@ struct PreferencesOnboardingView: View {
                         }
                     }
                     .padding(.horizontal, 32)
-                    
-                    Spacer()
-                    
-                    Image("onboardingFlower")
-                        .resizable()
-                        .frame(width: 393, height: 283)
                 }
             }
             .scrollIndicators(.hidden)
+            
+            Spacer()
+            
+            Image("onboardingFlower")
+                .resizable()
+                .frame(width: 393, height: 216)
         }
+        .ignoresSafeArea(edges: .bottom)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea(edges: .bottom)
         .background(.branco)

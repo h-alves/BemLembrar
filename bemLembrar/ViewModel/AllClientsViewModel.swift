@@ -41,6 +41,10 @@ class AllClientsViewModel: ObservableObject {
         allClients = ClientDataSource.shared.allClients
         allClientsSearch = ClientDataSource.shared.allClients
         
+        allClients.sort { client1, client2 in
+            client1.fullName < client2.fullName
+        }
+        
         if searchText != "" {
             allClientsSearch = allClients.filter{ c in
                 let textFormat = searchText.lowercased()

@@ -103,7 +103,6 @@ struct ClientView: View {
                         }
                         .scrollIndicators(.hidden)
                     }
-                    .padding(.top, 24)
                     .padding(.horizontal, 32)
                     .background(.branco)
                     .clipShape(
@@ -140,6 +139,7 @@ struct ClientView: View {
                                 .resizable()
                                 .frame(width: 54, height: 56)
                         }
+                        .padding(.bottom, 10)
                     }
                 }
             }

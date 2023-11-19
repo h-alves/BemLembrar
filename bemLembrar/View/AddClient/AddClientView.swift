@@ -132,6 +132,7 @@ struct AddClientView: View {
                     }
                     .padding(.horizontal, 32)
                 }
+                .padding(.top, 24)
                 .background(.branco)
                 .clipShape(
                     .rect (

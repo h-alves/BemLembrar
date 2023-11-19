@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var router = RouterService.shared
     
-    @AppStorage("onboarding") private var onboarding = true
-    @AppStorage("preferences") private var preferences = true
+    @AppStorage("onboardingActive") private var onboarding = true
+    @AppStorage("preferencesActive") private var preferences = true
     
     var body: some View {
         ZStack {
