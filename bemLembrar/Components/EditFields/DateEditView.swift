@@ -18,7 +18,7 @@ struct DateEditView: View {
         HStack(spacing: 0) {
             if isEditing {
                 HStack {
-                    BLDatePicker(placeholderText: "Aniversário", date: $date)
+                    BLDatePicker(placeholderText: title, date: $date)
                     
                     Spacer()
                     

@@ -73,7 +73,7 @@ struct ClientView: View {
                                             .foregroundStyle(.verde)
                                             .font(.headline.headline())
                                         
-                                        DateEditView(title: "Aniversário", name: viewModel.client.fullName.removeFamilyName(), date: $viewModel.birthday, isEditing: $viewModel.birthdayIsEditing) {
+                                        DateEditView(title: "Data", name: viewModel.client.fullName.removeFamilyName(), date: $viewModel.birthday, isEditing: $viewModel.birthdayIsEditing) {
                                             viewModel.saveBirthday()
                                         }
                                     }
