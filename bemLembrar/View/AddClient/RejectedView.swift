@@ -18,26 +18,29 @@ struct RejectedView: View {
             
             VStack(spacing: 24) {
                 VStack(spacing: 0) {
-                    Spacer()
-                    
-                    VStack(alignment: .leading, spacing: 24) {
-                        Text("Precisamos ver seus contatos!")
-                            .foregroundStyle(.preto)
-                            .font(.largeTitle.largeTitle())
-                            .fontWeight(.bold)
+                    ScrollView {
+                        Spacer()
                         
-                        Text("Não se preocupe, não vamos divulgar seus dados! Apenas precisamos dos contatos para facilitar o gerenciamento de clientes!")
-                            .foregroundStyle(.preto)
-                            .font(.body.body())
+                        VStack(alignment: .leading, spacing: 24) {
+                            Text("Precisamos ver seus contatos!")
+                                .foregroundStyle(.preto)
+                                .font(.largeTitle.largeTitle())
+                                .fontWeight(.bold)
+                            
+                            Text("Não se preocupe, não vamos divulgar seus dados! Apenas precisamos dos contatos para facilitar o gerenciamento de clientes!")
+                                .foregroundStyle(.preto)
+                                .font(.body.body())
+                        }
+                        .padding(.horizontal, 32)
+                        
+                        Image("rejectedImage")
+                            .resizable()
+                            .frame(width: 393, height: 391)
+                        
+                        Spacer()
                     }
-                    .padding(.horizontal, 32)
-                    
-                    Image("rejectedImage")
-                        .resizable()
-                        .frame(width: 393, height: 391)
-                    
-                    Spacer()
                 }
+                .padding(.top, 24)
                 .padding(.bottom, 32)
                 .frame(maxWidth: .infinity)
                 .background(.branco)

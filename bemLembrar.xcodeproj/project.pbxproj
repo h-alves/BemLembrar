@@ -47,7 +47,6 @@
 		783E561E2AF8144B00921298 /* SmellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561D2AF8144B00921298 /* SmellView.swift */; };
 		783E56202AF8145300921298 /* SkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E561F2AF8145300921298 /* SkinView.swift */; };
 		783E56222AF8145800921298 /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56212AF8145800921298 /* ServiceView.swift */; };
-		783E56272AF8176300921298 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783E56262AF8176300921298 /* TitleBar.swift */; };
 		78AF14092AFDC51E0094CF66 /* AddClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF14082AFDC51E0094CF66 /* AddClientManager.swift */; };
 		78AF140B2AFDCB2E0094CF66 /* RejectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */; };
 		78AF140F2AFFCCB40094CF66 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AF140E2AFFCCB40094CF66 /* String.swift */; };
@@ -124,7 +123,6 @@
 		783E561D2AF8144B00921298 /* SmellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmellView.swift; sourceTree = "<group>"; };
 		783E561F2AF8145300921298 /* SkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinView.swift; sourceTree = "<group>"; };
 		783E56212AF8145800921298 /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
-		783E56262AF8176300921298 /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		78AF14082AFDC51E0094CF66 /* AddClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientManager.swift; sourceTree = "<group>"; };
 		78AF140A2AFDCB2E0094CF66 /* RejectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectedView.swift; sourceTree = "<group>"; };
 		78AF140E2AFFCCB40094CF66 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 		783E55E32AF0A54300921298 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				783E56262AF8176300921298 /* TitleBar.swift */,
 				783E56032AF3DFB100921298 /* SearchBar.swift */,
 				7834BC622B029B160057D6A1 /* BLButton.swift */,
 				7834BC802B07017D0057D6A1 /* BLTextField.swift */,
@@ -519,7 +516,6 @@
 				783E56202AF8145300921298 /* SkinView.swift in Sources */,
 				78AF141B2B0107510094CF66 /* Strategy.swift in Sources */,
 				783E560C2AF40C8000921298 /* OnboardingView.swift in Sources */,
-				783E56272AF8176300921298 /* TitleBar.swift in Sources */,
 				78E629CC2AED73A400CBB373 /* bemLembrarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,7 +656,7 @@
 				INFOPLIST_FILE = bemLembrar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Bem Lembrar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Isso permite Bem Lembrar a deixar você escolher seus clientes e suas preferências.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Bem Lembrar acessa seus contatos para permitir que você adicione clientes com base na sua lista de contatos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -697,7 +693,7 @@
 				INFOPLIST_FILE = bemLembrar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Bem Lembrar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSContactsUsageDescription = "Isso permite Bem Lembrar a deixar você escolher seus clientes e suas preferências.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Bem Lembrar acessa seus contatos para permitir que você adicione clientes com base na sua lista de contatos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

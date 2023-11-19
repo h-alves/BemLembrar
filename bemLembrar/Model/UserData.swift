@@ -29,13 +29,13 @@ class UserData: ObservableObject {
     func save() {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(user) {
-            defaults.set(encoded, forKey: "userSaved")
+            defaults.set(encoded, forKey: "userData")
             print("saved \(user)")
         }
     }
     
     func retrieve() {
-        if let saved = defaults.object(forKey: "userSaved") as? Data {
+        if let saved = defaults.object(forKey: "userData") as? Data {
             print("saved")
             let decoder = JSONDecoder()
             

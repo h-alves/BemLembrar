@@ -25,6 +25,7 @@ struct AddClientManager: View {
                                     .resizable()
                                     .frame(width: 54, height: 56)
                             }
+                            .padding(.bottom, 10)
                         }
                     }
             } else {
@@ -38,6 +39,7 @@ struct AddClientManager: View {
                                     .resizable()
                                     .frame(width: 54, height: 56)
                             }
+                            .padding(.bottom, 10)
                         }
                     }
             }
