@@ -54,7 +54,7 @@ struct SkinView: View {
                                 Divider()
                                 
                                 VStack(alignment: .leading, spacing: 12) {
-                                    Text("Quais gostam de cheiro...")
+                                    Text("Quais possuem a pele...")
                                         .foregroundStyle(.preto)
                                         .font(.title3.title3())
                                         .fontWeight(.semibold)

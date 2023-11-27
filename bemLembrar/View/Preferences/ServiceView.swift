@@ -54,7 +54,7 @@ struct ServiceView: View {
                                 Divider()
                                 
                                 VStack(alignment: .leading, spacing: 12) {
-                                    Text("Quais gostam de cheiro...")
+                                    Text("Quais preferem o atendimento...")
                                         .foregroundStyle(.preto)
                                         .font(.title3.title3())
                                         .fontWeight(.semibold)
