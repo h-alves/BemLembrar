@@ -85,7 +85,7 @@ struct ServiceView: View {
                     )
                     .shadow(color: .pretoShadow.opacity(0.2), radius: 5, y: 8)
                     
-                    BLButton(symbol: "arrow.right", text: "Próximo", disabled: false, opposite: true, color: .branco, textColor: .verde) {
+                    BLButton(symbol: "", text: "Concluir", disabled: false, opposite: true, color: .branco, textColor: .verde) {
                         RouterService.shared.navigate(.allClients)
                     }
                     .padding(.horizontal, 32)
