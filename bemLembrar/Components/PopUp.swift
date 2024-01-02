@@ -25,12 +25,12 @@ struct PopUp: View {
             
             VStack(spacing: 24) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Você tem certeza que quer excluir essa cliente?")
+                    Text(title)
                         .foregroundStyle(.verde)
                         .font(.title.title())
                         .fontWeight(.bold)
                     
-                    Text("Continuar resultará na perda dos dados da cliente. Ao adicioná-la novamente, será necessário recriar todas as preferências e informações.")
+                    Text(bodyText)
                         .foregroundStyle(.preto)
                         .font(.body.body())
                 }

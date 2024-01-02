@@ -19,6 +19,8 @@ class UserViewModel: ObservableObject {
     @Published var brandIsEditing = false
     @Published var strategyIsEditing = false
     
+    @Published var isDeleting = false
+    
     func getImageList() {
         for i in 1...10 {
             images.append("userImage\(i)")
@@ -145,5 +147,9 @@ class UserViewModel: ObservableObject {
         }
         
         setComemorativeNotification()
+    }
+    
+    func deleteUser() {
+        UserData.shared.user = .test
     }
 }
