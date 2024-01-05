@@ -42,31 +42,34 @@ struct GuideView: View {
                     
                     TabView(selection: $selectIndex) {
                         ForEach(0..<3, id: \.self) { index in
-                            VStack(spacing: 32) {
-                                HStack(spacing: 16) {
-                                    ZStack {
-                                        Image("flowerNumber")
-                                            .resizable()
-                                            .frame(width: 83, height: 81)
+                            ScrollView {
+                                VStack(spacing: 32) {
+                                    HStack(spacing: 16) {
+                                        ZStack {
+                                            Image("flowerNumber")
+                                                .resizable()
+                                                .frame(width: 83, height: 81)
+                                            
+                                            Text("0\(selectIndex+1).")
+                                                .foregroundStyle(.branco)
+                                                .font(.largeTitle.largeTitle())
+                                                .fontWeight(.bold)
+                                        }
                                         
-                                        Text("0\(selectIndex+1).")
-                                            .foregroundStyle(.branco)
-                                            .font(.largeTitle.largeTitle())
-                                            .fontWeight(.bold)
+                                        Text(descriptionTexts[selectIndex])
+                                            .foregroundStyle(.preto)
+                                            .font(.headline.headline())
                                     }
                                     
-                                    Text(descriptionTexts[selectIndex])
-                                        .foregroundStyle(.preto)
-                                        .font(.headline.headline())
+                                    Image("onboardingImage\(selectIndex+1)")
+                                        .resizable()
+                                        .frame(width: 305, height: 296)
+                                    
+                                    Spacer()
                                 }
-                                
-                                Image("onboardingImage\(selectIndex+1)")
-                                    .resizable()
-                                    .frame(width: 305, height: 296)
-                                
-                                Spacer()
+                                .padding(.horizontal, 32)
                             }
-                            .padding(.horizontal, 32)
+                            .scrollIndicators(.hidden)
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
